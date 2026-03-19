@@ -5,6 +5,7 @@ import torch.nn as nn
 
 
 class EmotionalBiLSTM(nn.Module):
+    ## CHANGE HERE: tune default model hyperparameters
     def __init__(
         self,
         vocab_size,

@@ -52,7 +52,7 @@ def encode_texts(texts, word2id, max_len: int, stopwords_path: str, device=None)
     """
     processor = _get_processor(stopwords_path)
 
-    # ensure texts is a list to support both single line (used in chat.py) and list of lines (used in eval.py)
+    # ensure texts is a list to support both single string (used in chat.py) and list of strings (used in eval.py)
     if isinstance(texts, str):
         texts = [texts]
 
@@ -83,7 +83,7 @@ def prepare_train_val_data(
     val_split: float,
     max_len: int,
     batch_size: int,
-    max_vocab: int = 5000,
+    max_vocab: int = 5000,  ## CHANGE HERE: vocab size cap
     tokenized_output_path: str | None = None,
     num_classes: int = 6,
 ):
@@ -97,8 +97,18 @@ def prepare_train_val_data(
     - compute class weights from the training split
     - build dictionaries: id2label and label2id
     """
-    # read the data and validate required columns
-    df = pd.read_csv(data_path)
+    ## CHANGE HERE: add/remove supported input file extensions
+    # read input file and validate required columns
+    lower_path = data_path.lower()
+    if lower_path.endswith(".csv"):
+        df = pd.read_csv(data_path)
+    elif lower_path.endswith(".xlsx") or lower_path.endswith(".xls"):
+        df = pd.read_excel(data_path)
+    else:
+        raise ValueError(
+            f"unsupported data file format for '{data_path}'. expected .csv, .xlsx, or .xls"
+        )
+
     if text_col not in df.columns or label_col not in df.columns:
         raise ValueError(
             f"expected CSV columns '{text_col}' and '{label_col}', got: {list(df.columns)}"
@@ -108,7 +118,8 @@ def prepare_train_val_data(
     processor = _get_processor(stopwords_path)
     tokenized_texts = df[text_col].apply(lambda x: processor.process(str(x)))
 
-    # (optional) save tokenized dataset for debugging/inspection
+    ## CHANGE HERE: set tokenized_output_path=None to skip writing tokenized output
+    # save tokenized dataset for debugging/inspection
     if tokenized_output_path is not None:
         df_tokenized = df.copy()
         df_tokenized["tokens"] = tokenized_texts.apply(lambda x: " ".join(x))
