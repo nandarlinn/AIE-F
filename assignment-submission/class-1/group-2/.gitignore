@@ -18,14 +18,10 @@ Thumbs.db
 *.log
 
 # Model checkpoints (optional - decide!)
-# *.pth
+*.pth
 
 # Jupyter
 .ipynb_checkpoints/
-
-# Project files
-pyproject.toml
-uv.lock
 
 # Temp
 $*.xlsx
