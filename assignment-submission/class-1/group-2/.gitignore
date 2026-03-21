@@ -1,6 +1,3 @@
-__pycache__/
-*.ipynb_checkpoints/
-
 # Virtual environment
 .venv/
 venv/
@@ -26,5 +23,9 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
+# Project files
 pyproject.toml
 uv.lock
+
+# Temp
+$*.xlsx

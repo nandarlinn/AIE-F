@@ -1,4 +1,4 @@
- python hybrid-eliza-mm-lstm.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 2
+ python hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 2
   --dropout 0.35 --weight_decay 0.0001 --patience 4 
 
   [*] Training EmotionalBiLSTM on cpu (6 classes)...
@@ -18,8 +18,9 @@ Epoch 13/20 | Loss: 0.6295 | Val Acc: 50.67%
 [*] Early stopping at epoch 13. Best Val Acc: 52.00%
 bash: --dropout: command not found
 
+======================================================================================================
 
- python hybrid-eliza-mm-lstm.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 4
+ python hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 4
   --dropout 0.35 --weight_decay 0.0002 --patience 3 
 [*] Training EmotionalBiLSTM on cpu (6 classes)...
 Epoch 1/20 | Loss: 1.7642 | Val Acc: 24.00%
@@ -42,7 +43,9 @@ Epoch 17/20 | Loss: 0.6513 | Val Acc: 52.67%
 [*] Early stopping at epoch 17. Best Val Acc: 56.67%
 bash: --dropout: command not found
 
-python hybrid-eliza-mm-lstm.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 3
+======================================================================================================
+
+python hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 3
   --dropout 0.35 --weight_decay 0.0002 --patience 3 
 [*] Training EmotionalBiLSTM on cpu (6 classes)...
 Epoch 1/20 | Loss: 1.7643 | Val Acc: 24.00%
@@ -61,7 +64,9 @@ Epoch 13/20 | Loss: 0.6637 | Val Acc: 54.67%
 [*] Early stopping at epoch 13. Best Val Acc: 56.00%
 bash: --dropout: command not found
 
- python hybrid-eliza-mm-lstm.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 5
+======================================================================================================
+
+ python hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 5
   --dropout 0.35 --weight_decay 0.0002 --patience 3 
 [*] Training EmotionalBiLSTM on cpu (6 classes)...
 Epoch 1/20 | Loss: 1.7671 | Val Acc: 24.00%
@@ -86,7 +91,9 @@ Epoch 19/20 | Loss: 0.7159 | Val Acc: 54.67%
 Epoch 20/20 | Loss: 0.6955 | Val Acc: 54.67%
 bash: --dropout: command not found
 
-python hybrid-eliza-mm-lstm.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 50 --num_layers 5
+======================================================================================================
+
+python hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 50 --num_layers 5
   --dropout 0.35 --weight_decay 0.0002 --patience 3 
 [*] Training EmotionalBiLSTM on cpu (6 classes)...
 Epoch 1/20 | Loss: 1.7677 | Val Acc: 24.00%
@@ -110,7 +117,9 @@ Epoch 18/20 | Loss: 1.1303 | Val Acc: 37.33%
 [*] Early stopping at epoch 18. Best Val Acc: 43.33%
 bash: --dropout: command not found
 
- python hybrid-eliza-mm-lstm.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 4
+======================================================================================================
+
+ python hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 4
   --dropout 0.35 --weight_decay 0.0001 --patience 3 
 [*] Training EmotionalBiLSTM on cpu (6 classes)...
 Epoch 1/20 | Loss: 1.7642 | Val Acc: 24.00%
@@ -132,7 +141,9 @@ Epoch 16/20 | Loss: 0.6725 | Val Acc: 52.00%
 Epoch 17/20 | Loss: 0.6513 | Val Acc: 52.67%
 [*] Early stopping at epoch 17. Best Val Acc: 56.67%
 
-python hybrid-eliza-mm-lstm.py --lang mm --mode train --data .\data\merged\Combined.csv                     
+======================================================================================================
+
+python hybrid-eliza-mm-bilstm-attention.py --lang mm --mode train --data .\data\merged\Combined.csv                     
 [*] Training EmotionalBiLSTM on cpu (6 classes)...
 Epoch 1/10 | Loss: 1.7627 | Val Acc: 27.33%
 Epoch 1/10 | Loss: 1.7627 | Val Acc: 27.33%
@@ -145,3 +156,5 @@ Epoch 7/10 | Loss: 1.0146 | Val Acc: 52.00%
 Epoch 8/10 | Loss: 0.9185 | Val Acc: 54.00%
 Epoch 9/10 | Loss: 0.8509 | Val Acc: 52.00%
 Epoch 10/10 | Loss: 0.7833 | Val Acc: 55.33%
+
+======================================================================================================
