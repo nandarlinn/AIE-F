@@ -17,6 +17,7 @@ from collections import Counter
 import argparse
 import random
 from sklearn.metrics import classification_report
+import word_segment as wseg
 
 # --- 1. GLOBAL SCRIPT DATA ---
 # Added 'Rank' (3rd element in list). Higher = Higher Priority.
@@ -140,36 +141,71 @@ class HybridEliza:
         optimizer = optim.Adam(self.model.parameters(), lr=lr, weight_decay=1e-4)
         criterion = nn.CrossEntropyLoss()
 
+        self.history = {'train_loss': [], 'train_acc': [], 'val_loss': [], 'val_acc': []}
+
         print(f"[*] Training on {self.device} (6 Classes)...")
+        best_val_loss = float('inf')
+        epochs_no_improve = 0
+        patience = 3
+
         for epoch in range(epochs):
             self.model.train()
             total_loss = 0
+            correct = 0
+            total = 0
             for batch_x, batch_y in train_loader:
                 batch_x, batch_y = batch_x.to(self.device), batch_y.to(self.device)
                 optimizer.zero_grad()
-                loss = criterion(self.model(batch_x), batch_y)
+                outputs = self.model(batch_x)
+                loss = criterion(outputs, batch_y)
                 loss.backward()
                 optimizer.step()
                 total_loss += loss.item()
+                
+                _, predicted = torch.max(outputs.data, 1)
+                total += batch_y.size(0)
+                correct += (predicted == batch_y).sum().item()
+            
+            train_loss = total_loss / len(train_loader)
+            train_acc = correct / total
             
             # Epoch Evaluation
-            val_acc = self.evaluate(val_loader)
-            print(f"Epoch {epoch+1}/{epochs} | Loss: {total_loss/len(train_loader):.4f} | Val Acc: {val_acc:.2%} | Learnig Rate: {lr}")
-        
-        torch.save({'state': self.model.state_dict(), 'vocab': self.word2id}, self.model_path)
+            val_loss, val_acc = self.evaluate(val_loader, criterion)
+            
+            self.history['train_loss'].append(train_loss)
+            self.history['train_acc'].append(train_acc)
+            self.history['val_loss'].append(val_loss)
+            self.history['val_acc'].append(val_acc)
+            
+            print(f"Epoch {epoch+1}/{epochs} | Loss: {train_loss:.4f} | Train Acc: {train_acc:.2%} | Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.2%} | LR: {lr}")
 
-    def evaluate(self, loader):
+            # Early stopping check
+            if val_loss < best_val_loss:
+                best_val_loss = val_loss
+                epochs_no_improve = 0
+                torch.save({'state': self.model.state_dict(), 'vocab': self.word2id, 'history': self.history}, self.model_path)
+                print(f"[*] Validation loss improved to {best_val_loss:.4f}. Saved model checkpoint.")
+            else:
+                epochs_no_improve += 1
+                if epochs_no_improve >= patience:
+                    print(f"\n[!] Early stopping triggered after {epoch+1} epochs (no improvement for {patience} epochs)!")
+                    break
+
+    def evaluate(self, loader, criterion):
         self.model.eval()
         correct = 0
         total = 0
+        total_loss = 0
         with torch.no_grad():
             for x, y in loader:
                 x, y = x.to(self.device), y.to(self.device)
                 outputs = self.model(x)
+                loss = criterion(outputs, y)
+                total_loss += loss.item()
                 _, predicted = torch.max(outputs.data, 1)
                 total += y.size(0)
                 correct += (predicted == y).sum().item()
-        return correct / total
+        return total_loss / len(loader), correct / total
 
     def load_model(self):
         if os.path.exists(self.model_path):
@@ -225,14 +261,31 @@ def main():
     eliza = HybridEliza(lang=args.lang, model_path=args.model_path)
 
     if args.mode == "train":
-        eliza.train(args.data, args.epochs, 0.003, args.batch_size, args.val_split)
+        eliza.train(args.data, args.epochs, 0.001, args.batch_size, args.val_split)
     else:
         eliza.load_model()
         print(f"ELIZA: {random.choice(SCRIPTS[args.lang]['initials'])}")
+        
+        if args.lang == 'my':
+            try:
+                wseg.P_unigram = wseg.ProbDist('./dict_ver1/unigram-word.bin', True)
+                wseg.P_bigram = wseg.ProbDist('./dict_ver1/bigram-word.bin', False)
+            except Exception as e:
+                print(f"Warning: Word segmentation dictionaries not found. {e}")
+                
         while True:
             try:
                 user_in = input("You: ")
                 if user_in.lower() in SCRIPTS[args.lang]["quits"]: break
+                
+                if args.lang == 'my':
+                    user_cleaned = user_in.replace(" ", "").strip()
+                    try:
+                        listString = wseg.viterbi(user_cleaned)
+                        user_in = " ".join(listString[1])
+                    except Exception as e:
+                        pass
+
                 resp = eliza.rule_respond(user_in)
                 emotion, score = eliza.get_eq(user_in)
                 print(f"ELIZA: {resp}")

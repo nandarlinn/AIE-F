@@ -69,6 +69,7 @@ class ModelEvaluator:
         self.id2label = {0: "Sadness", 1: "Joy", 2: "Love", 3: "Anger", 4: "Fear", 5: "Surprise"}
         self.model = None
         self.max_len = 100
+        self.history = None
 
     def load_model(self):
         if not os.path.exists(self.model_path):
@@ -77,6 +78,7 @@ class ModelEvaluator:
         checkpoint = torch.load(self.model_path, map_location=self.device)
         self.word2id = checkpoint['vocab']
         state_dict = checkpoint['state']
+        self.history = checkpoint.get('history', None)
 
         # Auto-detect architecture from checkpoint
         embed_dim = state_dict['embedding.weight'].shape[1]
@@ -216,6 +218,42 @@ class ModelEvaluator:
         print("\n[*] Confusion matrix saved to confusion_matrix.png")
         plt.close()
 
+    def plot_learning_curves(self):
+        if not self.history:
+            print("\n[!] No training history found in the model checkpoint. Re-train the model to generate learning curves.")
+            return
+
+        epochs = range(1, len(self.history['train_loss']) + 1)
+        
+        plt.figure(figsize=(12, 5))
+        
+        # Loss Plot
+        plt.subplot(1, 2, 1)
+        plt.plot(epochs, self.history['train_loss'], 'o-', label='Training Loss')
+        plt.plot(epochs, self.history['val_loss'], 's-', label='Validation Loss')
+        plt.title('Training and Validation Loss')
+        plt.xlabel('Epochs')
+        plt.ylabel('Loss')
+        plt.legend()
+        plt.grid(True)
+        
+        # Accuracy Plot
+        plt.subplot(1, 2, 2)
+        plt.plot(epochs, self.history['train_acc'], 'o-', label='Training Accuracy')
+        plt.plot(epochs, self.history['val_acc'], 's-', label='Validation Accuracy')
+        plt.title('Training and Validation Accuracy')
+        plt.xlabel('Epochs')
+        plt.ylabel('Accuracy')
+        plt.legend()
+        plt.grid(True)
+        
+        plt.tight_layout()
+        save_path = './assets/learning_curves.png'
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=150)
+        print(f"\n[*] Learning curves saved to {save_path}")
+        plt.close()
+
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluate trained emotion classifier")
@@ -227,6 +265,7 @@ def main():
     evaluator = ModelEvaluator(model_path=args.model)
     evaluator.load_model()
     results = evaluator.evaluate(args.test_data, batch_size=args.batch_size)
+    evaluator.plot_learning_curves()
 
     print("\n[*] Evaluation complete!")
 
