@@ -7,3 +7,4 @@ seaborn
 matplotlib
 streamlit
 altair<5
+python=>3.11
