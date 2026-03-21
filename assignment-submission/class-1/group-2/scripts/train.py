@@ -17,6 +17,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 from src.model import EmotionalBiLSTM
+from src.plot import save_confusion_matrix_png
 from src.prep_data import prepare_train_val_data
 
 
@@ -29,7 +30,7 @@ def run_train(
     val_split,                      # CLI arg passed with --val_split
     max_len,                        # CLI arg passed with --max_len
     tokenized_output_path=None,     # not in wrapper; optional debug export path
-    stopwords_path="../data/stopwords.txt",  # CLI arg passed with --stopwords_path
+    stopwords_path="../data/stopwords.txt", # CLI arg passed with --stopwords_path
     text_col="text",                # CLI arg passed with --text_col
     label_col="label",              # CLI arg passed with --label_col
     seed=42,                        # CLI arg passed with --seed
@@ -48,6 +49,7 @@ def run_train(
     dropout: float = 0.3,           # CLI arg passed with --dropout
     pad_idx: int = 0,               # CLI arg passed with --pad_idx
     max_vocab: int = 5000,          # CLI arg passed with --max_vocab
+    confusion_matrix_out: str | None = None, # CLI arg passed with --confusion_matrix_out
 ):
 
     # set seed for reproducibility
@@ -227,6 +229,26 @@ def run_train(
 
     print(f"[+] Checkpoint saved to {checkpoint_path} (best val acc: {best_val_acc:.2%})")
 
+    if confusion_matrix_out and str(confusion_matrix_out).strip():
+        model.eval()
+        y_val: list[int] = []
+        pred_val: list[int] = []
+        with torch.no_grad():
+            for x, y, lengths in val_loader:
+                x, y, lengths = x.to(device), y.to(device), lengths.to(device)
+                outputs = model(x, lengths)
+                _, predicted = torch.max(outputs, 1)
+                y_val.extend(y.cpu().tolist())
+                pred_val.extend(predicted.cpu().tolist())
+        save_confusion_matrix_png(
+            y_val,
+            pred_val,
+            id2label,
+            confusion_matrix_out,
+            title="Confusion Matrix (validation set)",
+        )
+        print(f"[+] Confusion matrix saved to {confusion_matrix_out}")
+
 
 # function to run training with default values
 def main():
@@ -238,6 +260,7 @@ def main():
         batch_size=32,
         val_split=0.2,
         max_len=50,
+        confusion_matrix_out="../img/confusion_matrix_train.png",
     )
 
 # run the script

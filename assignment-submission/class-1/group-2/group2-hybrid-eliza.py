@@ -106,8 +106,28 @@ def main():
         default=8765,
         help="chat mode custom_ui only: port",
     )
+    parser.add_argument(
+        "--confusion_matrix_out",
+        default=None,
+        help=(
+            "train/eval: confusion matrix PNG path. Default: ./img/confusion_matrix_train.png or "
+            "./img/confusion_matrix_eval.png. Pass \"\" to skip. Chat mode ignores this."
+        ),
+    )
 
     args = parser.parse_args()
+
+    # default confusion matrix under img/ for train/eval; "" disables
+    cm_out = args.confusion_matrix_out
+    if cm_out == "":
+        cm_out = None
+    elif args.mode == "train" and cm_out is None:
+        cm_out = "./img/confusion_matrix_train.png"
+    elif args.mode == "eval" and cm_out is None:
+        cm_out = "./img/confusion_matrix_eval.png"
+    elif args.mode == "chat":
+        cm_out = None
+    args.confusion_matrix_out = cm_out
 
     # run training mode
     if args.mode == "train":
@@ -136,6 +156,7 @@ def main():
             dropout=args.dropout,
             pad_idx=args.pad_idx,
             max_vocab=args.max_vocab,
+            confusion_matrix_out=args.confusion_matrix_out,
         )
     # run evaluation mode
     elif args.mode == "eval":
@@ -146,6 +167,7 @@ def main():
             stopwords_path=args.stopwords_path,
             text_col=args.text_col,
             label_col=args.label_col,
+            confusion_matrix_out=args.confusion_matrix_out,
         )
     # run chat mode
     else:

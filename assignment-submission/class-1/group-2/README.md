@@ -44,7 +44,8 @@ group-2/
     ├── prep_data.py            # shared tensors/loaders for train / eval / chat encoding
     ├── eliza_rules.py
     ├── eliza.py                # rule engine (separate tokenization from emotion model)
-    └── model.py                # BiLSTM + attention classifier
+    ├── model.py                # BiLSTM + attention classifier
+    └── plot.py                 # optional confusion matrix PNG (eval / train)
 ```
 
 The following diagram summarizes the key components of our modular approach.
@@ -80,6 +81,8 @@ The code is organized so a single wrapper script controls the high-level mode, w
 
 - `src/model.py`: defines the neural emotion classifier; used from `scripts/train.py` and `scripts/eval.py`.
 
+- `src/plot.py`: saves a confusion matrix figure; used from `scripts/train.py` and `scripts/eval.py` optionally.
+
 - `src/rabbit.py`: Zawgyi-to-Unicode conversion support; used from `src/preprocessing.py`.
 
 In short: `group2-hybrid-eliza.py` starts the run; `scripts/*.py` control train/eval/chat; `src/*.py` implements the reusable preprocessing/model utilities.
@@ -102,10 +105,11 @@ Important flags (not exhaustive):
 - `--embed_dim`,
 - `--hidden_dim`,
 - `--use_attention` / `--no-use_attention`,
-- `--use_char_ngrams` / `--no-use_char_ngrams`.
+- `--use_char_ngrams` / `--no-use_char_ngrams`,
+- `--confusion_matrix_out`,
 - `--chat_ui`, `--language`, `--custom_ui_host`, `--custom_ui_port`.
 
-Defaults: training reads `./data/merged_preprocessed/data_after_downsampling.csv` and saves to `./checkpoints/bilstm_larger_params_after_downsampl.pth`.
+Defaults: training reads `./data/merged_preprocessed/data_after_downsampling.csv` and saves to `./checkpoints/bilstm_larger_params_after_downsampl.pth`. Train/eval also write a confusion matrix PNG under `./img/` unless disabled.
 
 ---
 

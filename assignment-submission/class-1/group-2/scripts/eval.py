@@ -9,8 +9,10 @@ This module depends on:
 
 import pandas as pd
 import torch
+from sklearn.metrics import classification_report
 
 from src.model import EmotionalBiLSTM
+from src.plot import emotion_display_names_en, save_confusion_matrix_png
 from src.prep_data import drop_invalid_supervised_rows, encode_texts
 
 
@@ -101,6 +103,7 @@ def run_eval(
     stopwords_path="../data/stopwords.txt",  # CLI arg passed with --stopwords_path
     text_col="text",                # CLI arg passed with --text_col
     label_col="label",              # CLI arg passed with --label_col
+    confusion_matrix_out=None,      # optional PNG path (eval set)
 ):
     # load model and preprocessing artifacts from checkpoint
     model, word2id, id2label, max_len, use_char_ngrams, ngram_min, ngram_max = (
@@ -118,6 +121,8 @@ def run_eval(
     # initialize counters
     correct = 0
     total = 0
+    y_all: list[int] = []
+    pred_all: list[int] = []
 
     # evaluate model in batches
     with torch.no_grad():
@@ -143,10 +148,29 @@ def run_eval(
             # update counters
             total += y.size(0)
             correct += (pred == y).sum().item()
+            y_all.extend(y.tolist())
+            pred_all.extend(pred.tolist())
 
     # calculate accuracy
     acc = correct / total if total else 0.0
     print(f"accuracy: {acc:.2%} ({correct}/{total})")
+
+    if confusion_matrix_out:
+        labels_order = sorted(id2label.keys())
+        target_names = emotion_display_names_en(labels_order, id2label)
+        print(
+            classification_report(
+                y_all, pred_all, labels=labels_order, target_names=target_names, zero_division=0
+            )
+        )
+        save_confusion_matrix_png(
+            y_all,
+            pred_all,
+            id2label,
+            confusion_matrix_out,
+            title="Confusion Matrix (eval set)",
+        )
+        print(f"[+] Confusion matrix saved to {confusion_matrix_out}")
 
 
 # function to run evaluation with default values
@@ -156,6 +180,7 @@ def main():
         checkpoint_path="../checkpoints/bilstm_larger_params_after_downsampl.pth",
         data_csv="../data/merged_preprocessed/data_after_downsampling.csv",
         batch_size=32,
+        confusion_matrix_out="../img/confusion_matrix_eval.png",
     )
 
 # run the script
