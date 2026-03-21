@@ -6,5 +6,4 @@ scikit-learn
 seaborn
 matplotlib
 streamlit
-altair<5
-python=>3.11
+python=>3.12
