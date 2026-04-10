@@ -1,5 +1,6 @@
 # FYI
 
+Date: 5 April 2026  
 အဲဒီနေ့က WFST ကိုအခြေခံတဲ့ POS tagging နဲ့ machine translation ကို လက်တွေ့ လုပ်ပြခဲ့တယ်။  
 
 Refer: [https://github.com/ye-kyaw-thu/wfst_nlp_tutorials](https://github.com/ye-kyaw-thu/wfst_nlp_tutorials)  
