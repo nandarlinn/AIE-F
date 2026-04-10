@@ -16,7 +16,7 @@ Date: 4 April 2026
 
 ## Links
 
-- [Myanmar Unicode Page: https://unicode.org/charts/PDF/U1D800.pdf](https://unicode.org/charts/PDF/U1D800.pdf)  
-- [Sutton SignWriting: https://www.sutton-signwriting.io/](https://www.sutton-signwriting.io/)
-- [Wiki SignWriting Page: https://en.wikipedia.org/wiki/SignWriting](https://en.wikipedia.org/wiki/SignWriting)
+- Myanmar Unicode Page: [https://unicode.org/charts/PDF/U1D800.pdf](https://unicode.org/charts/PDF/U1D800.pdf)  
+- Sutton SignWriting: [https://www.sutton-signwriting.io/](https://www.sutton-signwriting.io/)
+- Wiki SignWriting Page: [https://en.wikipedia.org/wiki/SignWriting](https://en.wikipedia.org/wiki/SignWriting)
 
