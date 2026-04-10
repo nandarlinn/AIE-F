@@ -15,7 +15,7 @@ Watch the lecture:
 Then, write a one-page report on your understanding of the lecture.  
 The main purpose of this assignment is to introduce high-level concepts of applying mathematics in different ways.  
 
-## Assignment No. 3
+## Assignment No.3
 
 Python code will be provided for collecting Myanmar handwriting syllable data, including stroke information. Based on the collected data, develop a Myanmar syllable handwriting recognition system.  
 
