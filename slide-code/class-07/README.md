@@ -19,4 +19,5 @@ Date: 4 April 2026
 - Myanmar Unicode Page: [https://unicode.org/charts/PDF/U1D800.pdf](https://unicode.org/charts/PDF/U1D800.pdf)  
 - Sutton SignWriting: [https://www.sutton-signwriting.io/](https://www.sutton-signwriting.io/)
 - Wiki SignWriting Page: [https://en.wikipedia.org/wiki/SignWriting](https://en.wikipedia.org/wiki/SignWriting)
+- MSL4Emergency (Myanmar Sign language Corpus for the Emergency Domain): [https://github.com/ye-kyaw-thu/MSL4Emergency](https://github.com/ye-kyaw-thu/MSL4Emergency)  
 
