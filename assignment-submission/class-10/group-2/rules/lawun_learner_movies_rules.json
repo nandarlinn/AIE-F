@@ -1,0 +1,61 @@
+{
+    "rule": "Default",
+    "conclusion": "Good",
+    "cornerstone_idx": 12,
+    "exception": {
+        "rule": "revenue <= 119401052.0",
+        "conclusion": "Excellent",
+        "cornerstone_idx": 41,
+        "exception": {
+            "rule": "revenue <= 77319012.0",
+            "conclusion": "Good",
+            "cornerstone_idx": 46,
+            "exception": {
+                "rule": "original_language == it",
+                "conclusion": "Excellent",
+                "cornerstone_idx": 35,
+                "exception": null,
+                "alternative": {
+                    "rule": "budget > 19467302.0",
+                    "conclusion": "Average",
+                    "cornerstone_idx": 10,
+                    "exception": {
+                        "rule": "revenue > 49431461.0",
+                        "conclusion": "Good",
+                        "cornerstone_idx": 42,
+                        "exception": null,
+                        "alternative": null
+                    },
+                    "alternative": null
+                }
+            },
+            "alternative": null
+        },
+        "alternative": {
+            "rule": "original_language == da",
+            "conclusion": "Excellent",
+            "cornerstone_idx": 47,
+            "exception": null,
+            "alternative": {
+                "rule": "budget > 30500000.0",
+                "conclusion": "Average",
+                "cornerstone_idx": 29,
+                "exception": {
+                    "rule": "revenue > 260726109.5",
+                    "conclusion": "Good",
+                    "cornerstone_idx": 36,
+                    "exception": null,
+                    "alternative": {
+                        "rule": "revenue <= 135392156.0",
+                        "conclusion": "Good",
+                        "cornerstone_idx": 1,
+                        "exception": null,
+                        "alternative": null
+                    }
+                },
+                "alternative": null
+            }
+        }
+    },
+    "alternative": null
+}

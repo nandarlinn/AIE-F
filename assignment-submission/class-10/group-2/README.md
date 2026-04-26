@@ -10,9 +10,16 @@ The [original dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 group-2/
 ├── ...
 ├── data/
-│   ├── raw/          # original team files (not merged)
-│   └── cleaned/    # cleaned/labeled team files (not merged)
-└── notebooks/
+│   ├── raw/                # original data files
+│   └── cleaned/            # cleaned/labeled data file
+├── img/
+├── logs/
+├── notebooks/
+├── rules/                  # rules from SCRDR
+├── run_scrdr_inter.sh      # originally Sayar's # modified for the project
+├── run_scrdr_learner.sh    # originally Sayar's # modified for the project
+├── scrdr_interactive.py    # originally Sayar's
+└── scrdr_learner.py        # originally Sayar's
 ```
 
 ## References
