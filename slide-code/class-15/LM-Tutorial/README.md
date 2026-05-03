@@ -2,6 +2,7 @@
 
 A comprehensive, hands-on language modeling tutorial covering the full spectrum from classical statistical models to modern neural approaches and Retrieval-Augmented Generation (RAG). Prepared by **Ye Kyaw Thu**, Language Understanding Lab., Myanmar, for the AI Fundamental Class.
 
+<img src="https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-15/LM-Tutorial/fig4fun/Ye-LM-Tutorial-2May2026.png" width="600">
 ---
 
 ## Overview
