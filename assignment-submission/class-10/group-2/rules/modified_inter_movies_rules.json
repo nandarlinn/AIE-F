@@ -1,0 +1,150 @@
+{
+  "condition": null,
+  "conclusion": "Unknown",
+  "if_true": {
+    "condition": {
+      "col": "original_language",
+      "op": "==",
+      "val": "en"
+    },
+    "conclusion": "I Spy",
+    "if_true": {
+      "condition": {
+        "col": "vote_average",
+        "op": ">",
+        "val": "7"
+      },
+      "conclusion": "Split Second",
+      "if_true": {
+        "condition": {
+          "col": "runtime",
+          "op": ">",
+          "val": "90"
+        },
+        "conclusion": "Recommend",
+        "if_true": null,
+        "if_false": null
+      },
+      "if_false": {
+        "condition": {
+          "col": "release_year",
+          "op": "<",
+          "val": "2001"
+        },
+        "conclusion": "Gossip",
+        "if_true": {
+          "condition": {
+            "col": "vote_average",
+            "op": ">",
+            "val": "7"
+          },
+          "conclusion": "Not",
+          "if_true": null,
+          "if_false": {
+            "condition": {
+              "col": "release_year",
+              "op": "<",
+              "val": "2000"
+            },
+            "conclusion": "Not",
+            "if_true": {
+              "condition": {
+                "col": "genres",
+                "op": "has",
+                "val": "Action"
+              },
+              "conclusion": "Recommend",
+              "if_true": null,
+              "if_false": null
+            },
+            "if_false": {
+              "condition": {
+                "col": "runtime",
+                "op": ">",
+                "val": "70"
+              },
+              "conclusion": "Not",
+              "if_true": null,
+              "if_false": null
+            }
+          }
+        },
+        "if_false": {
+          "condition": {
+            "col": "genres",
+            "op": "has",
+            "val": "Thriller"
+          },
+          "conclusion": "Vicky Cristina Barcelona",
+          "if_true": {
+            "condition": {
+              "col": "genres",
+              "op": "has",
+              "val": "Action, Adventure"
+            },
+            "conclusion": "Not",
+            "if_true": null,
+            "if_false": {
+              "condition": {
+                "col": "runtime",
+                "op": ">",
+                "val": "70"
+              },
+              "conclusion": "Not",
+              "if_true": null,
+              "if_false": null
+            }
+          },
+          "if_false": {
+            "condition": {
+              "col": "original_language",
+              "op": "==",
+              "val": "en"
+            },
+            "conclusion": "Not",
+            "if_true": {
+              "condition": {
+                "col": "release_year",
+                "op": "<",
+                "val": "2000"
+              },
+              "conclusion": "Recommend",
+              "if_true": null,
+              "if_false": {
+                "condition": {
+                  "col": "release_year",
+                  "op": "<",
+                  "val": "2000"
+                },
+                "conclusion": "Recommend",
+                "if_true": null,
+                "if_false": null
+              }
+            },
+            "if_false": null
+          }
+        }
+      }
+    },
+    "if_false": {
+      "condition": {
+        "col": "release_year",
+        "op": "<",
+        "val": "2000"
+      },
+      "conclusion": "Not",
+      "if_true": {
+        "condition": {
+          "col": "release_year",
+          "op": "<",
+          "val": "2000"
+        },
+        "conclusion": "Recommend",
+        "if_true": null,
+        "if_false": null
+      },
+      "if_false": null
+    }
+  },
+  "if_false": null
+}
