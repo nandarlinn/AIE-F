@@ -1,0 +1,15 @@
+Loaded existing model: heart_demo.json
+--- Running in BUILD mode ---
+
+[Row 4/303] ERROR Found!
+{'age': 37.0, 'sex': 1.0, 'cp': 2.0, 'trestbps': 130.0, 'chol': 250.0, 'fbs': 0.0, 'restecg': 0.0, 'thalach': 187.0, 'exang': 0.0, 'oldpeak': 3.5, 'slope': 2.0, 'ca': 0.0, 'thal': 1.0, 'target': 0.0}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: '1.0' but Actual is: '0.0'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 11/303] ERROR Found!
+{'age': 57.0, 'sex': 1.0, 'cp': 3.0, 'trestbps': 140.0, 'chol': 192.0, 'fbs': 0.0, 'restecg': 0.0, 'thalach': 148.0, 'exang': 0.0, 'oldpeak': 0.4, 'slope': 1.0, 'ca': 0.0, 'thal': 2.0, 'target': 0.0}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '0.0'
+Enter feature name (or 'exit'): 

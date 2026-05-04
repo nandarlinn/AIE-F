@@ -1,0 +1,96 @@
+{
+  "condition": null,
+  "conclusion": "Unknown",
+  "if_true": {
+    "condition": {
+      "col": "oldpeak",
+      "op": ">",
+      "val": "1.5"
+    },
+    "conclusion": "0.0",
+    "if_true": {
+      "condition": {
+        "col": "thal",
+        "op": "==",
+        "val": "3"
+      },
+      "conclusion": "1.0",
+      "if_true": null,
+      "if_false": {
+        "condition": {
+          "col": "thalach",
+          "op": ">",
+          "val": "160"
+        },
+        "conclusion": "1.0",
+        "if_true": {
+          "condition": {
+            "col": "age",
+            "op": "<",
+            "val": "45"
+          },
+          "conclusion": "0.0",
+          "if_true": null,
+          "if_false": null
+        },
+        "if_false": {
+          "condition": {
+            "col": "cp",
+            "op": ">",
+            "val": "0"
+          },
+          "conclusion": "1.0",
+          "if_true": null,
+          "if_false": null
+        }
+      }
+    },
+    "if_false": {
+      "condition": {
+        "col": "ca",
+        "op": ">",
+        "val": "0"
+      },
+      "conclusion": "1.0",
+      "if_true": null,
+      "if_false": {
+        "condition": {
+          "col": "exang",
+          "op": "==",
+          "val": "1"
+        },
+        "conclusion": "0.0",
+        "if_true": null,
+        "if_false": {
+          "condition": {
+            "col": "cp",
+            "op": "==",
+            "val": "0"
+          },
+          "conclusion": "1.0",
+          "if_true": null,
+          "if_false": {
+            "condition": {
+              "col": "age",
+              "op": "<",
+              "val": "45"
+            },
+            "conclusion": "0.0",
+            "if_true": null,
+            "if_false": {
+              "condition": {
+                "col": "thalach",
+                "op": ">",
+                "val": "150"
+              },
+              "conclusion": "0.0",
+              "if_true": null,
+              "if_false": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "if_false": null
+}

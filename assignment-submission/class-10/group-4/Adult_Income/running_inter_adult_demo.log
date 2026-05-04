@@ -1,0 +1,70 @@
+--- Running in BUILD mode ---
+
+[Row 1/400] ERROR Found!
+{'age': 58, 'workclass': 'Self-emp-inc', 'fnlwgt': 190763, 'education': 'Bachelors', 'education.num': 13, 'marital.status': 'Married-civ-spouse', 'occupation': 'Prof-specialty', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 40, 'native.country': 'United-States', 'income': '>50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '>50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 2/400] ERROR Found!
+{'age': 57, 'workclass': 'Private', 'fnlwgt': 300104, 'education': 'HS-grad', 'education.num': 9, 'marital.status': 'Married-civ-spouse', 'occupation': 'Craft-repair', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 84, 'native.country': 'United-States', 'income': '>50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '>50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 3/400] ERROR Found!
+{'age': 41, 'workclass': 'Private', 'fnlwgt': 112507, 'education': '10th', 'education.num': 6, 'marital.status': 'Married-civ-spouse', 'occupation': 'Transport-moving', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 60, 'native.country': 'United-States', 'income': '<=50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '<=50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 5/400] ERROR Found!
+{'age': 41, 'workclass': 'Self-emp-not-inc', 'fnlwgt': 284086, 'education': 'Assoc-voc', 'education.num': 11, 'marital.status': 'Divorced', 'occupation': 'Sales', 'relationship': 'Not-in-family', 'race': 'White', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 60, 'native.country': 'United-States', 'income': '<=50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '<=50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 6/400] ERROR Found!
+{'age': 19, 'workclass': 'Private', 'fnlwgt': 183532, 'education': 'Some-college', 'education.num': 10, 'marital.status': 'Never-married', 'occupation': 'Handlers-cleaners', 'relationship': 'Own-child', 'race': 'White', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 25, 'native.country': 'United-States', 'income': '<=50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '<=50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 9/400] ERROR Found!
+{'age': 50, 'workclass': 'Private', 'fnlwgt': 161438, 'education': 'HS-grad', 'education.num': 9, 'marital.status': 'Married-civ-spouse', 'occupation': 'Exec-managerial', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 50, 'native.country': 'United-States', 'income': '>50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: '<=50K' but Actual is: '>50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 10/400] ERROR Found!
+{'age': 44, 'workclass': 'Private', 'fnlwgt': 403782, 'education': 'Assoc-voc', 'education.num': 11, 'marital.status': 'Divorced', 'occupation': 'Sales', 'relationship': 'Not-in-family', 'race': 'White', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 45, 'native.country': 'United-States', 'income': '<=50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '<=50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 14/400] ERROR Found!
+{'age': 39, 'workclass': 'Private', 'fnlwgt': 59313, 'education': '12th', 'education.num': 8, 'marital.status': 'Married-spouse-absent', 'occupation': 'Transport-moving', 'relationship': 'Not-in-family', 'race': 'Black', 'sex': 'Male', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 45, 'native.country': '?', 'income': '<=50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: 'Unknown' but Actual is: '<=50K'
+Enter feature name (or 'exit'): Enter operator (==, <, >): Enter threshold value: 
+[Row 16/400] ERROR Found!
+{'age': 58, 'workclass': 'Local-gov', 'fnlwgt': 283635, 'education': 'Bachelors', 'education.num': 13, 'marital.status': 'Never-married', 'occupation': 'Prof-specialty', 'relationship': 'Not-in-family', 'race': 'White', 'sex': 'Female', 'capital.gain': 0, 'capital.loss': 0, 'hours.per.week': 40, 'native.country': 'United-States', 'income': '<=50K'}
+
+[KNOWLEDGE ACQUISITION]
+System predicted: '>50K' but Actual is: '<=50K'
+Enter feature name (or 'exit'): 
+Exiting and saving model...
+
+--- FINAL PERFORMANCE SUMMARY ---
+(Partial results based on first 15 rows)
+              precision    recall  f1-score   support
+
+       <=50K       0.88      0.78      0.82         9
+        >50K       1.00      0.50      0.67         6
+     Unknown       0.00      0.00      0.00         0
+
+    accuracy                           0.67        15
+   macro avg       0.62      0.43      0.50        15
+weighted avg       0.93      0.67      0.76        15
+
