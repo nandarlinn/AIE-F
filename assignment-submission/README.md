@@ -55,7 +55,7 @@ Each group should submit the dataset, the RDR model, and a report covering two d
 - Religious text (Buddhist scriptures)
   အနည်းဆုံး မတူတဲ့ ဒိုမိန်း ၃ ခုအတွက် testset အသစ် သုံးခုကို ပြင်ဆင်ပါ။ ဥပမာ ဂါထာတွေ၊ ဥပဒေနဲ့ ပတ်သက်တဲ့ စာကြောင်းတွေ၊ Facebook က comment တွေ။ အရေးကြီးတာက fair compare လုပ်လို့ ရအောင် token အရေအတွက်ကို တူအောင်ထားပါ။ ပြီးတော့ token type ကလည်း base LM နဲ့ တူရပါမယ်။ တကယ်လို့ ကိုယ့် base LM က syllable ဖြတ်ထားပြီး မော်ဒယ်ဆောက်ခဲ့ရင် test လုပ်မယ့် ဒိုမိန်းမတူတဲ့ ဒေတာတွေကိုလည်း syllable ဖြတ်ထားရပါမယ်။ ပြီးတော့ testset တစ်ခုစီကို syllable token 200 စီ ညီအောင် ညှိပါ။ စာကြောင်းရေလည်း တူအောင်ထားပါ။ ဥပမာ တစ်ကြောင်းမှာ syllable ၂၀ လုံးစီပါတဲ့ စာကြောင်းမျိုး။
 
-6.Compute PPL of base LM on each domain (ကိုယ်ရွေးထားတဲ့ မတူတဲ့ ဒိုမိန်း သုံးမျိုး tes data နဲ့ PPL တိုင်းတာကြည့်ပါ)
+6. Compute PPL of base LM on each domain (ကိုယ်ရွေးထားတဲ့ မတူတဲ့ ဒိုမိန်း သုံးမျိုး tes data နဲ့ PPL တိုင်းတာကြည့်ပါ)
 Visualize with bar chart: Which domains are "hardest"?
 Brainstorming on Domain Adaptation Strategies (ဥပမာ Domain-specific vocabulary expansion)
 
