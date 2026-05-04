@@ -1,0 +1,78 @@
+{
+  "condition": null,
+  "conclusion": "Unknown",
+  "if_true": {
+    "condition": {
+      "col": "capital.gain",
+      "op": ">",
+      "val": "5000"
+    },
+    "conclusion": ">50K",
+    "if_true": null,
+    "if_false": {
+      "condition": {
+        "col": "education.num",
+        "op": ">",
+        "val": "12"
+      },
+      "conclusion": ">50K",
+      "if_true": null,
+      "if_false": {
+        "condition": {
+          "col": "marital.status",
+          "op": "==",
+          "val": "Married-civ-spouse"
+        },
+        "conclusion": ">50K",
+        "if_true": {
+          "condition": {
+            "col": "education.num",
+            "op": "<",
+            "val": "9"
+          },
+          "conclusion": "<=50K",
+          "if_true": null,
+          "if_false": null
+        },
+        "if_false": {
+          "condition": {
+            "col": "hours.per.week",
+            "op": ">",
+            "val": "45"
+          },
+          "conclusion": "<=50K",
+          "if_true": null,
+          "if_false": {
+            "condition": {
+              "col": "age",
+              "op": "<",
+              "val": "28"
+            },
+            "conclusion": "<=50K",
+            "if_true": null,
+            "if_false": {
+              "condition": {
+                "col": "occupation",
+                "op": "==",
+                "val": "Exec-managerial"
+              },
+              "conclusion": "<=50K",
+              "if_true": null,
+              "if_false": {
+                "condition": {
+                  "col": "age",
+                  "op": ">",
+                  "val": "60"
+                },
+                "conclusion": "<=50K",
+                "if_true": null,
+                "if_false": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "if_false": null
+}
