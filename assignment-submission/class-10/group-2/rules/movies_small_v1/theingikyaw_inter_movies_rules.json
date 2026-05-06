@@ -1,0 +1,51 @@
+{
+  "condition": null,
+  "conclusion": "Unknown",
+  "if_true": {
+    "condition": {
+      "col": "vote_average",
+      "op": ">",
+      "val": "5"
+    },
+    "conclusion": "Good",
+    "if_true": {
+      "condition": {
+        "col": "vote_average",
+        "op": ">",
+        "val": "7"
+      },
+      "conclusion": "Excellent",
+      "if_true": {
+        "condition": {
+          "col": "vote_average",
+          "op": "<",
+          "val": "7"
+        },
+        "conclusion": "Good",
+        "if_true": null,
+        "if_false": {
+          "condition": {
+            "col": "vote_average",
+            "op": "<",
+            "val": "7.5"
+          },
+          "conclusion": "Good",
+          "if_true": null,
+          "if_false": null
+        }
+      },
+      "if_false": null
+    },
+    "if_false": {
+      "condition": {
+        "col": "vote_average",
+        "op": "<",
+        "val": "5"
+      },
+      "conclusion": "Average",
+      "if_true": null,
+      "if_false": null
+    }
+  },
+  "if_false": null
+}

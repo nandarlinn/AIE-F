@@ -1,0 +1,51 @@
+budget,genres,original_language,popularity,revenue,runtime,title,vote_average,vote_count,release_year,rating_class,recommend
+70000000.0,"['Action', 'Adventure', 'Comedy', 'Thriller']",en,13.267631,33561137.0,97.0,I Spy,5.2,269,2002,Good,Not
+40092264.0,"['Thriller', 'Action', 'Horror', 'Science Fiction', 'Crime']",en,4.857028,121566957.0,90.0,Split Second,5.7,63,1992,Good,Not
+14000000.0,"['Drama', 'Mystery', 'Thriller']",en,5.833687,5108820.0,90.0,Gossip,5.5,68,2000,Good,Not
+15000000.0,"['Drama', 'Romance']",en,32.758254,96408652.0,96.0,Vicky Cristina Barcelona,6.7,1020,2008,Good,Not
+250000000.0,"['Adventure', 'Fantasy', 'Family']",en,98.885637,933959197.0,153.0,Harry Potter and the Half-Blood Prince,7.4,5293,2009,Good,Recommend
+70000000.0,"['Adventure', 'Science Fiction', 'Action']",en,42.957216,171183863.0,101.0,AVP: Alien vs. Predator,5.5,1217,2004,Good,Not
+9000000.0,"['Drama', 'Thriller']",en,7.029126,121566957.0,126.0,The Contender,6.7,60,2000,Good,Not
+55000000.0,"['Comedy', 'Romance']",en,29.97224,330444045.0,108.0,Meet the Parents,6.6,1698,2000,Good,Not
+17000000.0,"['Drama', 'Comedy', 'Romance']",en,10.13559,14899417.0,98.0,Away We Go,6.7,189,2009,Good,Not
+2500000.0,"['Drama', 'Science Fiction', 'Thriller']",en,4.624691,121566957.0,90.0,Sleep Dealer,6.0,40,2008,Good,Not
+28934604.0,"['Drama', 'Action', 'Thriller']",en,0.429587,45675263.0,88.0,In Her Line of Fire,3.3,9,2006,Average,Not
+7000000.0,"['Romance', 'Drama']",en,8.079046,14618727.0,116.0,Beyond the Lights,7.0,139,2014,Good,Recommend
+4000000.0,"['Romance', 'Drama', 'Comedy']",en,4.117968,121566957.0,105.0,The Front Page,6.9,68,1974,Good,Not
+1300000.0,"['Crime', 'Drama']",en,58.845025,28262574.0,114.0,Taxi Driver,8.0,2535,1976,Excellent,Recommend
+117000000.0,"['Action', 'Comedy']",en,44.906918,261930431.0,109.0,Knight and Day,5.9,1547,2010,Good,Not
+100000000.0,"['Action', 'Fantasy', 'Horror', 'Mystery']",en,20.652943,211989043.0,121.0,End of Days,5.5,482,1999,Good,Not
+7500000.0,"['Drama', 'Romance', 'Science Fiction', 'Thriller']",en,8.859657,121566957.0,92.0,Code 46,6.2,116,2003,Good,Not
+40092264.0,"['Adventure', 'Drama', 'Action', 'Comedy', 'Romance']",en,1.903405,121566957.0,88.0,Double Take,5.5,24,2001,Good,Not
+16000000.0,"['Action', 'Adventure', 'Drama', 'Thriller']",ko,4.628525,11301649.0,120.0,Tidal Wave,6.5,48,2009,Good,Not
+22000000.0,"['Comedy', 'Romance']",en,14.925633,121566957.0,106.0,I Heart Huckabees,6.2,239,2004,Good,Not
+2500000.0,"['Drama', 'Romance']",en,10.363642,121566957.0,104.0,My Own Private Idaho,7.1,212,1991,Good,Recommend
+75000000.0,"['Action', 'Comedy', 'Crime', 'Romance']",en,24.353302,67631903.0,123.0,Bandits,6.2,302,2001,Good,Not
+40092264.0,"['Comedy', 'Drama']",en,5.770246,121566957.0,111.0,Crazy in Alabama,6.5,12,1999,Good,Not
+7500000.0,"['Comedy', 'Drama', 'Romance']",en,45.610993,60722734.0,95.0,(500) Days of Summer,7.2,2904,2009,Good,Recommend
+40000000.0,['Drama'],en,31.066874,55247881.0,129.0,Extremely Loud & Incredibly Close,6.9,708,2011,Good,Not
+15000000.0,"['Drama', 'Comedy', 'Romance']",en,29.943316,133432856.0,100.0,The Artist,7.3,1049,2011,Good,Recommend
+28934604.0,"['Comedy', 'Horror']",en,7.410523,45675263.0,90.0,Stan Helsing,4.0,97,2009,Average,Not
+60000000.0,"['Horror', 'Mystery', 'Thriller']",en,12.621769,33956608.0,110.0,The Relic,5.8,130,1997,Good,Not
+15000000.0,"['Mystery', 'Drama', 'Crime', 'Thriller', 'Horror']",en,19.913961,3533227.0,98.0,The Midnight Meat Train,6.0,290,2008,Good,Not
+57000000.0,"['Action', 'Fantasy', 'Thriller']",en,48.622278,149217355.0,95.0,Ghost Rider: Spirit of Vengeance,4.7,1135,2011,Average,Not
+40092264.0,"['Drama', 'Thriller', 'Romance']",en,3.939753,121566957.0,86.0,My Summer of Love,6.0,59,2004,Good,Not
+15000000.0,"['Action', 'Crime', 'Drama', 'Thriller']",en,6.373316,9237470.0,118.0,Dark Blue,6.5,85,2002,Good,Not
+30000000.0,"['Action', 'Crime']",en,79.754966,180949000.0,111.0,Kill Bill: Vol. 1,7.7,4949,2003,Excellent,Recommend
+40092264.0,"['Drama', 'Western']",en,4.749885,121566957.0,104.0,Meek's Cutoff,6.5,77,2010,Good,Not
+32000000.0,['Drama'],en,25.682509,28258060.0,137.0,The Master,7.0,701,2012,Good,Recommend
+5000000.0,['Western'],it,49.333137,5321508.0,175.0,Once Upon a Time in the West,8.1,1128,1968,Excellent,Recommend
+180000000.0,"['Adventure', 'Fantasy']",en,42.990906,372234864.0,113.0,The Golden Compass,5.8,1303,2007,Good,Not
+70000000.0,"['War', 'Drama', 'History', 'Action']",en,43.873266,154984035.0,118.0,The Monuments Men,5.8,1523,2014,Good,Not
+5000000.0,"['History', 'Drama']",en,4.079111,15000000.0,139.0,The Egyptian,6.0,11,1954,Good,Not
+40092264.0,"['Drama', 'Family']",en,0.122874,121566957.0,94.0,Free Style,5.8,4,2008,Good,Not
+210000000.0,"['Adventure', 'Action', 'Science Fiction', 'Thriller']",en,3.857526,459359555.0,104.0,X-Men: The Last Stand,6.3,3525,2006,Good,Not
+1000000.0,['Drama'],en,72.19808,117235147.0,119.0,Rocky,7.5,1791,1976,Excellent,Recommend
+23000000.0,"['Thriller', 'Science Fiction', 'Action']",en,18.493202,53187659.0,108.0,Pitch Black,6.7,1789,2000,Good,Not
+200000000.0,"['Adventure', 'Action', 'Science Fiction']",en,77.300194,623933331.0,124.0,Iron Man 2,6.6,6849,2010,Good,Not
+40092264.0,"['Drama', 'Romance']",en,0.59424,1001437.0,114.0,Ruby in Paradise,5.6,10,1993,Good,Not
+110000000.0,"['Animation', 'Family', 'Adventure', 'Comedy', 'Fantasy']",en,36.65422,563749323.0,103.0,The Smurfs,5.5,1179,2011,Good,Not
+10000000.0,"['Drama', 'Family', 'Music']",en,8.305998,37402877.0,153.0,Oliver!,7.0,103,1968,Good,Recommend
+1300000.0,['Drama'],da,10.240917,206021760.0,105.0,The Celebration,7.7,207,1998,Excellent,Recommend
+90000000.0,"['Fantasy', 'Action', 'Adventure']",en,52.612025,146936910.0,106.0,The Last Witch Hunter,5.7,1316,2015,Good,Not
+28934604.0,"['Crime', 'Horror']",en,9.642041,14796236.0,88.0,Prom Night,4.8,167,2008,Average,Not

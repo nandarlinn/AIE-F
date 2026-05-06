@@ -10,31 +10,27 @@ Our custom dataset comprises Facebook comments, synthetic data generated via gen
 - 4: ကြောက်ရွံ့မှု (fear)
 - 5: အံ့အားသင့်မှု (surprise)
 
----
-
 ## Project Structure
-
-Run all CLI examples from the `group-2/` directory (repository root for this submission).
 
 ```
 group-2/
+├── ...
 ├── group2-hybrid-eliza.py      # main CLI: --mode train | eval | chat
-├── pyproject.toml
-├── requirements.txt
-├── .python-version
+├── streamlit_app.py            # Streamlit entry for Cloud
+├── img/
 ├── data/
 │   ├── raw_ungrouped/          # original team files (not merged)
 │   ├── annotated_ungrouped/    # cleaned/labeled team files (not merged)
 │   ├── merged/                 # combined sheets
 │   ├── merged_preprocessed/    # combined sheets before/after downsampling
 │   └── stopwords.txt           # Burmese stopword list (see References)
-├── checkpoints/                # saved `.pth` bundles (weights + vocab + label maps)
-├── notebooks/                  # EDA and demos (e.g. Data Preprocessing, Model Training Demo)
+├── checkpoints/                # saved `.pth` bundles
+├── notebooks/                  # EDA and demos
 ├── scripts/
 │   ├── train.py
 │   ├── eval.py
 │   ├── chat.py                 # shared chat logic; loads src/model.py + src/eliza.py
-│   ├── streamlit_chatter.py    # Streamlit UI (subprocess from chat.py)
+│   ├── streamlit_chatter.py    # Streamlit UI (subprocess from chat.py or streamlit_app.py)
 │   └── custom_ui_chatter.py    # browser UI (subprocess from chat.py + UI from experiments/burmese_chat_ui.py)
 ├── experiments/                # early standalone hybrids, guides, logs, burmese_chat_ui.py
 └── src/
@@ -48,46 +44,31 @@ group-2/
     └── plot.py                 # optional confusion matrix PNG (eval / train)
 ```
 
-The following diagram summarizes the key components of our modular approach.
-
-<!-- Architecture Overview Diagram -->
-<p align="center">
-  <img src="img/mindmap.png" alt="Group 2 Project Architecture Overview"/>
-</p>
-
----
-
 ## Project Flow
 
 The code is organized so a single wrapper script controls the high-level mode, while `src/` contains reusable building blocks.
 
+![Project Mindmap](img/mindmap.png)
+
 - `group2-hybrid-eliza.py` (primary entry point): the top-level CLI wrapper/dispatcher. It selects one of the modes and starts the corresponding script in `scripts/`.
 
-- `scripts/train.py`: training orchestration. It uses `src/prep_data.py` and `src/model.py`, and writes a checkpoint that bundles the trained weights with the same vocabulary and label setup used for later runs.
+- `scripts/train.py`: training orchestration. It uses `src/prep_data.py` to build train/validation tensors and class weights, uses `src/model.py` to define the model, and saves a checkpoint that includes model weights plus vocabulary/label mappings.
 
-- `scripts/eval.py`: evaluation on a labeled dataset. It loads a checkpoint from training, uses `src/prep_data.py` and `src/model.py` with that checkpoint, and reports how well the saved setup predicts labels.
+- `scripts/eval.py`: evaluation/prediction on a labeled dataset. It loads the saved checkpoint, uses `src/prep_data.py` to convert raw texts into padded token-id tensors using the same preprocessing pipeline, then runs `src/model.py` to produce predictions and confidence scores.
 
-- `scripts/chat.py`: interactive inference. It follows the same emotion path as `scripts/eval.py`, and pairs that with dialogue from `src/eliza.py`.
+- `scripts/chat.py`: interactive inference. It loads the saved checkpoint and reuses the same preprocessing + model inference path as `scripts/eval.py` for user-entered text, then prints the predicted emotion and confidence.
 
-- `src/eliza_rules.py`: rule data only, paired with `src/eliza.py`.
+- `src/prep_data.py`: shared data preparation pipeline used by both training and inference. It connects dataset reading, text preprocessing, token/id encoding, padding/truncation, train/val splitting (for training), and class-weight computation; it relies on `src/preprocessing.py` (TextProcessor) and `src/vocab_builder.py` (vocabulary + label mapping utilities).
 
-- `src/eliza.py`: ELIZA dialogue behavior; it consumes `src/eliza_rules.py`. Rule matching uses `tokenize_for_rules` (no char n-grams); the emotion model uses `src/preprocessing.py` separately.
+- `src/preprocessing.py`: text preprocessing pipeline. It performs Zawgyi-to-Unicode normalization when needed, regex punctuation cleanup, tokenization with the MMDT tokenizer, and stopword removal; it relies on `src/rabbit.py` for Zawgyi conversion and on the Myanmar detection/tokenization libraries.
 
-- `src/prep_data.py`: shared data preparation for training and inference. It sits between the datasets/checkpoints and the emotion pipeline, and depends on `src/preprocessing.py` plus `src/vocab_builder.py`.
+- `src/vocab_builder.py`: vocabulary and label mapping utilities. It builds the $word \rightarrow id$ vocabulary from training tokenized text and defines the fixed $label \leftrightarrow id$ order for the six emotion classes.
 
-- `src/preprocessing.py`: preprocessing for the **emotion model**. It depends on `src/rabbit.py` for script conversion and on external Myanmar tokenization libraries as noted under References.
+- `src/model.py`: model definition. It embeds token ids, runs a bidirectional LSTM, then pools sequence information (either attention pooling or final-state pooling) and applies a linear classifier to get logits.
 
-- `src/vocab_builder.py`: builds the vocabulary and fixed label order for the six emotion classes; used from `src/prep_data.py`.
-
-- `src/model.py`: defines the neural emotion classifier; used from `scripts/train.py` and `scripts/eval.py`.
-
-- `src/plot.py`: saves a confusion matrix figure; used from `scripts/train.py` and `scripts/eval.py` optionally.
-
-- `src/rabbit.py`: Zawgyi-to-Unicode conversion support; used from `src/preprocessing.py`.
+- `src/rabbit.py`: Zawgyi-to-Unicode conversion rules used by the preprocessing pipeline.
 
 In short: `group2-hybrid-eliza.py` starts the run; `scripts/*.py` control train/eval/chat; `src/*.py` implements the reusable preprocessing/model utilities.
-
----
 
 ## CLI Guide for `group2-hybrid-eliza.py`
 
@@ -113,7 +94,7 @@ Defaults: training reads `./data/merged_preprocessed/data_after_downsampling.csv
 
 ---
 
-### Training Examples
+### Training Example
 
 **1. Default**
 ```bash
@@ -122,12 +103,12 @@ python group2-hybrid-eliza.py --mode train
 
 **2. Custom model shape & checkpoint name**
 ```bash
-python group2-hybrid-eliza.py --mode train --embed_dim 512 --hidden_dim 256 --checkpoint_path ./checkpoints/bilstm_larger_params.pth
+python group2-hybrid-eliza.py --mode train --embed_dim 512 --hidden_dim 256 --checkpoint_path ./checkpoints/bilstm_larger_params_after_downsampl.pth
 ```
 
 **3. Further customizations**  
 ```bash
-python group2-hybrid-eliza.py --mode train --data_path ./data/merged/Combined.csv --embed_dim 128 --hidden_dim 96 --checkpoint_path ./checkpoints/bilstm_smaller_params_after_downsampl.pth
+python group2-hybrid-eliza.py --mode train --data_path ./data/merged/Combined.csv --embed_dim 256 --hidden_dim 128 --checkpoint_path ./checkpoints/bilstm_smaller_params.pth
 ```
 or
 ```bash
@@ -138,37 +119,45 @@ python group2-hybrid-eliza.py --mode train --data_path ./data/merged/Combined.cs
 
 ### Evaluation Example
 
-Uses the same `--data_path` and `--checkpoint_path` as training for a fair comparison.
+**1. Default**
 
 ```bash
-python group2-hybrid-eliza.py --mode eval --data_path ./data/merged_preprocessed/data_after_downsampling.csv --checkpoint_path ./checkpoints/bilstm_larger_params_after_downsampl.pth
+python group2-hybrid-eliza.py --mode eval
+```
+
+**2. Match a specific training run**
+```bash
+python group2-hybrid-eliza.py --mode eval --data_path ./data/merged/Combined.csv --checkpoint_path ./checkpoints/bilstm_larger_params.pth
 ```
 
 ---
 
 ### Chat Example
 
-All use the same `scripts/chat.py` logic; only the front end changes. Override the model with `--checkpoint_path` (and `--stopwords_path` if needed).
-
-**Terminal (stdin/stdout)**
-
-```bash
-python group2-hybrid-eliza.py --mode chat --chat_ui terminal
-```
-
-**Streamlit**
+**1. Streamlit UI**
 
 ```bash
 python group2-hybrid-eliza.py --mode chat --chat_ui streamlit
 ```
+or
+```bash
+streamlit run streamlit_app.py
+```
 
-**Custom browser UI**
+**2. Custom UI**
 
 ```bash
 python group2-hybrid-eliza.py --mode chat --chat_ui custom_ui
 ```
 
 Optional: `--language en` or `--language mm`, `--custom_ui_host`, `--custom_ui_port`.
+
+---
+
+## Current Public Host
+
+- Streamlit: https://group2-hybrid-eliza.streamlit.app/
+- Render: https://group2-hybrid-eliza.onrender.com
 
 ---
 
