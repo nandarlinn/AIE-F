@@ -1,0 +1,3 @@
+# SMT Tutorial
+
+## Assignment
