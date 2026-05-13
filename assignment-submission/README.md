@@ -62,7 +62,7 @@ Brainstorming on Domain Adaptation Strategies (ဥပမာ Domain-specific voca
 PPL က နည်းရင် ရလဒ်က ပိုကောင်းတာမို့ ကိုယ်ရွေးထားတဲ့ မတူတဲ့ ဒိုမိန်း သုံးခု test data နဲ့ စမ်းထားတဲ့ PPL ကို လျော့အောင် ကြိုးစားကြည့်ပါ။
 ပြီးတဲ့ သူက သုံးထားတဲ့ ဒေတာနဲ့ python code ဒါမှမဟုတ်ရင်လည်း Jupyter Notebook နဲ့ report တင်ပါ။ zip လုပ်ပြီးတင်ရင် ပိုကောင်းလိမ့်မယ်။ ဆရာ AIEF GitHub Repository မှာ class-15 ဆိုပြီး ဖိုလ်ဒါဆောက်ပေးထားလိုက်မယ်။ ဒါမှမဟုတ်ရင်လည်း GoogleDrive နဲ့ ဆရာ့ကို ရှဲပေးကြပါ။ ဒီ exercise က လွယ်ပါတယ်။ ဖြစ်နိုင်ရင် တပတ်အတွင်းမှာ ပြီးအောင် လုပ်ကြပါ။
 
-## Assignment No. 6
+## Assignment No.6
 ### (@Class-13 and 14)
 
 Automatic Speech Recognition (ASR), Text to Speech (TTS) အလုပ်တွေအတွက် အရေးကြီးတဲ့ grapheme2phoneme ပြောင်းတဲ့ အပိုင်းကို အတန်းထဲမှာ သင်ထားတဲ့ Statistical Machine Translation ကို သုံးပြီး ရလဒ်ကို ကောင်းအောင် ကြိုးစားကြည့်ပါ။  
