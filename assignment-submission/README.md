@@ -163,6 +163,8 @@ kyou: zin
 အနည်းဆုံးတော့ SMT ရဲ့ baseline ကိုတော့ ကိုယ့်ဖာသာကိုယ် ရအောင်ထုတ်ကြည့်ပါ။  
 Assignment တင်တဲ့အခါမှာ perl script တွေ ပြင်တာ၊ test data ကို SGM format ပြောင်းတာ၊ configuration file ကို my-ph, ph-my အတွက် ထုတ်တာ၊ SMT training/tuning/evaluation စတာတွေ လုပ်ထားတဲ့ Jupyter notebook ကို တင်ကြပါ။  
 
+SMT tutorial နဲ့ ဒေတာက အောက်ပါ လင့်ကနေ ရယူနိုင်ပါတယ်။  
+[https://github.com/ye-kyaw-thu/AIE-F/tree/main/slide-code/class-13and14](https://github.com/ye-kyaw-thu/AIE-F/tree/main/slide-code/class-13and14)  
 
 
 
