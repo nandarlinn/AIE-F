@@ -1,0 +1,4 @@
+domain	file	sentences	tokens	oov	log10_total	ppl
+Social	DomainTest/word_based_200/FB Comment.csv	13	213	0	-11.535218	1.1328070757585573
+Law	DomainTest/word_based_200/Law .csv	10	210	1	-39.390144	1.5401822509801664
+News	DomainTest/word_based_200/news1.csv	6	206	0	-28.909245	1.381453085580753
