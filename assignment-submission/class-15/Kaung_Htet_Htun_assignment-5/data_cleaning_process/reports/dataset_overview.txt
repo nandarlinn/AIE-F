@@ -1,0 +1,18 @@
+== CSV files ==
+Dataset/four.csv
+Dataset/one.csv
+Dataset/three.csv
+Dataset/two.csv
+
+== Line counts ==
+    102 Dataset/four.csv
+    733 Dataset/one.csv
+    101 Dataset/three.csv
+   8116 Dataset/two.csv
+   9052 total
+
+== File encoding/type ==
+Dataset/four.csv:  Unicode text, UTF-8 text, with very long lines (4494)
+Dataset/one.csv:   Unicode text, UTF-8 text
+Dataset/three.csv: Unicode text, UTF-8 text, with very long lines (2211), with CRLF line terminators
+Dataset/two.csv:   CSV text
