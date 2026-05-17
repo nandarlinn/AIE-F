@@ -1,0 +1,5 @@
+file	rows_in	rows_kept	non_myanmar	short_or_bad	duplicates	empty_after_clean	text_columns
+four.csv	102	42	48	10	2	0	text
+one.csv	732	636	68	0	28	0	Text-MM
+three.csv	102	44	50	3	5	0	text
+two.csv	8116	6453	1517	19	122	5	text

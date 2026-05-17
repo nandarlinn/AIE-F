@@ -1,0 +1,3 @@
+model	order	corpus_lines	arpa	binary
+syllable	5	7175	language_model_process/models/arpa/syllable_5gram.arpa	language_model_process/models/binary/syllable_5gram.binary
+word	5	7175	language_model_process/models/arpa/word_5gram.arpa	language_model_process/models/binary/word_5gram.binary
