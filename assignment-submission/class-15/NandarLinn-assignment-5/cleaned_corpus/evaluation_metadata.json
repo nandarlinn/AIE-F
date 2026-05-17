@@ -1,0 +1,21 @@
+{
+    "model_parameters": {
+        "order": 5,
+        "smoothing": "Kneser-Ney fallback",
+        "format": "KenLM Trie Binary"
+    },
+    "evaluation_metrics": {
+        "News": {
+            "perplexity": 23.1311855622498,
+            "tokens_evaluated": 300
+        },
+        "Literature": {
+            "perplexity": 36.98120847562214,
+            "tokens_evaluated": 300
+        },
+        "Medical": {
+            "perplexity": 15.34612953087415,
+            "tokens_evaluated": 300
+        }
+    }
+}
