@@ -282,6 +282,34 @@ class HybridEliza:
         target_names = [self.id2label.get(i, f"Class_{i}") for i in range(6)]
         print(classification_report(y_true, y_pred, target_names=target_names, zero_division=0))
 
+        # Output Confusion Matrix PNG
+        try:
+            import matplotlib.pyplot as plt
+            import seaborn as sns
+            from sklearn.metrics import confusion_matrix
+            
+            # Using English labels to prevent Matplotlib Myanmar Font render errors (hollow boxes)
+            english_labels = ["Sadness", "Joy", "Love", "Anger", "Fear", "Surprise"]
+            
+            cm = confusion_matrix(y_true, y_pred)
+            plt.figure(figsize=(10, 8))
+            sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                        xticklabels=english_labels, 
+                        yticklabels=english_labels)
+            
+            plt.title('BiLSTM Emotion Confusion Matrix')
+            plt.ylabel('Actual Emotion')
+            plt.xlabel('Predicted Emotion')
+            plt.tight_layout()
+            
+            save_path = "confusion_matrix.png"
+            plt.savefig(save_path, dpi=300)
+            print(f"\n[✓] Confusion matrix successfully saved as '{save_path}'")
+            plt.close()
+        except ImportError:
+            print("\n[!] Please install matplotlib and seaborn to save confusion matrix as PNG.")
+            print("Run: pip install matplotlib seaborn")
+
     def get_eq(self, text):
         if not self.model: return "Neutral", 0.0
         
