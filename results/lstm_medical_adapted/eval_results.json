@@ -1,0 +1,9 @@
+{
+  "model_dir": "/Users/acnmacm4/ACNM4_Workstation/AIEF_ACN/AIEF_Assignment_ClassDocs/Assignment-5/LM-Tutorial/Assignment-5-ACN/results/lstm_medical_adapted",
+  "test_file": "/Users/acnmacm4/ACNM4_Workstation/AIEF_ACN/AIEF_Assignment_ClassDocs/Assignment-5/LM-Tutorial/Assignment-5-ACN/data/prepared/test_medical_std.txt",
+  "loss_nats": 6.376512050628662,
+  "perplexity": 587.8736539814541,
+  "bpc": 3.0664541045368954,
+  "n_tokens": 220,
+  "n_chars": 660
+}
