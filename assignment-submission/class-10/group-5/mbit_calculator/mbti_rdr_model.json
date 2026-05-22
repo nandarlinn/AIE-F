@@ -1,0 +1,150 @@
+{
+  "condition": null,
+  "conclusion": "Unknown",
+  "if_true": {
+    "condition": {
+      "col": "E_Score",
+      "op": ">",
+      "val": "15"
+    },
+    "conclusion": "ESTJ",
+    "if_true": {
+      "condition": {
+        "col": "S_Score",
+        "op": "<=",
+        "val": "15"
+      },
+      "conclusion": "ENFP",
+      "if_true": {
+        "condition": {
+          "col": "T_Score",
+          "op": ">",
+          "val": "15"
+        },
+        "conclusion": "ENTJ",
+        "if_true": {
+          "condition": {
+            "col": "J_Score",
+            "op": "<=",
+            "val": "15"
+          },
+          "conclusion": "ENTP",
+          "if_true": null,
+          "if_false": null
+        },
+        "if_false": {
+          "condition": {
+            "col": "J_Score",
+            "op": ">",
+            "val": "15"
+          },
+          "conclusion": "ENFJ",
+          "if_true": null,
+          "if_false": null
+        }
+      },
+      "if_false": {
+        "condition": {
+          "col": "T_Score",
+          "op": "<=",
+          "val": "15"
+        },
+        "conclusion": "ESFP",
+        "if_true": {
+          "condition": {
+            "col": "J_Score",
+            "op": ">",
+            "val": "15"
+          },
+          "conclusion": "ESFJ",
+          "if_true": null,
+          "if_false": null
+        },
+        "if_false": {
+          "condition": {
+            "col": "J_Score",
+            "op": "<=",
+            "val": "15"
+          },
+          "conclusion": "ESTP",
+          "if_true": null,
+          "if_false": null
+        }
+      }
+    },
+    "if_false": {
+      "condition": {
+        "col": "E_Score",
+        "op": "<=",
+        "val": "15"
+      },
+      "conclusion": "ISFJ",
+      "if_true": {
+        "condition": {
+          "col": "S_Score",
+          "op": "<",
+          "val": "16"
+        },
+        "conclusion": "INTP",
+        "if_true": {
+          "condition": {
+            "col": "T_Score",
+            "op": "<=",
+            "val": "15"
+          },
+          "conclusion": "INFP",
+          "if_true": {
+            "condition": {
+              "col": "J_Score",
+              "op": ">",
+              "val": "15"
+            },
+            "conclusion": "INFJ",
+            "if_true": null,
+            "if_false": null
+          },
+          "if_false": {
+            "condition": {
+              "col": "J_Score",
+              "op": ">",
+              "val": "15"
+            },
+            "conclusion": "INTJ",
+            "if_true": null,
+            "if_false": null
+          }
+        },
+        "if_false": {
+          "condition": {
+            "col": "T_Score",
+            "op": ">",
+            "val": "15"
+          },
+          "conclusion": "ISTP",
+          "if_true": {
+            "condition": {
+              "col": "J_Score",
+              "op": ">",
+              "val": "15"
+            },
+            "conclusion": "ISTJ",
+            "if_true": null,
+            "if_false": null
+          },
+          "if_false": {
+            "condition": {
+              "col": "J_Score",
+              "op": "<=",
+              "val": "15"
+            },
+            "conclusion": "ISFP",
+            "if_true": null,
+            "if_false": null
+          }
+        }
+      },
+      "if_false": null
+    }
+  },
+  "if_false": null
+}
