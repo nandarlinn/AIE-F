@@ -20,7 +20,7 @@ Finally, the course addresses the current era of large-scale pretrained language
 
 **Link:** [https://github.com/ye-kyaw-thu/AIE-F/tree/main/slide-code/class-13and14/SMT_Tutorial](https://github.com/ye-kyaw-thu/AIE-F/tree/main/slide-code/class-13and14/SMT_Tutorial)  
 
-## Notebooks for NMT
+## Jupyter Notebooks for NMT
 
 ** Sequence to Sequence NMT with OpenNMT:** [https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg](https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg)  
 
