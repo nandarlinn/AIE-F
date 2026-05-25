@@ -22,7 +22,7 @@ Finally, the course addresses the current era of large-scale pretrained language
 
 ## Jupyter Notebooks for NMT
 
-** Sequence to Sequence NMT with OpenNMT:** [https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg](https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg)  
+**Sequence to Sequence NMT with OpenNMT:** [https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg](https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg)  
 
 Upload soon for Marian framework! Please wait.    
 
