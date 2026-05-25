@@ -6,6 +6,13 @@
 
 ---
 
-## Presentation Slide  
+## Lecture Presentation Slide  
+
+**Link:** [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/smt-nmt.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/smt-nmt.pdf)
+
+## Notebooks for SMT
+
+
+## Notebooks for NMT
 
 
