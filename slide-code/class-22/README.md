@@ -10,9 +10,12 @@
 
 **Link:** [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/smt-nmt.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/smt-nmt.pdf)
 
-## Notebooks for SMT
+## Jupyter Notebooks for SMT
 
+**Link:** [https://github.com/ye-kyaw-thu/AIE-F/tree/main/slide-code/class-13and14/SMT_Tutorial](https://github.com/ye-kyaw-thu/AIE-F/tree/main/slide-code/class-13and14/SMT_Tutorial)  
 
 ## Notebooks for NMT
+
+Upload soon! Please wait.  
 
 
