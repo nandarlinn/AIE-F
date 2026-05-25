@@ -22,6 +22,8 @@ Finally, the course addresses the current era of large-scale pretrained language
 
 ## Notebooks for NMT
 
-Upload soon! Please wait.  
+** Sequence to Sequence NMT with OpenNMT:** [https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg](https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg)  
+
+Upload soon for Marian framework! Please wait.    
 
 
