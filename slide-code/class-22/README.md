@@ -24,6 +24,15 @@ Finally, the course addresses the current era of large-scale pretrained language
 
 **Sequence to Sequence NMT with OpenNMT:** [https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg](https://github.com/ye-kyaw-thu/MTRSS/tree/master/OpenNMT_eg)  
 
+**Sequence to Sequence NMT with Marian:** [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/Seq2Seq-NMT-marian-ph2gp.ipynb](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/Seq2Seq-NMT-marian-ph2gp.ipynb)  
+
+**Transformer NMT with Marian:** [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/Transformer-NMT-marian-ph2gp.ipynb](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/Transformer-NMT-marian-ph2gp.ipynb)  
 Upload soon for Marian framework! Please wait.    
 
+## PDF Files 
+
+လေ့လာရလွယ်ကူအောင် Marian နဲ့ run ပြထားတဲ့ Jupyter notebook နှစ်ခုကို PDF ဖိုင်အနေနဲ့လည်း ပြောင်းပေးထားပါတယ်။   
+
+**Sequence to Sequence NMT with OpenNMT:** [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/pdf/Seq2Seq-NMT-marian-ph2gp.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/pdf/Seq2Seq-NMT-marian-ph2gp.pdf)  
+**Transformer NMT with Marian:** [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/pdf/Transformer-NMT-marian-ph2gp.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/pdf/Transformer-NMT-marian-ph2gp.pdf)  
 
