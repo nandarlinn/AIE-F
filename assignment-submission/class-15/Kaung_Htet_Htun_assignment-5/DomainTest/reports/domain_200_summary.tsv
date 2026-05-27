@@ -1,0 +1,4 @@
+file	rows_in	rows_cleaned	rejected_non_myanmar	rejected_short	duplicates	syllable_tokens	word_tokens	status
+FB Comment.csv	19	15	0	4	0	200	200	ok
+Law .csv	19	19	0	0	0	200	200	ok
+news1.csv	19	19	0	0	0	200	200	ok

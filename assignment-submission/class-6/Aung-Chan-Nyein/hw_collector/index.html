@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Myanmar HW Collector</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div id="app">
+
+      <header>
+        <div class="logo">
+          <span>Myanmar HW Collector</span>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" onclick="openBrowser()" title="Browse samples" aria-label="Browse">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </button>
+          <button class="icon-btn" onclick="openSettings()" title="Settings" aria-label="Settings">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div id="progress-wrap">
+        <div class="prog-row">
+          <span class="prog-title">Progress</span>
+          <span id="prog-label" class="prog-nums">0 / 0</span>
+        </div>
+        <div class="prog-bar-bg">
+          <div class="prog-bar-fill" id="prog-fill"></div>
+        </div>
+      </div>
+
+      <div id="syllable-box">
+        <div id="syllable-text">—</div>
+        <div id="char-status-row">
+          <span id="char-progress-badge" class="char-badge hidden"></span>
+        </div>
+      </div>
+
+      <div id="canvas-wrap">
+        <canvas id="draw-canvas"></canvas>
+        <div id="stroke-count">0 strokes</div>
+      </div>
+
+      <div id="controls">
+        <button class="btn accent" onclick="prevLine()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          Prev
+        </button>
+        <button class="btn accent" onclick="nextLine()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          Next
+        </button>
+        <button class="btn" onclick="undoStroke()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+          Undo
+        </button>
+        <button class="btn danger" onclick="clearCanvas()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          Clear
+        </button>
+        <button class="btn primary" onclick="saveSample()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save
+        </button>
+      </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <div class="overlay" id="newuser-overlay" onclick="closeSheet(event,'newuser-overlay')">
+      <div class="sheet">
+        <h2>New User <span class="sheet-close" onclick="closeOverlay('newuser-overlay')">×</span></h2>
+        <div class="form-group"><label>Name</label><input type="text" id="f-name" placeholder="e.g. Kyaw Zin"/></div>
+        <div class="form-group"><label>Age</label><input type="number" id="f-age" placeholder="e.g. 25" inputmode="numeric"/></div>
+        <div class="form-group">
+          <label>Sex</label>
+          <select id="f-sex"><option value="">— select —</option><option>Male</option><option>Female</option><option>Other</option></select>
+        </div>
+        <div class="form-group"><label>Highest Education</label><input type="text" id="f-edu" placeholder="e.g. Bachelor"/></div>
+        <div class="sheet-btns" style="margin-top:16px">
+          <button class="btn primary" onclick="createUser()">Create</button>
+          <button class="btn" onclick="closeOverlay('newuser-overlay')">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="browser-overlay" onclick="closeSheet(event,'browser-overlay')">
+      <div class="sheet" id="browser-sheet">
+        <h2>
+          Browse
+          <span id="browser-user-name" class="sheet-subtitle">—</span>
+          <span class="sheet-close" onclick="closeOverlay('browser-overlay')">×</span>
+        </h2>
+
+        <div class="color-tabs">
+          <button class="color-tab active" data-mode="single"  onclick="switchGalleryTab('single',this)">Single</button>
+          <button class="color-tab"         data-mode="stroke"  onclick="switchGalleryTab('stroke',this)">Stroke</button>
+          <button class="color-tab"         data-mode="time"    onclick="switchGalleryTab('time',this)">Time</button>
+          <button class="color-tab"         data-mode="alllist" onclick="switchGalleryTab('alllist',this)">All List</button>
+        </div>
+
+        <div id="gallery-status" class="gallery-status-bar"></div>
+
+        <div id="gallery-grid"></div>
+
+        <div id="alllist-wrap" style="display:none; flex:1; overflow:hidden; display:none; flex-direction:column;">
+          <div id="alllist-search-row">
+            <input id="alllist-search" type="search" placeholder="Filter characters or line #…" oninput="filterAllList(this.value)" />
+          </div>
+          <div id="alllist-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="settings-overlay" onclick="closeSheet(event,'settings-overlay')">
+      <div class="settings-dialog">
+        <h2>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+          <span class="sheet-close" style="margin-left:auto" onclick="closeOverlay('settings-overlay')">×</span>
+        </h2>
+
+        <div class="settings-section">
+          <div class="settings-row" style="align-items:flex-start">
+            <div>
+              <div class="settings-row-label">Active User</div>
+              <div class="settings-row-desc">Affects collection canvas &amp; browse preview</div>
+            </div>
+            <button class="new-user-btn" onclick="openNewUserFromSettings()">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              New
+            </button>
+          </div>
+          <select id="settings-user-sel" onchange="settingsSelectUser(this.value)">
+            <option value="">— select user —</option>
+          </select>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Saves to Advance</div>
+              <div class="settings-row-desc">How many saves before moving to next line</div>
+            </div>
+            <div class="stepper">
+              <button class="stepper-btn" onclick="stepSTA(-1)">−</button>
+              <input type="number" id="settings-sta" min="1" max="20" value="3" onchange="applySavesToAdvance(this.value)" />
+              <button class="stepper-btn" onclick="stepSTA(1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+            <div class="nav-box" onclick="document.getElementById('nav-line-input').focus()">
+              <div class="nav-box-label" id="nav-input-label">Line</div>
+              <input id="nav-line-input" type="number" min="1" inputmode="numeric" placeholder="—" oninput="onNavInput(this.value)" />
+              <div class="nav-box-sub">/ <span id="nav-input-max">—</span></div>
+            </div>
+            <div class="nav-box preview-box">
+              <span id="nav-preview-text" class="nav-preview-char">—</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="settings-action-btn" onclick="settingsJumpLine()" style="flex:1;justify-content:center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+              Go to Line
+            </button>
+            <button class="settings-action-btn accent-btn" onclick="goToLatestLine()" style="flex:1;justify-content:center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+              Latest
+            </button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Light Mode</div>
+              <div class="settings-row-desc">Switch between dark and light theme</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="settings-light-toggle" onchange="toggleTheme(this.checked)" />
+              <span class="toggle-track"></span>
+              <span class="toggle-thumb"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>

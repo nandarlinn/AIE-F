@@ -1,0 +1,240 @@
+{
+  "condition": null,
+  "conclusion": "Unknown",
+  "if_true": {
+    "condition": {
+      "col": "budget",
+      "op": ">",
+      "val": "100000000"
+    },
+    "conclusion": "Good",
+    "if_true": {
+      "condition": {
+        "col": "popularity",
+        "op": ">",
+        "val": "100"
+      },
+      "conclusion": "Excellent",
+      "if_true": {
+        "condition": {
+          "col": "revenue",
+          "op": "<",
+          "val": "1000000000"
+        },
+        "conclusion": "Good",
+        "if_true": null,
+        "if_false": {
+          "condition": {
+            "col": "vote_count",
+            "op": "<",
+            "val": "7000"
+          },
+          "conclusion": "Good",
+          "if_true": null,
+          "if_false": {
+            "condition": {
+              "col": "budget",
+              "op": ">",
+              "val": "200000000"
+            },
+            "conclusion": "Good",
+            "if_true": null,
+            "if_false": {
+              "condition": {
+                "col": "original_language",
+                "op": "==",
+                "val": "'en'"
+              },
+              "conclusion": "Good",
+              "if_true": null,
+              "if_false": null
+            }
+          }
+        }
+      },
+      "if_false": {
+        "condition": {
+          "col": "release_year",
+          "op": "<",
+          "val": "2020"
+        },
+        "conclusion": "Excellent",
+        "if_true": {
+          "condition": {
+            "col": "vote_count",
+            "op": "<",
+            "val": "1500"
+          },
+          "conclusion": "Good",
+          "if_true": null,
+          "if_false": {
+            "condition": {
+              "col": "runtime",
+              "op": ">",
+              "val": "150"
+            },
+            "conclusion": "Good",
+            "if_true": null,
+            "if_false": {
+              "condition": {
+                "col": "budget",
+                "op": ">",
+                "val": "200000000"
+              },
+              "conclusion": "Good",
+              "if_true": null,
+              "if_false": {
+                "condition": {
+                  "col": "popularity",
+                  "op": "<",
+                  "val": "100"
+                },
+                "conclusion": "Good",
+                "if_true": {
+                  "condition": {
+                    "col": "revenue",
+                    "op": ">",
+                    "val": "1000000000"
+                  },
+                  "conclusion": "Excellent",
+                  "if_true": null,
+                  "if_false": null
+                },
+                "if_false": null
+              }
+            }
+          }
+        },
+        "if_false": null
+      }
+    },
+    "if_false": {
+      "condition": {
+        "col": "budget",
+        "op": ">",
+        "val": "50000000"
+      },
+      "conclusion": "Good",
+      "if_true": {
+        "condition": {
+          "col": "budget",
+          "op": ">",
+          "val": "50000000"
+        },
+        "conclusion": "Average",
+        "if_true": {
+          "condition": {
+            "col": "runtime",
+            "op": ">",
+            "val": "90"
+          },
+          "conclusion": "Good",
+          "if_true": null,
+          "if_false": null
+        },
+        "if_false": null
+      },
+      "if_false": {
+        "condition": {
+          "col": "revenue",
+          "op": ">",
+          "val": "500000000"
+        },
+        "conclusion": "Good",
+        "if_true": null,
+        "if_false": {
+          "condition": {
+            "col": "budget",
+            "op": "<",
+            "val": "30000000"
+          },
+          "conclusion": "Good",
+          "if_true": {
+            "condition": {
+              "col": "popularity",
+              "op": "<",
+              "val": "1"
+            },
+            "conclusion": "Average",
+            "if_true": null,
+            "if_false": {
+              "condition": {
+                "col": "popularity",
+                "op": ">",
+                "val": "30"
+              },
+              "conclusion": "Excellent",
+              "if_true": {
+                "condition": {
+                  "col": "budget",
+                  "op": ">",
+                  "val": "5000000"
+                },
+                "conclusion": "Good",
+                "if_true": null,
+                "if_false": null
+              },
+              "if_false": {
+                "condition": {
+                  "col": "runtime",
+                  "op": "==",
+                  "val": "90"
+                },
+                "conclusion": "Average",
+                "if_true": null,
+                "if_false": {
+                  "condition": {
+                    "col": "revenue",
+                    "op": ">",
+                    "val": "200000000"
+                  },
+                  "conclusion": "Excellent",
+                  "if_true": null,
+                  "if_false": {
+                    "condition": {
+                      "col": "runtime",
+                      "op": "<",
+                      "val": "90"
+                    },
+                    "conclusion": "Average",
+                    "if_true": null,
+                    "if_false": null
+                  }
+                }
+              }
+            }
+          },
+          "if_false": {
+            "condition": {
+              "col": "popularity",
+              "op": "<",
+              "val": "30"
+            },
+            "conclusion": "Good",
+            "if_true": null,
+            "if_false": {
+              "condition": {
+                "col": "release_year",
+                "op": "<",
+                "val": "2020"
+              },
+              "conclusion": "Good",
+              "if_true": {
+                "condition": {
+                  "col": "vote_count",
+                  "op": ">",
+                  "val": "1000"
+                },
+                "conclusion": "Excellent",
+                "if_true": null,
+                "if_false": null
+              },
+              "if_false": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "if_false": null
+}

@@ -1,0 +1,637 @@
+{
+    "rule": "Default",
+    "conclusion": "0",
+    "cornerstone_idx": 132,
+    "exception": {
+        "rule": "chol > 236.0",
+        "conclusion": "1",
+        "cornerstone_idx": 6,
+        "exception": {
+            "rule": "chol <= 253.5",
+            "conclusion": "0",
+            "cornerstone_idx": 30,
+            "exception": {
+                "rule": "thalach <= 123.5",
+                "conclusion": "1",
+                "cornerstone_idx": 154,
+                "exception": null,
+                "alternative": {
+                    "rule": "trestbps <= 125.0",
+                    "conclusion": "1",
+                    "cornerstone_idx": 96,
+                    "exception": {
+                        "rule": "thalach > 155.5",
+                        "conclusion": "0",
+                        "cornerstone_idx": 289,
+                        "exception": null,
+                        "alternative": {
+                            "rule": "age <= 51.5",
+                            "conclusion": "0",
+                            "cornerstone_idx": 260,
+                            "exception": {
+                                "rule": "trestbps <= 113.0",
+                                "conclusion": "1",
+                                "cornerstone_idx": 145,
+                                "exception": null,
+                                "alternative": null
+                            },
+                            "alternative": null
+                        }
+                    },
+                    "alternative": {
+                        "rule": "trestbps > 157.0",
+                        "conclusion": "1",
+                        "cornerstone_idx": 172,
+                        "exception": null,
+                        "alternative": {
+                            "rule": "trestbps > 145.0",
+                            "conclusion": "1",
+                            "cornerstone_idx": 209,
+                            "exception": {
+                                "rule": "thalach <= 145.5",
+                                "conclusion": "0",
+                                "cornerstone_idx": 39,
+                                "exception": {
+                                    "rule": "age <= 55.5",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 47,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": null
+                            },
+                            "alternative": {
+                                "rule": "chol > 246.0",
+                                "conclusion": "1",
+                                "cornerstone_idx": 54,
+                                "exception": null,
+                                "alternative": null
+                            }
+                        }
+                    }
+                }
+            },
+            "alternative": {
+                "rule": "age <= 55.5",
+                "conclusion": "0",
+                "cornerstone_idx": 242,
+                "exception": {
+                    "rule": "chol > 305.0",
+                    "conclusion": "1",
+                    "cornerstone_idx": 113,
+                    "exception": {
+                        "rule": "thalach > 151.0",
+                        "conclusion": "0",
+                        "cornerstone_idx": 291,
+                        "exception": null,
+                        "alternative": null
+                    },
+                    "alternative": {
+                        "rule": "thalach <= 136.0",
+                        "conclusion": "1",
+                        "cornerstone_idx": 55,
+                        "exception": {
+                            "rule": "trestbps <= 113.0",
+                            "conclusion": "0",
+                            "cornerstone_idx": 151,
+                            "exception": null,
+                            "alternative": null
+                        },
+                        "alternative": {
+                            "rule": "trestbps <= 127.0",
+                            "conclusion": "1",
+                            "cornerstone_idx": 180,
+                            "exception": {
+                                "rule": "trestbps <= 116.0",
+                                "conclusion": "0",
+                                "cornerstone_idx": 221,
+                                "exception": {
+                                    "rule": "chol > 278.5",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 52,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": {
+                                    "rule": "chol <= 268.5",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 13,
+                                    "exception": null,
+                                    "alternative": {
+                                        "rule": "thalach <= 159.0",
+                                        "conclusion": "0",
+                                        "cornerstone_idx": 58,
+                                        "exception": null,
+                                        "alternative": null
+                                    }
+                                }
+                            },
+                            "alternative": {
+                                "rule": "chol <= 262.5",
+                                "conclusion": "1",
+                                "cornerstone_idx": 120,
+                                "exception": {
+                                    "rule": "age > 51.5",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 208,
+                                    "exception": {
+                                        "rule": "chol <= 258.5",
+                                        "conclusion": "1",
+                                        "cornerstone_idx": 95,
+                                        "exception": null,
+                                        "alternative": null
+                                    },
+                                    "alternative": {
+                                        "rule": "thalach > 168.0",
+                                        "conclusion": "0",
+                                        "cornerstone_idx": 133,
+                                        "exception": null,
+                                        "alternative": {
+                                            "rule": "age > 49.5",
+                                            "conclusion": "0",
+                                            "cornerstone_idx": 89,
+                                            "exception": null,
+                                            "alternative": null
+                                        }
+                                    }
+                                },
+                                "alternative": {
+                                    "rule": "chol > 284.0",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 156,
+                                    "exception": null,
+                                    "alternative": {
+                                        "rule": "trestbps > 161.0",
+                                        "conclusion": "1",
+                                        "cornerstone_idx": 188,
+                                        "exception": null,
+                                        "alternative": null
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "alternative": {
+                    "rule": "trestbps > 159.0",
+                    "conclusion": "0",
+                    "cornerstone_idx": 183,
+                    "exception": {
+                        "rule": "thalach <= 128.5",
+                        "conclusion": "1",
+                        "cornerstone_idx": 170,
+                        "exception": null,
+                        "alternative": {
+                            "rule": "age > 63.5",
+                            "conclusion": "1",
+                            "cornerstone_idx": 83,
+                            "exception": {
+                                "rule": "chol > 299.5",
+                                "conclusion": "0",
+                                "cornerstone_idx": 201,
+                                "exception": null,
+                                "alternative": null
+                            },
+                            "alternative": {
+                                "rule": "chol > 279.0",
+                                "conclusion": "1",
+                                "cornerstone_idx": 141,
+                                "exception": null,
+                                "alternative": null
+                            }
+                        }
+                    },
+                    "alternative": {
+                        "rule": "chol > 331.0",
+                        "conclusion": "0",
+                        "cornerstone_idx": 173,
+                        "exception": {
+                            "rule": "chol <= 364.5",
+                            "conclusion": "1",
+                            "cornerstone_idx": 280,
+                            "exception": {
+                                "rule": "thalach > 157.5",
+                                "conclusion": "0",
+                                "cornerstone_idx": 26,
+                                "exception": {
+                                    "rule": "trestbps > 130.0",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 32,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": null
+                            },
+                            "alternative": {
+                                "rule": "chol > 401.5",
+                                "conclusion": "1",
+                                "cornerstone_idx": 181,
+                                "exception": {
+                                    "rule": "age > 60.5",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 48,
+                                    "exception": {
+                                        "rule": "trestbps > 145.0",
+                                        "conclusion": "1",
+                                        "cornerstone_idx": 121,
+                                        "exception": null,
+                                        "alternative": null
+                                    },
+                                    "alternative": null
+                                },
+                                "alternative": null
+                            }
+                        },
+                        "alternative": {
+                            "rule": "chol > 290.5",
+                            "conclusion": "0",
+                            "cornerstone_idx": 203,
+                            "exception": {
+                                "rule": "trestbps <= 120.0",
+                                "conclusion": "1",
+                                "cornerstone_idx": 195,
+                                "exception": {
+                                    "rule": "thalach > 142.5",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 149,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": {
+                                    "rule": "thalach > 142.5",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 261,
+                                    "exception": {
+                                        "rule": "chol <= 306.5",
+                                        "conclusion": "0",
+                                        "cornerstone_idx": 11,
+                                        "exception": {
+                                            "rule": "age > 66.5",
+                                            "conclusion": "1",
+                                            "cornerstone_idx": 161,
+                                            "exception": null,
+                                            "alternative": null
+                                        },
+                                        "alternative": null
+                                    },
+                                    "alternative": null
+                                }
+                            },
+                            "alternative": {
+                                "rule": "trestbps <= 129.0",
+                                "conclusion": "0",
+                                "cornerstone_idx": 159,
+                                "exception": {
+                                    "rule": "thalach > 160.0",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 224,
+                                    "exception": null,
+                                    "alternative": {
+                                        "rule": "chol <= 269.0",
+                                        "conclusion": "1",
+                                        "cornerstone_idx": 259,
+                                        "exception": {
+                                            "rule": "thalach <= 123.0",
+                                            "conclusion": "0",
+                                            "cornerstone_idx": 252,
+                                            "exception": null,
+                                            "alternative": null
+                                        },
+                                        "alternative": null
+                                    }
+                                },
+                                "alternative": {
+                                    "rule": "trestbps > 147.5",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 70,
+                                    "exception": null,
+                                    "alternative": {
+                                        "rule": "chol > 273.0",
+                                        "conclusion": "0",
+                                        "cornerstone_idx": 276,
+                                        "exception": null,
+                                        "alternative": null
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "alternative": {
+            "rule": "thalach <= 153.5",
+            "conclusion": "1",
+            "cornerstone_idx": 177,
+            "exception": {
+                "rule": "thalach > 124.5",
+                "conclusion": "0",
+                "cornerstone_idx": 287,
+                "exception": {
+                    "rule": "chol <= 212.5",
+                    "conclusion": "1",
+                    "cornerstone_idx": 282,
+                    "exception": {
+                        "rule": "trestbps <= 119.0",
+                        "conclusion": "0",
+                        "cornerstone_idx": 250,
+                        "exception": {
+                            "rule": "chol > 206.5",
+                            "conclusion": "1",
+                            "cornerstone_idx": 229,
+                            "exception": {
+                                "rule": "age <= 55.5",
+                                "conclusion": "0",
+                                "cornerstone_idx": 80,
+                                "exception": null,
+                                "alternative": {
+                                    "rule": "thalach > 138.0",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 20,
+                                    "exception": null,
+                                    "alternative": null
+                                }
+                            },
+                            "alternative": null
+                        },
+                        "alternative": {
+                            "rule": "thalach > 139.0",
+                            "conclusion": "0",
+                            "cornerstone_idx": 10,
+                            "exception": {
+                                "rule": "age > 62.5",
+                                "conclusion": "1",
+                                "cornerstone_idx": 299,
+                                "exception": null,
+                                "alternative": {
+                                    "rule": "chol <= 178.0",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 91,
+                                    "exception": null,
+                                    "alternative": null
+                                }
+                            },
+                            "alternative": {
+                                "rule": "age <= 48.0",
+                                "conclusion": "0",
+                                "cornerstone_idx": 115,
+                                "exception": {
+                                    "rule": "trestbps <= 127.5",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 138,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": null
+                            }
+                        }
+                    },
+                    "alternative": {
+                        "rule": "trestbps > 137.5",
+                        "conclusion": "1",
+                        "cornerstone_idx": 69,
+                        "exception": {
+                            "rule": "age > 54.5",
+                            "conclusion": "0",
+                            "cornerstone_idx": 0,
+                            "exception": {
+                                "rule": "trestbps > 157.5",
+                                "conclusion": "1",
+                                "cornerstone_idx": 286,
+                                "exception": null,
+                                "alternative": null
+                            },
+                            "alternative": {
+                                "rule": "trestbps <= 144.0",
+                                "conclusion": "0",
+                                "cornerstone_idx": 277,
+                                "exception": null,
+                                "alternative": null
+                            }
+                        },
+                        "alternative": {
+                            "rule": "thalach <= 136.5",
+                            "conclusion": "1",
+                            "cornerstone_idx": 2,
+                            "exception": null,
+                            "alternative": {
+                                "rule": "chol > 224.5",
+                                "conclusion": "1",
+                                "cornerstone_idx": 107,
+                                "exception": {
+                                    "rule": "trestbps <= 119.0",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 240,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": null
+                            }
+                        }
+                    }
+                },
+                "alternative": {
+                    "rule": "trestbps <= 126.0",
+                    "conclusion": "0",
+                    "cornerstone_idx": 244,
+                    "exception": {
+                        "rule": "age <= 50.0",
+                        "conclusion": "1",
+                        "cornerstone_idx": 29,
+                        "exception": null,
+                        "alternative": {
+                            "rule": "thalach > 104.5",
+                            "conclusion": "1",
+                            "cornerstone_idx": 64,
+                            "exception": null,
+                            "alternative": null
+                        }
+                    },
+                    "alternative": {
+                        "rule": "chol > 205.0",
+                        "conclusion": "0",
+                        "cornerstone_idx": 171,
+                        "exception": {
+                            "rule": "age > 59.0",
+                            "conclusion": "1",
+                            "cornerstone_idx": 40,
+                            "exception": null,
+                            "alternative": {
+                                "rule": "chol <= 221.5",
+                                "conclusion": "1",
+                                "cornerstone_idx": 123,
+                                "exception": {
+                                    "rule": "trestbps <= 134.0",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 87,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": null
+                            }
+                        },
+                        "alternative": {
+                            "rule": "age > 66.0",
+                            "conclusion": "0",
+                            "cornerstone_idx": 257,
+                            "exception": null,
+                            "alternative": null
+                        }
+                    }
+                }
+            },
+            "alternative": {
+                "rule": "thalach <= 182.5",
+                "conclusion": "1",
+                "cornerstone_idx": 56,
+                "exception": {
+                    "rule": "chol <= 200.5",
+                    "conclusion": "0",
+                    "cornerstone_idx": 15,
+                    "exception": {
+                        "rule": "trestbps <= 130.0",
+                        "conclusion": "1",
+                        "cornerstone_idx": 74,
+                        "exception": {
+                            "rule": "trestbps <= 102.0",
+                            "conclusion": "0",
+                            "cornerstone_idx": 222,
+                            "exception": null,
+                            "alternative": {
+                                "rule": "trestbps > 119.5",
+                                "conclusion": "0",
+                                "cornerstone_idx": 190,
+                                "exception": null,
+                                "alternative": {
+                                    "rule": "thalach <= 172.5",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 50,
+                                    "exception": null,
+                                    "alternative": null
+                                }
+                            }
+                        },
+                        "alternative": {
+                            "rule": "thalach <= 168.0",
+                            "conclusion": "1",
+                            "cornerstone_idx": 106,
+                            "exception": null,
+                            "alternative": null
+                        }
+                    },
+                    "alternative": {
+                        "rule": "trestbps > 145.0",
+                        "conclusion": "0",
+                        "cornerstone_idx": 67,
+                        "exception": {
+                            "rule": "trestbps > 164.0",
+                            "conclusion": "1",
+                            "cornerstone_idx": 213,
+                            "exception": {
+                                "rule": "thalach <= 160.0",
+                                "conclusion": "0",
+                                "cornerstone_idx": 275,
+                                "exception": null,
+                                "alternative": null
+                            },
+                            "alternative": {
+                                "rule": "trestbps > 152.0",
+                                "conclusion": "1",
+                                "cornerstone_idx": 278,
+                                "exception": null,
+                                "alternative": null
+                            }
+                        },
+                        "alternative": {
+                            "rule": "chol <= 227.0",
+                            "conclusion": "0",
+                            "cornerstone_idx": 288,
+                            "exception": {
+                                "rule": "chol <= 212.5",
+                                "conclusion": "1",
+                                "cornerstone_idx": 274,
+                                "exception": {
+                                    "rule": "thalach > 165.0",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 165,
+                                    "exception": {
+                                        "rule": "trestbps <= 128.5",
+                                        "conclusion": "1",
+                                        "cornerstone_idx": 248,
+                                        "exception": {
+                                            "rule": "trestbps <= 115.0",
+                                            "conclusion": "0",
+                                            "cornerstone_idx": 216,
+                                            "exception": null,
+                                            "alternative": null
+                                        },
+                                        "alternative": null
+                                    },
+                                    "alternative": {
+                                        "rule": "age <= 55.5",
+                                        "conclusion": "0",
+                                        "cornerstone_idx": 98,
+                                        "exception": {
+                                            "rule": "trestbps <= 131.0",
+                                            "conclusion": "1",
+                                            "cornerstone_idx": 266,
+                                            "exception": null,
+                                            "alternative": null
+                                        },
+                                        "alternative": null
+                                    }
+                                },
+                                "alternative": {
+                                    "rule": "thalach > 168.0",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 23,
+                                    "exception": {
+                                        "rule": "age <= 51.0",
+                                        "conclusion": "0",
+                                        "cornerstone_idx": 263,
+                                        "exception": null,
+                                        "alternative": {
+                                            "rule": "age <= 55.0",
+                                            "conclusion": "0",
+                                            "cornerstone_idx": 166,
+                                            "exception": null,
+                                            "alternative": null
+                                        }
+                                    },
+                                    "alternative": null
+                                }
+                            },
+                            "alternative": {
+                                "rule": "thalach > 171.5",
+                                "conclusion": "0",
+                                "cornerstone_idx": 85,
+                                "exception": {
+                                    "rule": "age > 50.5",
+                                    "conclusion": "1",
+                                    "cornerstone_idx": 301,
+                                    "exception": null,
+                                    "alternative": null
+                                },
+                                "alternative": {
+                                    "rule": "age > 51.5",
+                                    "conclusion": "0",
+                                    "cornerstone_idx": 88,
+                                    "exception": {
+                                        "rule": "trestbps <= 125.0",
+                                        "conclusion": "1",
+                                        "cornerstone_idx": 214,
+                                        "exception": null,
+                                        "alternative": null
+                                    },
+                                    "alternative": null
+                                }
+                            }
+                        }
+                    }
+                },
+                "alternative": null
+            }
+        }
+    },
+    "alternative": null
+}
