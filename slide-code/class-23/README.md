@@ -1,5 +1,9 @@
 # Invited Lecture
 
+<p align="center">
+<img src="https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/poster/Agentic-AI.png" alt="Poster of Agentic AI talk" width="800">  
+</p>
+
 **Title:** Beyond Chatbots: Architecture, Reasoning, and the Rise of Agentic AI Systems  
 
 **Abstract:**
