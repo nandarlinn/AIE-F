@@ -14,6 +14,7 @@ Thura is a Software Engineering undergraduate at King Mongkut’s Institute of T
 
 ## Slides For Your Study
 
-[https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/basics_of_nlpllm-ver3.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/basics_of_nlpllm-ver3.pdf)  
-[https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/gentle_intro_agentic_ai.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/gentle_intro_agentic_ai.pdf)    
+Basic of NLP-LLM (version 3): [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/basics_of_nlpllm-ver3.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/basics_of_nlpllm-ver3.pdf)  
+Gentle Intro Agentic AI: [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/gentle_intro_agentic_ai.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/gentle_intro_agentic_ai.pdf)    
+
 
