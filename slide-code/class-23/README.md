@@ -17,4 +17,5 @@ Thura is a Software Engineering undergraduate at King Mongkut’s Institute of T
 Basic of NLP-LLM (version 3): [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/basics_of_nlpllm-ver3.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/basics_of_nlpllm-ver3.pdf)  
 Gentle Intro Agentic AI: [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/gentle_intro_agentic_ai.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-23/gentle_intro_agentic_ai.pdf)    
 
+Thura Aung's Original GoogleDrive Link: [https://drive.google.com/drive/folders/1xgpE9m7oqiCjlHxSPPZwPYnTeIzChAP0](https://drive.google.com/drive/folders/1xgpE9m7oqiCjlHxSPPZwPYnTeIzChAP0)  
 
