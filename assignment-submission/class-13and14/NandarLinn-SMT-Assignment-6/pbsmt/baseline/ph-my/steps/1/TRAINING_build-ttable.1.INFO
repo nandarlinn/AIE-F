@@ -1,0 +1,3 @@
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/model/extract.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/model/lex.1 
+script = /home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/training/train-model.perl [1506443775]
+score-settings = --GoodTuring

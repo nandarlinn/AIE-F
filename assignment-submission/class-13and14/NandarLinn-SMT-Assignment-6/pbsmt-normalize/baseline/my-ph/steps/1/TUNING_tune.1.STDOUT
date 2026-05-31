@@ -1,0 +1,25 @@
+starting at Sun May 31 05:35:33 PM +07 2026 on bumblebee
+run 1 start at Sun May 31 05:35:34 PM +07 2026
+Parsing --decoder-flags: | -v 0 |
+Saving new config to: ./run1.moses.ini
+1-10.20.2 0.2 0.2 0.20.3 0.3 0.3 0.3 0.3 0.30.30.5(1) run decoder to produce n-best lists
+params = -v 0 
+decoder_config = -weight-overwrite 'TranslationModel0= 0.043478 0.043478 0.043478 0.043478 Distortion0= 0.065217 WordPenalty0= -0.217391 LM0= 0.108696 LexicalReordering0= 0.065217 0.065217 0.065217 0.065217 0.065217 0.065217 PhrasePenalty0= 0.043478'
+run 1 end at Sun May 31 05:36:07 PM +07 2026
+(1) BEST at 1: 0.306657 0.0635993 0.00870793 0.0660832 0.0314438 0.0704199 0.0550885 0.0625317 0.20554 0.0164551 0.078325 0.00414784 0.0207641 -0.0102366 => 0.685899 at Sun May 31 05:36:07 PM +07 2026
+loading data from 1 to 1 (prev_aggregate_nbl_size=-1)
+loading data from run1.features.dat
+loading data from run1.scores.dat
+loading data from run1.init.opt
+run 2 start at Sun May 31 05:36:07 PM +07 2026
+Parsing --decoder-flags: |-v 0 |
+Saving new config to: ./run2.moses.ini
+1-10.20.2 0.2 0.2 0.20.3 0.3 0.3 0.3 0.3 0.30.30.5(2) run decoder to produce n-best lists
+params = -v 0 
+decoder_config = -weight-overwrite 'Distortion0= 0.055088 TranslationModel0= 0.078325 0.004148 0.020764 -0.010237 WordPenalty0= 0.205540 LM0= 0.062532 PhrasePenalty0= 0.016455 LexicalReordering0= 0.306657 0.063599 0.008708 0.066083 0.031444 0.070420'
+run 2 end at Sun May 31 05:36:44 PM +07 2026
+(2) BEST at 2: 0.306657 0.0635993 0.00870793 0.0660832 0.0314438 0.0704199 0.0550885 0.0625317 0.20554 0.0164551 0.078325 0.00414784 0.0207641 -0.0102366 => 0.685997 at Sun May 31 05:36:44 PM +07 2026
+Parsing --decoder-flags: |-v 0 |
+Saving new config to: ./moses.ini
+1-10.20.2 0.2 0.2 0.20.3 0.3 0.3 0.3 0.3 0.30.30.5Training finished at Sun May 31 05:36:44 PM +07 2026
+finished at Sun May 31 05:36:44 PM +07 2026

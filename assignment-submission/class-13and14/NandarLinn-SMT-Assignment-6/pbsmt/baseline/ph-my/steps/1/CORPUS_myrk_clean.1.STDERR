@@ -1,0 +1,3 @@
+clean-corpus.perl: processing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/train.ph & .my to /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/corpus/myrk.clean.1, cutoff 1-80, ratio 9
+..
+Input sentences: 20000  Output sentences:  20000

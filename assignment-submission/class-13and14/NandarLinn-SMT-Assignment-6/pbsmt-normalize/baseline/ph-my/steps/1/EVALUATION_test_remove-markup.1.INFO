@@ -1,0 +1,2 @@
+report-segmentation = yes
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/evaluation/test.output.1

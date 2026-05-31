@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PATH="/home/elio/my_workspace/envs/aiclassenv/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/cuda-12.6/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation
+
+/home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/ems/support/analysis.perl -system /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.cleaned.1 -reference /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.reference.txt.1 -input /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.input.txt.1 -dir /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.analysis.1 -precision-by-coverage -segmentation /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.output.1 -system-alignment /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.output.1.wa -coverage /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.analysis.1 -ttable /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/phrase-table.1 -input-corpus /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/training/corpus.1.my
+
+echo 'finished at '`date`
+touch /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_analysis-precision.1.DONE

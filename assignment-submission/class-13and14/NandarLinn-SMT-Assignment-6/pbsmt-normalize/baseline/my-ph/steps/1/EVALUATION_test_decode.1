@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PATH="/home/elio/my_workspace/envs/aiclassenv/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/cuda-12.6/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation
+
+/home/elio/tool/mosesbin/ubuntu-17.04/moses//bin/moses -search-algorithm 1 -cube-pruning-pop-limit 5000 -s 5000 -alignment-output-file /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation/test.output.1.wa -t -text-type "test" -v 0 -f /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation/test.filtered.ini.1 < /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation/test.input.txt.1 > /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation/test.output.1
+
+echo 'finished at '`date`
+touch /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_decode.1.DONE

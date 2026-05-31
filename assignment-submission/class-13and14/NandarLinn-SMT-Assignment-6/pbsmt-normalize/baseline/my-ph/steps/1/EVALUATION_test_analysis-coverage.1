@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PATH="/home/elio/my_workspace/envs/aiclassenv/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/cuda-12.6/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation
+
+/home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/ems/support/analysis.perl -input /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation/test.input.txt.1 -input-corpus /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/training/corpus.1.my -ttable /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/model/phrase-table.1 -dir /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/evaluation/test.analysis.1 -score-options '--GoodTuring'
+
+echo 'finished at '`date`
+touch /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_analysis-coverage.1.DONE

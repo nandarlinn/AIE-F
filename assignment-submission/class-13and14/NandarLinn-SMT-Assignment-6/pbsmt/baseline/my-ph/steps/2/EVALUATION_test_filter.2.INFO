@@ -1,0 +1,4 @@
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.input.txt.2 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/phrase-table.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/reordering-table.1  
+report-precision-by-coverage = yes
+# reuse run 1 for TRAINING:build-reordering
+# reuse run 1 for TRAINING:build-ttable

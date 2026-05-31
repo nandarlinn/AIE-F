@@ -1,0 +1,6 @@
+Using SCRIPTS_ROOTDIR: /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts
+using pigz 
+(4) generate lexical translation table 0-0 @ Sun May 31 17:39:10 +07 2026
+(/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/training/corpus.1.ph,/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/training/corpus.1.my,/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/model/lex.1)
+!!!!!!!!!!!!!!!!!!!!
+Saved: /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/model/lex.1.f2e and /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/model/lex.1.e2f

@@ -1,0 +1,15 @@
+Using SCRIPTS_ROOTDIR: /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts
+using pigz 
+(9) create moses.ini @ Sun May 31 17:31:38 +07 2026
+Executing: mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.filtered.2
+Stripping XML...
+Executing: /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/training/../generic/strip-xml.perl < /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.input.txt.2 > /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.filtered.2/input.102317
+pt:PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/phrase-table.1 input-factor=0 output-factor=0
+Considering factor 0
+ro:LexicalReordering name=LexicalReordering0 num-features=6 type=wbe-msd-bidirectional-fe-allff input-factor=0 output-factor=0 path=/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/reordering-table.1.wbe-msd-bidirectional-fe.gz
+Considering factor 0
+Filtering files...
+filtering /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/phrase-table.1 -> /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.filtered.2/phrase-table.0-0.1.1.gz...
+6152 of 53895 phrases pairs used (11.41%) - note: max length 10
+filtering /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/reordering-table.1.wbe-msd-bidirectional-fe.gz -> /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.filtered.2/reordering-table.1.wbe-msd-bidirectional-fe.0-0.1...
+6152 of 53895 phrases pairs used (11.41%) - note: max length 10

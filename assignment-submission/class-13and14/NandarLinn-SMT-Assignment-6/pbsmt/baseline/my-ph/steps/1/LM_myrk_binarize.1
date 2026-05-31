@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PATH="/home/elio/my_workspace/envs/aiclassenv/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/cuda-12.6/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/lm
+
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/lm
+/home/elio/tool/mosesbin/ubuntu-17.04/moses//bin/build_binary /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/lm/myrk.lm.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/lm/myrk.binlm.1
+
+
+echo 'finished at '`date`
+touch /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/LM_myrk_binarize.1.DONE
