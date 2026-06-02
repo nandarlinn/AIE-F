@@ -1,0 +1,1 @@
+/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_search10000/ph-my/corpus/myph.clean.1.ph

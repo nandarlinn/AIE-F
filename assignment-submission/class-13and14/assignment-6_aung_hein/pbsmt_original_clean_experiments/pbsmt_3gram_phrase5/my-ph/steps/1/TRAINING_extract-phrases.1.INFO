@@ -1,0 +1,4 @@
+lexicalized-reordering = msd-bidirectional-fe
+max-phrase-length = 5
+script = /home/kyalkalay/tools/mosesdecoder/scripts/training/train-model.perl [1780160570]
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/my-ph/model/aligned.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/my-ph/training/corpus.1

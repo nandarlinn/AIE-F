@@ -1,0 +1,24 @@
+starting at Tue Jun 2 01:49:28 +0630 2026 on kyalkalay-HP
+Forking...
+
+***** 2 runs. (algorithm:TA)*****
+;KategProblem:cats: 50   words: 1834
+
+start-costs: MEAN: 857136 (857128-857145)  SIGMA:8.37319   
+  end-costs: MEAN: 832260 (832184-832336)  SIGMA:75.8969   
+   start-pp: MEAN: 197.388 (197.367-197.41)  SIGMA:0.0213685   
+     end-pp: MEAN: 143.101 (142.961-143.242)  SIGMA:0.14042   
+ iterations: MEAN: 45167.5 (45052-45283)  SIGMA:115.5   
+       time: MEAN: 0.613481 (0.58605-0.640913)  SIGMA:0.0274315   
+
+***** 2 runs. (algorithm:TA)*****
+;KategProblem:cats: 50   words: 2273
+
+start-costs: MEAN: 857092 (857091-857093)  SIGMA:0.848007   
+  end-costs: MEAN: 831460 (831283-831637)  SIGMA:177.155   
+   start-pp: MEAN: 201.677 (201.674-201.679)  SIGMA:0.00221127   
+     end-pp: MEAN: 144.788 (144.456-145.119)  SIGMA:0.331629   
+ iterations: MEAN: 58437 (56205-60669)  SIGMA:2232   
+       time: MEAN: 0.634027 (0.598703-0.669351)  SIGMA:0.035324   
+Waiting for mkcls processes to finish...
+finished at Tue Jun 2 01:49:30 +0630 2026

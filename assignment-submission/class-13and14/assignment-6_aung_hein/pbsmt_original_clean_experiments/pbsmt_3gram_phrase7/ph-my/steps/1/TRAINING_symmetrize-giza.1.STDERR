@@ -1,0 +1,18 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Using SCRIPTS_ROOTDIR: /home/kyalkalay/tools/mosesdecoder/scripts
+using gzip 
+(3) generate word alignment @ Tue Jun  2 02:33:20 +0630 2026
+Combining forward and inverted alignment from files:
+  /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/ph-my/training/giza-inverse.1/ph-my.A3.final.{bz2,gz}
+  /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/ph-my/training/giza.1/my-ph.A3.final.{bz2,gz}
+Executing: mkdir -p ./model
+Executing: /home/kyalkalay/tools/mosesdecoder/scripts/training/giza2bal.pl -d "gzip -cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/ph-my/training/giza.1/my-ph.A3.final.gz" -i "gzip -cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/ph-my/training/giza-inverse.1/ph-my.A3.final.gz" |/home/kyalkalay/tools/mosesdecoder/scripts/../bin/symal -alignment="grow" -diagonal="yes" -final="yes" -both="yes" > /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/ph-my/model/aligned.1.grow-diag-final-and
+symal: computing grow alignment: diagonal (1) final (1)both-uncovered (1)
+skip=<0> counts=<20000>

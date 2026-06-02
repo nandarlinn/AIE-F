@@ -1,0 +1,37 @@
+starting at Sun May 31 19:09:28 +0630 2026 on kyalkalay-HP
+run 1 start at Sun May 31 19:09:28 +0630 2026
+Parsing --decoder-flags: | -v 0 |
+Saving new config to: ./run1.moses.ini
+1-10.20.2 0.2 0.2 0.20.3 0.3 0.3 0.3 0.3 0.30.30.5(1) run decoder to produce n-best lists
+params = -v 0 
+decoder_config = -weight-overwrite 'LM0= 0.108696 WordPenalty0= -0.217391 LexicalReordering0= 0.065217 0.065217 0.065217 0.065217 0.065217 0.065217 Distortion0= 0.065217 TranslationModel0= 0.043478 0.043478 0.043478 0.043478 PhrasePenalty0= 0.043478'
+run 1 end at Sun May 31 19:09:57 +0630 2026
+(1) BEST at 1: 0.317529 0.0145502 0.057515 0.0453293 0.0534258 0.0516916 0.0355956 0.0639686 0.208593 -0.0307864 0.0845942 0.0211649 0.00901112 0.00624563 => 0.683843 at Sun May 31 19:09:57 +0630 2026
+loading data from 1 to 1 (prev_aggregate_nbl_size=-1)
+loading data from run1.features.dat
+loading data from run1.scores.dat
+loading data from run1.init.opt
+run 2 start at Sun May 31 19:09:57 +0630 2026
+Parsing --decoder-flags: |-v 0 |
+Saving new config to: ./run2.moses.ini
+1-10.20.2 0.2 0.2 0.20.3 0.3 0.3 0.3 0.3 0.30.30.5(2) run decoder to produce n-best lists
+params = -v 0 
+decoder_config = -weight-overwrite 'Distortion0= 0.035596 LexicalReordering0= 0.317529 0.014550 0.057515 0.045329 0.053426 0.051692 LM0= 0.063969 WordPenalty0= 0.208593 PhrasePenalty0= -0.030786 TranslationModel0= 0.084594 0.021165 0.009011 0.006246'
+run 2 end at Sun May 31 19:10:28 +0630 2026
+(2) BEST at 2: 0.295386 0.0320608 0.00101617 0.0185728 0.0523716 0.0568299 0.0812144 0.0575211 0.263311 0.00628964 0.103198 -0.00802711 0.0188386 -0.00536219 => 0.68864 at Sun May 31 19:10:28 +0630 2026
+loading data from 1 to 2 (prev_aggregate_nbl_size=-1)
+loading data from run1.features.dat,run2.features.dat
+loading data from run1.scores.dat,run2.scores.dat
+loading data from run1.init.opt,run2.init.opt
+run 3 start at Sun May 31 19:10:28 +0630 2026
+Parsing --decoder-flags: |-v 0 |
+Saving new config to: ./run3.moses.ini
+1-10.20.2 0.2 0.2 0.20.3 0.3 0.3 0.3 0.3 0.30.30.5(3) run decoder to produce n-best lists
+params = -v 0 
+decoder_config = -weight-overwrite 'PhrasePenalty0= 0.006290 TranslationModel0= 0.103198 -0.008027 0.018839 -0.005362 Distortion0= 0.081214 LexicalReordering0= 0.295386 0.032061 0.001016 0.018573 0.052372 0.056830 LM0= 0.057521 WordPenalty0= 0.263311'
+run 3 end at Sun May 31 19:11:03 +0630 2026
+(3) BEST at 3: 0.295386 0.0320608 0.00101617 0.0185728 0.0523716 0.0568299 0.0812145 0.0575211 0.263311 0.00628964 0.103198 -0.00802712 0.0188386 -0.00536219 => 0.688604 at Sun May 31 19:11:03 +0630 2026
+Parsing --decoder-flags: |-v 0 |
+Saving new config to: ./moses.ini
+1-10.20.2 0.2 0.2 0.20.3 0.3 0.3 0.3 0.3 0.30.30.5Training finished at Sun May 31 19:11:03 +0630 2026
+finished at Sun May 31 19:11:03 +0630 2026

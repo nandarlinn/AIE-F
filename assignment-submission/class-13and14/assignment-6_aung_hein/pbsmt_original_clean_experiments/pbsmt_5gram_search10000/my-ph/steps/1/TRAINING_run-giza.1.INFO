@@ -1,0 +1,3 @@
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_search10000/my-ph/training/prepared.1
+external-bin-dir = /usr/local/bin [1780170899]
+script = /home/kyalkalay/tools/mosesdecoder/scripts/training/train-model.perl [1780160570]
