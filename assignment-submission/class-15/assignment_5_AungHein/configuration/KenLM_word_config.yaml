@@ -1,0 +1,16 @@
+# Paths
+paths:
+  train_file: "dataset/train_clean_my.word"
+  output_dir: "dataset/kenlm"
+  tmp_dir: "tmp_dir"
+
+# N-gram configurations to loop through
+models:
+  - 3
+  - 5
+
+# Test evaluation datasets to loop through
+test_files:
+  baseline_10k: "dataset/test_clean_my_10k.word"
+  myPoetry_10k: "dataset/myPoetry_clean_my_10k.word"
+  myNews_10k: "dataset/myNews_clean_my_10k.word"
