@@ -1,0 +1,2 @@
+script = /home/kyalkalay/tools/mosesdecoder/scripts/training/train-model.perl [1780160570]
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_7gram_phrase9/my-ph/training/corpus.1

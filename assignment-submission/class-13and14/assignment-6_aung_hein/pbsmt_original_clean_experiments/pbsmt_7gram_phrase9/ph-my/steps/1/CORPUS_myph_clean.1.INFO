@@ -1,0 +1,2 @@
+max-sentence-length = 80
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/train_clean

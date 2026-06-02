@@ -1,0 +1,3 @@
+score-settings = --GoodTuring
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_7gram/baseline/ph-my/model/extract.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_7gram/baseline/ph-my/model/lex.1 
+script = /home/kyalkalay/tools/mosesdecoder/scripts/training/train-model.perl [1780160570]

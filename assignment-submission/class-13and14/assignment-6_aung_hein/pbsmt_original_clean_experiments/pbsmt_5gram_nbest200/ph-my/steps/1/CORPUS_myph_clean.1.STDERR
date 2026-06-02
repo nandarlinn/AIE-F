@@ -1,0 +1,11 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+clean-corpus.perl: processing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/train_clean.ph & .my to /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/corpus/myph.clean.1, cutoff 1-80, ratio 9
+..
+Input sentences: 20000  Output sentences:  20000

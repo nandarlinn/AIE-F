@@ -1,0 +1,16 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Using SCRIPTS_ROOTDIR: /home/kyalkalay/tools/mosesdecoder/scripts
+using gzip 
+(7) learn reordering model @ Tue Jun  2 02:33:45 +0630 2026
+(7.1) [no factors] learn reordering model @ Tue Jun  2 02:33:45 +0630 2026
+(7.2) building tables @ Tue Jun  2 02:33:45 +0630 2026
+Executing: /home/kyalkalay/tools/mosesdecoder/scripts/../bin/lexical-reordering-score /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/ph-my/model/extract.1.o.sorted.gz 0.5 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/ph-my/model/reordering-table.1. --model "wbe msd wbe-msd-bidirectional-fe"
+Lexical Reordering Scorer
+scores lexical reordering models of several types (hierarchical, phrase-based and word-based-extraction

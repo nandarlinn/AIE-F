@@ -1,0 +1,2 @@
+lm-binarizer = /home/kyalkalay/tools/mosesdecoder/bin/build_binary [1780161061]
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/lm/myph.lm.1

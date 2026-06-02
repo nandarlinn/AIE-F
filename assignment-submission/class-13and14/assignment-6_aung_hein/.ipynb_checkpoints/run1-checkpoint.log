@@ -1,0 +1,26 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+STARTING UP AS PROCESS 1201561 ON kyalkalay-HP AT Sun May 31 00:59:44 +0630 2026
+LOAD CONFIG...
+find: '/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/test-sgm/test.ph.ref.sgm*': No such file or directory
+EVALUATION:test:reference-sgm: file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/test-sgm/test.ph.ref.sgm does not exist!
+Died at /home/kyalkalay/tools/mosesdecoder/scripts/ems/experiment.perl line 437.
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+STARTING UP AS PROCESS 1201574 ON kyalkalay-HP AT Sun May 31 00:59:44 +0630 2026
+LOAD CONFIG...
+find: '/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/test-sgm/test.my.ref.sgm*': No such file or directory
+EVALUATION:test:reference-sgm: file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/test-sgm/test.my.ref.sgm does not exist!
+Died at /home/kyalkalay/tools/mosesdecoder/scripts/ems/experiment.perl line 437.

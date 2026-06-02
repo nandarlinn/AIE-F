@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PATH="/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/bin:/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/tuning
+
+/home/kyalkalay/tools/mosesdecoder/scripts/training/mert-moses.pl /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.my /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph /home/kyalkalay/tools/mosesdecoder/bin/moses /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/tuning/moses.filtered.ini.1 --nbest 100 --working-dir /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/tuning/tmp.1 --decoder-flags " -v 0 " --rootdir /home/kyalkalay/tools/mosesdecoder/scripts -mertdir /home/kyalkalay/tools/mosesdecoder/bin --no-filter-phrase-table
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/tuning
+cp /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/tuning/tmp.1/moses.ini /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/tuning/moses.ini.1
+
+echo 'finished at '`date`
+touch /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/steps/1/TUNING_tune.1.DONE

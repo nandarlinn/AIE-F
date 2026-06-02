@@ -1,0 +1,12 @@
+experiment,lm_order,max_phrase_length,lm_prune_override,nbest,eval_search,purpose
+pbsmt_5gram_main,5,9,,100,5000/5000,confirmed main baseline
+pbsmt_5gram_phrase7,5,7,,100,5000/5000,shorter phrase extraction
+pbsmt_5gram_phrase11,5,11,,100,5000/5000,longer phrase extraction
+pbsmt_5gram_phrase13,5,13,,100,5000/5000,extra-long phrase extraction
+pbsmt_5gram_less_pruned,5,9,0 0 0,100,5000/5000,less LM pruning
+pbsmt_5gram_nbest200,5,9,,200,5000/5000,larger MERT n-best list
+pbsmt_5gram_search10000,5,9,,100,10000/10000,stronger evaluation search
+pbsmt_3gram_phrase5,3,5,,100,5000/5000,lower-context baseline
+pbsmt_3gram_phrase7,3,7,,100,5000/5000,lower-context phrase-length comparison
+pbsmt_7gram_phrase9,7,9,,100,5000/5000,higher-context comparison
+pbsmt_7gram_phrase11,7,11,,100,5000/5000,higher-context longer phrase comparison

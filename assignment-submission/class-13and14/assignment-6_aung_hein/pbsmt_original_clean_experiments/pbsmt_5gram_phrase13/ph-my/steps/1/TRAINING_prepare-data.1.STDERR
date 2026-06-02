@@ -1,0 +1,24 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Using SCRIPTS_ROOTDIR: /home/kyalkalay/tools/mosesdecoder/scripts
+Using single-thread GIZA
+using gzip 
+(1) preparing corpus @ Tue Jun  2 02:00:46 +0630 2026
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1
+(1.0) selecting factors @ Tue Jun  2 02:00:46 +0630 2026
+(1.1) running mkcls  @ Tue Jun  2 02:00:46 +0630 2026
+/usr/local/bin/mkcls -c50 -n2 -p/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/corpus.1.ph -V/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/ph.vcb.classes opt
+Executing: /usr/local/bin/mkcls -c50 -n2 -p/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/corpus.1.ph -V/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/ph.vcb.classes opt
+(1.2) creating vcb file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/ph.vcb @ Tue Jun  2 02:00:46 +0630 2026
+(1.1) running mkcls  @ Tue Jun  2 02:00:46 +0630 2026
+/usr/local/bin/mkcls -c50 -n2 -p/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/corpus.1.my -V/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/my.vcb.classes opt
+Executing: /usr/local/bin/mkcls -c50 -n2 -p/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/corpus.1.my -V/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/my.vcb.classes opt
+(1.2) creating vcb file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/my.vcb @ Tue Jun  2 02:00:46 +0630 2026
+(1.3) numberizing corpus /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/ph-my-int-train.snt @ Tue Jun  2 02:00:46 +0630 2026
+(1.3) numberizing corpus /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/ph-my/training/prepared.1/my-ph-int-train.snt @ Tue Jun  2 02:00:46 +0630 2026
