@@ -1,0 +1,16 @@
+{
+    "id": "theinkyawlwin/hw-convnext-tiny-time",
+    "title": "hw-convnext-tiny-time",
+    "code_file": "convNeXt_tiny.py",
+    "language": "python",
+    "kernel_type": "script",
+    "is_private": true,
+    "enable_gpu": true,
+    "enable_internet": true,
+    "dataset_sources": [
+        "theinkyawlwin/wandbapi",
+        "theinkyawlwin/myanmar-syllable-handwriting"
+    ],
+    "competition_sources": [],
+    "kernel_sources": []
+}

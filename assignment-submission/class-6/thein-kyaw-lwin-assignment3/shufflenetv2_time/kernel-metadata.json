@@ -1,0 +1,16 @@
+{
+    "id": "theinkyawlwin/hw-shufflenetv2-time",
+    "title": "hw-shufflenetv2-time",
+    "code_file": "shufflenetv2_time.py",
+    "language": "python",
+    "kernel_type": "script",
+    "is_private": true,
+    "enable_gpu": true,
+    "enable_internet": true,
+    "dataset_sources": [
+        "theinkyawlwin/wandbapi",
+        "theinkyawlwin/myanmar-syllable-handwriting"
+    ],
+    "competition_sources": [],
+    "kernel_sources": []
+}
