@@ -154,49 +154,6 @@ The remaining substantial errors are data coverage/preparation issues (OOV: 232,
 
 4. **Decoder search is not the main issue.** Stronger search does not materially improve the result, so further Moses tuning is unlikely to produce large gains.
 
-## Recommendations
-
-### 1. Add a focused rule-based post-processing layer
-
-A lightweight correction layer should target only high-frequency and high-confidence pronunciation-variation cases. These rules should be derived from the error leaderboard and validated against examples, not guessed manually.
-
-Suggested flow:
-
-```text
-Moses output -> alignment-aware correction rules -> cleaned phoneme output -> evaluation
-```
-
-### 2. Add context-aware augmented data
-
-For context-dependent pronunciation variation, add examples that represent the minority or context-specific pronunciation. The useful unit is not just a syllable, but:
-
-```text
-source syllable + left context + right context -> required pronunciation
-```
-
-This is likely to help more than changing PBSMT hyperparameters.
-
-### 3. Fix OOV and missing pronunciation variants
-
-Create a data-fixing table with:
-
-```text
-source_syllable, wrong_output, required_reference, frequency, action, status
-```
-
-Recommended actions:
-
-```text
-add_to_training
-correct_training_label
-add_pronunciation_variant
-verify_dictionary
-verify_test_reference
-```
-
-### 4. Validate reference consistency
-
-Cases such as `မြီး` should be reviewed because the expected pronunciation differs by context. Some cases may require multiple valid pronunciation variants rather than a single universal mapping.
 
 ## Conclusion
 
