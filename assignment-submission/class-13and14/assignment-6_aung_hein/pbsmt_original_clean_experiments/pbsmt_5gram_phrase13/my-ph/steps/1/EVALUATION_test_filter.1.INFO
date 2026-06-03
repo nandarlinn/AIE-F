@@ -1,0 +1,2 @@
+report-precision-by-coverage = yes
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/my-ph/evaluation/test.input.txt.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/my-ph/model/phrase-table.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase13/my-ph/model/reordering-table.1  

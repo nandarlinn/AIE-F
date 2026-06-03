@@ -1,0 +1,2 @@
+report-segmentation = yes
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt-big-normalize/baseline/my-ph/evaluation/test.output.1

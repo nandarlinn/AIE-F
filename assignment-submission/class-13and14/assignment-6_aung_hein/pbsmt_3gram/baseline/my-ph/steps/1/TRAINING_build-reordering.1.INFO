@@ -1,0 +1,2 @@
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/model/extract.1
+lexicalized-reordering = msd-bidirectional-fe

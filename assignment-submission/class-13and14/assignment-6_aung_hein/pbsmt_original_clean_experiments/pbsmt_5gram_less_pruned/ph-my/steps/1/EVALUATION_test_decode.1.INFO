@@ -1,0 +1,5 @@
+report-precision-by-coverage = yes
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/tuning/moses.tuned.ini.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/evaluation/test.input.txt.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/evaluation/test.filtered.ini.1
+report-segmentation = yes
+decoder = /home/kyalkalay/tools/mosesdecoder/bin/moses [1780245146]
+decoder-settings = -search-algorithm 1 -cube-pruning-pop-limit 5000 -s 5000

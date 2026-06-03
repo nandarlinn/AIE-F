@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PATH="/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/bin:/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/my-ph/corpus
+
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/my-ph/corpus
+/home/kyalkalay/tools/mosesdecoder/scripts/training/clean-corpus-n.perl /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/train_clean my ph /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/my-ph/corpus/myph.clean.1 1 80 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/my-ph/corpus/myph.clean.1.lines-retained
+
+
+echo 'finished at '`date`
+touch /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/my-ph/steps/1/CORPUS_myph_clean.1.DONE

@@ -1,0 +1,5 @@
+Root_Cause,Count,Percentage
+Train Data Ambiguity (Both Exist),856,72.91
+Out of Vocabulary (OOV),232,19.76
+Reference Missing from Training Token,85,7.24
+Decoder Hallucination / Over-generalization,1,0.09

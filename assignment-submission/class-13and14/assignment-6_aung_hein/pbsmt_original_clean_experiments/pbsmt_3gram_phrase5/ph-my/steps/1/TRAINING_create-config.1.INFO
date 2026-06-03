@@ -1,0 +1,4 @@
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/model/reordering-table.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/model/phrase-table.1       /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/lm/myph.binlm.1
+script = /home/kyalkalay/tools/mosesdecoder/scripts/training/train-model.perl [1780160570]
+score-settings = --GoodTuring
+lexicalized-reordering = msd-bidirectional-fe

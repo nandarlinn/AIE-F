@@ -1,0 +1,26 @@
+# Environment Paths
+workspace: "/media/kyalkalay/Data/AI-Class/assignment-5/assignment"
+srilm_bin: "/media/kyalkalay/Data/AI-Class/assignment-5/assignment/SRILM/bin/i686-m64"
+
+# File Layouts
+files:
+  train_file: "dataset/train_clean_my.word"
+  output_dir: "dataset/srilm"
+
+# N-gram configurations to try
+models:
+  - 3
+  - 5
+
+# Discount methods to try (Maps directly to SRILM flags)
+discounts:
+  - flag: "-kndiscount"
+    name: "kn"
+  - flag: "-wbdiscount"
+    name: "wb"
+
+# Evaluation datasets
+test_files:
+  baseline_10k: "dataset/test_clean_my_10k.word"
+  myPoetry_10k: "dataset/myPoetry_clean_my_10k.word"
+  myNews_10k: "dataset/myNews_clean_my_10k.word"
