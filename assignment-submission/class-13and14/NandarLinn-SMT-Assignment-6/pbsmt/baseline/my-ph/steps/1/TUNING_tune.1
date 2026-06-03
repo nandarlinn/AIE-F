@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PATH="/home/elio/my_workspace/envs/aiclassenv/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/cuda-12.6/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/tuning
+
+/home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/training/mert-moses.pl /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.my /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.ph /home/elio/tool/mosesbin/ubuntu-17.04/moses//bin/moses /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/tuning/moses.filtered.ini.1 --nbest 100 --working-dir /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/tuning/tmp.1 --decoder-flags " -v 0 " --rootdir /home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts -mertdir /home/elio/tool/mosesbin/ubuntu-17.04/moses//bin --no-filter-phrase-table
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/tuning
+cp /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/tuning/tmp.1/moses.ini /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/tuning/moses.ini.1
+
+echo 'finished at '`date`
+touch /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TUNING_tune.1.DONE

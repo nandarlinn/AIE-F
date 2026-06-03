@@ -1,0 +1,2 @@
+script = /home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/training/train-model.perl [1506443775]
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/model/aligned.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/training/corpus.1

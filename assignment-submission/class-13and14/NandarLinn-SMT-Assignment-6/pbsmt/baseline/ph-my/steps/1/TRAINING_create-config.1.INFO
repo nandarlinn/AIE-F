@@ -1,0 +1,4 @@
+script = /home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/training/train-model.perl [1506443775]
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/model/reordering-table.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/model/phrase-table.1       /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/lm/myrk.binlm.1
+lexicalized-reordering = msd-bidirectional-fe
+score-settings = --GoodTuring

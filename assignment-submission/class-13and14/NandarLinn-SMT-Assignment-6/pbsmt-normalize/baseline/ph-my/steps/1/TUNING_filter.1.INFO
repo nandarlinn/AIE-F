@@ -1,0 +1,1 @@
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.ph /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/model/phrase-table.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/model/reordering-table.1  

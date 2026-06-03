@@ -1,0 +1,4 @@
+script = /home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/training/train-model.perl [1506443775]
+lexicalized-reordering = msd-bidirectional-fe
+max-phrase-length = 5
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/aligned.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/training/corpus.1

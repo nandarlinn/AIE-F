@@ -1,0 +1,5 @@
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/tuning/moses.tuned.ini.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/evaluation/test.input.txt.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/evaluation/test.filtered.ini.1
+decoder-settings = -search-algorithm 1 -cube-pruning-pop-limit 5000 -s 5000
+decoder = /home/elio/tool/mosesbin/ubuntu-17.04/moses//bin/moses [1506443762]
+report-precision-by-coverage = yes
+report-segmentation = yes

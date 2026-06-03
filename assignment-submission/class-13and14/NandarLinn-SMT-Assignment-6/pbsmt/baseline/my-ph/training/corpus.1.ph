@@ -1,0 +1,1 @@
+/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/corpus/myrk.clean.1.ph

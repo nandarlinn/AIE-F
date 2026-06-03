@@ -1,0 +1,24 @@
+starting at Sun May 31 04:30:08 PM +07 2026 on bumblebee
+Forking...
+
+***** 2 runs. (algorithm:TA)*****
+;KategProblem:cats: 50   words: 1834
+
+start-costs: MEAN: 857136 (857128-857145)  SIGMA:8.37319   
+  end-costs: MEAN: 832260 (832184-832336)  SIGMA:75.8969   
+   start-pp: MEAN: 197.388 (197.367-197.41)  SIGMA:0.0213685   
+     end-pp: MEAN: 143.101 (142.961-143.242)  SIGMA:0.14042   
+ iterations: MEAN: 45167.5 (45052-45283)  SIGMA:115.5   
+       time: MEAN: 1.05767 (1.05525-1.06008)  SIGMA:0.002413   
+
+***** 2 runs. (algorithm:TA)*****
+;KategProblem:cats: 50   words: 2273
+
+start-costs: MEAN: 857092 (857091-857093)  SIGMA:0.848007   
+  end-costs: MEAN: 831460 (831283-831637)  SIGMA:177.155   
+   start-pp: MEAN: 201.677 (201.674-201.679)  SIGMA:0.00221127   
+     end-pp: MEAN: 144.788 (144.456-145.119)  SIGMA:0.331629   
+ iterations: MEAN: 58437 (56205-60669)  SIGMA:2232   
+       time: MEAN: 1.11515 (1.07212-1.15819)  SIGMA:0.043033   
+Waiting for mkcls processes to finish...
+finished at Sun May 31 04:30:11 PM +07 2026

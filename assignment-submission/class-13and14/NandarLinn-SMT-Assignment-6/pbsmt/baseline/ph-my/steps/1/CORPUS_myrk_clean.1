@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PATH="/home/elio/my_workspace/envs/aiclassenv/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/cuda-12.6/bin:/home/elio/.local/bin:/home/elio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/corpus
+
+mkdir -p /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/corpus
+/home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/training/clean-corpus-n.perl /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/train ph my /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/corpus/myrk.clean.1 1 80 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/corpus/myrk.clean.1.lines-retained
+
+
+echo 'finished at '`date`
+touch /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/CORPUS_myrk_clean.1.DONE

@@ -1,0 +1,2 @@
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.cleaned.2 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.reference.txt.2
+multi-bleu = /home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/generic/multi-bleu.perl [1506443775]

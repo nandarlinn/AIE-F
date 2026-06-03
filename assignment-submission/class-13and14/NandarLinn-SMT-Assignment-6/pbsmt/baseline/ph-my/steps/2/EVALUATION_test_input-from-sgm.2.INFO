@@ -1,0 +1,2 @@
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/test-sgm/test.ph.src.sgm
+EVALUATION:test:input-sgm = /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/test-sgm/test.ph.src.sgm [1780223234]

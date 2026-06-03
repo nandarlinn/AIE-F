@@ -1,0 +1,4 @@
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/model/moses.ini.1 /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.my /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.ph    /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/tuning/moses.filtered.ini.1
+decoder = /home/elio/tool/mosesbin/ubuntu-17.04/moses//bin/moses [1506443762]
+tuning-settings = -mertdir /home/elio/tool/mosesbin/ubuntu-17.04/moses//bin
+nbest = 100

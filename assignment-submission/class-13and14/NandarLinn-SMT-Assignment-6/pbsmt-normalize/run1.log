@@ -1,0 +1,742 @@
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^\[([^:]+):{ <-- HERE (\S+)}:(\S+)\]$/ at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 626.
+STARTING UP AS PROCESS 71554 ON bumblebee AT Sun May 31 03:24:29 PM +07 2026
+LOAD CONFIG...
+working directory is /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph
+find: ‘/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps’: No such file or directory
+running experimental run number 1
+
+ESTABLISH WHICH STEPS NEED TO BE RUN
+
+FIND DEPENDENCIES BETWEEN STEPS
+
+CHECKING IF OLD STEPS ARE RE-USABLE
+
+STEP SUMMARY:
+82 EVALUATION:test:input-from-sgm ->	run
+76 CORPUS:myrk:clean ->	run
+59 LM:myrk:train ->	run
+56 LM:myrk:binarize ->	run
+55 TRAINING:consolidate ->	run
+54 TRAINING:prepare-data ->	run
+53 TRAINING:run-giza ->	run
+52 TRAINING:run-giza-inverse ->	run
+51 TRAINING:symmetrize-giza ->	run
+50 TRAINING:build-lex-trans ->	run
+47 TRAINING:extract-phrases ->	run
+46 TRAINING:build-reordering ->	run
+45 TRAINING:build-ttable ->	run
+42 TRAINING:create-config ->	run
+27 TUNING:filter ->	run
+26 TUNING:apply-filter ->	run
+25 TUNING:tune ->	run
+24 TUNING:apply-weights ->	run
+18 EVALUATION:test:filter ->	run
+17 EVALUATION:test:apply-filter ->	run
+16 EVALUATION:test:decode ->	run
+15 EVALUATION:test:remove-markup ->	run
+11 EVALUATION:test:wrap ->	run
+10 EVALUATION:test:reference-from-sgm ->	run
+5 EVALUATION:test:nist-bleu ->	run
+4 EVALUATION:test:nist-bleu-c ->	run
+3 EVALUATION:test:multi-bleu ->	run
+2 EVALUATION:test:analysis-coverage ->	run
+1 EVALUATION:test:analysis-precision ->	run
+0 REPORTING:report ->	run
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+
+EXECUTE STEPS
+number of steps doable or running: 4 at Sun May 31 03:24:29 PM +07 2026
+	doable: LM:myrk:train
+	doable: EVALUATION:test:reference-from-sgm
+	doable: EVALUATION:test:input-from-sgm
+	doable: CORPUS:myrk:clean
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/LM_myrk_train.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_reference-from-sgm.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 03:24:41 PM +07 2026
+	doable: EVALUATION:test:input-from-sgm
+	doable: LM:myrk:binarize
+	doable: CORPUS:myrk:clean
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_input-from-sgm.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/LM_myrk_binarize.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:24:53 PM +07 2026
+	doable: CORPUS:myrk:clean
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/CORPUS_myrk_clean.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:25:00 PM +07 2026
+	doable: TRAINING:consolidate
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_consolidate.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:25:08 PM +07 2026
+	doable: TRAINING:prepare-data
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_prepare-data.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:25:17 PM +07 2026
+	doable: TRAINING:run-giza
+	doable: TRAINING:run-giza-inverse
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_run-giza.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_run-giza-inverse.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:25:29 PM +07 2026
+	doable: TRAINING:symmetrize-giza
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_symmetrize-giza.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:25:36 PM +07 2026
+	doable: TRAINING:build-lex-trans
+	doable: TRAINING:extract-phrases
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_build-lex-trans.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_extract-phrases.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:25:48 PM +07 2026
+	doable: TRAINING:build-ttable
+	doable: TRAINING:build-reordering
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_build-ttable.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_build-reordering.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 4 at Sun May 31 03:26:00 PM +07 2026
+	doable: TUNING:filter
+	doable: TRAINING:create-config
+	doable: EVALUATION:test:filter
+	doable: EVALUATION:test:analysis-coverage
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TUNING_filter.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TRAINING_create-config.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 03:26:12 PM +07 2026
+	doable: TUNING:apply-filter
+	doable: EVALUATION:test:filter
+	doable: EVALUATION:test:analysis-coverage
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TUNING_apply-filter.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_filter.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:26:24 PM +07 2026
+	doable: EVALUATION:test:analysis-coverage
+	doable: TUNING:tune
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_analysis-coverage.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TUNING_tune.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:26:37 PM +07 2026
+	running: TUNING:tune
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:28:23 PM +07 2026
+	doable: TUNING:apply-weights
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/TUNING_apply-weights.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:28:30 PM +07 2026
+	doable: EVALUATION:test:apply-filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_apply-filter.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:28:37 PM +07 2026
+	doable: EVALUATION:test:decode
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_decode.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:28:44 PM +07 2026
+	doable: EVALUATION:test:remove-markup
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_remove-markup.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 03:28:51 PM +07 2026
+	doable: EVALUATION:test:multi-bleu
+	doable: EVALUATION:test:wrap
+	doable: EVALUATION:test:analysis-precision
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_multi-bleu.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_wrap.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 03:29:03 PM +07 2026
+	doable: EVALUATION:test:nist-bleu
+	doable: EVALUATION:test:nist-bleu-c
+	doable: EVALUATION:test:analysis-precision
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_nist-bleu.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_nist-bleu-c.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:29:15 PM +07 2026
+	doable: EVALUATION:test:analysis-precision
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/EVALUATION_test_analysis-precision.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:29:23 PM +07 2026
+	doable: REPORTING:report
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/steps/1/REPORTING_report.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 0 at Sun May 31 03:29:30 PM +07 2026
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^\[([^:]+):{ <-- HERE (\S+)}:(\S+)\]$/ at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 626.
+STARTING UP AS PROCESS 73934 ON bumblebee AT Sun May 31 03:29:30 PM +07 2026
+LOAD CONFIG...
+working directory is /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my
+find: ‘/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps’: No such file or directory
+running experimental run number 1
+
+ESTABLISH WHICH STEPS NEED TO BE RUN
+
+FIND DEPENDENCIES BETWEEN STEPS
+
+CHECKING IF OLD STEPS ARE RE-USABLE
+
+STEP SUMMARY:
+82 EVALUATION:test:input-from-sgm ->	run
+76 CORPUS:myrk:clean ->	run
+59 LM:myrk:train ->	run
+56 LM:myrk:binarize ->	run
+55 TRAINING:consolidate ->	run
+54 TRAINING:prepare-data ->	run
+53 TRAINING:run-giza ->	run
+52 TRAINING:run-giza-inverse ->	run
+51 TRAINING:symmetrize-giza ->	run
+50 TRAINING:build-lex-trans ->	run
+47 TRAINING:extract-phrases ->	run
+46 TRAINING:build-reordering ->	run
+45 TRAINING:build-ttable ->	run
+42 TRAINING:create-config ->	run
+27 TUNING:filter ->	run
+26 TUNING:apply-filter ->	run
+25 TUNING:tune ->	run
+24 TUNING:apply-weights ->	run
+18 EVALUATION:test:filter ->	run
+17 EVALUATION:test:apply-filter ->	run
+16 EVALUATION:test:decode ->	run
+15 EVALUATION:test:remove-markup ->	run
+11 EVALUATION:test:wrap ->	run
+10 EVALUATION:test:reference-from-sgm ->	run
+5 EVALUATION:test:nist-bleu ->	run
+4 EVALUATION:test:nist-bleu-c ->	run
+3 EVALUATION:test:multi-bleu ->	run
+2 EVALUATION:test:analysis-coverage ->	run
+1 EVALUATION:test:analysis-precision ->	run
+0 REPORTING:report ->	run
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+
+EXECUTE STEPS
+number of steps doable or running: 4 at Sun May 31 03:29:30 PM +07 2026
+	doable: CORPUS:myrk:clean
+	doable: EVALUATION:test:reference-from-sgm
+	doable: EVALUATION:test:input-from-sgm
+	doable: LM:myrk:train
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/CORPUS_myrk_clean.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_reference-from-sgm.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 03:29:42 PM +07 2026
+	doable: TRAINING:consolidate
+	doable: EVALUATION:test:input-from-sgm
+	doable: LM:myrk:train
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_consolidate.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_input-from-sgm.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:29:54 PM +07 2026
+	doable: LM:myrk:train
+	doable: TRAINING:prepare-data
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/LM_myrk_train.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_prepare-data.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:30:06 PM +07 2026
+	running: TRAINING:prepare-data
+	doable: LM:myrk:binarize
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/LM_myrk_binarize.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:30:13 PM +07 2026
+	doable: TRAINING:run-giza
+	doable: TRAINING:run-giza-inverse
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_run-giza.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_run-giza-inverse.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:30:25 PM +07 2026
+	doable: TRAINING:symmetrize-giza
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_symmetrize-giza.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:30:33 PM +07 2026
+	doable: TRAINING:build-lex-trans
+	doable: TRAINING:extract-phrases
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_build-lex-trans.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_extract-phrases.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:30:45 PM +07 2026
+	doable: TRAINING:build-ttable
+	doable: TRAINING:build-reordering
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_build-ttable.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_build-reordering.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 4 at Sun May 31 03:30:57 PM +07 2026
+	doable: EVALUATION:test:analysis-coverage
+	doable: TRAINING:create-config
+	doable: EVALUATION:test:filter
+	doable: TUNING:filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_analysis-coverage.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TRAINING_create-config.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 03:31:09 PM +07 2026
+	doable: EVALUATION:test:filter
+	doable: TUNING:filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_filter.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TUNING_filter.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:31:21 PM +07 2026
+	doable: TUNING:apply-filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TUNING_apply-filter.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:31:28 PM +07 2026
+	doable: TUNING:tune
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TUNING_tune.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:34:56 PM +07 2026
+	doable: TUNING:apply-weights
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/TUNING_apply-weights.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:35:03 PM +07 2026
+	doable: EVALUATION:test:apply-filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_apply-filter.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:35:10 PM +07 2026
+	doable: EVALUATION:test:decode
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_decode.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:35:19 PM +07 2026
+	doable: EVALUATION:test:remove-markup
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_remove-markup.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 03:35:26 PM +07 2026
+	doable: EVALUATION:test:wrap
+	doable: EVALUATION:test:multi-bleu
+	doable: EVALUATION:test:analysis-precision
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_wrap.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_multi-bleu.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 03:35:38 PM +07 2026
+	doable: EVALUATION:test:analysis-precision
+	doable: EVALUATION:test:nist-bleu-c
+	doable: EVALUATION:test:nist-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_analysis-precision.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_nist-bleu-c.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:35:50 PM +07 2026
+	doable: EVALUATION:test:nist-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/EVALUATION_test_nist-bleu.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 03:35:57 PM +07 2026
+	doable: REPORTING:report
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/steps/1/REPORTING_report.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 0 at Sun May 31 03:36:04 PM +07 2026
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^\[([^:]+):{ <-- HERE (\S+)}:(\S+)\]$/ at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 626.
+STARTING UP AS PROCESS 103007 ON bumblebee AT Sun May 31 05:33:28 PM +07 2026
+LOAD CONFIG...
+working directory is /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph
+find: ‘/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps’: No such file or directory
+running experimental run number 1
+
+ESTABLISH WHICH STEPS NEED TO BE RUN
+
+FIND DEPENDENCIES BETWEEN STEPS
+
+CHECKING IF OLD STEPS ARE RE-USABLE
+
+STEP SUMMARY:
+82 EVALUATION:test:input-from-sgm ->	run
+76 CORPUS:myrk:clean ->	run
+59 LM:myrk:train ->	run
+56 LM:myrk:binarize ->	run
+55 TRAINING:consolidate ->	run
+54 TRAINING:prepare-data ->	run
+53 TRAINING:run-giza ->	run
+52 TRAINING:run-giza-inverse ->	run
+51 TRAINING:symmetrize-giza ->	run
+50 TRAINING:build-lex-trans ->	run
+47 TRAINING:extract-phrases ->	run
+46 TRAINING:build-reordering ->	run
+45 TRAINING:build-ttable ->	run
+42 TRAINING:create-config ->	run
+27 TUNING:filter ->	run
+26 TUNING:apply-filter ->	run
+25 TUNING:tune ->	run
+24 TUNING:apply-weights ->	run
+18 EVALUATION:test:filter ->	run
+17 EVALUATION:test:apply-filter ->	run
+16 EVALUATION:test:decode ->	run
+15 EVALUATION:test:remove-markup ->	run
+11 EVALUATION:test:wrap ->	run
+10 EVALUATION:test:reference-from-sgm ->	run
+5 EVALUATION:test:nist-bleu ->	run
+4 EVALUATION:test:nist-bleu-c ->	run
+3 EVALUATION:test:multi-bleu ->	run
+2 EVALUATION:test:analysis-coverage ->	run
+1 EVALUATION:test:analysis-precision ->	run
+0 REPORTING:report ->	run
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+
+EXECUTE STEPS
+number of steps doable or running: 4 at Sun May 31 05:33:28 PM +07 2026
+	doable: EVALUATION:test:input-from-sgm
+	doable: EVALUATION:test:reference-from-sgm
+	doable: LM:myrk:train
+	doable: CORPUS:myrk:clean
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_input-from-sgm.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_reference-from-sgm.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:33:40 PM +07 2026
+	doable: CORPUS:myrk:clean
+	doable: LM:myrk:train
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/CORPUS_myrk_clean.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/LM_myrk_train.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:33:52 PM +07 2026
+	doable: LM:myrk:binarize
+	doable: TRAINING:consolidate
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/LM_myrk_binarize.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_consolidate.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:34:04 PM +07 2026
+	doable: TRAINING:prepare-data
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_prepare-data.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:34:14 PM +07 2026
+	doable: TRAINING:run-giza
+	doable: TRAINING:run-giza-inverse
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_run-giza.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_run-giza-inverse.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:34:26 PM +07 2026
+	doable: TRAINING:symmetrize-giza
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_symmetrize-giza.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:34:33 PM +07 2026
+	doable: TRAINING:extract-phrases
+	doable: TRAINING:build-lex-trans
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_extract-phrases.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_build-lex-trans.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:34:45 PM +07 2026
+	doable: TRAINING:build-ttable
+	doable: TRAINING:build-reordering
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_build-ttable.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_build-reordering.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 4 at Sun May 31 05:34:57 PM +07 2026
+	doable: TRAINING:create-config
+	doable: EVALUATION:test:filter
+	doable: TUNING:filter
+	doable: EVALUATION:test:analysis-coverage
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TRAINING_create-config.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_filter.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:35:09 PM +07 2026
+	doable: TUNING:filter
+	doable: EVALUATION:test:analysis-coverage
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TUNING_filter.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_analysis-coverage.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:35:21 PM +07 2026
+	doable: TUNING:apply-filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TUNING_apply-filter.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:35:28 PM +07 2026
+	doable: TUNING:tune
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TUNING_tune.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:36:46 PM +07 2026
+	doable: TUNING:apply-weights
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/TUNING_apply-weights.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:36:53 PM +07 2026
+	doable: EVALUATION:test:apply-filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_apply-filter.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:37:00 PM +07 2026
+	doable: EVALUATION:test:decode
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_decode.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:37:07 PM +07 2026
+	doable: EVALUATION:test:remove-markup
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_remove-markup.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 05:37:14 PM +07 2026
+	doable: EVALUATION:test:analysis-precision
+	doable: EVALUATION:test:wrap
+	doable: EVALUATION:test:multi-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_analysis-precision.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_wrap.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 05:37:26 PM +07 2026
+	doable: EVALUATION:test:nist-bleu
+	doable: EVALUATION:test:nist-bleu-c
+	doable: EVALUATION:test:multi-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_nist-bleu.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_nist-bleu-c.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:37:38 PM +07 2026
+	doable: EVALUATION:test:multi-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/EVALUATION_test_multi-bleu.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:37:45 PM +07 2026
+	doable: REPORTING:report
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/steps/1/REPORTING_report.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 0 at Sun May 31 05:37:53 PM +07 2026
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^\[([^:]+):{ <-- HERE (\S+)}:(\S+)\]$/ at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 626.
+STARTING UP AS PROCESS 105193 ON bumblebee AT Sun May 31 05:37:53 PM +07 2026
+LOAD CONFIG...
+working directory is /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my
+find: ‘/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps’: No such file or directory
+running experimental run number 1
+
+ESTABLISH WHICH STEPS NEED TO BE RUN
+
+FIND DEPENDENCIES BETWEEN STEPS
+
+CHECKING IF OLD STEPS ARE RE-USABLE
+
+STEP SUMMARY:
+82 EVALUATION:test:input-from-sgm ->	run
+76 CORPUS:myrk:clean ->	run
+59 LM:myrk:train ->	run
+56 LM:myrk:binarize ->	run
+55 TRAINING:consolidate ->	run
+54 TRAINING:prepare-data ->	run
+53 TRAINING:run-giza ->	run
+52 TRAINING:run-giza-inverse ->	run
+51 TRAINING:symmetrize-giza ->	run
+50 TRAINING:build-lex-trans ->	run
+47 TRAINING:extract-phrases ->	run
+46 TRAINING:build-reordering ->	run
+45 TRAINING:build-ttable ->	run
+42 TRAINING:create-config ->	run
+27 TUNING:filter ->	run
+26 TUNING:apply-filter ->	run
+25 TUNING:tune ->	run
+24 TUNING:apply-weights ->	run
+18 EVALUATION:test:filter ->	run
+17 EVALUATION:test:apply-filter ->	run
+16 EVALUATION:test:decode ->	run
+15 EVALUATION:test:remove-markup ->	run
+11 EVALUATION:test:wrap ->	run
+10 EVALUATION:test:reference-from-sgm ->	run
+5 EVALUATION:test:nist-bleu ->	run
+4 EVALUATION:test:nist-bleu-c ->	run
+3 EVALUATION:test:multi-bleu ->	run
+2 EVALUATION:test:analysis-coverage ->	run
+1 EVALUATION:test:analysis-precision ->	run
+0 REPORTING:report ->	run
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+
+EXECUTE STEPS
+number of steps doable or running: 4 at Sun May 31 05:37:53 PM +07 2026
+	doable: EVALUATION:test:reference-from-sgm
+	doable: LM:myrk:train
+	doable: EVALUATION:test:input-from-sgm
+	doable: CORPUS:myrk:clean
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_reference-from-sgm.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/LM_myrk_train.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 05:38:05 PM +07 2026
+	doable: LM:myrk:binarize
+	doable: EVALUATION:test:input-from-sgm
+	doable: CORPUS:myrk:clean
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/LM_myrk_binarize.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_input-from-sgm.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:38:17 PM +07 2026
+	doable: CORPUS:myrk:clean
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/CORPUS_myrk_clean.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:38:24 PM +07 2026
+	doable: TRAINING:consolidate
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_consolidate.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:38:31 PM +07 2026
+	doable: TRAINING:prepare-data
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_prepare-data.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:38:40 PM +07 2026
+	doable: TRAINING:run-giza-inverse
+	doable: TRAINING:run-giza
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_run-giza-inverse.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_run-giza.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:38:53 PM +07 2026
+	doable: TRAINING:symmetrize-giza
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_symmetrize-giza.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:39:00 PM +07 2026
+	doable: TRAINING:extract-phrases
+	doable: TRAINING:build-lex-trans
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_extract-phrases.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_build-lex-trans.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:39:12 PM +07 2026
+	doable: TRAINING:build-reordering
+	doable: TRAINING:build-ttable
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_build-reordering.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_build-ttable.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 4 at Sun May 31 05:39:24 PM +07 2026
+	doable: EVALUATION:test:analysis-coverage
+	doable: TRAINING:create-config
+	doable: EVALUATION:test:filter
+	doable: TUNING:filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_analysis-coverage.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TRAINING_create-config.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 2 at Sun May 31 05:39:36 PM +07 2026
+	doable: TUNING:filter
+	doable: EVALUATION:test:filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TUNING_filter.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_filter.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:39:48 PM +07 2026
+	doable: TUNING:apply-filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TUNING_apply-filter.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:39:55 PM +07 2026
+	doable: TUNING:tune
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TUNING_tune.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:44:19 PM +07 2026
+	doable: TUNING:apply-weights
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/TUNING_apply-weights.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:44:26 PM +07 2026
+	doable: EVALUATION:test:apply-filter
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_apply-filter.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:44:33 PM +07 2026
+	doable: EVALUATION:test:decode
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_decode.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:44:42 PM +07 2026
+	doable: EVALUATION:test:remove-markup
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_remove-markup.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 05:44:49 PM +07 2026
+	doable: EVALUATION:test:analysis-precision
+	doable: EVALUATION:test:wrap
+	doable: EVALUATION:test:multi-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_analysis-precision.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_wrap.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 3 at Sun May 31 05:45:01 PM +07 2026
+	doable: EVALUATION:test:nist-bleu-c
+	doable: EVALUATION:test:multi-bleu
+	doable: EVALUATION:test:nist-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_nist-bleu-c.1 via sh (1 active)
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_multi-bleu.1 via sh (2 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:45:13 PM +07 2026
+	doable: EVALUATION:test:nist-bleu
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/EVALUATION_test_nist-bleu.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 1 at Sun May 31 05:45:20 PM +07 2026
+	doable: REPORTING:report
+	executing /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/ph-my/steps/1/REPORTING_report.1 via sh (1 active)
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+number of steps doable or running: 0 at Sun May 31 05:45:27 PM +07 2026
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PS' @ error/constitute.c/IsCoderAuthorized/426.
+convert-im6.q16: no images defined `steps/1/graph.1.png' @ error/convert.c/ConvertImageCommand/3229.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^\[([^:]+):{ <-- HERE (\S+)}:(\S+)\]$/ at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 626.
+STARTING UP AS PROCESS 109147 ON bumblebee AT Sun May 31 05:48:42 PM +07 2026
+LOAD CONFIG...
+find: ‘/mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/train.ph*’: No such file or directory
+LM:myrk:raw-corpus: file /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/train.ph does not exist!
+find: ‘/mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.ph*’: No such file or directory
+TUNING:raw-reference: file /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.ph does not exist!
+Died at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 437.
+Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^\[([^:]+):{ <-- HERE (\S+)}:(\S+)\]$/ at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 626.
+STARTING UP AS PROCESS 109162 ON bumblebee AT Sun May 31 05:48:42 PM +07 2026
+LOAD CONFIG...
+find: ‘/mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.ph*’: No such file or directory
+TUNING:raw-input: file /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.ph does not exist!
+Died at /home/elio/tool/mosesbin/ubuntu-17.04/moses/scripts/ems/experiment.perl line 437.

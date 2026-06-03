@@ -1,0 +1,4 @@
+order = 5
+lm-training = /home/elio/tool/mosesbin/ubuntu-17.04/moses//scripts/ems/support/lmplz-wrapper.perl -bin /home/elio/tool/mosesbin/ubuntu-17.04/moses//bin/lmplz [1506443774]
+settings = --prune '0 0 1' -T /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/ph-my/lm -S 20% --discount_fallback
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/train.my

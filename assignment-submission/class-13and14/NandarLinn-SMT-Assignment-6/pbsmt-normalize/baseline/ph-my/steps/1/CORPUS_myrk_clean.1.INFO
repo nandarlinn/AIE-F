@@ -1,0 +1,2 @@
+max-sentence-length = 80
+INPUT = USED /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/train

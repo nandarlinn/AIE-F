@@ -1,0 +1,4 @@
+starting at Sun May 31 05:31:38 PM +07 2026 on bumblebee
+To run the decoder, please call:
+  moses -f /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.filtered.2/moses.ini -i /mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt/baseline/my-ph/evaluation/test.filtered.2/input.102317
+finished at Sun May 31 05:31:39 PM +07 2026

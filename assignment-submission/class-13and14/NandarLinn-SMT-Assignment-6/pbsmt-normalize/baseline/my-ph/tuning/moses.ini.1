@@ -1,0 +1,42 @@
+# MERT optimized configuration
+# decoder /home/elio/tool/mosesbin/ubuntu-17.04/moses//bin/moses
+# BLEU 0.685997 on dev /mnt/data/personal_projects/NandarLinn-SMT-Assignment/clean-data/dev.my
+# We were before running iteration 2
+# finished Sun May 31 05:36:44 PM +07 2026
+### MOSES CONFIG FILE ###
+#########################
+
+# input factors
+[input-factors]
+0
+
+# mapping steps
+[mapping]
+0 T 0
+
+[distortion-limit]
+6
+
+# feature functions
+[feature]
+UnknownWordPenalty
+WordPenalty
+PhrasePenalty
+PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/tuning/filtered.1/phrase-table.0-0.1.1.gz input-factor=0 output-factor=0 
+LexicalReordering name=LexicalReordering0 num-features=6 type=wbe-msd-bidirectional-fe-allff input-factor=0 output-factor=0 path=/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/tuning/filtered.1/reordering-table.1.wbe-msd-bidirectional-fe.0-0.1 
+Distortion
+KENLM name=LM0 factor=0 path=/mnt/data/personal_projects/NandarLinn-SMT-Assignment/pbsmt-normalize/baseline/my-ph/lm/myrk.binlm.1 order=5
+
+# dense weights for feature functions
+
+[v]
+0
+[weight]
+
+LexicalReordering0= 0.306657 0.0635993 0.00870793 0.0660832 0.0314438 0.0704199
+Distortion0= 0.0550885
+LM0= 0.0625317
+WordPenalty0= 0.20554
+PhrasePenalty0= 0.0164551
+TranslationModel0= 0.078325 0.00414784 0.0207641 -0.0102366
+UnknownWordPenalty0= 1
