@@ -1,0 +1,27 @@
+=== 1/5 Counting and sorting n-grams ===
+Reading /home/phantom/Desktop/LM_Evaluation&Domain_Analysis/language_model_process/corpus/syllable.txt
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 315840 types 2096
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:25152 2:1300661376 3:2438740224 4:3901984000 5:5690394112
+Statistics:
+1 2096 D1=0.550781 D2=1.02296 D3+=1.41245
+2 51224 D1=0.703724 D2=1.07634 D3+=1.44795
+3 137846 D1=0.809063 D2=1.14172 D3+=1.49301
+4 204170 D1=0.880132 D2=1.23717 D3+=1.52484
+5 240990 D1=0.866364 D2=1.30897 D3+=1.44484
+Memory estimate for binary LM:
+type       kB
+probing 13505 assuming -p 1.5
+probing 15818 assuming -r models -p 1.5
+trie     5778 without quantization
+trie     2852 assuming -q 8 -b 8 quantization 
+trie     5271 assuming -a 22 array pointer compression
+trie     2345 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:25152 2:819584 3:2756920 4:4900080 5:6747720
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:25152 2:819584 3:2756920 4:4900080 5:6747720
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:17192720 kB	VmRSS:50880 kB	RSSMax:2330240 kB	user:1.36026	sys:1.5963	CPU:2.95656	real:2.60696

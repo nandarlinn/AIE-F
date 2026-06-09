@@ -1,0 +1,12 @@
+Binary write mode is NOT selected
+Scorer type: BLEU
+name: case value: true
+Loading reference from /home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/data/g2p-par/bleu_improve_workspace/normalized/dev.ph
+...................Data::m_score_type BLEU
+Data::Scorer type from Scorer: BLEU
+loading nbest from run2.best100.out.gz
+Loaded N-best lists : [Wall 1.18235 CPU 1.18272] seconds.
+Binary write mode is NOT selected
+saving the array into run2.features.dat
+saving the array into run2.scores.dat
+Stopping... : [Wall 3.76745 CPU 3.76869] seconds.
