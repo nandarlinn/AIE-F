@@ -194,9 +194,10 @@ Refer following Jupyter Notebooks:
 ## Assignment No.8 (MSL Recognition Tutorial)
 ### (@Class-25)
 
+[Class-25](https://github.com/ye-kyaw-thu/AIE-F/tree/main/slide-code/class-25) အောက်မှာ စာသင်စဉ်မှာ သုံးခဲ့တဲ့ presentation slide ပြီးတော့ လိုအပ်တဲ့ Python code, shell script တွေနဲ့ example Jupyter Notebook တွေ အားလုံးကို ပြင်ဆင်ပေးထားပါတယ်။  
 ### Jupyter Notebooks
 
-Jupyter Notebook တွေကို ကြည့်ပြီး လေ့လာပါ။   
+Jupyter Notebook တွေကို ကြည့်ပြီး လေ့လာသွားပါ။   
 
 1. [MSL-Video-Recognition-Tutorial.ipynb](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-25/msl_recognition/MSL-Video-Recognition-Tutorial.ipynb)
    ဒီ notebook က အတန်းထဲမှာ ဆရာ အစအဆုံး ၂နာရီကျော် အချိန်ယူပြီး run ပြခဲ့တဲ့ notebook ပါ။   
