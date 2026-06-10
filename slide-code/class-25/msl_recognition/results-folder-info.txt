@@ -1,0 +1,199 @@
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$ tree results/exp_transformer
+results/exp_transformer
+├── checkpoints
+│   ├── best.pth
+│   ├── epoch018_val0.9566.pth
+│   ├── epoch023_val0.9635.pth
+│   ├── epoch026_val0.9618.pth
+│   ├── epoch027_val0.9630.pth
+│   ├── epoch029_val0.9653.pth
+│   ├── epoch030_val0.9653.pth
+│   ├── epoch032_val0.9688.pth
+│   ├── epoch033_val0.9653.pth
+│   ├── epoch035_val0.9688.pth
+│   ├── epoch037_val0.9635.pth
+│   ├── epoch043_val0.9705.pth
+│   ├── epoch046_val0.9722.pth
+│   ├── epoch049_val0.9757.pth
+│   ├── epoch050_val0.9809.pth
+│   ├── epoch051_val0.9670.pth
+│   ├── epoch052_val0.9653.pth
+│   ├── epoch053_val0.9670.pth
+│   ├── epoch054_val0.9722.pth
+│   ├── epoch055_val0.9809.pth
+│   ├── epoch059_val0.9809.pth
+│   ├── epoch060_val0.9792.pth
+│   ├── epoch061_val0.9705.pth
+│   ├── epoch062_val0.9705.pth
+│   ├── epoch063_val0.9774.pth
+│   ├── epoch064_val0.9757.pth
+│   ├── epoch065_val0.9774.pth
+│   ├── epoch066_val0.9792.pth
+│   ├── epoch067_val0.9774.pth
+│   ├── epoch068_val0.9792.pth
+│   ├── epoch069_val0.9774.pth
+│   ├── epoch070_val0.9792.pth
+│   ├── epoch071_val0.9774.pth
+│   ├── epoch072_val0.9774.pth
+│   ├── epoch073_val0.9688.pth
+│   ├── epoch074_val0.9740.pth
+│   └── epoch075_val0.9722.pth
+├── config_used.yaml
+├── evaluation
+│   ├── confusion_matrix_test.npy
+│   ├── confusion_matrix_test.png
+│   ├── confusion_matrix_val.npy
+│   ├── confusion_matrix_val.png
+│   ├── eval_test.log
+│   ├── eval_val.log
+│   ├── metrics_test.json
+│   ├── metrics_val.json
+│   ├── per_class_test.csv
+│   ├── per_class_val.csv
+│   ├── predictions_test.csv
+│   └── predictions_val.csv
+├── history.json
+└── logs
+    ├── events.out.tfevents.1779162829.lst-hpc3090.339918.0
+    ├── train.log
+    └── train_stdout.log
+
+4 directories, 54 files
+
+===============
+
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$ tree results/exp_bilstm
+
+results/exp_bilstm
+├── checkpoints
+│   ├── best.pth
+│   ├── epoch028_val0.9149.pth
+│   ├── epoch029_val0.9127.pth
+│   ├── epoch037_val0.9271.pth
+│   ├── epoch039_val0.9253.pth
+│   ├── epoch042_val0.9306.pth
+│   ├── epoch043_val0.9283.pth
+│   ├── epoch047_val0.9340.pth
+│   ├── epoch050_val0.9375.pth
+│   ├── epoch053_val0.9392.pth
+│   ├── epoch056_val0.9427.pth
+│   ├── epoch058_val0.9427.pth
+│   ├── epoch060_val0.9340.pth
+│   ├── epoch062_val0.9427.pth
+│   ├── epoch063_val0.9358.pth
+│   ├── epoch064_val0.9375.pth
+│   ├── epoch065_val0.9392.pth
+│   ├── epoch066_val0.9427.pth
+│   ├── epoch069_val0.9427.pth
+│   ├── epoch070_val0.9444.pth
+│   ├── epoch074_val0.9427.pth
+│   ├── epoch076_val0.9479.pth
+│   ├── epoch077_val0.9444.pth
+│   ├── epoch079_val0.9479.pth
+│   ├── epoch080_val0.9479.pth
+│   ├── epoch081_val0.9462.pth
+│   ├── epoch082_val0.9462.pth
+│   ├── epoch084_val0.9479.pth
+│   ├── epoch085_val0.9392.pth
+│   ├── epoch086_val0.9427.pth
+│   ├── epoch087_val0.9462.pth
+│   ├── epoch088_val0.9444.pth
+│   ├── epoch089_val0.9479.pth
+│   ├── epoch090_val0.9479.pth
+│   ├── epoch091_val0.9444.pth
+│   ├── epoch092_val0.9497.pth
+│   ├── epoch094_val0.9479.pth
+│   ├── epoch095_val0.9410.pth
+│   ├── epoch096_val0.9479.pth
+│   ├── epoch097_val0.9479.pth
+│   ├── epoch098_val0.9427.pth
+│   ├── epoch100_val0.9531.pth
+│   ├── epoch101_val0.9531.pth
+│   ├── epoch102_val0.9514.pth
+│   ├── epoch103_val0.9531.pth
+│   ├── epoch104_val0.9444.pth
+│   ├── epoch105_val0.9479.pth
+│   ├── epoch106_val0.9479.pth
+│   ├── epoch107_val0.9514.pth
+│   └── epoch108_val0.9514.pth
+├── config_used.yaml
+├── evaluation
+│   ├── confusion_matrix_test.npy
+│   ├── confusion_matrix_test.png
+│   ├── confusion_matrix_val.npy
+│   ├── confusion_matrix_val.png
+│   ├── eval_test.log
+│   ├── eval_val.log
+│   ├── metrics_test.json
+│   ├── metrics_val.json
+│   ├── per_class_test.csv
+│   ├── per_class_val.csv
+│   ├── predictions_test.csv
+│   └── predictions_val.csv
+├── history.json
+└── logs
+    ├── events.out.tfevents.1779155023.lst-hpc3090.323816.0
+    ├── train.log
+    └── train_stdout.log
+
+4 directories, 67 files
+
+=============
+
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$ tree results/exp_stgcn
+
+results/exp_stgcn
+├── checkpoints
+│   ├── best.pth
+│   ├── epoch025_val0.9144.pth
+│   ├── epoch027_val0.9167.pth
+│   ├── epoch034_val0.9288.pth
+│   ├── epoch035_val0.9271.pth
+│   ├── epoch036_val0.9219.pth
+│   ├── epoch037_val0.9288.pth
+│   ├── epoch038_val0.9253.pth
+│   ├── epoch040_val0.9306.pth
+│   ├── epoch041_val0.9288.pth
+│   ├── epoch046_val0.9358.pth
+│   ├── epoch049_val0.9375.pth
+│   ├── epoch052_val0.9358.pth
+│   ├── epoch053_val0.9340.pth
+│   ├── epoch056_val0.9306.pth
+│   ├── epoch057_val0.9392.pth
+│   ├── epoch062_val0.9444.pth
+│   ├── epoch063_val0.9410.pth
+│   ├── epoch064_val0.9410.pth
+│   ├── epoch065_val0.9427.pth
+│   ├── epoch066_val0.9549.pth
+│   ├── epoch067_val0.9444.pth
+│   ├── epoch068_val0.9444.pth
+│   ├── epoch070_val0.9410.pth
+│   ├── epoch071_val0.9514.pth
+│   ├── epoch072_val0.9444.pth
+│   ├── epoch073_val0.9497.pth
+│   ├── epoch074_val0.9444.pth
+│   ├── epoch075_val0.9392.pth
+│   ├── epoch076_val0.9479.pth
+│   ├── epoch077_val0.9497.pth
+│   ├── epoch078_val0.9462.pth
+│   ├── epoch079_val0.9375.pth
+│   ├── epoch080_val0.9410.pth
+│   ├── epoch081_val0.9479.pth
+│   ├── epoch082_val0.9444.pth
+│   ├── epoch083_val0.9497.pth
+│   ├── epoch084_val0.9479.pth
+│   ├── epoch085_val0.9410.pth
+│   ├── epoch086_val0.9462.pth
+│   ├── epoch087_val0.9514.pth
+│   ├── epoch088_val0.9497.pth
+│   ├── epoch089_val0.9410.pth
+│   ├── epoch090_val0.9462.pth
+│   └── epoch091_val0.9427.pth
+├── config_used.yaml
+├── history.json
+└── logs
+    ├── events.out.tfevents.1779175970.lst-hpc3090.362434.0
+    ├── train.log
+    └── train_stdout.log
+
+3 directories, 50 files

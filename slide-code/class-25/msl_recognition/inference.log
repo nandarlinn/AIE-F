@@ -1,0 +1,137 @@
+# Inference Experiment Log
+
+
+l with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1779367355.790098  848714 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1779367355.847578  848682 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1779367355.926013  848701 landmark_projection_calculator.cc:186] Using NORM_RECT without IMAGE_DIMENSIONS is only supported for the square ROI. Provide IMAGE_DIMENSIONS or use PROJECTION_MATRIX.
+
+───────────────────────────────────────────────────────
+  Video : idx20-31.mp4
+  Frames: 94  FPS: 30.0
+  Hands : L=68%  R=74%
+  Top-5 predictions:
+    1. [ 91.8%] ███████████████████████████     ချျိုင့် ။
+    2. [  0.1%]                                 မြေနိမ့်ဒေသ ။
+    3. [  0.1%]                                 အထပ်မြင့် တတိုက် ပေါ် က ခုန် မ ထွက် နနဲ့ ။
+    4. [  0.1%]                                 ည ၁၀ နာရီ နောက် ပပိုင်း အမျျိုးသား နေ ခွင့် မ ရှိ ပါ ဘူး ။
+    5. [  0.0%]                                 လျှပ်တစ်ပြက် ရေကြီး ခြင်း ။
+───────────────────────────────────────────────────────
+
+
+real    0m10.683s
+user    0m14.730s
+sys     0m2.854s
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$
+
+==========
+
+l with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1779367431.175157  848934 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1779367431.220385  848925 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1779367431.307584  848930 landmark_projection_calculator.cc:186] Using NORM_RECT without IMAGE_DIMENSIONS is only supported for the square ROI. Provide IMAGE_DIMENSIONS or use PROJECTION_MATRIX.
+
+───────────────────────────────────────────────────────
+  Video : idx20-100.mp4
+  Frames: 98  FPS: 30.0
+  Hands : L=60%  R=48%
+  Top-5 predictions:
+    1. [ 93.1%] ███████████████████████████     ခုန် မ ချ နနဲ့ ။
+    2. [  0.1%]                                 မီးသတ်အဖွွဲ့ လွတ် ပေး ။
+    3. [  0.0%]                                 ဒီ ဆေး ကကို တစ် ရက် တစ် ကြိမ် သောက် ပါ ။
+    4. [  0.0%]                                 လက်ဖဝါး က သွေး ထွက် နေ တယ် ။
+    5. [  0.0%]                                 မီးသတ်ကား မောင်း လာ တတဲ့ လမ်း ပေါ် မှာ ပစ္စည်း တွေ ချ မ ထား နနဲ့ ။
+        ───────────────────────────────────────────────────────
+
+
+real    0m10.882s
+user    0m14.907s
+sys     0m2.790s
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$
+
+========
+
+W0000 00:00:1779367545.038945  849585 landmark_projection_calculator.cc:186] Using NORM_RECT without IMAGE_DIMENSIONS is only supported for the square ROI. Provide IMAGE_DIMENSIONS or use PROJECTION_MATRIX.
+
+───────────────────────────────────────────────────────
+  Video : idx20-150.mp4
+  Frames: 91  FPS: 30.0
+  Hands : L=100%  R=69%
+  Top-5 predictions:
+    1. [ 85.7%] █████████████████████████       လူ တစ်ယောက် ထိခခိုက် သွား တယ် ။
+    2. [  0.2%]                                 သွား ကကိုက် တယ် ။
+    3. [  0.1%]                                 အသက်ရှူ နေ သေး လား ။
+    4. [  0.1%]                                 ကျွန်တော် တုပ်ကွေး မိ ပြီ ထင် တယ် ။
+    5. [  0.1%]                                 ကျွန်တော် ဖျား နေ ပြီ ။
+───────────────────────────────────────────────────────
+
+
+real    0m10.559s
+user    0m14.411s
+sys     0m2.724s
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$
+
+=========
+
+
+───────────────────────────────────────────────────────
+  Video : idx20-157.mp4
+  Frames: 139  FPS: 30.0
+  Hands : L=68%  R=65%
+  Top-5 predictions:
+    1. [ 89.7%] ██████████████████████████      ရန်ကုန် မန္တလေး အမြန်လမ်း ပေါ် မှာ ကားတတိုက် မှု ဖြစ် လလိလို့ ပါ ။
+    2. [  0.1%]                                 ကျွန်တော့် စျေးဆဆိုင် အ ဖောက် ခံ လလိုက် ရ တယ် ။
+    3. [  0.1%]                                 ဒီ ဆေး ကကို တစ် ရက် တစ် ကြိမ် သောက် ပါ ။
+    4. [  0.1%]                                 ကျွန်တော့် ရည်းစား လှေကား ပေါ် က ချော်ကျ သွား လလိလို့ ပါ ။
+    5. [  0.1%]                                 ဟဟို မှာ ကားတတိုက် မှု ဖြစ် နေ လလိလို့ ပါ ။
+───────────────────────────────────────────────────────
+
+
+real    0m15.037s
+user    0m19.369s
+sys     0m2.827s
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$
+
+=======
+
+
+───────────────────────────────────────────────────────
+  Video : idx20-512.mp4
+  Frames: 107  FPS: 30.0
+  Hands : L=30%  R=38%
+  Top-5 predictions:
+    1. [ 82.3%] ████████████████████████        ကျွန်မ အမျျိုးသမီး ဆရာဝန် နနဲ့ ပဲ ပြ ချင် တယ် ။
+    2. [  0.1%]                                 ဆရာဝန် ဖုန်း နံပါတ် လလို ချင် လလိလို့ ပါ ။
+    3. [  0.1%]                                 မိသားစု ကကို အကြောင်းကြား ပြီး ပြီ လား ။
+    4. [  0.1%]                                 အရေပြား တွေ ခြောက် နေ တာ အတွက် ခရင်မ် လိမ်းဆေး လလို ချင် ပါ တယ် ။
+    5. [  0.1%]                                 ဆရာဝန် ဖုန်း နံပါတ် ခင်ဗျား မှာ ရှိ လား ။
+───────────────────────────────────────────────────────
+
+
+real    0m11.686s
+user    0m15.421s
+sys     0m2.859s
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$
+
+========
+
+
+───────────────────────────────────────────────────────
+  Video : idx20-521.mp4
+  Frames: 92  FPS: 30.0
+  Hands : L=0%  R=49%
+  Top-5 predictions:
+    1. [ 92.6%] ███████████████████████████     လူနာ က ကျွန်တော့် အမေ ပါ ။
+    2. [  0.1%]                                 ဒီ ဆေး တွေ ကကို ဘယ် အချိန် မှာ သောက် ရ မှာ လဲ ။
+    3. [  0.1%]                                 ညအိပ်ယာဝင် သောက် ပါ ။
+    4. [  0.1%]                                 နှစ် ပတ် ကြာ မယ် ။
+    5. [  0.1%]                                 လူနာ က ကျွန်တော့် အဖေ ပါ ။
+───────────────────────────────────────────────────────
+
+
+real    0m10.355s
+user    0m14.092s
+sys     0m2.865s
+(.venv) ye@lst-hpc3090:/mnt/disk1/ye/exp/msl_recognition$
+
+
