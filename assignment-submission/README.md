@@ -192,7 +192,7 @@ Refer following Jupyter Notebooks:
 **Transformer NMT with Marian:** [https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/pdf/Transformer-NMT-marian-ph2gp.pdf](https://github.com/ye-kyaw-thu/AIE-F/blob/main/slide-code/class-22/NMT-notebooks/pdf/Transformer-NMT-marian-ph2gp.pdf)  
 
 ## Assignment No.8 (MSL Recognition Tutorial)
-### (@Class-1)
+### (@Class-25)
 
 ### Jupyter Notebooks
 
