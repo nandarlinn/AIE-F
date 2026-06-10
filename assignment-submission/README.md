@@ -240,7 +240,7 @@ data ဖိုလ်ဒါအောက်မှာ videos ဆိုတဲ့ ဖ
 - data/ ဖိုလ်ဒါ ကိုပြင်ဆင်ပြီး [MSL4Emergency](https://github.com/ye-kyaw-thu/MSL4Emergency) repository ကနေ ဗီဒီယိုဖိုင်တွေကို download လုပ်ယူပြီး ပြင်ဆင်ပါ။
 - config/ ဖိုလ်ဒါအောက်မှာ config.yaml ဖိုင်ကိုလည်း ပြင်ဆင်ထားဖို့ လိုအပ်ပါလိမ့်မယ်။
 - ပြီးရင်တော့ script/ ဖိုလ်ဒါအောက်ထဲက shell script တွေကို နံပါတ်စဉ်အတိုင်း အဆင့်ဆင့် run သွားရင် အဆင်ပြေပါလိမ့်မယ်။
-- ဒီ Assignment မှာ အဓိက အပြောင်းအလဲ လုပ်ကြည့်စေချင်တာက annotations.txt ဖိုင်ထဲက ကော်လံနီပါတ် (၂) MSL gloss ကို သုံးပြီး video recognition လုပ်ကြည့်စေချင်တာပါ။ ရလဒ်တွေနဲ့တကွ run ထားတဲ့ Jupyter Notebook ကို ဆရာ့ဆီကို အီးမေးလ်နဲ့ ပို့ပေးတာ ဖြစ်ဖြစ်၊ ဒါမှမဟုတ် ဆရာ ပြင်ဆင်ပေးထားတဲ့ GitHub Repository [assignment-submission/class-25/](https://github.com/ye-kyaw-thu/AIE-F/tree/main/assignment-submission/class-25) အောက်မှာ Pull request လုပ်ထားပေးကြပါ။    
+- ဒီ Assignment မှာ အဓိက အပြောင်းအလဲ လုပ်ကြည့်စေချင်တာက annotations.txt ဖိုင်ထဲက ကော်လံနံပါတ် (၂) MSL gloss ကို သုံးပြီး video recognition လုပ်ကြည့်စေချင်တာပါ။ ရလဒ်တွေနဲ့တကွ run ထားတဲ့ Jupyter Notebook ကို ဆရာ့ဆီကို အီးမေးလ်နဲ့ ပို့ပေးတာ ဖြစ်ဖြစ်၊ ဒါမှမဟုတ် ဆရာ ပြင်ဆင်ပေးထားတဲ့ GitHub Repository [assignment-submission/class-25/](https://github.com/ye-kyaw-thu/AIE-F/tree/main/assignment-submission/class-25) အောက်မှာ Pull request လုပ်ထားပေးကြပါ။    
 - လေ့လာရတဲ့အခါမှာ လွယ်ကူအောင်လို့ Jupyter notebook တွေကို PDF ဖိုင်အဖြစ်လည်း ပြောင်းပေးထားပါတယ်။  
 - ဖြစ်နိုင်ရင် တပတ်အတွင်းမှာ ပြီးအောင် ကြိုးစား လုပ်ကြပါ။  
 
