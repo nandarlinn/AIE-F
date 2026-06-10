@@ -33,3 +33,7 @@ requirements.txt ဖိုင်ကတော့ လိုအပ်တဲ့ pyth
 
 ## Assignment Information
 
+### pdf
+
+- လေ့လာရတဲ့အခါမှာ လွယ်ကူအောင်လို့ Jupyter notebook တွေကို PDF ဖိုင်အဖြစ်လည်း ပြောင်းပေးထားပါတယ်။  
+
