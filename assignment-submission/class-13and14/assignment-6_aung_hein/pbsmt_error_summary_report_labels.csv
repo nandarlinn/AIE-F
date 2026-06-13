@@ -1,0 +1,5 @@
+Root_Cause,Count,Percentage
+Context-dependent pronunciation variation,856,72.91
+Out of Vocabulary (OOV),232,19.76
+Missing pronunciation variant in training data,85,7.24
+Rare over-generalization / segmentation error,1,0.09

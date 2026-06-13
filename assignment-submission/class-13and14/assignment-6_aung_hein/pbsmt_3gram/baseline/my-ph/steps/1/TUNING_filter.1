@@ -1,0 +1,14 @@
+#!/bin/bash
+
+PATH="/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/bin:/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/tuning
+
+touch /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/tuning/moses.table.ini.1
+/home/kyalkalay/tools/mosesdecoder/scripts/training/train-model.perl -dont-zip -first-step 9 -external-bin-dir /usr/local/bin -f my -e ph -alignment grow-diag-final-and -max-phrase-length 5 -parts 5 -reordering msd-bidirectional-fe -score-options '--GoodTuring' -parallel -phrase-translation-table /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/model/phrase-table.1 -reordering-table /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/model/reordering-table.1 -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/tuning/moses.table.ini.1 -lm 0:3:/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/tuning/moses.table.ini.1:8
+/home/kyalkalay/tools/mosesdecoder/scripts/training/filter-model-given-input.pl /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/tuning/filtered.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/tuning/moses.table.ini.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.my 
+rm /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/tuning/moses.table.ini.1
+
+echo 'finished at '`date`
+touch /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_3gram/baseline/my-ph/steps/1/TUNING_filter.1.DONE

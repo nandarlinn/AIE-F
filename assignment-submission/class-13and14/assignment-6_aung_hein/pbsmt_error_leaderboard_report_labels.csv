@@ -1,0 +1,791 @@
+Source_Syllable,Moses_Output,True_Reference,Root_Cause,Error_Count
+ခံ,khan,gan,Context-dependent pronunciation variation,12
+မ,ma-,ma.,Context-dependent pronunciation variation,10
+ခြေ,chei,chi,Context-dependent pronunciation variation,8
+ဝါး,wa:,wa-,Context-dependent pronunciation variation,8
+ကျ,kya.,gya.,Context-dependent pronunciation variation,7
+ပေါက်,bau',pau',Context-dependent pronunciation variation,7
+ကြား,gya:,kya:,Context-dependent pronunciation variation,7
+က,ka-,ga-,Context-dependent pronunciation variation,7
+စား,za:,sa:,Context-dependent pronunciation variation,7
+တောင်,taun,daun,Context-dependent pronunciation variation,6
+ပိုး,pou:,bou:,Context-dependent pronunciation variation,6
+ဆိုး,hsou:,zou:,Context-dependent pronunciation variation,6
+ကြီး,gyi:,kyi:,Context-dependent pronunciation variation,6
+တင်,tin,din,Context-dependent pronunciation variation,6
+သွား,dhwa:,thwa:,Context-dependent pronunciation variation,6
+သား,dha:,tha:,Context-dependent pronunciation variation,6
+ဖက်,hpe',be',Context-dependent pronunciation variation,5
+ဆေး,hsei:,zei:,Context-dependent pronunciation variation,5
+စောင်,saun,zaun,Context-dependent pronunciation variation,5
+ဆွဲ,hswe:,zwe:,Context-dependent pronunciation variation,5
+တုတ်,tou',dou',Context-dependent pronunciation variation,5
+ကုန်,koun,goun,Context-dependent pronunciation variation,5
+က,ka-,ka.,Context-dependent pronunciation variation,5
+စေ့,zei.,sei.,Context-dependent pronunciation variation,5
+စဉ်,zin,sin,Context-dependent pronunciation variation,5
+ခွက်,khwe',gwe',Context-dependent pronunciation variation,5
+တ,ta-,da-,Context-dependent pronunciation variation,4
+တံ,dan,tan,Context-dependent pronunciation variation,4
+ချို,chou,gyou,Context-dependent pronunciation variation,4
+စီး,zi:,si:,Context-dependent pronunciation variation,4
+ထောင်,htaun,daun,Context-dependent pronunciation variation,4
+တူ,du,tu,Context-dependent pronunciation variation,4
+တိုက်,tai',dai',Context-dependent pronunciation variation,4
+ပြန်,pjan,bjan,Context-dependent pronunciation variation,4
+သေ,dhei,thei,Context-dependent pronunciation variation,4
+ကိုင်,kain,gain,Context-dependent pronunciation variation,4
+ကောင်း,kaun:,gaun:,Context-dependent pronunciation variation,4
+ပူ,pu,bu,Context-dependent pronunciation variation,4
+က,ga-,ka-,Context-dependent pronunciation variation,4
+ခြောက်,chau',gyau',Context-dependent pronunciation variation,4
+ချုပ်,gyou',chou',Context-dependent pronunciation variation,4
+စင်,zin,sin,Context-dependent pronunciation variation,4
+နှင့်,nhin.,ne.,Context-dependent pronunciation variation,4
+ကျယ်,kye,gye,Context-dependent pronunciation variation,4
+နည်း,ni:,ne:,Context-dependent pronunciation variation,4
+နား,na:,na-,Context-dependent pronunciation variation,4
+သ,tha-,dha-,Context-dependent pronunciation variation,3
+ရေ,jei,rei,Context-dependent pronunciation variation,3
+အ,a-,a,Context-dependent pronunciation variation,3
+ကပ်,ka',ga',Context-dependent pronunciation variation,3
+ဖို,hpou,bou,Context-dependent pronunciation variation,3
+ရည်,ji,jei,Context-dependent pronunciation variation,3
+မြီး,mji:,mi:,Context-dependent pronunciation variation,3
+ဖျား,hpja:,bja:,Context-dependent pronunciation variation,3
+ပြာ,pja,bja,Context-dependent pronunciation variation,3
+ကုန်း,koun:,goun:,Context-dependent pronunciation variation,3
+ကုပ်,gou',kou',Context-dependent pronunciation variation,3
+ဖော်,hpo,bo,Context-dependent pronunciation variation,3
+တိုင်,dain,tain,Context-dependent pronunciation variation,3
+တောက်,tau',dau',Context-dependent pronunciation variation,3
+တင်း,tin:,din:,Context-dependent pronunciation variation,3
+တန်,tan,dan,Context-dependent pronunciation variation,3
+န,na-,na.,Context-dependent pronunciation variation,3
+ပါး,pa:,pa-,Context-dependent pronunciation variation,3
+ပြည့်,pji.,pjei.,Context-dependent pronunciation variation,3
+ပြ,pja.,bja.,Context-dependent pronunciation variation,3
+ထိုး,htou:,dou:,Context-dependent pronunciation variation,3
+ကျန်,kyan,gyan,Context-dependent pronunciation variation,3
+တို,dou,tou,Context-dependent pronunciation variation,3
+ထိန်း,dein:,htein:,Context-dependent pronunciation variation,3
+ဆွမ်း,hsun:,hswan:,Context-dependent pronunciation variation,3
+တက်,te',de',Context-dependent pronunciation variation,3
+စာ,za,sa,Context-dependent pronunciation variation,3
+ကြော,gyo:,kyo:,Context-dependent pronunciation variation,3
+ဆက်,hse',ze',Context-dependent pronunciation variation,3
+ဆီ,hsi,zi,Context-dependent pronunciation variation,3
+စံ,san,zan,Context-dependent pronunciation variation,3
+စပ်,sa',za',Context-dependent pronunciation variation,3
+စစ်,si',zi',Context-dependent pronunciation variation,3
+စ ကား,za- ga:,za- ga-,Out of Vocabulary (OOV),3
+ခဲ,ge:,khe:,Context-dependent pronunciation variation,3
+ခန်း,gan:,khan:,Context-dependent pronunciation variation,3
+ကန်,kan,gan,Context-dependent pronunciation variation,3
+ကွင်း,gwin:,kwin:,Context-dependent pronunciation variation,3
+ခ နဲ,kha- ne:,ga- ne:,Out of Vocabulary (OOV),3
+ကင်း,kin:,gin:,Context-dependent pronunciation variation,3
+စ,sa-,sa.,Context-dependent pronunciation variation,2
+သည်,dhe,dhi,Context-dependent pronunciation variation,2
+ပေါက်,pau',bau',Context-dependent pronunciation variation,2
+သက် က ရာဇ်,the' ka- ji',dha- ga- ji',Out of Vocabulary (OOV),2
+ခွင်,gwin,khwin,Context-dependent pronunciation variation,2
+တန်း,dan:,tan:,Context-dependent pronunciation variation,2
+ချစ်,chi',gyi',Context-dependent pronunciation variation,2
+ကန်း,gan:,kan:,Context-dependent pronunciation variation,2
+ချဉ်,gyin,chin,Context-dependent pronunciation variation,2
+တို့,dou.,tou.,Context-dependent pronunciation variation,2
+ပေါ်,po,bo,Context-dependent pronunciation variation,2
+စာ,sa,sa-,Context-dependent pronunciation variation,2
+ခံ,gan,khan,Context-dependent pronunciation variation,2
+ဘီး,bi:,bein:,Context-dependent pronunciation variation,2
+တိုး,tou:,dou:,Context-dependent pronunciation variation,2
+ချိုး,chou:,gyou:,Context-dependent pronunciation variation,2
+ပဲ,pe:,be:,Context-dependent pronunciation variation,2
+စည်း,si:,zi:,Context-dependent pronunciation variation,2
+ဝမ်း,wan:,wun:,Context-dependent pronunciation variation,2
+ပ,pa-,pjin,Context-dependent pronunciation variation,2
+စွန်,zun,sun,Context-dependent pronunciation variation,2
+ထွက်,htwe',dwe',Context-dependent pronunciation variation,2
+သိ,thi.,dhi.,Context-dependent pronunciation variation,2
+ပျော်,pjo,bjo,Missing pronunciation variant in training data,2
+ခေါက်,khau',gau',Context-dependent pronunciation variation,2
+ကြော့,gyo.,kyo.,Context-dependent pronunciation variation,2
+ချာ,cha,gya,Context-dependent pronunciation variation,2
+တွင်း,dwin:,twin:,Context-dependent pronunciation variation,2
+ရို သေ,jou thei,jou dhei,Out of Vocabulary (OOV),2
+စက်,se',ze',Context-dependent pronunciation variation,2
+ပျံ,bjan,pjan,Context-dependent pronunciation variation,2
+ပြင်း,bjin:,pjin:,Context-dependent pronunciation variation,2
+တံ,da-,tan,Context-dependent pronunciation variation,2
+သ,tha.,tha-,Context-dependent pronunciation variation,2
+စေ့,sei.,si.,Context-dependent pronunciation variation,2
+သ,tha-,tha.,Context-dependent pronunciation variation,2
+စော် နံ,zo nan,so nan,Out of Vocabulary (OOV),2
+သ,dha-,tha-,Context-dependent pronunciation variation,2
+စ ကား,za- ga-,za- ga:,Out of Vocabulary (OOV),2
+ထန်း,htan:,hta-,Context-dependent pronunciation variation,2
+ဖြုန်း,hpjoun:,bjoun:,Context-dependent pronunciation variation,2
+ရိ,ri.,ji.,Context-dependent pronunciation variation,2
+ငေါ,ငေါ,ngo:,Out of Vocabulary (OOV),2
+ထိန်း,htein:,dein:,Context-dependent pronunciation variation,2
+လှန်း,လှန်း,lhan:,Out of Vocabulary (OOV),2
+သပ်,tha',dha',Context-dependent pronunciation variation,2
+ပြား,bja:,pja:,Context-dependent pronunciation variation,2
+ပြော,pjo:,bjo:,Context-dependent pronunciation variation,2
+ထမ်း,dan:,htan:,Context-dependent pronunciation variation,2
+ပြေ,pjei,bjei,Context-dependent pronunciation variation,2
+ဆန်,hsan,zan,Context-dependent pronunciation variation,2
+ထည်,de,hte,Context-dependent pronunciation variation,2
+ခြေ ချင်း,chi gyin:,chei gyin:,Out of Vocabulary (OOV),2
+စောင်း,saun:,zaun:,Context-dependent pronunciation variation,2
+ကြိုး,gyou:,kyou:,Context-dependent pronunciation variation,2
+ခုံ,khoun,goun,Context-dependent pronunciation variation,2
+အဲ့,အဲ့,e.,Out of Vocabulary (OOV),2
+ကန့် လန့်,kan. lan.,ga- lan.,Out of Vocabulary (OOV),2
+နွား,nwa:,na-,Context-dependent pronunciation variation,2
+ဆား,hsa:,hsa-,Context-dependent pronunciation variation,2
+တ ရား,ta- ja:,ta- ja-,Out of Vocabulary (OOV),2
+ပန်း,ban:,pan:,Context-dependent pronunciation variation,2
+ပန်း,pan:,ba-,Context-dependent pronunciation variation,2
+ပန်း,pan:,ban:,Context-dependent pronunciation variation,2
+ယဲ့,ယဲ့,je.,Out of Vocabulary (OOV),2
+ရ,ja-,ja.,Context-dependent pronunciation variation,2
+ကွက်,gwe',kwe',Context-dependent pronunciation variation,2
+ကောင်း,gaun:,kaun:,Context-dependent pronunciation variation,2
+ကြို,kyou,gyou,Context-dependent pronunciation variation,2
+ပါ,pa,ba,Context-dependent pronunciation variation,2
+ပါ ဒ,ba da.,pa da.,Out of Vocabulary (OOV),2
+မျက် နှာ,mje' nha-,mje' nha,Out of Vocabulary (OOV),2
+မ,ma.,ma,Context-dependent pronunciation variation,2
+ပစ်,pji',bji',Context-dependent pronunciation variation,2
+ပါး,pa:,ba-,Context-dependent pronunciation variation,2
+စုံ,zoun,soun,Context-dependent pronunciation variation,2
+ပင်,pin,bin,Context-dependent pronunciation variation,2
+ကျွတ်,kyu',gyu',Context-dependent pronunciation variation,2
+ဟာ,ha,ha.,Context-dependent pronunciation variation,2
+ပွား,pwa:,bwa:,Context-dependent pronunciation variation,2
+ကျ,gya.,kya.,Context-dependent pronunciation variation,2
+ပမ်း,ban:,pan:,Context-dependent pronunciation variation,2
+သံ,dhan,than,Context-dependent pronunciation variation,2
+ဆောင်,zaun,hsaun,Context-dependent pronunciation variation,2
+ကုန်,koun,kou,Missing pronunciation variant in training data,2
+ချက်,che',gye',Context-dependent pronunciation variation,2
+ချက်,gye',che',Context-dependent pronunciation variation,2
+ဆောင်,hsaun,zaun,Context-dependent pronunciation variation,2
+ပု,pa-,bu.,Context-dependent pronunciation variation,2
+ကိန်း,kein:,gein:,Context-dependent pronunciation variation,2
+ကျောက်,kyau',gyau',Context-dependent pronunciation variation,2
+ကား,ka:,ga:,Context-dependent pronunciation variation,2
+ခ,kha-,kha.,Context-dependent pronunciation variation,2
+ပုတ်,pou',bou',Context-dependent pronunciation variation,2
+အောင်,aun,naun,Context-dependent pronunciation variation,2
+ရှောင်း,ရှောင်း,shaun:,Out of Vocabulary (OOV),2
+ပြီး,pji:,bji:,Context-dependent pronunciation variation,2
+ယို့,ယို့,jou.,Out of Vocabulary (OOV),2
+စိ,si.,zi.,Context-dependent pronunciation variation,2
+ခတ်,kha',ga',Context-dependent pronunciation variation,2
+ကျို့,ကျို့,kyou.,Out of Vocabulary (OOV),2
+ခင်း,khin:,gin:,Context-dependent pronunciation variation,2
+ခင်,khin,gin,Context-dependent pronunciation variation,2
+မြီး,mji:,mhi:,Missing pronunciation variant in training data,2
+ဆုပ်,hsou',zou',Context-dependent pronunciation variation,2
+ကုံး,goun:,koun:,Context-dependent pronunciation variation,1
+ဖွင့်,hpwin.,hpwin,Missing pronunciation variant in training data,1
+ဖွယ်,bwe,hpwe,Context-dependent pronunciation variation,1
+ကူ,gu,ku,Context-dependent pronunciation variation,1
+ကူး,ku:,gu:,Context-dependent pronunciation variation,1
+ဖြေ,hpjei,bjei,Context-dependent pronunciation variation,1
+ကောင်,kaun,kau,Context-dependent pronunciation variation,1
+ကဲ,ke:,ge:,Context-dependent pronunciation variation,1
+ကောက်,kau',gau',Context-dependent pronunciation variation,1
+ကဲ့,ge.,ke.,Context-dependent pronunciation variation,1
+ဘမ်း,ဘမ်း,ban:,Out of Vocabulary (OOV),1
+ဘဒ်,ဘဒ်,ba',Out of Vocabulary (OOV),1
+ဘ,ba-,ba.,Context-dependent pronunciation variation,1
+ဗျိုက်,ဗျိုက်,bjai',Out of Vocabulary (OOV),1
+ဗိုဇ်,ဗိုဇ်,bai',Out of Vocabulary (OOV),1
+ဗ ထက် ခြိုက်,ba. de' chai',ba. la- chai',Out of Vocabulary (OOV),1
+ဗ,ba-,ba.,Context-dependent pronunciation variation,1
+ကံ,kan,gan,Context-dependent pronunciation variation,1
+ဖွယ်,hpwe,bwe,Context-dependent pronunciation variation,1
+မြ,mja.,mja,Missing pronunciation variant in training data,1
+မျက် နှာ ချေ,mje' nha- chi,mje' nha- chei,Out of Vocabulary (OOV),1
+မျက် နှာ,mje' nha,mje nha-,Out of Vocabulary (OOV),1
+မဲ့,me.,me,Missing pronunciation variant in training data,1
+မောင်,maun,moun,Missing pronunciation variant in training data,1
+မု လေး,ma- lei:,mja' le:,Out of Vocabulary (OOV),1
+မီ,mhi,mi,Context-dependent pronunciation variation,1
+ဖွေ,hpwei,bwei,Missing pronunciation variant in training data,1
+ဖြူး,bju:,hpju:,Context-dependent pronunciation variation,1
+ဖြူ,hpju,bju,Context-dependent pronunciation variation,1
+ဖြူ,bju,hpju,Context-dependent pronunciation variation,1
+ဖြုန်း စပ်,bjoun: za',hpjoun: za',Out of Vocabulary (OOV),1
+ဖျိုး,ဖျိုး,hpjou:,Out of Vocabulary (OOV),1
+ဖျိုး,ဖျိုး,bjou:,Out of Vocabulary (OOV),1
+ဖျဉ်း,hpjin:,bjin:,Context-dependent pronunciation variation,1
+ဖူး,hpu:,bu:,Context-dependent pronunciation variation,1
+ဘာ သာ,ba dha,hpa dha,Out of Vocabulary (OOV),1
+ဖား,hpa:,hpa-,Context-dependent pronunciation variation,1
+ဖတ်,hpa',ba',Context-dependent pronunciation variation,1
+ဖည်,hpe,be,Missing pronunciation variant in training data,1
+မ,ma-,a',Missing pronunciation variant in training data,1
+ဘု,hpa-,bu.,Context-dependent pronunciation variation,1
+ဘိုး အေ,hpou: ei,bou: ei,Out of Vocabulary (OOV),1
+ဘိုး,bou:,hpou:,Context-dependent pronunciation variation,1
+ဘိ,bi.,bein,Missing pronunciation variant in training data,1
+ဖုန်း ဆိုး,hpoun: zou:,hpoun: hsou:,Out of Vocabulary (OOV),1
+ပုံ,boun,poun,Context-dependent pronunciation variation,1
+ပုပ်,bou',pou',Context-dependent pronunciation variation,1
+ပုန်း,boun:,poun:,Context-dependent pronunciation variation,1
+ပုဒ်,pou',bou',Context-dependent pronunciation variation,1
+ပု,pu.,bu.,Context-dependent pronunciation variation,1
+ပီ,pi,pa-,Missing pronunciation variant in training data,1
+ပီ,pi,bi,Context-dependent pronunciation variation,1
+မု,ma-,mu.,Context-dependent pronunciation variation,1
+ပိုက်,bai',pai',Context-dependent pronunciation variation,1
+ပျောက်,pjau',bjau',Context-dependent pronunciation variation,1
+ပျာ က,bja ga-,pja ga-,Out of Vocabulary (OOV),1
+ပျဉ်း,bjin:,pjin:,Context-dependent pronunciation variation,1
+ပျစ်,bji',pji',Context-dependent pronunciation variation,1
+ပျက်,pje',bje,Missing pronunciation variant in training data,1
+ပျက်,bje',pje',Context-dependent pronunciation variation,1
+ပေး,pei:,pjei:,Missing pronunciation variant in training data,1
+ပိုင်,bain,pain,Context-dependent pronunciation variation,1
+ပ,pa-,ba-,Context-dependent pronunciation variation,1
+ပ,ba-,pa-,Context-dependent pronunciation variation,1
+နှာ ရည်,nha ji,nha jei,Out of Vocabulary (OOV),1
+နှာ ချေ,nha- chi,nha chei,Out of Vocabulary (OOV),1
+ပိန်,pein,bein,Context-dependent pronunciation variation,1
+ပိတ်,pei',bei',Context-dependent pronunciation variation,1
+ပါး,ba:,ba-,Context-dependent pronunciation variation,1
+ပါတ်,ba',pa',Context-dependent pronunciation variation,1
+ပုံ,poun,bou',Missing pronunciation variant in training data,1
+ပပ်,pa',ba',Context-dependent pronunciation variation,1
+ပန်း,pan:,pa-,Missing pronunciation variant in training data,1
+ပတ်,pa',ba',Context-dependent pronunciation variation,1
+ပတ်,ba',pa',Context-dependent pronunciation variation,1
+ပေက်,ပေက်,pe',Out of Vocabulary (OOV),1
+ပေ,pei,bei,Context-dependent pronunciation variation,1
+ပူ,bu,pu,Context-dependent pronunciation variation,1
+ပုံ,poun,boun,Context-dependent pronunciation variation,1
+ပယ်,pe,be,Context-dependent pronunciation variation,1
+ပြဲ,pje:,bje:,Context-dependent pronunciation variation,1
+ပြေး,pjei:,bjei:,Context-dependent pronunciation variation,1
+ပြေး,bjei:,pjei:,Context-dependent pronunciation variation,1
+ပြောင်,pjaun,bjaun,Context-dependent pronunciation variation,1
+ပြောင်,bjaun,pjaun,Context-dependent pronunciation variation,1
+ပြောက်,bjau',pjau',Context-dependent pronunciation variation,1
+ပြေ,bjei,pjei,Context-dependent pronunciation variation,1
+ပြူ,pju,bju,Missing pronunciation variant in training data,1
+ပေး,pei:,bei:,Context-dependent pronunciation variation,1
+ပြုတ် ပြုတ် ပြုန်း,pjou' pjou' pjoun:,pjou' pjou' bjoun:,Out of Vocabulary (OOV),1
+ပြုတ်,pjou',bjou',Context-dependent pronunciation variation,1
+ပြု,pju.,pju,Context-dependent pronunciation variation,1
+ဖ ယောင်း,hpa- jaun:,ba- jaun:,Out of Vocabulary (OOV),1
+ပွဲ,pwe:,bwe:,Context-dependent pronunciation variation,1
+ပွေး,bwei:,pwei:,Context-dependent pronunciation variation,1
+ပွင့်,pwin.,bwin.,Context-dependent pronunciation variation,1
+ကျက်,kye',gye',Context-dependent pronunciation variation,1
+ပြုံး,pjoun:,bjoun:,Context-dependent pronunciation variation,1
+ပေး,bei:,pei:,Context-dependent pronunciation variation,1
+ပေါ့,po.,bo.,Context-dependent pronunciation variation,1
+ပေါင်း,baun:,paun:,Context-dependent pronunciation variation,1
+ပေါက်,bau',pou',Missing pronunciation variant in training data,1
+ပြီး,bji:,pi:,Context-dependent pronunciation variation,1
+ပြိုင်,pjain,bjaun,Missing pronunciation variant in training data,1
+ပြိုင်,pjain,bjain,Context-dependent pronunciation variation,1
+ပြိ,ပြိ,pjei',Out of Vocabulary (OOV),1
+ကုမ်,koun,goun,Missing pronunciation variant in training data,1
+ပြန်,bjan,pjan,Context-dependent pronunciation variation,1
+ပြန့်,pjan.,bjan.,Context-dependent pronunciation variation,1
+ပြတ်,pja',bja',Context-dependent pronunciation variation,1
+ပြဋ် ဌာန်း ချက်,pja. htan: gye',pja' htan: gye',Out of Vocabulary (OOV),1
+ပြည့်,pji.,bji.,Context-dependent pronunciation variation,1
+ပြည့်,pjei.,pji:,Missing pronunciation variant in training data,1
+ပြည့်,pjei.,pji.,Context-dependent pronunciation variation,1
+ပြည့်,bji.,bjei.,Context-dependent pronunciation variation,1
+ပြာ,bja,pja,Context-dependent pronunciation variation,1
+သန့်,than.,dhan.,Context-dependent pronunciation variation,1
+သင်,thin,dhin,Context-dependent pronunciation variation,1
+သက် က,the' ka-,dha- ga-,Out of Vocabulary (OOV),1
+သေး,dhei:,thei:,Context-dependent pronunciation variation,1
+သော့,tho.,dho.,Context-dependent pronunciation variation,1
+သော,tho:,dho:,Context-dependent pronunciation variation,1
+သော,dho:,tho:,Context-dependent pronunciation variation,1
+သေဋ် ဌေး,thi' htei:,tha- htei:,Out of Vocabulary (OOV),1
+ရပ်,ja',ra',Context-dependent pronunciation variation,1
+သူ ကြီး,dha- gyi:,dhu gyi:,Out of Vocabulary (OOV),1
+သူ,thu,dha-,Context-dependent pronunciation variation,1
+သုတ်,thou',dhou',Context-dependent pronunciation variation,1
+သီး,dhi:,thi:,Context-dependent pronunciation variation,1
+သိပ်,thei',dhei',Context-dependent pronunciation variation,1
+သိပ်,dhei',thei',Context-dependent pronunciation variation,1
+သား,tha:,tha-,Context-dependent pronunciation variation,1
+သား,tha:,dha:,Context-dependent pronunciation variation,1
+သျှီ,သျှီ,shi,Out of Vocabulary (OOV),1
+သူ ကြွယ်,tha- gywe,dha- gywe,Out of Vocabulary (OOV),1
+သ ဘာ,dha- ba,tha- ba,Out of Vocabulary (OOV),1
+သ ကြား,dha- gya:,dha- gya-,Out of Vocabulary (OOV),1
+သ က,tha- ka.,tha- ka-,Out of Vocabulary (OOV),1
+သ,tha.,dha.,Context-dependent pronunciation variation,1
+သ,dha-,tha.,Context-dependent pronunciation variation,1
+ဝှီး,ဝှီး,hwi:,Out of Vocabulary (OOV),1
+ဝိ,wi.,wei',Missing pronunciation variant in training data,1
+ဝါး,wa:,nwa:,Context-dependent pronunciation variation,1
+ဝါ ဖတ်,wa hpa-,wa hpa',Out of Vocabulary (OOV),1
+သန်,than,dhan,Context-dependent pronunciation variation,1
+သား,dha:,dha-,Context-dependent pronunciation variation,1
+သာ,tha,dha,Context-dependent pronunciation variation,1
+သဗ် ဗ,tha' ba.,tha' ba-,Out of Vocabulary (OOV),1
+သန် လျင်း,ta- lin:,than ljin:,Out of Vocabulary (OOV),1
+သန် ဓေ,dha- dei,than dei,Out of Vocabulary (OOV),1
+သန် တာ,than da,than da',Out of Vocabulary (OOV),1
+သန် တာ,than da,dha- da,Out of Vocabulary (OOV),1
+သန် တ ရ,than da- ra.,than ta. ra.,Out of Vocabulary (OOV),1
+သန် တ,than da-,than ta.,Out of Vocabulary (OOV),1
+ဝမ်း လျား ထိုး,wa- ja: htou:,wan: ja: htou:,Out of Vocabulary (OOV),1
+က လေး,ga- lei:,nga- lei:,Out of Vocabulary (OOV),1
+က ရု ဏာ,ga- ju. na,ka- ru. na,Out of Vocabulary (OOV),1
+က ရု,ga- ju.,ka- ru.,Out of Vocabulary (OOV),1
+က,ka.,ka,Context-dependent pronunciation variation,1
+က,ka.,ga.,Context-dependent pronunciation variation,1
+အ ရိပ်,a- jei',a- jei,Out of Vocabulary (OOV),1
+အ ရပ်,a- ja',a- ja,Out of Vocabulary (OOV),1
+အ မယ် လေး,a- ma- lei:,a- me lei:,Out of Vocabulary (OOV),1
+အ ထီး ကျန်,a- hti: gyan,a- hti: kyan,Out of Vocabulary (OOV),1
+သံ,than,dhan,Context-dependent pronunciation variation,1
+အ ကြံ,a- kyan,a- kya,Out of Vocabulary (OOV),1
+အ ကျပ်,a kya',a- kya',Out of Vocabulary (OOV),1
+အ,a-,a.,Context-dependent pronunciation variation,1
+အ,a-,a',Missing pronunciation variant in training data,1
+ဟီး,hi:,he:,Missing pronunciation variant in training data,1
+ဟင်,hin:,hin,Missing pronunciation variant in training data,1
+သွေး,dhwei:,thwei:,Context-dependent pronunciation variation,1
+သွား,thwa:,dhwa:,Context-dependent pronunciation variation,1
+သွယ်,thwe,dhwe,Context-dependent pronunciation variation,1
+အ စေ့,a- si.,a- sei.,Out of Vocabulary (OOV),1
+သဲ,the:,thei:,Missing pronunciation variant in training data,1
+ကိုင်း,gain:,kain:,Context-dependent pronunciation variation,1
+ကိုက်,kai',gai',Context-dependent pronunciation variation,1
+ကိစ် စ,kei' sa.,kei' sa,Out of Vocabulary (OOV),1
+ကာ ယ,ka ja.,ga ja.,Out of Vocabulary (OOV),1
+ကာ,ka,ga,Context-dependent pronunciation variation,1
+ကယ်,ke,ge,Context-dependent pronunciation variation,1
+ကမ်း ပါး,ga- ba:,kan: ba:,Out of Vocabulary (OOV),1
+ကမ်း ပါး,ga- ba:,ga- ba-,Out of Vocabulary (OOV),1
+က သီ,ka- thi,ga- thi,Out of Vocabulary (OOV),1
+အိမ်း အည်း မ လုပ်,ein: e: ma- lou',ein: i: ma- lou',Out of Vocabulary (OOV),1
+အိမ်,ein,nein,Context-dependent pronunciation variation,1
+အိမ်,ein,ei,Context-dependent pronunciation variation,1
+အိပ် မက်,ei' me',ein me',Out of Vocabulary (OOV),1
+အိပ်,ei',hei',Missing pronunciation variant in training data,1
+ကန်,kan,ka,Missing pronunciation variant in training data,1
+ကဏ် ဍ,gan da.,kan da.,Out of Vocabulary (OOV),1
+ကက် ကု ဆူး,ke' ga- zu:,ke' ku. zu:,Out of Vocabulary (OOV),1
+ကက် ကု ဆူး,ke' ga- zu:,ke' ku zu:,Out of Vocabulary (OOV),1
+ကမ် မဋ် ဌာန်း,ka ma- htan:,ka- ma- htan:,Out of Vocabulary (OOV),1
+ရည် ဝ,jei wa.,ji wa.,Out of Vocabulary (OOV),1
+ရည်,jei,ji,Context-dependent pronunciation variation,1
+ရဇ်,ရဇ်,ra-,Out of Vocabulary (OOV),1
+ရက်,je',re',Context-dependent pronunciation variation,1
+ရ ဟတ်,ja- ha',ra- ha',Out of Vocabulary (OOV),1
+ရ သ,ra. tha.,ra' tha.,Out of Vocabulary (OOV),1
+ရ သ,ra. tha.,ja. tha.,Out of Vocabulary (OOV),1
+ရ သ,ja. tha.,ra tha.,Out of Vocabulary (OOV),1
+သ မား,tha- ma:,tha- ma-,Out of Vocabulary (OOV),1
+ရ မန်,ja- man,ra- man,Out of Vocabulary (OOV),1
+ရ,ra-,ja.,Context-dependent pronunciation variation,1
+ရ,ja.,ra-,Context-dependent pronunciation variation,1
+ရ,ja.,ja:,Context-dependent pronunciation variation,1
+ရွား,jwa:,jwa,Missing pronunciation variant in training data,1
+ရေ,jei,jein,Context-dependent pronunciation variation,1
+ရူ,ju,ru,Context-dependent pronunciation variation,1
+ရီ,ri,ji,Context-dependent pronunciation variation,1
+ရီ,ji,ri,Context-dependent pronunciation variation,1
+ရ ရ,ja. ja.,ra. ra.,Out of Vocabulary (OOV),1
+မိန်း မ,mein: ma-,mein: ma.,Out of Vocabulary (OOV),1
+မန်း ရည်,man: jei,man: jein,Out of Vocabulary (OOV),1
+မည်,me,mji,Context-dependent pronunciation variation,1
+မဉ် ဇူ,mjin zu,min zu,Out of Vocabulary (OOV),1
+မ,ma.,ma:,Missing pronunciation variant in training data,1
+မ,ma.,ma-,Context-dependent pronunciation variation,1
+ရ,ja.,ja-,Context-dependent pronunciation variation,1
+ရ,ja-,ra.,Context-dependent pronunciation variation,1
+ယောက်ျား,jau'kya:,jau'kya-,Missing pronunciation variant in training data,1
+ရယ်,je,ji,Context-dependent pronunciation variation,1
+ယောက် မ,jau' ma.,jaun: ma.,Out of Vocabulary (OOV),1
+ယိန်,ယိန်,jein,Out of Vocabulary (OOV),1
+မှု,mhu.,mhu,Missing pronunciation variant in training data,1
+မှတ်,mha',mhu.,Context-dependent pronunciation variation,1
+မှင်,mhin,mhi,Missing pronunciation variant in training data,1
+မြိန့်,မြိန့်,mjein.,Out of Vocabulary (OOV),1
+မြည့်,mjei.,mji.,Context-dependent pronunciation variation,1
+မြင်,mjin,mji,Missing pronunciation variant in training data,1
+ရာ,ja,ja-,Context-dependent pronunciation variation,1
+ယောက်ျား,jau'kya:,jau',Context-dependent pronunciation variation,1
+ရှင့်,ရှင့်,shin,Out of Vocabulary (OOV),1
+ရွှန်း,shun:,shun,Missing pronunciation variant in training data,1
+ရွား,jwa:,wa:,Missing pronunciation variant in training data,1
+ဝမ်း ဖော ဝမ်း ရောင်,wan: (wun:) hpo: wun:,wan: (wun:) hpo: wan:,Out of Vocabulary (OOV),1
+ဝမ်း တွင်း,wun: dwin:,wan: dwin:,Out of Vocabulary (OOV),1
+ဝမ်း,wun:,wan:,Context-dependent pronunciation variation,1
+ဝမ်း,wan:,wa-,Context-dependent pronunciation variation,1
+ဝန်,wun,win,Context-dependent pronunciation variation,1
+ဝင်,win,wi,Context-dependent pronunciation variation,1
+ရိုး,jou:,njou:,Missing pronunciation variant in training data,1
+ဝ,wa-,wa.,Context-dependent pronunciation variation,1
+လှေး,lhei:,l,Missing pronunciation variant in training data,1
+လွဲ,lwe:,lwe,Missing pronunciation variant in training data,1
+လွေ့,လွေ့,lwei.,Out of Vocabulary (OOV),1
+လျော်,ljo,jo,Context-dependent pronunciation variation,1
+လျား,lja:,ja:,Context-dependent pronunciation variation,1
+လျာ,lja,lhja,Missing pronunciation variant in training data,1
+သ လင်း,tha- lin,tha- lin:,Out of Vocabulary (OOV),1
+သ မီး,tha- mi:,dha- mi:,Out of Vocabulary (OOV),1
+ဝ,wa.,wa-,Context-dependent pronunciation variation,1
+ရိုက်,jai',rai',Context-dependent pronunciation variation,1
+ရို,jou,rou,Context-dependent pronunciation variation,1
+ရိ,ri.,ji:,Missing pronunciation variant in training data,1
+ရာဇ်,ji',ri',Context-dependent pronunciation variation,1
+ရာဇ်,ji',ri,Missing pronunciation variant in training data,1
+ရာ ဇ ဝတ်,ja za- wu',ja- za wu',Out of Vocabulary (OOV),1
+ရာ ဇ,ja za-,ja za.,Out of Vocabulary (OOV),1
+ရာ,ja,ra,Context-dependent pronunciation variation,1
+လျဉ်း ပါး,jin: ba:,la-jin: ba:,Out of Vocabulary (OOV),1
+ရှောင့်,ရှောင့်,shaun.,Out of Vocabulary (OOV),1
+လ်,လ်,na,Out of Vocabulary (OOV),1
+လေး,lei:,lei,Missing pronunciation variant in training data,1
+လောင့်,လောင့်,laun.,Out of Vocabulary (OOV),1
+လယ် သူ မ,le tha- ma.,le dhu ma.,Out of Vocabulary (OOV),1
+လတ်,la',le',Context-dependent pronunciation variation,1
+လင်း တ မှိုင် မှိုင်,lin: da. mhain mhain,la- da. mhain mhain,Out of Vocabulary (OOV),1
+လင်း,lin:,la-,Context-dependent pronunciation variation,1
+လ,la.,la-,Context-dependent pronunciation variation,1
+ရှေ့,shei.,shei,Context-dependent pronunciation variation,1
+လျဉ် မီ,lin mi,ljin mi,Out of Vocabulary (OOV),1
+စ,sa.,za.,Context-dependent pronunciation variation,1
+စ,sa.,sa-,Context-dependent pronunciation variation,1
+စ,sa-,za-,Context-dependent pronunciation variation,1
+ငှ,ငှ,ngha.,Out of Vocabulary (OOV),1
+ငံ ပြာ ရည်,ngan bja jei,ngan pja jei,Out of Vocabulary (OOV),1
+စမ်း,san:,zan:,Context-dependent pronunciation variation,1
+စည်,si,zi,Context-dependent pronunciation variation,1
+ကြံ့,kyan.,gyan.,Context-dependent pronunciation variation,1
+ကြေး နန်း,kyi: nan:,kyei: nan:,Out of Vocabulary (OOV),1
+ကျပ်,kya',gya',Context-dependent pronunciation variation,1
+ကြောင်း,gyaun:,kyaun:,Context-dependent pronunciation variation,1
+ကြောင်,kyaun,gyaun,Context-dependent pronunciation variation,1
+ကြောင်,gyaun,kyaun,Context-dependent pronunciation variation,1
+ကြုတ်,kyou',gyou',Context-dependent pronunciation variation,1
+ကြီး,gyi:,rei,Missing pronunciation variant in training data,1
+ကြိုး,kyou:,gyou:,Context-dependent pronunciation variation,1
+စုန်း,zoun:,soun:,Context-dependent pronunciation variation,1
+စီ,si,sa-,Missing pronunciation variant in training data,1
+စို့,zou.,sou.,Context-dependent pronunciation variation,1
+ကြေး,kyei:,kyi:,Context-dependent pronunciation variation,1
+ငန်း,ngan:,gan:,Missing pronunciation variant in training data,1
+ငင်,ngin,gin,Context-dependent pronunciation variation,1
+ဂြိုလ်,ဂြိုလ်,gyou,Out of Vocabulary (OOV),1
+ဂျော်,ဂျော်,gyo,Out of Vocabulary (OOV),1
+ဂေါက် သီး,gau' thi:,gou' thi:,Out of Vocabulary (OOV),1
+ဂိ,gi.,gein,Missing pronunciation variant in training data,1
+ဂဏ်,ဂဏ်,gan,Out of Vocabulary (OOV),1
+ဂစ်,ဂစ်,gi',Out of Vocabulary (OOV),1
+ဂ,ga-,ga,Context-dependent pronunciation variation,1
+စ,za-,sa,Context-dependent pronunciation variation,1
+ခွေ,khwei,gwei,Context-dependent pronunciation variation,1
+ခွေ,gwei,khwei,Context-dependent pronunciation variation,1
+ကြိ ယာ,ka ri.,ka- ri.,Out of Vocabulary (OOV),1
+ကြိ,ka-,kyi.,Missing pronunciation variant in training data,1
+စင်း,zin:,sin:,Context-dependent pronunciation variation,1
+စင်,sin,zin,Context-dependent pronunciation variation,1
+စ က,za- ga.,za- ka.,Out of Vocabulary (OOV),1
+စ,za.,sa.,Context-dependent pronunciation variation,1
+စ,za-,sa-,Context-dependent pronunciation variation,1
+ခွေး,khwei:,gwei:,Context-dependent pronunciation variation,1
+စူ,su,zu,Context-dependent pronunciation variation,1
+စုံး,zoun:,soun:,Context-dependent pronunciation variation,1
+ဆမ်,ဆမ်,hsan,Out of Vocabulary (OOV),1
+ဆန်း,hsan:,zan:,Context-dependent pronunciation variation,1
+ဆန်,zan,hsan,Context-dependent pronunciation variation,1
+ဆန်,hsan,za-,Context-dependent pronunciation variation,1
+ဆည်း,hswe:,hsi:,Context-dependent pronunciation variation,1
+ဆည်,hse,hsi,Missing pronunciation variant in training data,1
+ဆစ်,hsi',zi',Context-dependent pronunciation variation,1
+စို့,sou.,sou,Missing pronunciation variant in training data,1
+စွယ်,zwe,zwe.,Missing pronunciation variant in training data,1
+စွယ်,zwe,swe,Context-dependent pronunciation variation,1
+စွယ်,swe,zwe,Context-dependent pronunciation variation,1
+စွပ်,su',zu',Context-dependent pronunciation variation,1
+စွန်း,zun:,sun:,Context-dependent pronunciation variation,1
+စွန်း,sun:,zun:,Context-dependent pronunciation variation,1
+ဆေး ဖော်,hsei: bo,hsei: hpo,Out of Vocabulary (OOV),1
+ဆေး,zei:,hsei:,Context-dependent pronunciation variation,1
+ဆော်,hso,zo,Context-dependent pronunciation variation,1
+စွဲ,swe:,zwe:,Context-dependent pronunciation variation,1
+စိုက်,sai',zai',Context-dependent pronunciation variation,1
+စိမ်း,zein:,sein:,Context-dependent pronunciation variation,1
+စိမ်း,sein:,zein:,Context-dependent pronunciation variation,1
+စိမ်,sein,zein,Context-dependent pronunciation variation,1
+စိမ့် စိမ့်,sein. zein.,zein. zein.,Out of Vocabulary (OOV),1
+စိတ်,zei',sei',Context-dependent pronunciation variation,1
+စား,sa:,sa-,Context-dependent pronunciation variation,1
+စာ ရိတ် တ,za rei' ta,za rei' ta.,Out of Vocabulary (OOV),1
+စာ ရင်း,sa- jin:,za- jin:,Out of Vocabulary (OOV),1
+စူး,su:,zu:,Context-dependent pronunciation variation,1
+စံ ပယ်,za- be,san pe,Out of Vocabulary (OOV),1
+စံ,zan,san,Context-dependent pronunciation variation,1
+စေး ပိုင်,si: pain,sei: pain,Out of Vocabulary (OOV),1
+စေး,si:,zei:,Context-dependent pronunciation variation,1
+စေး,sei:,si:,Context-dependent pronunciation variation,1
+စေ့ စေ့ ပေါက် ပေါက်,si. zi. pau' pau',sei. zei. pau' pau',Out of Vocabulary (OOV),1
+စေ့,zei.,zi.,Context-dependent pronunciation variation,1
+စေ့,zei.,si.,Context-dependent pronunciation variation,1
+စော်,so,zo,Context-dependent pronunciation variation,1
+စောင်း,zaun:,saun:,Context-dependent pronunciation variation,1
+စာ စီ,sa zi,sa si,Out of Vocabulary (OOV),1
+ဤ ဤ,i i,ni i,Out of Vocabulary (OOV),1
+ဣန် ဒြေ,ein da- rei,ein da-,Out of Vocabulary (OOV),1
+ဣဋ်,ဣဋ်,ei',Out of Vocabulary (OOV),1
+ဣ,ei.,i.,Missing pronunciation variant in training data,1
+ဣ,ei.,ei',Missing pronunciation variant in training data,1
+အောက်,au',nau',Context-dependent pronunciation variation,1
+အူ,u,nu,Context-dependent pronunciation variation,1
+အုန်,အုန်,ou,Out of Vocabulary (OOV),1
+အိုက်,ai',nai',Missing pronunciation variant in training data,1
+ငါး,nga-,nga:,Context-dependent pronunciation variation,1
+ခါ,kha,ga,Context-dependent pronunciation variation,1
+ခပ်,kha',ga',Context-dependent pronunciation variation,1
+ခန်း,khan:,gan:,Context-dependent pronunciation variation,1
+ခတ်,kha',ga,Missing pronunciation variant in training data,1
+ခ ဏ,kha- na.,kha- na,Out of Vocabulary (OOV),1
+ခ စား,kha. za:,ga. za:,Out of Vocabulary (OOV),1
+ခ,kha-,ga-,Context-dependent pronunciation variation,1
+ကွဲ,kwe:,kwei,Context-dependent pronunciation variation,1
+ကွဲ,kwe:,gwe:,Context-dependent pronunciation variation,1
+ခါး,ga:,kha:,Context-dependent pronunciation variation,1
+ဧ က,ei: ka.,nei ka.,Out of Vocabulary (OOV),1
+ဦး,u:,nu:,Context-dependent pronunciation variation,1
+ဥပ်,ဥပ်,ou',Out of Vocabulary (OOV),1
+ဥစ် စာ,ou' sa,ou' sa-,Out of Vocabulary (OOV),1
+ဥ ပ,u. pa-,u. ba-,Out of Vocabulary (OOV),1
+ဥ,u.,ou',Context-dependent pronunciation variation,1
+အာ ဂန် တု,a gan du,a gan du.,Out of Vocabulary (OOV),1
+အပ်,a',na',Context-dependent pronunciation variation,1
+အန် တ ရာယ်,an da- je,an da- re,Out of Vocabulary (OOV),1
+ကြွ,kywa.,gywa.,Context-dependent pronunciation variation,1
+အဇ်,အဇ်,i',Out of Vocabulary (OOV),1
+အင် ဂ,in: ga-,in ga.,Out of Vocabulary (OOV),1
+အက် ခ ရာ,e' kha- ja,e' kha- ja.,Out of Vocabulary (OOV),1
+အ သား,a- tha:,a- tha-,Out of Vocabulary (OOV),1
+အ သား,a- tha:,a- dha-,Out of Vocabulary (OOV),1
+အ လျှင်း,a- ljin:,a- shin:,Out of Vocabulary (OOV),1
+ကြွေ,kywei,gywei,Context-dependent pronunciation variation,1
+ကြွပ်,kyu',gyu',Context-dependent pronunciation variation,1
+ကြွက် မြီး,kywe: mi:,kywe' mi:,Out of Vocabulary (OOV),1
+အည်း,in:,i:,Missing pronunciation variant in training data,1
+ချည်,chi,gyi,Context-dependent pronunciation variation,1
+ချဉ့်,ချဉ့်,chin.,Out of Vocabulary (OOV),1
+ချစ်,chi',chi,Missing pronunciation variant in training data,1
+ခွင့်,khwin.,gwin.,Context-dependent pronunciation variation,1
+ခွ,gwa.,khwa.,Context-dependent pronunciation variation,1
+ခြေ ဖ,chi ba-,chei ba-,Out of Vocabulary (OOV),1
+ခြေ ထောက်,chi dau',chei dau',Out of Vocabulary (OOV),1
+ခြေ ချော် လက် ချော်,chi gyo le' gyo,chei gyo le' gyo,Out of Vocabulary (OOV),1
+ခြေ,gyei,chei,Context-dependent pronunciation variation,1
+ကွန်း,gun:,kun:,Context-dependent pronunciation variation,1
+ခြေ,chei,gyei,Context-dependent pronunciation variation,1
+ခြား,cha:,gya:,Context-dependent pronunciation variation,1
+ခြစ်,gyi',chi',Context-dependent pronunciation variation,1
+ချွဲ,chwe:,chwe.,Missing pronunciation variant in training data,1
+ချွန်,gyun,chun,Context-dependent pronunciation variation,1
+ချေး,chei:,chi:,Context-dependent pronunciation variation,1
+ချောင်,chaun,gyaun,Context-dependent pronunciation variation,1
+ငါး မျှား,nga- mhja:,nga: mhja:,Out of Vocabulary (OOV),1
+ငါး,nga:,nga-,Context-dependent pronunciation variation,1
+ခြေ,chi,chei,Context-dependent pronunciation variation,1
+ကွင်း,kwin:,gwin:,Context-dependent pronunciation variation,1
+ချင်း,gyin:,ja,Missing pronunciation variant in training data,1
+ချ,cha.,gya.,Context-dependent pronunciation variation,1
+ခံ တက်,ga- de',kha- de',Out of Vocabulary (OOV),1
+ခံ ချိ,khan gyi.,khan chi.,Out of Vocabulary (OOV),1
+ခေါင်,gaun,khaun,Context-dependent pronunciation variation,1
+ခု,khu.,gu.,Context-dependent pronunciation variation,1
+ခု,khu.,ga-,Context-dependent pronunciation variation,1
+ခို,khou,gou,Context-dependent pronunciation variation,1
+ချပ်,gya',cha',Context-dependent pronunciation variation,1
+ခါး,kha:,kha-,Context-dependent pronunciation variation,1
+ခါး,kha:,ga:,Context-dependent pronunciation variation,1
+ချောက်,chau',gyau',Context-dependent pronunciation variation,1
+ချော,cho:,gyo:,Context-dependent pronunciation variation,1
+ချုံ,choun,gyoun,Missing pronunciation variant in training data,1
+ချုပ်,chou',gyou',Context-dependent pronunciation variation,1
+ချီး မွမ်း ခြေ ကျောက်,chi: mun: chi gyau',chi: mun: chei gyau',Out of Vocabulary (OOV),1
+ချိုင့်,gyain.,chain.,Context-dependent pronunciation variation,1
+ချိန်,gyein,chein,Context-dependent pronunciation variation,1
+ချမ်း,chan:,gyan:,Context-dependent pronunciation variation,1
+ခါး တောင်း ကျိုက်,ga- daun kyai',ga- daun: kyai',Out of Vocabulary (OOV),1
+ထိမ်,htein,dein,Context-dependent pronunciation variation,1
+ထိတ် ထိတ်,htei' htei',dei' dei',Out of Vocabulary (OOV),1
+ထိတ်,htei',dei',Context-dependent pronunciation variation,1
+ထိ အောင်,hti aun,hti. aun,Out of Vocabulary (OOV),1
+ထပ်,hta',da',Context-dependent pronunciation variation,1
+ထန်း ရည်,hta- jei,hta- ji,Out of Vocabulary (OOV),1
+ထန်း ဖူး,htan: bu:,htan: hpu:,Out of Vocabulary (OOV),1
+ကျည်,kyi,gyi,Context-dependent pronunciation variation,1
+ကျစ်,kyi',gyi',Context-dependent pronunciation variation,1
+ဆောင်,hsaun,hsun,Missing pronunciation variant in training data,1
+ဓဗ်,ဓဗ်,da',Out of Vocabulary (OOV),1
+ဒြေ,da- rei,da-,Rare over-generalization / segmentation error,1
+ဒါ ယိ ကာ မ,da ja- ka ma.,da ji. ka ma.,Out of Vocabulary (OOV),1
+ဒည်း,ဒည်း,di:,Out of Vocabulary (OOV),1
+ဒ သ က,da. tha- ka.,da' tha- ka.,Out of Vocabulary (OOV),1
+ဒ,da.,da-,Context-dependent pronunciation variation,1
+ထွေး,htwei:,dwei:,Context-dependent pronunciation variation,1
+ထွေ,htwei,dwei,Context-dependent pronunciation variation,1
+ထွား,htwa:,dwa:,Missing pronunciation variant in training data,1
+ကျင့်,kyin.,gyin.,Context-dependent pronunciation variation,1
+တီ,ti,di,Context-dependent pronunciation variation,1
+ထန်,htan,dan,Missing pronunciation variant in training data,1
+ထင်,htin,ma-,Missing pronunciation variant in training data,1
+ထ မင်း,hta- min:,da- min:,Out of Vocabulary (OOV),1
+ထ,hta-,hta.,Context-dependent pronunciation variation,1
+တွဲ,twe:,dwe:,Context-dependent pronunciation variation,1
+တွဲ,dwe:,twe:,Context-dependent pronunciation variation,1
+တွာ,တွာ,htwa,Out of Vocabulary (OOV),1
+တွင်း,twin:,dwin:,Context-dependent pronunciation variation,1
+ထီး,hti:,di:,Context-dependent pronunciation variation,1
+တျား,တျား,ta-,Out of Vocabulary (OOV),1
+တျား,တျား,ja:,Out of Vocabulary (OOV),1
+တံ ခါး,da- ga:,da- ga-,Out of Vocabulary (OOV),1
+တဲ,de:,te:,Context-dependent pronunciation variation,1
+ထဲ,hte:,de:,Context-dependent pronunciation variation,1
+ထောင့်,daun.,htaun.,Context-dependent pronunciation variation,1
+ထောက်,htau',dau',Context-dependent pronunciation variation,1
+ထေရ်,htei,hti,Context-dependent pronunciation variation,1
+ထေ ရ ဝါ ဒ,hti ra. wa da.,htei ra. wa da.,Out of Vocabulary (OOV),1
+တြီ,တြီ,tri,Out of Vocabulary (OOV),1
+နုံး,နုံး,noun:,Out of Vocabulary (OOV),1
+နီ,ni,na-,Context-dependent pronunciation variation,1
+နိုင် ငံ,nain gan,nain ngan,Out of Vocabulary (OOV),1
+နား,na:,za-,Missing pronunciation variant in training data,1
+နား,na-,na:,Context-dependent pronunciation variation,1
+နာ မည်,nan me,na mji,Out of Vocabulary (OOV),1
+နတ်,na',na-,Context-dependent pronunciation variation,1
+နင်,nin:,nin,Context-dependent pronunciation variation,1
+န ရီ,na- ji:,na- ji,Out of Vocabulary (OOV),1
+ထွာ,htwa,dwa,Missing pronunciation variant in training data,1
+ပစ် စည်း,pji' si:,pji si:,Out of Vocabulary (OOV),1
+ပင်း,bin:,pin:,Context-dependent pronunciation variation,1
+ပင်,pin,pi,Missing pronunciation variant in training data,1
+ပင်,pin,bi,Missing pronunciation variant in training data,1
+ပက်,pe',be,Missing pronunciation variant in training data,1
+ပ ရိ သတ်,pa- rei' tha',pa- jei' tha',Out of Vocabulary (OOV),1
+ပ ရိ,pa- ri.,pa- ra-,Out of Vocabulary (OOV),1
+ပ ဋိ,pa- ti.,pa- ti,Out of Vocabulary (OOV),1
+ပ,pjin,pa.,Context-dependent pronunciation variation,1
+န ဂါး,na- ga-,na- ga:,Out of Vocabulary (OOV),1
+ထွန်း,htun:,dun:,Missing pronunciation variant in training data,1
+ထွက်,dwe',htwe',Context-dependent pronunciation variation,1
+န ဂ ဘာ ရီ,na- ga- ba ji,na- ga- ba ri,Out of Vocabulary (OOV),1
+န ကျယ်,na- gye,na- gyi,Out of Vocabulary (OOV),1
+န,na.,na-,Context-dependent pronunciation variation,1
+န,na-,da-,Missing pronunciation variant in training data,1
+ဓား,da:,da-,Context-dependent pronunciation variation,1
+ကျောင်း,gyaun:,kyaun:,Context-dependent pronunciation variation,1
+ကျီ,gyi,kyi,Context-dependent pronunciation variation,1
+နောင် ကြဉ်,naun kyi,naun kyin,Out of Vocabulary (OOV),1
+ကျိုး,kyou:,gyou:,Context-dependent pronunciation variation,1
+ကျို့,ကျို့,gyou.,Out of Vocabulary (OOV),1
+ကျို,gyou,kyou,Context-dependent pronunciation variation,1
+ကျိပ်,gyei',kyei',Missing pronunciation variant in training data,1
+ကျမ်း,kyan:,gyan:,Context-dependent pronunciation variation,1
+သွမ်း,thwan:,dhwan:,Context-dependent pronunciation variation,1
+နှမ်း,nhan:,na-,Missing pronunciation variant in training data,1
+နှစ်,nhi',nha-,Context-dependent pronunciation variation,1
+နှ မ,nha- ma-,nha- ma.,Out of Vocabulary (OOV),1
+နံ့ သာ,na- tha-,nan. dha,Out of Vocabulary (OOV),1
+ကျိုး နပ်,kyou: na',gyou: na',Out of Vocabulary (OOV),1
+ဆွမ်း,hswan:,hsun:,Context-dependent pronunciation variation,1
+ဆွမ်း,hsun:,zun:,Context-dependent pronunciation variation,1
+ဆံ ကျင်,hsan gyin,hsan kyin,Out of Vocabulary (OOV),1
+ကျွန်,kyun,gyun,Context-dependent pronunciation variation,1
+ကျေး,kyei:,gyei:,Context-dependent pronunciation variation,1
+ကျောင်း,kyaun:,gyaun:,Context-dependent pronunciation variation,1
+တဂ်,တဂ်,te',Out of Vocabulary (OOV),1
+တ ရ,da- ra.,ta. ja.,Out of Vocabulary (OOV),1
+တ ရ,da- ra.,da. ja.,Out of Vocabulary (OOV),1
+တီ,ti,nhi,Missing pronunciation variant in training data,1
+တ ရ,da- la-,da- ra-,Out of Vocabulary (OOV),1
+တ,da-,ta-,Context-dependent pronunciation variation,1
+ဏေး,ဏေး,nei:,Out of Vocabulary (OOV),1
+ဏ,na.,na-,Context-dependent pronunciation variation,1
+ဍတ်,ဍတ်,da',Out of Vocabulary (OOV),1
+ညှာ,njha,ngha,Missing pronunciation variant in training data,1
+ညော,ညော,njo:,Out of Vocabulary (OOV),1
+တစ် ယောက် တစ်,ta- jau' ta-,ta- jau' da-,Out of Vocabulary (OOV),1
+တစ်,ti',di',Context-dependent pronunciation variation,1
+တ ရ,da- ra.,da- ja.,Out of Vocabulary (OOV),1
+ဆုံး,zoun:,hsoun:,Context-dependent pronunciation variation,1
+ဆုံး,hsoun:,zoun:,Context-dependent pronunciation variation,1
+ဆုတ်,hsou',zou',Missing pronunciation variant in training data,1
+ဆီး,hsi:,zi:,Context-dependent pronunciation variation,1
+ဆိုင်း,hsain:,zain:,Context-dependent pronunciation variation,1
+ဆိုင်,hsain,zain,Context-dependent pronunciation variation,1
+ဆိမ်,ဆိမ်,zein,Out of Vocabulary (OOV),1
+ဆိပ်,zei',hsei',Context-dependent pronunciation variation,1
+ညီ,nji,ji,Missing pronunciation variant in training data,1
+ဆွယ်,hswe,hswe:,Missing pronunciation variant in training data,1
+ညစ်,nji',nji,Context-dependent pronunciation variation,1
+ညင်း,njin:,njhin:,Context-dependent pronunciation variation,1
+ည တာ,nja. da,nja. ta,Out of Vocabulary (OOV),1
+ဉှာ,ဉှာ,njha,Out of Vocabulary (OOV),1
+ဈတ်,ဈတ်,za',Out of Vocabulary (OOV),1
+ဇိဒ်,ဇိဒ်,zei',Out of Vocabulary (OOV),1
+ဇန်,ဇန်,za-,Out of Vocabulary (OOV),1
+ဇ,za.,za-,Context-dependent pronunciation variation,1
+ဇ,za-,za,Context-dependent pronunciation variation,1
+ဆွေ,hswei,zwei,Missing pronunciation variant in training data,1
+ညဉ့်,njin.,njin,Missing pronunciation variant in training data,1
+တန် စွက်,da- zwe',tan swe',Out of Vocabulary (OOV),1
+တန်,tan,da-,Context-dependent pronunciation variation,1
+တည်း,hte:,di:,Context-dependent pronunciation variation,1
+တည်း,de:,di:,Context-dependent pronunciation variation,1
+တည်,ti,te,Context-dependent pronunciation variation,1
+တည်,ti,di,Context-dependent pronunciation variation,1
+တည့်,te.,ti.,Missing pronunciation variant in training data,1
+တေ့,tei.,dei.,Context-dependent pronunciation variation,1
+တော်,do,to,Context-dependent pronunciation variation,1
+တစ်,ta-,da-,Context-dependent pronunciation variation,1
+တောင်,taun,dau,Context-dependent pronunciation variation,1
+တော,to:,do:,Context-dependent pronunciation variation,1
+တေ,tei,dei,Context-dependent pronunciation variation,1
+တူ,du,tun,Context-dependent pronunciation variation,1
+တုံး,toun:,doun:,Context-dependent pronunciation variation,1
+တုံး,doun:,toun:,Context-dependent pronunciation variation,1
+တု ရင်,da- jin,du. jin,Out of Vocabulary (OOV),1
+တု,tu.,du.,Context-dependent pronunciation variation,1
+တု,du.,tu.,Context-dependent pronunciation variation,1
+တောင်း,taun:,daun:,Context-dependent pronunciation variation,1
+တင်း,tin:,tin,Missing pronunciation variant in training data,1
+တင်,din,tin,Context-dependent pronunciation variation,1
+ကြား,kya:,gya:,Context-dependent pronunciation variation,1
+ကြမ်း,gyan:,kyan:,Context-dependent pronunciation variation,1
+ကြပ်,kya',gya',Context-dependent pronunciation variation,1
+ကြည်,kyi,gyi,Context-dependent pronunciation variation,1
+ကြည့် ကြည့်,gyi. kyi.,gyi. gyi.,Out of Vocabulary (OOV),1
+ကြင် ဖော်,kyin bo,kyin hpo,Out of Vocabulary (OOV),1
+ကြက် သီး,kye' thein:,kye' thi:,Out of Vocabulary (OOV),1
+တန် ဆာ,da- za,tan za,Out of Vocabulary (OOV),1
+ကြက်,kye',gye',Context-dependent pronunciation variation,1
+ကြ စု,da- zu.,kya- zu.,Out of Vocabulary (OOV),1
+ကျွမ်း,kywan:,gyun:,Context-dependent pronunciation variation,1
+တိုင်း,tain:,dain:,Context-dependent pronunciation variation,1
+တိတ်,tei',dei',Context-dependent pronunciation variation,1
+တိ,ti.,di.,Context-dependent pronunciation variation,1
+တား,ta:,da:,Context-dependent pronunciation variation,1
+တယ် လီ,te li',te li,Out of Vocabulary (OOV),1
+တပ်,ta',da',Context-dependent pronunciation variation,1
+တန်း,tan:,dan:,Context-dependent pronunciation variation,1
+ကြက် ပေါင် စေး,kye' paun zi:,kye' paun zei:,Out of Vocabulary (OOV),1

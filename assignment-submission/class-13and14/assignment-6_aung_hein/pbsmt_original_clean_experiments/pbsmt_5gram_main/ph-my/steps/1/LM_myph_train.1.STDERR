@@ -1,0 +1,36 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/lmplz --text /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/train_clean.my --order 5 --arpa /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_main/ph-my/lm/myph.lm.1 --prune 0 0 1 --discount_fallback -T /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_main/ph-my/lm -S 20%
+=== 1/5 Counting and sorting n-grams ===
+Reading /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/train_clean.my
+----5---10---15---20---25---30---35---40---45---50---55---60---65---70---75---80---85---90---95--100
+****************************************************************************************************
+Unigram tokens 57345 types 2275
+=== 2/5 Calculating and sorting adjusted counts ===
+Chain sizes: 1:27300 2:320486848 3:600912832 4:961460544 5:1402130048
+Statistics:
+1 2275 D1=0.480642 D2=0.951326 D3+=1.48117
+2 27530 D1=0.806452 D2=1.24158 D3+=1.25547
+3 6390/44994 D1=0.859935 D2=1.33782 D3+=1.64221
+4 1737/35215 D1=0.938336 D2=1.69171 D3+=1.73863
+5 447/16870 D1=0.951341 D2=1.82332 D3+=2.85364
+Memory estimate for binary LM:
+type      kB
+probing  901 assuming -p 1.5
+probing 1119 assuming -r models -p 1.5
+trie     436 without quantization
+trie     237 assuming -q 8 -b 8 quantization 
+trie     403 assuming -a 22 array pointer compression
+trie     204 assuming -a 22 -q 8 -b 8 array pointer compression and quantization
+=== 3/5 Calculating and sorting initial probabilities ===
+Chain sizes: 1:27300 2:440480 3:127800 4:41688 5:12516
+=== 4/5 Calculating and writing order-interpolated probabilities ===
+Chain sizes: 1:27300 2:440480 3:127800 4:41688 5:12516
+=== 5/5 Writing ARPA model ===
+Name:lmplz	VmPeak:3502892 kB	VmRSS:7236 kB	RSSMax:577792 kB	user:0.114825	sys:0.254477	CPU:0.369302	real:0.318498

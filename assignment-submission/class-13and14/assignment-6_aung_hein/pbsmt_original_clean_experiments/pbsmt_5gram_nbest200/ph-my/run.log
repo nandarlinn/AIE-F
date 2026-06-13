@@ -1,0 +1,135 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+STARTING UP AS PROCESS 1340543 ON kyalkalay-HP AT Tue Jun  2 02:13:39 +0630 2026
+LOAD CONFIG...
+working directory is /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my
+running experimental run number 1
+
+ESTABLISH WHICH STEPS NEED TO BE RUN
+
+FIND DEPENDENCIES BETWEEN STEPS
+
+CHECKING IF OLD STEPS ARE RE-USABLE
+
+STEP SUMMARY:
+81 EVALUATION:test:input-from-sgm ->	run
+75 CORPUS:myph:clean ->	run
+58 LM:myph:train ->	run
+55 LM:myph:binarize ->	run
+54 TRAINING:consolidate ->	run
+53 TRAINING:prepare-data ->	run
+52 TRAINING:run-giza ->	run
+51 TRAINING:run-giza-inverse ->	run
+50 TRAINING:symmetrize-giza ->	run
+49 TRAINING:build-lex-trans ->	run
+46 TRAINING:extract-phrases ->	run
+45 TRAINING:build-reordering ->	run
+44 TRAINING:build-ttable ->	run
+41 TRAINING:create-config ->	run
+26 TUNING:filter ->	run
+25 TUNING:apply-filter ->	run
+24 TUNING:tune ->	run
+23 TUNING:apply-weights ->	run
+17 EVALUATION:test:filter ->	run
+16 EVALUATION:test:apply-filter ->	run
+15 EVALUATION:test:decode ->	run
+14 EVALUATION:test:remove-markup ->	run
+10 EVALUATION:test:wrap ->	run
+9 EVALUATION:test:reference-from-sgm ->	run
+4 EVALUATION:test:nist-bleu ->	run
+3 EVALUATION:test:nist-bleu-c ->	run
+2 EVALUATION:test:analysis-coverage ->	run
+1 EVALUATION:test:analysis-precision ->	run
+0 REPORTING:report ->	run
+
+EXECUTE STEPS
+number of steps doable or running: 4 at Tue Jun  2 02:13:39 +0630 2026
+	doable: EVALUATION:test:reference-from-sgm
+	doable: LM:myph:train
+	doable: CORPUS:myph:clean
+	doable: EVALUATION:test:input-from-sgm
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_reference-from-sgm.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/LM_myph_train.1 via sh (2 active)
+number of steps doable or running: 3 at Tue Jun  2 02:13:52 +0630 2026
+	doable: EVALUATION:test:input-from-sgm
+	doable: LM:myph:binarize
+	doable: CORPUS:myph:clean
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_input-from-sgm.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/LM_myph_binarize.1 via sh (2 active)
+number of steps doable or running: 1 at Tue Jun  2 02:14:04 +0630 2026
+	doable: CORPUS:myph:clean
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/CORPUS_myph_clean.1 via sh (1 active)
+number of steps doable or running: 1 at Tue Jun  2 02:14:11 +0630 2026
+	doable: TRAINING:consolidate
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_consolidate.1 via sh (1 active)
+number of steps doable or running: 1 at Tue Jun  2 02:14:18 +0630 2026
+	doable: TRAINING:prepare-data
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_prepare-data.1 via sh (1 active)
+number of steps doable or running: 2 at Tue Jun  2 02:14:26 +0630 2026
+	doable: TRAINING:run-giza-inverse
+	doable: TRAINING:run-giza
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_run-giza-inverse.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_run-giza.1 via sh (2 active)
+number of steps doable or running: 1 at Tue Jun  2 02:14:38 +0630 2026
+	doable: TRAINING:symmetrize-giza
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_symmetrize-giza.1 via sh (1 active)
+number of steps doable or running: 2 at Tue Jun  2 02:14:46 +0630 2026
+	doable: TRAINING:extract-phrases
+	doable: TRAINING:build-lex-trans
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_extract-phrases.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_build-lex-trans.1 via sh (2 active)
+number of steps doable or running: 2 at Tue Jun  2 02:14:58 +0630 2026
+	doable: TRAINING:build-reordering
+	doable: TRAINING:build-ttable
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_build-reordering.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_build-ttable.1 via sh (2 active)
+number of steps doable or running: 4 at Tue Jun  2 02:15:11 +0630 2026
+	doable: TRAINING:create-config
+	doable: EVALUATION:test:filter
+	doable: EVALUATION:test:analysis-coverage
+	doable: TUNING:filter
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TRAINING_create-config.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_filter.1 via sh (2 active)
+number of steps doable or running: 2 at Tue Jun  2 02:15:23 +0630 2026
+	doable: EVALUATION:test:analysis-coverage
+	doable: TUNING:filter
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_analysis-coverage.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TUNING_filter.1 via sh (2 active)
+number of steps doable or running: 1 at Tue Jun  2 02:15:36 +0630 2026
+	doable: TUNING:apply-filter
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TUNING_apply-filter.1 via sh (1 active)
+number of steps doable or running: 1 at Tue Jun  2 02:15:43 +0630 2026
+	doable: TUNING:tune
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TUNING_tune.1 via sh (1 active)
+number of steps doable or running: 1 at Tue Jun  2 02:19:59 +0630 2026
+	doable: TUNING:apply-weights
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/TUNING_apply-weights.1 via sh (1 active)
+number of steps doable or running: 1 at Tue Jun  2 02:20:06 +0630 2026
+	doable: EVALUATION:test:apply-filter
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_apply-filter.1 via sh (1 active)
+number of steps doable or running: 1 at Tue Jun  2 02:20:13 +0630 2026
+	doable: EVALUATION:test:decode
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_decode.1 via sh (1 active)
+number of steps doable or running: 1 at Tue Jun  2 02:20:21 +0630 2026
+	doable: EVALUATION:test:remove-markup
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_remove-markup.1 via sh (1 active)
+number of steps doable or running: 2 at Tue Jun  2 02:20:28 +0630 2026
+	doable: EVALUATION:test:wrap
+	doable: EVALUATION:test:analysis-precision
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_wrap.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_analysis-precision.1 via sh (2 active)
+number of steps doable or running: 2 at Tue Jun  2 02:20:41 +0630 2026
+	doable: EVALUATION:test:nist-bleu
+	doable: EVALUATION:test:nist-bleu-c
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_nist-bleu.1 via sh (1 active)
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/EVALUATION_test_nist-bleu-c.1 via sh (2 active)
+number of steps doable or running: 1 at Tue Jun  2 02:20:53 +0630 2026
+	doable: REPORTING:report
+	executing /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_nbest200/ph-my/steps/1/REPORTING_report.1 via sh (1 active)
+number of steps doable or running: 0 at Tue Jun  2 02:21:00 +0630 2026

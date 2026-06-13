@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PATH="/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/bin:/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation
+
+/home/kyalkalay/tools/mosesdecoder/scripts/ems/support/analysis.perl -system /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation/test.cleaned.1 -reference /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation/test.reference.txt.1 -input /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation/test.input.txt.1 -dir /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation/test.analysis.1 -precision-by-coverage -segmentation /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation/test.output.1 -system-alignment /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation/test.output.1.wa -coverage /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/evaluation/test.analysis.1 -ttable /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/model/phrase-table.1 -input-corpus /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/training/corpus.1.my
+
+echo 'finished at '`date`
+touch /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase7/my-ph/steps/1/EVALUATION_test_analysis-precision.1.DONE

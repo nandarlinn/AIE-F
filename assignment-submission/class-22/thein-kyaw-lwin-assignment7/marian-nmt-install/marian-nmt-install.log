@@ -1,0 +1,806 @@
+0.8s 1 
+0.8s 2 ######################################################################
+0.8s 3 # Step 1: Install system dependencies
+0.8s 4 ######################################################################
+0.8s 5 
+0.8s 6 
+0.8s 7 >>> apt-get update -qq
+0.8s 8 ======================================================================
+5.9s 9 W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu jammy InRelease' does not seem to provide it (sources.list entry misspelt?)
+5.9s 10 
+5.9s 11 >>> apt-get install -y -qq git cmake build-essential libgoogle-perftools-dev ccache
+5.9s 12 ======================================================================
+10.7s 13 Selecting previously unselected package libhiredis0.14:amd64.
+11.4s 14 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 125128 files and directories currently installed.)
+11.4s 15 Preparing to unpack .../libhiredis0.14_0.14.1-2_amd64.deb ...
+11.4s 16 Unpacking libhiredis0.14:amd64 (0.14.1-2) ...
+11.5s 17 Selecting previously unselected package ccache.
+11.5s 18 Preparing to unpack .../ccache_4.5.1-1_amd64.deb ...
+11.5s 19 Unpacking ccache (4.5.1-1) ...
+11.7s 20 Selecting previously unselected package libunwind-dev:amd64.
+11.7s 21 Preparing to unpack .../libunwind-dev_1.3.2-2build2.1_amd64.deb ...
+11.7s 22 Unpacking libunwind-dev:amd64 (1.3.2-2build2.1) ...
+11.8s 23 Selecting previously unselected package libgoogle-perftools-dev:amd64.
+11.8s 24 Preparing to unpack .../libgoogle-perftools-dev_2.9.1-0ubuntu3_amd64.deb ...
+11.8s 25 Unpacking libgoogle-perftools-dev:amd64 (2.9.1-0ubuntu3) ...
+11.9s 26 Setting up libunwind-dev:amd64 (1.3.2-2build2.1) ...
+12.0s 27 Setting up libgoogle-perftools-dev:amd64 (2.9.1-0ubuntu3) ...
+12.0s 28 Setting up libhiredis0.14:amd64 (0.14.1-2) ...
+12.0s 29 Setting up ccache (4.5.1-1) ...
+12.0s 30 Updating symlinks in /usr/lib/ccache ...
+12.1s 31 Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+12.5s 32 /sbin/ldconfig.real: /usr/local/lib/libtbbbind_2_5.so.3 is not a symbolic link
+12.5s 33 
+12.5s 34 /sbin/ldconfig.real: /usr/local/lib/libur_adapter_level_zero.so.0 is not a symbolic link
+12.5s 35 
+12.5s 36 /sbin/ldconfig.real: /usr/local/lib/libtbbbind.so.3 is not a symbolic link
+12.5s 37 
+12.5s 38 /sbin/ldconfig.real: /usr/local/lib/libur_adapter_level_zero_v2.so.0 is not a symbolic link
+12.5s 39 
+12.5s 40 /sbin/ldconfig.real: /usr/local/lib/libtbbbind_2_0.so.3 is not a symbolic link
+12.5s 41 
+12.5s 42 /sbin/ldconfig.real: /usr/local/lib/libur_loader.so.0 is not a symbolic link
+12.5s 43 
+12.5s 44 /sbin/ldconfig.real: /usr/local/lib/libtbb.so.12 is not a symbolic link
+12.5s 45 
+12.5s 46 /sbin/ldconfig.real: /usr/local/lib/libumf.so.1 is not a symbolic link
+12.5s 47 
+12.5s 48 /sbin/ldconfig.real: /usr/local/lib/libtcm_debug.so.1 is not a symbolic link
+12.5s 49 
+12.5s 50 /sbin/ldconfig.real: /usr/local/lib/libur_adapter_opencl.so.0 is not a symbolic link
+12.5s 51 
+12.5s 52 /sbin/ldconfig.real: /usr/local/lib/libtbbmalloc_proxy.so.2 is not a symbolic link
+12.5s 53 
+12.5s 54 /sbin/ldconfig.real: /usr/local/lib/libtcm.so.1 is not a symbolic link
+12.5s 55 
+12.5s 56 /sbin/ldconfig.real: /usr/local/lib/libtbbmalloc.so.2 is not a symbolic link
+12.5s 57 
+12.5s 58 /sbin/ldconfig.real: /usr/local/lib/libhwloc.so.15 is not a symbolic link
+12.5s 59 
+13.6s 60 Processing triggers for man-db (2.10.2-1) ...
+14.2s 61 
+14.2s 62 ######################################################################
+14.2s 63 # Step 2: Clone Marian-NMT from GitHub
+14.2s 64 ######################################################################
+14.2s 65 
+14.2s 66 
+14.2s 67 >>> git clone --depth 1 https://github.com/marian-nmt/marian /kaggle/working/marian
+14.2s 68 ======================================================================
+14.2s 69 Cloning into '/kaggle/working/marian'...
+15.3s 70 
+15.3s 71 >>> git -C /kaggle/working/marian log --oneline -5
+15.3s 72 ======================================================================
+15.3s 73 65bf82f version 1.12.0 (#980)
+15.3s 74 
+15.3s 75 ######################################################################
+15.3s 76 # Step 3: CMake configure (GPU build, no SentencePiece, no web server)
+15.3s 77 ######################################################################
+15.3s 78 
+15.3s 79 
+15.3s 80 >>> cmake -DCMAKE_BUILD_TYPE=Release -DUSE_SENTENCEPIECE=off -DCOMPILE_SERVER=off -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda ..
+15.3s 81 ======================================================================
+15.7s 82 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+15.7s 83 Compatibility with CMake < 3.10 will be removed from a future version of
+15.7s 84 CMake.
+15.7s 85 
+15.7s 86 Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+15.7s 87 to tell CMake that the project requires at least <min> but has been updated
+15.7s 88 to work with policies introduced by <max> or earlier.
+15.7s 89 
+15.7s 90 
+16.0s 91 -- The CXX compiler identification is GNU 11.4.0
+16.1s 92 -- The C compiler identification is GNU 11.4.0
+16.2s 93 -- Detecting CXX compiler ABI info
+16.3s 94 -- Detecting CXX compiler ABI info - done
+16.3s 95 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+16.3s 96 -- Detecting CXX compile features
+16.3s 97 -- Detecting CXX compile features - done
+16.3s 98 -- Detecting C compiler ABI info
+16.4s 99 -- Detecting C compiler ABI info - done
+16.4s 100 -- Check for working C compiler: /usr/bin/cc - skipped
+16.4s 101 -- Detecting C compile features
+16.4s 102 -- Detecting C compile features - done
+16.5s 103 -- Project name: marian
+16.5s 104 -- Project version: v1.12.0+65bf82f
+16.5s 105 Submodule 'examples' (https://github.com/marian-nmt/marian-examples) registered for path 'examples'
+16.5s 106 Submodule 'regression-tests' (https://github.com/marian-nmt/marian-regression-tests) registered for path 'regression-tests'
+16.5s 107 Submodule 'src/3rd_party/fbgemm' (https://github.com/marian-nmt/FBGEMM) registered for path 'src/3rd_party/fbgemm'
+16.5s 108 Submodule 'src/3rd_party/intgemm' (https://github.com/marian-nmt/intgemm/) registered for path 'src/3rd_party/intgemm'
+16.5s 109 Submodule 'src/3rd_party/nccl' (https://github.com/marian-nmt/nccl) registered for path 'src/3rd_party/nccl'
+16.5s 110 Submodule 'src/3rd_party/sentencepiece' (https://github.com/marian-nmt/sentencepiece) registered for path 'src/3rd_party/sentencepiece'
+16.5s 111 Submodule 'src/3rd_party/simple-websocket-server' (https://github.com/marian-nmt/Simple-WebSocket-Server) registered for path 'src/3rd_party/simple-websocket-server'
+16.5s 112 Cloning into '/kaggle/working/marian/examples'...
+17.1s 113 Cloning into '/kaggle/working/marian/regression-tests'...
+17.7s 114 Cloning into '/kaggle/working/marian/src/3rd_party/fbgemm'...
+18.3s 115 Cloning into '/kaggle/working/marian/src/3rd_party/intgemm'...
+18.7s 116 Cloning into '/kaggle/working/marian/src/3rd_party/nccl'...
+19.3s 117 Cloning into '/kaggle/working/marian/src/3rd_party/sentencepiece'...
+21.7s 118 Cloning into '/kaggle/working/marian/src/3rd_party/simple-websocket-server'...
+22.2s 119 Submodule path 'examples': checked out '58f48a06756c623fe799613134810322e061863f'
+22.3s 120 Submodule path 'regression-tests': checked out '2a8bed3f0e937a9de2d6fa92dee3bcf482d3d47b'
+22.3s 121 Submodule path 'src/3rd_party/fbgemm': checked out '6f45243cb8ab7d7ab921af18d313ae97144618b8'
+22.3s 122 Submodule 'third_party/asmjit' (https://github.com/asmjit/asmjit.git) registered for path 'src/3rd_party/fbgemm/third_party/asmjit'
+22.3s 123 Submodule 'third_party/cpuinfo' (https://github.com/pytorch/cpuinfo) registered for path 'src/3rd_party/fbgemm/third_party/cpuinfo'
+22.3s 124 Submodule 'third_party/googletest' (https://github.com/google/googletest) registered for path 'src/3rd_party/fbgemm/third_party/googletest'
+22.3s 125 Cloning into '/kaggle/working/marian/src/3rd_party/fbgemm/third_party/asmjit'...
+24.1s 126 Cloning into '/kaggle/working/marian/src/3rd_party/fbgemm/third_party/cpuinfo'...
+25.4s 127 Cloning into '/kaggle/working/marian/src/3rd_party/fbgemm/third_party/googletest'...
+27.5s 128 Submodule path 'src/3rd_party/fbgemm/third_party/asmjit': checked out '4da474ac9aa2689e88d5e40a2f37628f302d7e3c'
+27.6s 129 Submodule path 'src/3rd_party/fbgemm/third_party/cpuinfo': checked out 'd5e37adf1406cf899d7d9ec1d317c47506ccb970'
+27.7s 130 Submodule path 'src/3rd_party/fbgemm/third_party/googletest': checked out '0fc5466dbb9e623029b1ada539717d10bd45e99e'
+27.7s 131 Submodule path 'src/3rd_party/intgemm': checked out '0eda93a95a4472af0a50c78b5df58e7fc459ac7a'
+27.7s 132 Submodule path 'src/3rd_party/nccl': checked out '5dcf7751494f9d04057bfc6b4a2b64611bc12253'
+28.0s 133 Submodule path 'src/3rd_party/sentencepiece': checked out '8dc9172f88b1d4054ca38de0e5362b2935e9b53f'
+28.0s 134 Submodule path 'src/3rd_party/simple-websocket-server': checked out '8909c57b5473cb95e197fa7f034edabb474535ba'
+28.0s 135 -- Building with -march=native and intrinsics will be chosen automatically by the compiler to match the current machine.
+28.0s 136 -- Checking support for CPU intrinsics
+28.0s 137 CMake Warning (dev) at cmake/FindSSE.cmake:5 (EXEC_PROGRAM):
+28.0s 138 Policy CMP0153 is not set: The exec_program command should not be called.
+28.0s 139 Run "cmake --help-policy CMP0153" for policy details.  Use the cmake_policy
+28.0s 140 command to set the policy and suppress this warning.
+28.0s 141 
+28.0s 142 Use execute_process() instead.
+28.0s 143 Call Stack (most recent call first):
+28.0s 144 CMakeLists.txt:153 (include)
+28.0s 145 This warning is for project developers.  Use -Wno-dev to suppress it.
+28.0s 146 
+28.0s 147 CMake Warning (dev) at CMakeLists.txt:308 (find_package):
+28.0s 148 Policy CMP0146 is not set: The FindCUDA module is removed.  Run "cmake
+28.0s 149 --help-policy CMP0146" for policy details.  Use the cmake_policy command to
+28.0s 150 set the policy and suppress this warning.
+28.0s 151 
+28.0s 152 This warning is for project developers.  Use -Wno-dev to suppress it.
+28.0s 153 
+28.0s 154 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+28.1s 155 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+28.1s 156 -- Found Threads: TRUE
+28.1s 157 -- Found CUDA: /usr/local/cuda (found suitable version "12.8", minimum required is "9.0")
+28.1s 158 -- Compiling code for Pascal GPUs
+28.1s 159 -- Compiling code for Volta GPUs
+28.1s 160 -- Compiling code for Turing GPUs
+28.1s 161 -- Compiling code for Ampere GPUs
+28.1s 162 -- Compiling code for Ampere RTX GPUs
+28.1s 163 -- Found CUDA libraries: /usr/local/cuda/lib64/libcurand.so;/usr/local/cuda/lib64/libcusparse.so;/usr/local/cuda/lib64/libcublas.so;/usr/local/cuda/lib64/libcublasLt.so
+28.1s 164 -- Found TCMalloc: /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so
+28.2s 165 -- Found MKL: -Wl,--start-group;/usr/lib/x86_64-linux-gnu/libmkl_intel_ilp64.a;/usr/lib/x86_64-linux-gnu/libmkl_sequential.a;/usr/lib/x86_64-linux-gnu/libmkl_core.a;-Wl,--end-group
+28.2s 166 CMake Deprecation Warning at src/3rd_party/intgemm/CMakeLists.txt:1 (cmake_minimum_required):
+28.2s 167 Compatibility with CMake < 3.10 will be removed from a future version of
+28.2s 168 CMake.
+28.2s 169 
+28.2s 170 Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+28.2s 171 to tell CMake that the project requires at least <min> but has been updated
+28.2s 172 to work with policies introduced by <max> or earlier.
+28.2s 173 
+28.2s 174 
+29.4s 175 -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE)
+29.4s 176 -- Configuring done (13.7s)
+29.5s 177 -- Generating done (0.1s)
+29.5s 178 -- Build files have been written to: /kaggle/working/marian/build
+29.5s 179 
+29.5s 180 ######################################################################
+29.5s 181 # Step 4: Compile Marian (make -j4) — expect ~10-15 minutes
+29.5s 182 ######################################################################
+29.5s 183 
+29.5s 184 
+29.5s 185 >>> make -j4
+29.5s 186 ======================================================================
+29.5s 187 [  0%] Building CXX object src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Backup.cpp.o
+29.5s 188 [  1%] Creating directories for 'nccl_install'
+29.5s 189 [  1%] Building CXX object src/3rd_party/intgemm/CMakeFiles/intgemm.dir/intgemm/intgemm.cc.o
+29.5s 190 [  2%] Building CXX object src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/entry_iterator.cpp.o
+29.6s 191 [  3%] No download step for 'nccl_install'
+29.6s 192 [  3%] No update step for 'nccl_install'
+29.6s 193 [  4%] No patch step for 'nccl_install'
+29.6s 194 [  4%] No configure step for 'nccl_install'
+29.6s 195 [  5%] Performing build step for 'nccl_install'
+29.7s 196 Generating nccl.h.in                           > /kaggle/working/marian/build/local/include/nccl.h
+29.7s 197 Grabbing   include/nccl_net.h                  > /kaggle/working/marian/build/local/include/nccl_net.h
+29.7s 198 Generating nccl.pc.in                          > /kaggle/working/marian/build/local/lib/pkgconfig/nccl.pc
+29.8s 199 Compiling  init.cc                             > /kaggle/working/marian/build/local/obj/init.o
+30.2s 200 [  6%] Building CXX object src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Column.cpp.o
+30.4s 201 [  6%] Building CXX object src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/errors.cpp.o
+30.9s 202 [  6%] Building CXX object src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Database.cpp.o
+31.3s 203 [  7%] Building CXX object src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/path.cpp.o
+31.9s 204 [  8%] Building CXX object src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Exception.cpp.o
+32.4s 205 [  8%] Building CXX object src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Statement.cpp.o
+33.4s 206 [  9%] Linking CXX static library libintgemm.a
+33.4s 207 [  9%] Built target intgemm
+33.4s 208 [  9%] Building CXX object src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/pathie.cpp.o
+33.8s 209 [ 10%] Building CXX object src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Transaction.cpp.o
+34.0s 210 Compiling  channel.cc                          > /kaggle/working/marian/build/local/obj/channel.o
+34.0s 211 [ 10%] Building C object src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/sqlite3/sqlite3.c.o
+34.5s 212 [ 10%] Generating /kaggle/working/marian/src/common/git_revision.h
+34.5s 213 [ 10%] Built target marian_version
+34.5s 214 [ 11%] Building CXX object src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/pathie_ifstream.cpp.o
+35.5s 215 Compiling  bootstrap.cc                        > /kaggle/working/marian/build/local/obj/bootstrap.o
+36.3s 216 [ 11%] Building CXX object src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/pathie_ofstream.cpp.o
+36.4s 217 [ 11%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/adler32.c.o
+36.6s 218 [ 12%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/compress.c.o
+36.7s 219 [ 12%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/crc32.c.o
+36.9s 220 [ 13%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/deflate.c.o
+37.2s 221 [ 14%] Building CXX object src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/temp.cpp.o
+38.1s 222 [ 14%] Built target pathie-cpp
+38.1s 223 Compiling  transport.cc                        > /kaggle/working/marian/build/local/obj/transport.o
+38.3s 224 [ 14%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/gzclose.c.o
+38.3s 225 [ 15%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/gzlib.c.o
+38.5s 226 [ 16%] Building CXX object src/3rd_party/faiss/CMakeFiles/faiss.dir/VectorTransform.cpp.o
+38.5s 227 [ 16%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/gzread.c.o
+38.8s 228 [ 17%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/gzwrite.c.o
+39.1s 229 [ 17%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/infback.c.o
+39.7s 230 [ 18%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/inffast.c.o
+40.2s 231 [ 18%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/inflate.c.o
+40.4s 232 Compiling  enqueue.cc                          > /kaggle/working/marian/build/local/obj/enqueue.o
+41.3s 233 In file included from include/core.h:54,
+41.3s 234 from include/transport.h:13,
+41.3s 235 from include/comm.h:10,
+41.3s 236 from include/enqueue.h:10,
+41.3s 237 from enqueue.cc:7:
+41.3s 238 enqueue.cc: In function ‘ncclResult_t ncclLaunchCooperativeKernelMultiDevice(cudaLaunchParams*, int*, int, int)’:
+41.3s 239 enqueue.cc:73:53: warning: ‘cudaError_t cudaLaunchCooperativeKernelMultiDevice(cudaLaunchParams*, unsigned int, unsigned int)’ is deprecated [-Wdeprecated-declarations]
+41.3s 240 73 |     CUDACHECK(cudaLaunchCooperativeKernelMultiDevice(paramsList, numDevices,
+41.3s 241 |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+41.3s 242 74 |             // These flags are to reduce the latency of using this API
+41.3s 243 |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+41.3s 244 75 |             cudaCooperativeLaunchMultiDeviceNoPreSync|cudaCooperativeLaunchMultiDeviceNoPostSync));
+41.3s 245 |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+41.3s 246 include/checks.h:14:23: note: in definition of macro ‘CUDACHECK’
+41.3s 247 14 |     cudaError_t err = cmd;                                  \
+41.3s 248 |                       ^~~
+41.3s 249 In file included from /usr/local/cuda/include/channel_descriptor.h:61,
+41.3s 250 from /usr/local/cuda/include/cuda_runtime.h:94,
+41.3s 251 from /kaggle/working/marian/build/local/include/nccl.h:10,
+41.3s 252 from include/devcomm.h:10,
+41.3s 253 from include/transport.h:10,
+41.3s 254 from include/comm.h:10,
+41.3s 255 from include/enqueue.h:10,
+41.3s 256 from enqueue.cc:7:
+41.3s 257 /usr/local/cuda/include/cuda_runtime_api.h:4733:57: note: declared here
+41.3s 258 4733 | extern __CUDA_DEPRECATED __host__ cudaError_t CUDARTAPI cudaLaunchCooperativeKernelMultiDevice(struct cudaLaunchParams *launchParamsList, unsigned int numDevices, unsigned int flags  __dv(0));
+41.3s 259 |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+41.3s 260 enqueue.cc: In function ‘ncclResult_t ncclCpuBarrierOut(ncclComm*)’:
+41.3s 261 enqueue.cc:178:48: warning: ‘int pthread_yield()’ is deprecated: pthread_yield is deprecated, use sched_yield instead [-Wdeprecated-declarations]
+41.3s 262 178 |   while (*ptr < comm->intraRanks) pthread_yield();
+41.3s 263 |                                   ~~~~~~~~~~~~~^~
+41.3s 264 In file included from /usr/include/features.h:486,
+41.3s 265 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+41.3s 266 from /usr/include/limits.h:26,
+41.3s 267 from /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:203,
+41.3s 268 from /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:7,
+41.3s 269 from /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:34,
+41.3s 270 from /usr/local/cuda/include/driver_types.h:83,
+41.3s 271 from /usr/local/cuda/include/builtin_types.h:59,
+41.3s 272 from /usr/local/cuda/include/cuda_runtime.h:90,
+41.3s 273 from /kaggle/working/marian/build/local/include/nccl.h:10,
+41.3s 274 from include/devcomm.h:10,
+41.3s 275 from include/transport.h:10,
+41.3s 276 from include/comm.h:10,
+41.3s 277 from include/enqueue.h:10,
+41.3s 278 from enqueue.cc:7:
+41.3s 279 /usr/include/pthread.h:479:12: note: declared here
+41.3s 280 479 | extern int __REDIRECT_NTH (pthread_yield, (void), sched_yield)
+41.3s 281 |            ^~~~~~~~~~~~~~
+42.0s 282 [ 19%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/inftrees.c.o
+42.4s 283 [ 19%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/trees.c.o
+43.3s 284 [ 20%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/uncompr.c.o
+43.4s 285 [ 21%] Building C object src/3rd_party/zlib/CMakeFiles/zlib.dir/zutil.c.o
+43.5s 286 [ 21%] Built target zlib
+43.5s 287 [ 21%] Building CXX object src/3rd_party/faiss/CMakeFiles/faiss.dir/utils/Heap.cpp.o
+43.6s 288 Compiling  group.cc                            > /kaggle/working/marian/build/local/obj/group.o
+44.9s 289 [ 21%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/binary_renamed.cpp.o
+45.5s 290 [ 22%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/contrib/graphbuilder.cpp.o
+46.1s 291 Compiling  debug.cc                            > /kaggle/working/marian/build/local/obj/debug.o
+46.4s 292 [ 22%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/contrib/graphbuilderadapter.cpp.o
+47.2s 293 [ 23%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/convert.cpp.o
+48.3s 294 Compiling  proxy.cc                            > /kaggle/working/marian/build/local/obj/proxy.o
+48.8s 295 [ 23%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/directives.cpp.o
+49.4s 296 [ 24%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emit.cpp.o
+50.4s 297 /kaggle/working/marian/src/3rd_party/SQLiteCpp/sqlite3/sqlite3.c: In function ‘sqlite3SelectNew’:
+50.4s 298 /kaggle/working/marian/src/3rd_party/SQLiteCpp/sqlite3/sqlite3.c:117589:10: warning: function may return address of local variable [-Wreturn-local-addr]
+50.4s 299 117589 |   return pNew;
+50.4s 300 |          ^~~~
+50.4s 301 /kaggle/working/marian/src/3rd_party/SQLiteCpp/sqlite3/sqlite3.c:117550:10: note: declared here
+50.4s 302 117550 |   Select standin;
+50.4s 303 |          ^~~~~~~
+50.4s 304 /kaggle/working/marian/src/3rd_party/SQLiteCpp/sqlite3/sqlite3.c:117550:10: note: declared here
+50.5s 305 [ 24%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitfromevents.cpp.o
+50.9s 306 Compiling  misc/nvmlwrap.cc                    > /kaggle/working/marian/build/local/obj/misc/nvmlwrap.o
+51.7s 307 [ 25%] Building CXX object src/3rd_party/faiss/CMakeFiles/faiss.dir/utils/hamming.cpp.o
+51.7s 308 misc/nvmlwrap.cc: In function ‘ncclResult_t wrapNvmlSymbols()’:
+51.7s 309 misc/nvmlwrap.cc:37:56: warning: ‘int pthread_yield()’ is deprecated: pthread_yield is deprecated, use sched_yield instead [-Wdeprecated-declarations]
+51.7s 310 37 |     while (nvmlState == nvmlInitializing) pthread_yield();
+51.7s 311 |                                           ~~~~~~~~~~~~~^~
+51.7s 312 In file included from /usr/include/features.h:486,
+51.7s 313 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+51.7s 314 from /usr/include/limits.h:26,
+51.7s 315 from /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:203,
+51.7s 316 from /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:7,
+51.7s 317 from /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:34,
+51.7s 318 from /usr/local/cuda/include/driver_types.h:83,
+51.7s 319 from /usr/local/cuda/include/builtin_types.h:59,
+51.7s 320 from /usr/local/cuda/include/cuda_runtime.h:90,
+51.7s 321 from /kaggle/working/marian/build/local/include/nccl.h:10,
+51.7s 322 from include/nvmlwrap.h:10,
+51.7s 323 from misc/nvmlwrap.cc:7:
+51.7s 324 /usr/include/pthread.h:479:12: note: declared here
+51.7s 325 479 | extern int __REDIRECT_NTH (pthread_yield, (void), sched_yield)
+51.7s 326 |            ^~~~~~~~~~~~~~
+52.1s 327 [ 26%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitter.cpp.o
+53.2s 328 Compiling  misc/ibvwrap.cc                     > /kaggle/working/marian/build/local/obj/misc/ibvwrap.o
+53.8s 329 [ 26%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitterstate.cpp.o
+54.0s 330 misc/ibvwrap.cc: In function ‘ncclResult_t wrap_ibv_symbols()’:
+54.0s 331 misc/ibvwrap.cc:51:54: warning: ‘int pthread_yield()’ is deprecated: pthread_yield is deprecated, use sched_yield instead [-Wdeprecated-declarations]
+54.0s 332 51 |     while (ibvState == ibvInitializing) pthread_yield();
+54.0s 333 |                                         ~~~~~~~~~~~~~^~
+54.0s 334 In file included from /usr/include/features.h:486,
+54.0s 335 from /usr/include/pthread.h:21,
+54.0s 336 from include/core.h:10,
+54.0s 337 from include/ibvwrap.h:15,
+54.0s 338 from misc/ibvwrap.cc:7:
+54.0s 339 /usr/include/pthread.h:479:12: note: declared here
+54.0s 340 479 | extern int __REDIRECT_NTH (pthread_yield, (void), sched_yield)
+54.0s 341 |            ^~~~~~~~~~~~~~
+55.5s 342 Compiling  misc/utils.cc                       > /kaggle/working/marian/build/local/obj/misc/utils.o
+55.8s 343 [ 27%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitterutils.cpp.o
+57.8s 344 Compiling  misc/argcheck.cc                    > /kaggle/working/marian/build/local/obj/misc/argcheck.o
+59.9s 345 Compiling  transport/p2p.cc                    > /kaggle/working/marian/build/local/obj/transport/p2p.o
+62.5s 346 Compiling  transport/shm.cc                    > /kaggle/working/marian/build/local/obj/transport/shm.o
+64.7s 347 Compiling  transport/net.cc                    > /kaggle/working/marian/build/local/obj/transport/net.o
+64.7s 348 [ 27%] Building CXX object src/3rd_party/faiss/CMakeFiles/faiss.dir/utils/misc.cpp.o
+65.5s 349 [ 28%] Building CXX object src/3rd_party/faiss/CMakeFiles/faiss.dir/utils/random.cpp.o
+66.4s 350 [ 29%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/exceptions.cpp.o
+66.5s 351 [ 29%] Built target faiss
+66.5s 352 Compiling  transport/net_socket.cc             > /kaggle/working/marian/build/local/obj/transport/net_socket.o
+67.0s 353 [ 29%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/exp.cpp.o
+67.5s 354 [ 30%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/memory.cpp.o
+68.3s 355 Compiling  transport/net_ib.cc                 > /kaggle/working/marian/build/local/obj/transport/net_ib.o
+68.7s 356 [ 30%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/node_data.cpp.o
+69.4s 357 [ 31%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/nodebuilder.cpp.o
+70.6s 358 [ 31%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/nodeevents.cpp.o
+71.4s 359 Compiling  transport/coll_net.cc               > /kaggle/working/marian/build/local/obj/transport/coll_net.o
+71.7s 360 [ 32%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/null.cpp.o
+72.2s 361 [ 32%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/ostream_wrapper.cpp.o
+72.4s 362 Compiling  collectives/sendrecv.cc             > /kaggle/working/marian/build/local/obj/collectives/sendrecv.o
+73.1s 363 [ 33%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/parse.cpp.o
+74.2s 364 [ 33%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/parser.cpp.o
+74.6s 365 Compiling  collectives/all_reduce.cc           > /kaggle/working/marian/build/local/obj/collectives/all_reduce.o
+75.0s 366 Compiling  collectives/all_gather.cc           > /kaggle/working/marian/build/local/obj/collectives/all_gather.o
+76.1s 367 [ 34%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/regex_yaml.cpp.o
+76.9s 368 [ 34%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scanner.cpp.o
+77.2s 369 Compiling  collectives/broadcast.cc            > /kaggle/working/marian/build/local/obj/collectives/broadcast.o
+77.8s 370 Compiling  collectives/reduce.cc               > /kaggle/working/marian/build/local/obj/collectives/reduce.o
+79.4s 371 [ 35%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scanscalar.cpp.o
+80.0s 372 Compiling  collectives/reduce_scatter.cc       > /kaggle/working/marian/build/local/obj/collectives/reduce_scatter.o
+82.2s 373 Compiling  graph/topo.cc                       > /kaggle/working/marian/build/local/obj/graph/topo.o
+82.4s 374 [ 35%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scantag.cpp.o
+82.9s 375 [ 36%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scantoken.cpp.o
+85.7s 376 Compiling  graph/paths.cc                      > /kaggle/working/marian/build/local/obj/graph/paths.o
+86.2s 377 Compiling  graph/search.cc                     > /kaggle/working/marian/build/local/obj/graph/search.o
+88.4s 378 [ 36%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/simplekey.cpp.o
+89.5s 379 Compiling  graph/connect.cc                    > /kaggle/working/marian/build/local/obj/graph/connect.o
+89.6s 380 [ 37%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/singledocparser.cpp.o
+89.8s 381 Compiling  graph/rings.cc                      > /kaggle/working/marian/build/local/obj/graph/rings.o
+92.2s 382 [ 37%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/stream.cpp.o
+92.2s 383 Compiling  graph/trees.cc                      > /kaggle/working/marian/build/local/obj/graph/trees.o
+92.3s 384 Compiling  graph/tuning.cc                     > /kaggle/working/marian/build/local/obj/graph/tuning.o
+92.7s 385 [ 38%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/tag.cpp.o
+93.2s 386 Compiling  graph/xml.cc                        > /kaggle/working/marian/build/local/obj/graph/xml.o
+93.5s 387 [ 38%] Building CXX object src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/yaml-node.cpp.o
+94.3s 388 [ 38%] Built target libyaml-cpp
+94.3s 389 Generating rules                               > /kaggle/working/marian/build/local/obj/collectives/device/Makefile.rules
+98.8s 390 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_i8.o
+100.1s 391 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_u8.o
+100.3s 392 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_i32.o
+101.0s 393 [ 38%] Built target SQLiteCpp
+101.0s 394 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_u32.o
+105.9s 395 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_i64.o
+105.9s 396 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_u64.o
+106.7s 397 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_f16.o
+110.9s 398 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_f32.o
+111.0s 399 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_sum_f64.o
+111.8s 400 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_i8.o
+112.9s 401 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_u8.o
+116.0s 402 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_i32.o
+116.2s 403 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_u32.o
+116.9s 404 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_i64.o
+117.9s 405 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_u64.o
+121.1s 406 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_f16.o
+121.4s 407 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_f32.o
+122.1s 408 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_prod_f64.o
+123.1s 409 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_i8.o
+126.2s 410 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_u8.o
+126.4s 411 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_i32.o
+127.2s 412 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_u32.o
+128.3s 413 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_i64.o
+131.4s 414 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_u64.o
+131.6s 415 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_f16.o
+132.4s 416 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_f32.o
+133.5s 417 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_min_f64.o
+136.6s 418 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_i8.o
+136.8s 419 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_u8.o
+137.6s 420 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_i32.o
+138.6s 421 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_u32.o
+141.7s 422 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_i64.o
+142.0s 423 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_u64.o
+142.8s 424 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_f16.o
+143.7s 425 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_f32.o
+146.7s 426 Compiling  sendrecv.cu                         > /kaggle/working/marian/build/local/obj/collectives/device/sendrecv_max_f64.o
+147.0s 427 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_i8.o
+147.9s 428 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_u8.o
+148.8s 429 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_i32.o
+151.8s 430 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_u32.o
+207.5s 431 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_i64.o
+210.3s 432 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_u64.o
+213.9s 433 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_f16.o
+214.6s 434 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_f32.o
+262.7s 435 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_sum_f64.o
+265.5s 436 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_i8.o
+273.6s 437 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_u8.o
+282.0s 438 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_i32.o
+317.9s 439 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_u32.o
+327.5s 440 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_i64.o
+332.8s 441 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_u64.o
+335.8s 442 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_f16.o
+368.6s 443 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_f32.o
+376.9s 444 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_prod_f64.o
+382.1s 445 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_i8.o
+395.8s 446 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_u8.o
+419.5s 447 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_i32.o
+425.2s 448 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_u32.o
+447.5s 449 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_i64.o
+460.4s 450 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_u64.o
+470.5s 451 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_f16.o
+476.0s 452 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_f32.o
+496.4s 453 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_min_f64.o
+509.0s 454 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_i8.o
+527.1s 455 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_u8.o
+534.2s 456 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_i32.o
+545.2s 457 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_u32.o
+573.2s 458 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_i64.o
+584.5s 459 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_u64.o
+590.6s 460 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_f16.o
+595.6s 461 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_f32.o
+621.5s 462 Compiling  all_reduce.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_reduce_max_f64.o
+632.9s 463 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_i8.o
+646.6s 464 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_u8.o
+651.6s 465 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_i32.o
+654.5s 466 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_u32.o
+655.1s 467 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_i64.o
+656.7s 468 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_u64.o
+659.5s 469 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_f16.o
+660.3s 470 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_f32.o
+662.0s 471 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_sum_f64.o
+664.5s 472 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_i8.o
+665.5s 473 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_u8.o
+667.1s 474 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_i32.o
+669.4s 475 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_u32.o
+670.7s 476 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_i64.o
+671.1s 477 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_u64.o
+672.3s 478 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_f16.o
+674.6s 479 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_f32.o
+676.0s 480 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_prod_f64.o
+676.3s 481 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_i8.o
+677.5s 482 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_u8.o
+679.7s 483 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_i32.o
+681.1s 484 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_u32.o
+681.4s 485 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_i64.o
+682.7s 486 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_u64.o
+684.9s 487 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_f16.o
+686.3s 488 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_f32.o
+686.6s 489 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_min_f64.o
+687.8s 490 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_i8.o
+690.1s 491 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_u8.o
+691.5s 492 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_i32.o
+691.8s 493 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_u32.o
+693.0s 494 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_i64.o
+695.3s 495 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_u64.o
+696.6s 496 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_f16.o
+696.8s 497 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_f32.o
+698.1s 498 Compiling  all_gather.cu                       > /kaggle/working/marian/build/local/obj/collectives/device/all_gather_max_f64.o
+700.4s 499 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_i8.o
+701.7s 500 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_u8.o
+702.0s 501 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_i32.o
+703.3s 502 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_u32.o
+706.7s 503 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_i64.o
+707.1s 504 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_u64.o
+708.4s 505 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_f16.o
+711.8s 506 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_f32.o
+712.3s 507 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_sum_f64.o
+713.5s 508 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_i8.o
+716.9s 509 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_u8.o
+717.4s 510 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_i32.o
+718.2s 511 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_u32.o
+718.6s 512 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_i64.o
+722.1s 513 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_u64.o
+722.6s 514 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_f16.o
+723.4s 515 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_f32.o
+723.8s 516 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_prod_f64.o
+727.3s 517 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_i8.o
+727.7s 518 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_u8.o
+728.5s 519 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_i32.o
+728.9s 520 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_u32.o
+732.6s 521 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_i64.o
+733.0s 522 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_u64.o
+733.7s 523 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_f16.o
+734.2s 524 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_f32.o
+737.8s 525 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_min_f64.o
+738.2s 526 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_i8.o
+738.9s 527 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_u8.o
+739.4s 528 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_i32.o
+743.0s 529 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_u32.o
+743.4s 530 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_i64.o
+744.1s 531 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_u64.o
+744.5s 532 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_f16.o
+748.2s 533 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_f32.o
+748.6s 534 Compiling  broadcast.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/broadcast_max_f64.o
+749.4s 535 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_i8.o
+749.8s 536 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_u8.o
+753.4s 537 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_i32.o
+753.8s 538 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_u32.o
+765.7s 539 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_i64.o
+765.9s 540 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_u64.o
+768.3s 541 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_f16.o
+768.7s 542 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_f32.o
+780.2s 543 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_sum_f64.o
+780.4s 544 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_i8.o
+783.6s 545 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_u8.o
+784.7s 546 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_i32.o
+794.8s 547 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_u32.o
+795.4s 548 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_i64.o
+798.0s 549 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_u64.o
+798.5s 550 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_f16.o
+808.1s 551 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_f32.o
+808.5s 552 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_prod_f64.o
+811.0s 553 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_i8.o
+813.1s 554 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_u8.o
+821.4s 555 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_i32.o
+821.6s 556 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_u32.o
+826.7s 557 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_i64.o
+828.5s 558 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_u64.o
+834.7s 559 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_f16.o
+834.8s 560 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_f32.o
+839.8s 561 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_min_f64.o
+841.6s 562 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_i8.o
+848.3s 563 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_u8.o
+850.3s 564 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_i32.o
+853.0s 565 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_u32.o
+857.1s 566 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_i64.o
+863.8s 567 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_u64.o
+863.8s 568 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_f16.o
+866.3s 569 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_f32.o
+870.2s 570 Compiling  reduce.cu                           > /kaggle/working/marian/build/local/obj/collectives/device/reduce_max_f64.o
+876.7s 571 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_i8.o
+879.2s 572 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_u8.o
+879.6s 573 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_i32.o
+883.4s 574 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_u32.o
+895.8s 575 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_i64.o
+896.5s 576 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_u64.o
+898.2s 577 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_f16.o
+900.2s 578 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_f32.o
+912.1s 579 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_sum_f64.o
+912.9s 580 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_i8.o
+917.3s 581 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_u8.o
+917.3s 582 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_i32.o
+928.7s 583 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_u32.o
+931.2s 584 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_i64.o
+932.9s 585 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_u64.o
+935.4s 586 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_f16.o
+944.3s 587 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_f32.o
+946.3s 588 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_prod_f64.o
+948.0s 589 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_i8.o
+952.8s 590 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_u8.o
+959.7s 591 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_i32.o
+961.5s 592 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_u32.o
+967.3s 593 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_i64.o
+971.8s 594 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_u64.o
+975.2s 595 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_f16.o
+976.8s 596 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_f32.o
+982.3s 597 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_min_f64.o
+986.7s 598 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_i8.o
+992.5s 599 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_u8.o
+993.9s 600 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_i32.o
+997.4s 601 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_u32.o
+1005.6s 602 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_i64.o
+1009.1s 603 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_u64.o
+1011.2s 604 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_f16.o
+1012.8s 605 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_f32.o
+1020.6s 606 Compiling  reduce_scatter.cu                   > /kaggle/working/marian/build/local/obj/collectives/device/reduce_scatter_max_f64.o
+1024.1s 607 Compiling  functions.cu                        > /kaggle/working/marian/build/local/obj/collectives/device/functions.o
+1039.9s 608 Archiving  objects                             > /kaggle/working/marian/build/local/obj/collectives/device/colldevice.a
+1040.3s 609 Linking    libnccl.so.2.8.3                    > /kaggle/working/marian/build/local/lib/libnccl.so.2.8.3
+1040.3s 610 Archiving  libnccl_static.a                    > /kaggle/working/marian/build/local/lib/libnccl_static.a
+1040.5s 611 /kaggle/working/marian/src/3rd_party/nccl/src
+1041.0s 612 [ 38%] No install step for 'nccl_install'
+1041.0s 613 [ 38%] Completed 'nccl_install'
+1041.0s 614 [ 38%] Built target nccl_install
+1041.0s 615 [ 38%] Built target 3rd_party_installs
+1041.0s 616 [ 38%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/translator/marian_cuda_generated_nth_element.cu.o
+1041.0s 617 [ 39%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_add.cu.o
+1041.1s 618 [ 40%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_add_all.cu.o
+1041.1s 619 [ 41%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_algorithm.cu.o
+1092.1s 620 [ 42%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_cudnn_wrappers.cu.o
+1095.8s 621 [ 43%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_device.cu.o
+1127.6s 622 [ 43%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_element.cu.o
+1130.3s 623 [ 43%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_hash.cu.o
+1179.1s 624 [ 43%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_prod.cu.o
+1245.0s 625 [ 43%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_tensor_operators.cu.o
+1256.2s 626 [ 44%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/tensors/gpu/marian_cuda_generated_topk.cu.o
+1287.0s 627 [ 45%] Building NVCC (Device) object src/CMakeFiles/marian_cuda.dir/translator/marian_cuda_generated_helpers.cu.o
+1562.6s 628 [ 45%] Building CXX object src/CMakeFiles/marian_cuda.dir/tensors/gpu/prod.cpp.o
+1562.6s 629 [ 46%] Building CXX object src/CMakeFiles/marian_cuda.dir/tensors/gpu/prod_sparse.cpp.o
+1591.4s 630 [ 46%] Linking CXX static library libmarian_cuda.a
+1593.3s 631 [ 46%] Built target marian_cuda
+1593.3s 632 [ 47%] Building CXX object src/CMakeFiles/marian.dir/common/aliases.cpp.o
+1593.3s 633 [ 47%] Building CXX object src/CMakeFiles/marian.dir/common/fastopt.cpp.o
+1593.3s 634 [ 48%] Building CXX object src/CMakeFiles/marian.dir/common/version.cpp.o
+1593.3s 635 [ 50%] Building CXX object src/CMakeFiles/marian.dir/common/utils.cpp.o
+1593.7s 636 [ 50%] Building CXX object src/CMakeFiles/marian.dir/common/logging.cpp.o
+1606.6s 637 [ 51%] Building CXX object src/CMakeFiles/marian.dir/common/cli_helper.cpp.o
+1607.9s 638 [ 51%] Building CXX object src/CMakeFiles/marian.dir/common/cli_wrapper.cpp.o
+1613.9s 639 [ 52%] Building CXX object src/CMakeFiles/marian.dir/common/config.cpp.o
+1615.0s 640 [ 52%] Building CXX object src/CMakeFiles/marian.dir/common/config_parser.cpp.o
+1615.4s 641 [ 53%] Building CXX object src/CMakeFiles/marian.dir/common/config_validator.cpp.o
+1639.5s 642 [ 53%] Building CXX object src/CMakeFiles/marian.dir/common/options.cpp.o
+1641.7s 643 [ 54%] Building CXX object src/CMakeFiles/marian.dir/common/binary.cpp.o
+1650.2s 644 [ 54%] Building CXX object src/CMakeFiles/marian.dir/common/build_info.cpp.o
+1650.6s 645 [ 55%] Building CXX object src/CMakeFiles/marian.dir/common/io.cpp.o
+1653.6s 646 [ 55%] Building CXX object src/CMakeFiles/marian.dir/common/filesystem.cpp.o
+1654.1s 647 [ 56%] Building CXX object src/CMakeFiles/marian.dir/common/file_stream.cpp.o
+1657.9s 648 [ 56%] Building CXX object src/CMakeFiles/marian.dir/common/file_utils.cpp.o
+1665.3s 649 [ 57%] Building CXX object src/CMakeFiles/marian.dir/common/signal_handling.cpp.o
+1666.1s 650 [ 57%] Building CXX object src/CMakeFiles/marian.dir/common/types.cpp.o
+1666.2s 651 [ 58%] Building CXX object src/CMakeFiles/marian.dir/data/alignment.cpp.o
+1668.0s 652 [ 58%] Building CXX object src/CMakeFiles/marian.dir/data/vocab.cpp.o
+1668.2s 653 [ 59%] Building CXX object src/CMakeFiles/marian.dir/data/default_vocab.cpp.o
+1673.4s 654 [ 59%] Building CXX object src/CMakeFiles/marian.dir/data/sentencepiece_vocab.cpp.o
+1675.5s 655 [ 60%] Building CXX object src/CMakeFiles/marian.dir/data/factored_vocab.cpp.o
+1682.5s 656 [ 60%] Building CXX object src/CMakeFiles/marian.dir/data/corpus_base.cpp.o
+1693.5s 657 [ 61%] Building CXX object src/CMakeFiles/marian.dir/data/corpus.cpp.o
+1701.3s 658 [ 61%] Building CXX object src/CMakeFiles/marian.dir/data/corpus_sqlite.cpp.o
+1705.1s 659 [ 62%] Building CXX object src/CMakeFiles/marian.dir/data/corpus_nbest.cpp.o
+1722.8s 660 [ 63%] Building CXX object src/CMakeFiles/marian.dir/data/text_input.cpp.o
+1728.5s 661 [ 63%] Building CXX object src/CMakeFiles/marian.dir/data/shortlist.cpp.o
+1729.8s 662 [ 64%] Building CXX object src/CMakeFiles/marian.dir/3rd_party/cnpy/cnpy.cpp.o
+1731.9s 663 [ 64%] Building CXX object src/CMakeFiles/marian.dir/3rd_party/ExceptionWithCallStack.cpp.o
+1732.3s 664 [ 65%] Building CXX object src/CMakeFiles/marian.dir/3rd_party/onnx/protobuf/onnx-ml.pb-wrapper.cpp.o
+1732.4s 665 [ 65%] Building CXX object src/CMakeFiles/marian.dir/3rd_party/phf/phf.cc.o
+1733.5s 666 [ 66%] Building CXX object src/CMakeFiles/marian.dir/tensors/backend.cpp.o
+1737.6s 667 [ 66%] Building CXX object src/CMakeFiles/marian.dir/tensors/rand.cpp.o
+1753.6s 668 [ 67%] Building CXX object src/CMakeFiles/marian.dir/tensors/tensor.cpp.o
+1753.9s 669 [ 67%] Building CXX object src/CMakeFiles/marian.dir/tensors/cpu/device.cpp.o
+1758.1s 670 [ 68%] Building CXX object src/CMakeFiles/marian.dir/tensors/cpu/prod.cpp.o
+1762.2s 671 [ 68%] Building CXX object src/CMakeFiles/marian.dir/tensors/cpu/topk.cpp.o
+1770.4s 672 [ 69%] Building CXX object src/CMakeFiles/marian.dir/tensors/cpu/tensor_operators.cpp.o
+1774.3s 673 [ 69%] Building CXX object src/CMakeFiles/marian.dir/tensors/cpu/integer_common.cpp.o
+1783.0s 674 [ 70%] Building CXX object src/CMakeFiles/marian.dir/tensors/cpu/fbgemm/packed_gemm.cpp.o
+1785.1s 675 [ 70%] Building CXX object src/CMakeFiles/marian.dir/graph/expression_graph.cpp.o
+1791.0s 676 [ 71%] Building CXX object src/CMakeFiles/marian.dir/graph/expression_operators.cpp.o
+1792.2s 677 [ 71%] Building CXX object src/CMakeFiles/marian.dir/graph/node.cpp.o
+1817.2s 678 [ 72%] Building CXX object src/CMakeFiles/marian.dir/graph/node_operators.cpp.o
+1824.0s 679 [ 72%] Building CXX object src/CMakeFiles/marian.dir/graph/node_initializers.cpp.o
+1831.1s 680 [ 73%] Building CXX object src/CMakeFiles/marian.dir/onnx/expression_graph_onnx_exporter.cpp.o
+1831.1s 681 [ 73%] Building CXX object src/CMakeFiles/marian.dir/onnx/expression_graph_onnx_serialization.cpp.o
+1831.1s 682 [ 74%] Building CXX object src/CMakeFiles/marian.dir/layers/convolution.cpp.o
+1846.6s 683 [ 75%] Building CXX object src/CMakeFiles/marian.dir/layers/generic.cpp.o
+1860.6s 684 [ 75%] Building CXX object src/CMakeFiles/marian.dir/layers/loss.cpp.o
+1874.0s 685 [ 76%] Building CXX object src/CMakeFiles/marian.dir/layers/weight.cpp.o
+1877.6s 686 [ 76%] Building CXX object src/CMakeFiles/marian.dir/layers/embedding.cpp.o
+1900.5s 687 [ 77%] Building CXX object src/CMakeFiles/marian.dir/layers/output.cpp.o
+1908.8s 688 [ 77%] Building CXX object src/CMakeFiles/marian.dir/layers/logits.cpp.o
+1929.6s 689 [ 78%] Building CXX object src/CMakeFiles/marian.dir/layers/lsh.cpp.o
+1945.9s 690 [ 78%] Building CXX object src/CMakeFiles/marian.dir/rnn/cells.cpp.o
+1955.2s 691 [ 79%] Building CXX object src/CMakeFiles/marian.dir/rnn/attention.cpp.o
+1963.7s 692 [ 79%] Building CXX object src/CMakeFiles/marian.dir/optimizers/quantizer.cpp.o
+1977.8s 693 [ 80%] Building CXX object src/CMakeFiles/marian.dir/optimizers/clippers.cpp.o
+1982.7s 694 [ 80%] Building CXX object src/CMakeFiles/marian.dir/optimizers/optimizers.cpp.o
+1992.6s 695 [ 81%] Building CXX object src/CMakeFiles/marian.dir/optimizers/exponential_smoothing.cpp.o
+1996.9s 696 [ 81%] Building CXX object src/CMakeFiles/marian.dir/models/model_factory.cpp.o
+2015.2s 697 [ 82%] Building CXX object src/CMakeFiles/marian.dir/models/encoder_decoder.cpp.o
+2023.4s 698 [ 82%] Building CXX object src/CMakeFiles/marian.dir/models/transformer_stub.cpp.o
+2062.8s 699 [ 83%] Building CXX object src/CMakeFiles/marian.dir/models/costs.cpp.o
+2068.5s 700 [ 83%] Building CXX object src/CMakeFiles/marian.dir/rescorer/score_collector.cpp.o
+2084.1s 701 [ 84%] Building CXX object src/CMakeFiles/marian.dir/embedder/vector_collector.cpp.o
+2091.0s 702 [ 84%] Building CXX object src/CMakeFiles/marian.dir/translator/beam_search.cpp.o
+2098.1s 703 [ 85%] Building CXX object src/CMakeFiles/marian.dir/translator/history.cpp.o
+2105.5s 704 [ 85%] Building CXX object src/CMakeFiles/marian.dir/translator/output_collector.cpp.o
+2112.2s 705 [ 86%] Building CXX object src/CMakeFiles/marian.dir/translator/output_printer.cpp.o
+2113.8s 706 [ 86%] Building CXX object src/CMakeFiles/marian.dir/translator/nth_element.cpp.o
+2122.2s 707 [ 87%] Building CXX object src/CMakeFiles/marian.dir/translator/helpers.cpp.o
+2130.6s 708 [ 88%] Building CXX object src/CMakeFiles/marian.dir/translator/scorers.cpp.o
+2140.0s 709 [ 88%] Building CXX object src/CMakeFiles/marian.dir/training/graph_group_async.cpp.o
+2140.2s 710 [ 89%] Building CXX object src/CMakeFiles/marian.dir/training/graph_group_sync.cpp.o
+2150.2s 711 [ 89%] Building CXX object src/CMakeFiles/marian.dir/training/graph_group.cpp.o
+2168.3s 712 [ 90%] Building CXX object src/CMakeFiles/marian.dir/training/graph_group_singleton.cpp.o
+2214.0s 713 [ 90%] Building CXX object src/CMakeFiles/marian.dir/training/validator.cpp.o
+2216.8s 714 [ 91%] Building CXX object src/CMakeFiles/marian.dir/training/communicator.cpp.o
+2220.1s 715 [ 91%] Building CXX object src/CMakeFiles/marian.dir/microsoft/quicksand.cpp.o
+2225.1s 716 [ 92%] Building CXX object src/CMakeFiles/marian.dir/microsoft/sentencepiece.cpp.o
+2225.8s 717 [ 92%] Building CXX object src/CMakeFiles/marian.dir/microsoft/cosmos.cpp.o
+2272.4s 718 [ 93%] Building CXX object src/CMakeFiles/marian.dir/microsoft/shortlist/utils/Converter.cpp.o
+2273.7s 719 [ 93%] Building CXX object src/CMakeFiles/marian.dir/microsoft/shortlist/utils/StringUtils.cpp.o
+2275.9s 720 [ 94%] Building CXX object src/CMakeFiles/marian.dir/microsoft/shortlist/utils/ParameterTree.cpp.o
+2308.5s 721 [ 94%] Linking CXX static library ../libmarian.a
+2317.5s 722 [ 94%] Built target marian
+2317.5s 723 [ 95%] Building CXX object src/CMakeFiles/marian_decoder.dir/command/marian_decoder.cpp.o
+2317.5s 724 [ 95%] Building CXX object src/CMakeFiles/marian_train.dir/command/marian_main.cpp.o
+2317.5s 725 [ 96%] Building CXX object src/CMakeFiles/marian_scorer.dir/command/marian_scorer.cpp.o
+2317.5s 726 [ 97%] Building CXX object src/CMakeFiles/marian_vocab.dir/command/marian_vocab.cpp.o
+2352.2s 727 [ 97%] Linking CXX executable ../marian-vocab
+2354.5s 728 [ 97%] Built target marian_vocab
+2354.5s 729 [ 98%] Building CXX object src/CMakeFiles/marian_conv.dir/command/marian_conv.cpp.o
+2370.4s 730 [ 98%] Linking CXX executable ../marian-decoder
+2377.3s 731 [ 98%] Linking CXX executable ../marian-scorer
+2383.1s 732 [ 98%] Built target marian_decoder
+2385.9s 733 [ 98%] Built target marian_scorer
+2403.2s 734 [ 98%] Linking CXX executable ../marian-conv
+2408.0s 735 [ 98%] Built target marian_conv
+2413.0s 736 [100%] Linking CXX executable ../marian
+2422.3s 737 [100%] Built target marian_train
+2422.3s 738 
+2422.3s 739 ######################################################################
+2422.3s 740 # Step 5: Verify Marian binaries
+2422.3s 741 ######################################################################
+2422.3s 742 
+2422.3s 743 [OK] Found: /kaggle/working/marian/build/marian
+2424.3s 744 Marian: Fast Neural Machine Translation in C++
+2424.3s 745 Usage: /kaggle/working/marian/build/marian [OPTIONS]
+2424.3s 746 
+2424.3s 747 [OK] Found: /kaggle/working/marian/build/marian-decoder
+2424.4s 748 Marian: Fast Neural Machine Translation in C++
+2424.4s 749 Usage: /kaggle/working/marian/build/marian-decoder [OPTIONS]
+2424.4s 750 
+2424.4s 751 [OK] Found: /kaggle/working/marian/build/marian-vocab
+2424.5s 752 Create a vocabulary from text corpora given on STDIN
+2424.5s 753 Usage: /kaggle/working/marian/build/marian-vocab [OPTIONS]
+2424.5s 754 
+2424.5s 755 [OK] Found: /kaggle/working/marian/build/marian-scorer
+2424.7s 756 Marian: Fast Neural Machine Translation in C++
+2424.7s 757 Usage: /kaggle/working/marian/build/marian-scorer [OPTIONS]
+2424.7s 758 
+2424.7s 759 [OK] Found: /kaggle/working/marian/build/marian-conv
+2424.8s 760 Convert a model in the .npz format and normal memory layout to a mmap-able binary model which could be in normal memory layout or packed memory layout
+2424.8s 761 or convert a text lexical shortlist to a binary shortlist with {--shortlist,-s} option
+2424.8s 762 Usage: /kaggle/working/marian/build/marian-conv [OPTIONS]
+2424.8s 763 
+2424.8s 764 ######################################################################
+2424.8s 765 # Step 6: Save binaries to /kaggle/working/marian-bins/
+2424.8s 766 ######################################################################
+2424.8s 767 
+2425.2s 768 [saved] /kaggle/working/marian-bins/marian  (729.5 MB)
+2425.5s 769 [saved] /kaggle/working/marian-bins/marian-decoder  (491.6 MB)
+2425.6s 770 [saved] /kaggle/working/marian-bins/marian-vocab  (85.3 MB)
+2425.9s 771 [saved] /kaggle/working/marian-bins/marian-scorer  (433.0 MB)
+2426.1s 772 [saved] /kaggle/working/marian-bins/marian-conv  (351.7 MB)
+2426.1s 773 
+2426.1s 774 [done] All available binaries saved to /kaggle/working/marian-bins/
+2426.1s 775 [info] Save /kaggle/working/marian-bins/ as a Kaggle Dataset
+2426.1s 776 [info] Future training kernels can add that dataset and use:
+2426.1s 777 /kaggle/input/<dataset-name>/marian
+2426.1s 778 /kaggle/input/<dataset-name>/marian-decoder
+2426.1s 779 /kaggle/input/<dataset-name>/marian-vocab
+2426.1s 780 
+2426.1s 781 ######################################################################
+2426.1s 782 # Step 7: Build summary
+2426.1s 783 ######################################################################
+2426.1s 784 
+2426.1s 785 
+2426.1s 786 >>> ls -lh /kaggle/working/marian-bins/
+2426.1s 787 ======================================================================
+2426.1s 788 total 2.1G
+2426.1s 789 -rwxr-xr-x 1 root root 730M May 31 03:22 marian
+2426.1s 790 -rwxr-xr-x 1 root root 352M May 31 03:21 marian-conv
+2426.1s 791 -rwxr-xr-x 1 root root 492M May 31 03:21 marian-decoder
+2426.1s 792 -rwxr-xr-x 1 root root 433M May 31 03:21 marian-scorer
+2426.1s 793 -rwxr-xr-x 1 root root  86M May 31 03:21 marian-vocab
+2426.1s 794 
+2426.1s 795 >>> /kaggle/working/marian-bins/marian --version
+2426.1s 796 ======================================================================
+2426.2s 797 v1.12.0 65bf82f 2023-02-21 09:56:29 -0800
+2426.2s 798 
+2426.2s 799 [SUCCESS] Marian-NMT installation complete!
+2426.2s 800 Next: save the kernel output as a Kaggle Dataset named e.g. 'marian-nmt-bins'
+2428.8s 801 /usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2428.8s 802 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2429.3s 803 /usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2429.3s 804 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2431.0s 805 [NbConvertApp] Converting notebook __script__.ipynb to html
+2432.3s 806 [NbConvertApp] Writing 293500 bytes to __results__.html

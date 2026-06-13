@@ -1,0 +1,791 @@
+Source_Syllable,Moses_Output,True_Reference,Root_Cause,Error_Count
+ခံ,khan,gan,Train Data Ambiguity (Both Exist),12
+မ,ma-,ma.,Train Data Ambiguity (Both Exist),10
+ခြေ,chei,chi,Train Data Ambiguity (Both Exist),8
+ဝါး,wa:,wa-,Train Data Ambiguity (Both Exist),8
+ကျ,kya.,gya.,Train Data Ambiguity (Both Exist),7
+ပေါက်,bau',pau',Train Data Ambiguity (Both Exist),7
+ကြား,gya:,kya:,Train Data Ambiguity (Both Exist),7
+က,ka-,ga-,Train Data Ambiguity (Both Exist),7
+စား,za:,sa:,Train Data Ambiguity (Both Exist),7
+တောင်,taun,daun,Train Data Ambiguity (Both Exist),6
+ပိုး,pou:,bou:,Train Data Ambiguity (Both Exist),6
+ဆိုး,hsou:,zou:,Train Data Ambiguity (Both Exist),6
+ကြီး,gyi:,kyi:,Train Data Ambiguity (Both Exist),6
+တင်,tin,din,Train Data Ambiguity (Both Exist),6
+သွား,dhwa:,thwa:,Train Data Ambiguity (Both Exist),6
+သား,dha:,tha:,Train Data Ambiguity (Both Exist),6
+ဖက်,hpe',be',Train Data Ambiguity (Both Exist),5
+ဆေး,hsei:,zei:,Train Data Ambiguity (Both Exist),5
+စောင်,saun,zaun,Train Data Ambiguity (Both Exist),5
+ဆွဲ,hswe:,zwe:,Train Data Ambiguity (Both Exist),5
+တုတ်,tou',dou',Train Data Ambiguity (Both Exist),5
+ကုန်,koun,goun,Train Data Ambiguity (Both Exist),5
+က,ka-,ka.,Train Data Ambiguity (Both Exist),5
+စေ့,zei.,sei.,Train Data Ambiguity (Both Exist),5
+စဉ်,zin,sin,Train Data Ambiguity (Both Exist),5
+ခွက်,khwe',gwe',Train Data Ambiguity (Both Exist),5
+တ,ta-,da-,Train Data Ambiguity (Both Exist),4
+တံ,dan,tan,Train Data Ambiguity (Both Exist),4
+ချို,chou,gyou,Train Data Ambiguity (Both Exist),4
+စီး,zi:,si:,Train Data Ambiguity (Both Exist),4
+ထောင်,htaun,daun,Train Data Ambiguity (Both Exist),4
+တူ,du,tu,Train Data Ambiguity (Both Exist),4
+တိုက်,tai',dai',Train Data Ambiguity (Both Exist),4
+ပြန်,pjan,bjan,Train Data Ambiguity (Both Exist),4
+သေ,dhei,thei,Train Data Ambiguity (Both Exist),4
+ကိုင်,kain,gain,Train Data Ambiguity (Both Exist),4
+ကောင်း,kaun:,gaun:,Train Data Ambiguity (Both Exist),4
+ပူ,pu,bu,Train Data Ambiguity (Both Exist),4
+က,ga-,ka-,Train Data Ambiguity (Both Exist),4
+ခြောက်,chau',gyau',Train Data Ambiguity (Both Exist),4
+ချုပ်,gyou',chou',Train Data Ambiguity (Both Exist),4
+စင်,zin,sin,Train Data Ambiguity (Both Exist),4
+နှင့်,nhin.,ne.,Train Data Ambiguity (Both Exist),4
+ကျယ်,kye,gye,Train Data Ambiguity (Both Exist),4
+နည်း,ni:,ne:,Train Data Ambiguity (Both Exist),4
+နား,na:,na-,Train Data Ambiguity (Both Exist),4
+သ,tha-,dha-,Train Data Ambiguity (Both Exist),3
+ရေ,jei,rei,Train Data Ambiguity (Both Exist),3
+အ,a-,a,Train Data Ambiguity (Both Exist),3
+ကပ်,ka',ga',Train Data Ambiguity (Both Exist),3
+ဖို,hpou,bou,Train Data Ambiguity (Both Exist),3
+ရည်,ji,jei,Train Data Ambiguity (Both Exist),3
+မြီး,mji:,mi:,Train Data Ambiguity (Both Exist),3
+ဖျား,hpja:,bja:,Train Data Ambiguity (Both Exist),3
+ပြာ,pja,bja,Train Data Ambiguity (Both Exist),3
+ကုန်း,koun:,goun:,Train Data Ambiguity (Both Exist),3
+ကုပ်,gou',kou',Train Data Ambiguity (Both Exist),3
+ဖော်,hpo,bo,Train Data Ambiguity (Both Exist),3
+တိုင်,dain,tain,Train Data Ambiguity (Both Exist),3
+တောက်,tau',dau',Train Data Ambiguity (Both Exist),3
+တင်း,tin:,din:,Train Data Ambiguity (Both Exist),3
+တန်,tan,dan,Train Data Ambiguity (Both Exist),3
+န,na-,na.,Train Data Ambiguity (Both Exist),3
+ပါး,pa:,pa-,Train Data Ambiguity (Both Exist),3
+ပြည့်,pji.,pjei.,Train Data Ambiguity (Both Exist),3
+ပြ,pja.,bja.,Train Data Ambiguity (Both Exist),3
+ထိုး,htou:,dou:,Train Data Ambiguity (Both Exist),3
+ကျန်,kyan,gyan,Train Data Ambiguity (Both Exist),3
+တို,dou,tou,Train Data Ambiguity (Both Exist),3
+ထိန်း,dein:,htein:,Train Data Ambiguity (Both Exist),3
+ဆွမ်း,hsun:,hswan:,Train Data Ambiguity (Both Exist),3
+တက်,te',de',Train Data Ambiguity (Both Exist),3
+စာ,za,sa,Train Data Ambiguity (Both Exist),3
+ကြော,gyo:,kyo:,Train Data Ambiguity (Both Exist),3
+ဆက်,hse',ze',Train Data Ambiguity (Both Exist),3
+ဆီ,hsi,zi,Train Data Ambiguity (Both Exist),3
+စံ,san,zan,Train Data Ambiguity (Both Exist),3
+စပ်,sa',za',Train Data Ambiguity (Both Exist),3
+စစ်,si',zi',Train Data Ambiguity (Both Exist),3
+စ ကား,za- ga:,za- ga-,Out of Vocabulary (OOV),3
+ခဲ,ge:,khe:,Train Data Ambiguity (Both Exist),3
+ခန်း,gan:,khan:,Train Data Ambiguity (Both Exist),3
+ကန်,kan,gan,Train Data Ambiguity (Both Exist),3
+ကွင်း,gwin:,kwin:,Train Data Ambiguity (Both Exist),3
+ခ နဲ,kha- ne:,ga- ne:,Out of Vocabulary (OOV),3
+ကင်း,kin:,gin:,Train Data Ambiguity (Both Exist),3
+စ,sa-,sa.,Train Data Ambiguity (Both Exist),2
+သည်,dhe,dhi,Train Data Ambiguity (Both Exist),2
+ပေါက်,pau',bau',Train Data Ambiguity (Both Exist),2
+သက် က ရာဇ်,the' ka- ji',dha- ga- ji',Out of Vocabulary (OOV),2
+ခွင်,gwin,khwin,Train Data Ambiguity (Both Exist),2
+တန်း,dan:,tan:,Train Data Ambiguity (Both Exist),2
+ချစ်,chi',gyi',Train Data Ambiguity (Both Exist),2
+ကန်း,gan:,kan:,Train Data Ambiguity (Both Exist),2
+ချဉ်,gyin,chin,Train Data Ambiguity (Both Exist),2
+တို့,dou.,tou.,Train Data Ambiguity (Both Exist),2
+ပေါ်,po,bo,Train Data Ambiguity (Both Exist),2
+စာ,sa,sa-,Train Data Ambiguity (Both Exist),2
+ခံ,gan,khan,Train Data Ambiguity (Both Exist),2
+ဘီး,bi:,bein:,Train Data Ambiguity (Both Exist),2
+တိုး,tou:,dou:,Train Data Ambiguity (Both Exist),2
+ချိုး,chou:,gyou:,Train Data Ambiguity (Both Exist),2
+ပဲ,pe:,be:,Train Data Ambiguity (Both Exist),2
+စည်း,si:,zi:,Train Data Ambiguity (Both Exist),2
+ဝမ်း,wan:,wun:,Train Data Ambiguity (Both Exist),2
+ပ,pa-,pjin,Train Data Ambiguity (Both Exist),2
+စွန်,zun,sun,Train Data Ambiguity (Both Exist),2
+ထွက်,htwe',dwe',Train Data Ambiguity (Both Exist),2
+သိ,thi.,dhi.,Train Data Ambiguity (Both Exist),2
+ပျော်,pjo,bjo,Reference Missing from Training Token,2
+ခေါက်,khau',gau',Train Data Ambiguity (Both Exist),2
+ကြော့,gyo.,kyo.,Train Data Ambiguity (Both Exist),2
+ချာ,cha,gya,Train Data Ambiguity (Both Exist),2
+တွင်း,dwin:,twin:,Train Data Ambiguity (Both Exist),2
+ရို သေ,jou thei,jou dhei,Out of Vocabulary (OOV),2
+စက်,se',ze',Train Data Ambiguity (Both Exist),2
+ပျံ,bjan,pjan,Train Data Ambiguity (Both Exist),2
+ပြင်း,bjin:,pjin:,Train Data Ambiguity (Both Exist),2
+တံ,da-,tan,Train Data Ambiguity (Both Exist),2
+သ,tha.,tha-,Train Data Ambiguity (Both Exist),2
+စေ့,sei.,si.,Train Data Ambiguity (Both Exist),2
+သ,tha-,tha.,Train Data Ambiguity (Both Exist),2
+စော် နံ,zo nan,so nan,Out of Vocabulary (OOV),2
+သ,dha-,tha-,Train Data Ambiguity (Both Exist),2
+စ ကား,za- ga-,za- ga:,Out of Vocabulary (OOV),2
+ထန်း,htan:,hta-,Train Data Ambiguity (Both Exist),2
+ဖြုန်း,hpjoun:,bjoun:,Train Data Ambiguity (Both Exist),2
+ရိ,ri.,ji.,Train Data Ambiguity (Both Exist),2
+ငေါ,ငေါ,ngo:,Out of Vocabulary (OOV),2
+ထိန်း,htein:,dein:,Train Data Ambiguity (Both Exist),2
+လှန်း,လှန်း,lhan:,Out of Vocabulary (OOV),2
+သပ်,tha',dha',Train Data Ambiguity (Both Exist),2
+ပြား,bja:,pja:,Train Data Ambiguity (Both Exist),2
+ပြော,pjo:,bjo:,Train Data Ambiguity (Both Exist),2
+ထမ်း,dan:,htan:,Train Data Ambiguity (Both Exist),2
+ပြေ,pjei,bjei,Train Data Ambiguity (Both Exist),2
+ဆန်,hsan,zan,Train Data Ambiguity (Both Exist),2
+ထည်,de,hte,Train Data Ambiguity (Both Exist),2
+ခြေ ချင်း,chi gyin:,chei gyin:,Out of Vocabulary (OOV),2
+စောင်း,saun:,zaun:,Train Data Ambiguity (Both Exist),2
+ကြိုး,gyou:,kyou:,Train Data Ambiguity (Both Exist),2
+ခုံ,khoun,goun,Train Data Ambiguity (Both Exist),2
+အဲ့,အဲ့,e.,Out of Vocabulary (OOV),2
+ကန့် လန့်,kan. lan.,ga- lan.,Out of Vocabulary (OOV),2
+နွား,nwa:,na-,Train Data Ambiguity (Both Exist),2
+ဆား,hsa:,hsa-,Train Data Ambiguity (Both Exist),2
+တ ရား,ta- ja:,ta- ja-,Out of Vocabulary (OOV),2
+ပန်း,ban:,pan:,Train Data Ambiguity (Both Exist),2
+ပန်း,pan:,ba-,Train Data Ambiguity (Both Exist),2
+ပန်း,pan:,ban:,Train Data Ambiguity (Both Exist),2
+ယဲ့,ယဲ့,je.,Out of Vocabulary (OOV),2
+ရ,ja-,ja.,Train Data Ambiguity (Both Exist),2
+ကွက်,gwe',kwe',Train Data Ambiguity (Both Exist),2
+ကောင်း,gaun:,kaun:,Train Data Ambiguity (Both Exist),2
+ကြို,kyou,gyou,Train Data Ambiguity (Both Exist),2
+ပါ,pa,ba,Train Data Ambiguity (Both Exist),2
+ပါ ဒ,ba da.,pa da.,Out of Vocabulary (OOV),2
+မျက် နှာ,mje' nha-,mje' nha,Out of Vocabulary (OOV),2
+မ,ma.,ma,Train Data Ambiguity (Both Exist),2
+ပစ်,pji',bji',Train Data Ambiguity (Both Exist),2
+ပါး,pa:,ba-,Train Data Ambiguity (Both Exist),2
+စုံ,zoun,soun,Train Data Ambiguity (Both Exist),2
+ပင်,pin,bin,Train Data Ambiguity (Both Exist),2
+ကျွတ်,kyu',gyu',Train Data Ambiguity (Both Exist),2
+ဟာ,ha,ha.,Train Data Ambiguity (Both Exist),2
+ပွား,pwa:,bwa:,Train Data Ambiguity (Both Exist),2
+ကျ,gya.,kya.,Train Data Ambiguity (Both Exist),2
+ပမ်း,ban:,pan:,Train Data Ambiguity (Both Exist),2
+သံ,dhan,than,Train Data Ambiguity (Both Exist),2
+ဆောင်,zaun,hsaun,Train Data Ambiguity (Both Exist),2
+ကုန်,koun,kou,Reference Missing from Training Token,2
+ချက်,che',gye',Train Data Ambiguity (Both Exist),2
+ချက်,gye',che',Train Data Ambiguity (Both Exist),2
+ဆောင်,hsaun,zaun,Train Data Ambiguity (Both Exist),2
+ပု,pa-,bu.,Train Data Ambiguity (Both Exist),2
+ကိန်း,kein:,gein:,Train Data Ambiguity (Both Exist),2
+ကျောက်,kyau',gyau',Train Data Ambiguity (Both Exist),2
+ကား,ka:,ga:,Train Data Ambiguity (Both Exist),2
+ခ,kha-,kha.,Train Data Ambiguity (Both Exist),2
+ပုတ်,pou',bou',Train Data Ambiguity (Both Exist),2
+အောင်,aun,naun,Train Data Ambiguity (Both Exist),2
+ရှောင်း,ရှောင်း,shaun:,Out of Vocabulary (OOV),2
+ပြီး,pji:,bji:,Train Data Ambiguity (Both Exist),2
+ယို့,ယို့,jou.,Out of Vocabulary (OOV),2
+စိ,si.,zi.,Train Data Ambiguity (Both Exist),2
+ခတ်,kha',ga',Train Data Ambiguity (Both Exist),2
+ကျို့,ကျို့,kyou.,Out of Vocabulary (OOV),2
+ခင်း,khin:,gin:,Train Data Ambiguity (Both Exist),2
+ခင်,khin,gin,Train Data Ambiguity (Both Exist),2
+မြီး,mji:,mhi:,Reference Missing from Training Token,2
+ဆုပ်,hsou',zou',Train Data Ambiguity (Both Exist),2
+ကုံး,goun:,koun:,Train Data Ambiguity (Both Exist),1
+ဖွင့်,hpwin.,hpwin,Reference Missing from Training Token,1
+ဖွယ်,bwe,hpwe,Train Data Ambiguity (Both Exist),1
+ကူ,gu,ku,Train Data Ambiguity (Both Exist),1
+ကူး,ku:,gu:,Train Data Ambiguity (Both Exist),1
+ဖြေ,hpjei,bjei,Train Data Ambiguity (Both Exist),1
+ကောင်,kaun,kau,Train Data Ambiguity (Both Exist),1
+ကဲ,ke:,ge:,Train Data Ambiguity (Both Exist),1
+ကောက်,kau',gau',Train Data Ambiguity (Both Exist),1
+ကဲ့,ge.,ke.,Train Data Ambiguity (Both Exist),1
+ဘမ်း,ဘမ်း,ban:,Out of Vocabulary (OOV),1
+ဘဒ်,ဘဒ်,ba',Out of Vocabulary (OOV),1
+ဘ,ba-,ba.,Train Data Ambiguity (Both Exist),1
+ဗျိုက်,ဗျိုက်,bjai',Out of Vocabulary (OOV),1
+ဗိုဇ်,ဗိုဇ်,bai',Out of Vocabulary (OOV),1
+ဗ ထက် ခြိုက်,ba. de' chai',ba. la- chai',Out of Vocabulary (OOV),1
+ဗ,ba-,ba.,Train Data Ambiguity (Both Exist),1
+ကံ,kan,gan,Train Data Ambiguity (Both Exist),1
+ဖွယ်,hpwe,bwe,Train Data Ambiguity (Both Exist),1
+မြ,mja.,mja,Reference Missing from Training Token,1
+မျက် နှာ ချေ,mje' nha- chi,mje' nha- chei,Out of Vocabulary (OOV),1
+မျက် နှာ,mje' nha,mje nha-,Out of Vocabulary (OOV),1
+မဲ့,me.,me,Reference Missing from Training Token,1
+မောင်,maun,moun,Reference Missing from Training Token,1
+မု လေး,ma- lei:,mja' le:,Out of Vocabulary (OOV),1
+မီ,mhi,mi,Train Data Ambiguity (Both Exist),1
+ဖွေ,hpwei,bwei,Reference Missing from Training Token,1
+ဖြူး,bju:,hpju:,Train Data Ambiguity (Both Exist),1
+ဖြူ,hpju,bju,Train Data Ambiguity (Both Exist),1
+ဖြူ,bju,hpju,Train Data Ambiguity (Both Exist),1
+ဖြုန်း စပ်,bjoun: za',hpjoun: za',Out of Vocabulary (OOV),1
+ဖျိုး,ဖျိုး,hpjou:,Out of Vocabulary (OOV),1
+ဖျိုး,ဖျိုး,bjou:,Out of Vocabulary (OOV),1
+ဖျဉ်း,hpjin:,bjin:,Train Data Ambiguity (Both Exist),1
+ဖူး,hpu:,bu:,Train Data Ambiguity (Both Exist),1
+ဘာ သာ,ba dha,hpa dha,Out of Vocabulary (OOV),1
+ဖား,hpa:,hpa-,Train Data Ambiguity (Both Exist),1
+ဖတ်,hpa',ba',Train Data Ambiguity (Both Exist),1
+ဖည်,hpe,be,Reference Missing from Training Token,1
+မ,ma-,a',Reference Missing from Training Token,1
+ဘု,hpa-,bu.,Train Data Ambiguity (Both Exist),1
+ဘိုး အေ,hpou: ei,bou: ei,Out of Vocabulary (OOV),1
+ဘိုး,bou:,hpou:,Train Data Ambiguity (Both Exist),1
+ဘိ,bi.,bein,Reference Missing from Training Token,1
+ဖုန်း ဆိုး,hpoun: zou:,hpoun: hsou:,Out of Vocabulary (OOV),1
+ပုံ,boun,poun,Train Data Ambiguity (Both Exist),1
+ပုပ်,bou',pou',Train Data Ambiguity (Both Exist),1
+ပုန်း,boun:,poun:,Train Data Ambiguity (Both Exist),1
+ပုဒ်,pou',bou',Train Data Ambiguity (Both Exist),1
+ပု,pu.,bu.,Train Data Ambiguity (Both Exist),1
+ပီ,pi,pa-,Reference Missing from Training Token,1
+ပီ,pi,bi,Train Data Ambiguity (Both Exist),1
+မု,ma-,mu.,Train Data Ambiguity (Both Exist),1
+ပိုက်,bai',pai',Train Data Ambiguity (Both Exist),1
+ပျောက်,pjau',bjau',Train Data Ambiguity (Both Exist),1
+ပျာ က,bja ga-,pja ga-,Out of Vocabulary (OOV),1
+ပျဉ်း,bjin:,pjin:,Train Data Ambiguity (Both Exist),1
+ပျစ်,bji',pji',Train Data Ambiguity (Both Exist),1
+ပျက်,pje',bje,Reference Missing from Training Token,1
+ပျက်,bje',pje',Train Data Ambiguity (Both Exist),1
+ပေး,pei:,pjei:,Reference Missing from Training Token,1
+ပိုင်,bain,pain,Train Data Ambiguity (Both Exist),1
+ပ,pa-,ba-,Train Data Ambiguity (Both Exist),1
+ပ,ba-,pa-,Train Data Ambiguity (Both Exist),1
+နှာ ရည်,nha ji,nha jei,Out of Vocabulary (OOV),1
+နှာ ချေ,nha- chi,nha chei,Out of Vocabulary (OOV),1
+ပိန်,pein,bein,Train Data Ambiguity (Both Exist),1
+ပိတ်,pei',bei',Train Data Ambiguity (Both Exist),1
+ပါး,ba:,ba-,Train Data Ambiguity (Both Exist),1
+ပါတ်,ba',pa',Train Data Ambiguity (Both Exist),1
+ပုံ,poun,bou',Reference Missing from Training Token,1
+ပပ်,pa',ba',Train Data Ambiguity (Both Exist),1
+ပန်း,pan:,pa-,Reference Missing from Training Token,1
+ပတ်,pa',ba',Train Data Ambiguity (Both Exist),1
+ပတ်,ba',pa',Train Data Ambiguity (Both Exist),1
+ပေက်,ပေက်,pe',Out of Vocabulary (OOV),1
+ပေ,pei,bei,Train Data Ambiguity (Both Exist),1
+ပူ,bu,pu,Train Data Ambiguity (Both Exist),1
+ပုံ,poun,boun,Train Data Ambiguity (Both Exist),1
+ပယ်,pe,be,Train Data Ambiguity (Both Exist),1
+ပြဲ,pje:,bje:,Train Data Ambiguity (Both Exist),1
+ပြေး,pjei:,bjei:,Train Data Ambiguity (Both Exist),1
+ပြေး,bjei:,pjei:,Train Data Ambiguity (Both Exist),1
+ပြောင်,pjaun,bjaun,Train Data Ambiguity (Both Exist),1
+ပြောင်,bjaun,pjaun,Train Data Ambiguity (Both Exist),1
+ပြောက်,bjau',pjau',Train Data Ambiguity (Both Exist),1
+ပြေ,bjei,pjei,Train Data Ambiguity (Both Exist),1
+ပြူ,pju,bju,Reference Missing from Training Token,1
+ပေး,pei:,bei:,Train Data Ambiguity (Both Exist),1
+ပြုတ် ပြုတ် ပြုန်း,pjou' pjou' pjoun:,pjou' pjou' bjoun:,Out of Vocabulary (OOV),1
+ပြုတ်,pjou',bjou',Train Data Ambiguity (Both Exist),1
+ပြု,pju.,pju,Train Data Ambiguity (Both Exist),1
+ဖ ယောင်း,hpa- jaun:,ba- jaun:,Out of Vocabulary (OOV),1
+ပွဲ,pwe:,bwe:,Train Data Ambiguity (Both Exist),1
+ပွေး,bwei:,pwei:,Train Data Ambiguity (Both Exist),1
+ပွင့်,pwin.,bwin.,Train Data Ambiguity (Both Exist),1
+ကျက်,kye',gye',Train Data Ambiguity (Both Exist),1
+ပြုံး,pjoun:,bjoun:,Train Data Ambiguity (Both Exist),1
+ပေး,bei:,pei:,Train Data Ambiguity (Both Exist),1
+ပေါ့,po.,bo.,Train Data Ambiguity (Both Exist),1
+ပေါင်း,baun:,paun:,Train Data Ambiguity (Both Exist),1
+ပေါက်,bau',pou',Reference Missing from Training Token,1
+ပြီး,bji:,pi:,Train Data Ambiguity (Both Exist),1
+ပြိုင်,pjain,bjaun,Reference Missing from Training Token,1
+ပြိုင်,pjain,bjain,Train Data Ambiguity (Both Exist),1
+ပြိ,ပြိ,pjei',Out of Vocabulary (OOV),1
+ကုမ်,koun,goun,Reference Missing from Training Token,1
+ပြန်,bjan,pjan,Train Data Ambiguity (Both Exist),1
+ပြန့်,pjan.,bjan.,Train Data Ambiguity (Both Exist),1
+ပြတ်,pja',bja',Train Data Ambiguity (Both Exist),1
+ပြဋ် ဌာန်း ချက်,pja. htan: gye',pja' htan: gye',Out of Vocabulary (OOV),1
+ပြည့်,pji.,bji.,Train Data Ambiguity (Both Exist),1
+ပြည့်,pjei.,pji:,Reference Missing from Training Token,1
+ပြည့်,pjei.,pji.,Train Data Ambiguity (Both Exist),1
+ပြည့်,bji.,bjei.,Train Data Ambiguity (Both Exist),1
+ပြာ,bja,pja,Train Data Ambiguity (Both Exist),1
+သန့်,than.,dhan.,Train Data Ambiguity (Both Exist),1
+သင်,thin,dhin,Train Data Ambiguity (Both Exist),1
+သက် က,the' ka-,dha- ga-,Out of Vocabulary (OOV),1
+သေး,dhei:,thei:,Train Data Ambiguity (Both Exist),1
+သော့,tho.,dho.,Train Data Ambiguity (Both Exist),1
+သော,tho:,dho:,Train Data Ambiguity (Both Exist),1
+သော,dho:,tho:,Train Data Ambiguity (Both Exist),1
+သေဋ် ဌေး,thi' htei:,tha- htei:,Out of Vocabulary (OOV),1
+ရပ်,ja',ra',Train Data Ambiguity (Both Exist),1
+သူ ကြီး,dha- gyi:,dhu gyi:,Out of Vocabulary (OOV),1
+သူ,thu,dha-,Train Data Ambiguity (Both Exist),1
+သုတ်,thou',dhou',Train Data Ambiguity (Both Exist),1
+သီး,dhi:,thi:,Train Data Ambiguity (Both Exist),1
+သိပ်,thei',dhei',Train Data Ambiguity (Both Exist),1
+သိပ်,dhei',thei',Train Data Ambiguity (Both Exist),1
+သား,tha:,tha-,Train Data Ambiguity (Both Exist),1
+သား,tha:,dha:,Train Data Ambiguity (Both Exist),1
+သျှီ,သျှီ,shi,Out of Vocabulary (OOV),1
+သူ ကြွယ်,tha- gywe,dha- gywe,Out of Vocabulary (OOV),1
+သ ဘာ,dha- ba,tha- ba,Out of Vocabulary (OOV),1
+သ ကြား,dha- gya:,dha- gya-,Out of Vocabulary (OOV),1
+သ က,tha- ka.,tha- ka-,Out of Vocabulary (OOV),1
+သ,tha.,dha.,Train Data Ambiguity (Both Exist),1
+သ,dha-,tha.,Train Data Ambiguity (Both Exist),1
+ဝှီး,ဝှီး,hwi:,Out of Vocabulary (OOV),1
+ဝိ,wi.,wei',Reference Missing from Training Token,1
+ဝါး,wa:,nwa:,Train Data Ambiguity (Both Exist),1
+ဝါ ဖတ်,wa hpa-,wa hpa',Out of Vocabulary (OOV),1
+သန်,than,dhan,Train Data Ambiguity (Both Exist),1
+သား,dha:,dha-,Train Data Ambiguity (Both Exist),1
+သာ,tha,dha,Train Data Ambiguity (Both Exist),1
+သဗ် ဗ,tha' ba.,tha' ba-,Out of Vocabulary (OOV),1
+သန် လျင်း,ta- lin:,than ljin:,Out of Vocabulary (OOV),1
+သန် ဓေ,dha- dei,than dei,Out of Vocabulary (OOV),1
+သန် တာ,than da,than da',Out of Vocabulary (OOV),1
+သန် တာ,than da,dha- da,Out of Vocabulary (OOV),1
+သန် တ ရ,than da- ra.,than ta. ra.,Out of Vocabulary (OOV),1
+သန် တ,than da-,than ta.,Out of Vocabulary (OOV),1
+ဝမ်း လျား ထိုး,wa- ja: htou:,wan: ja: htou:,Out of Vocabulary (OOV),1
+က လေး,ga- lei:,nga- lei:,Out of Vocabulary (OOV),1
+က ရု ဏာ,ga- ju. na,ka- ru. na,Out of Vocabulary (OOV),1
+က ရု,ga- ju.,ka- ru.,Out of Vocabulary (OOV),1
+က,ka.,ka,Train Data Ambiguity (Both Exist),1
+က,ka.,ga.,Train Data Ambiguity (Both Exist),1
+အ ရိပ်,a- jei',a- jei,Out of Vocabulary (OOV),1
+အ ရပ်,a- ja',a- ja,Out of Vocabulary (OOV),1
+အ မယ် လေး,a- ma- lei:,a- me lei:,Out of Vocabulary (OOV),1
+အ ထီး ကျန်,a- hti: gyan,a- hti: kyan,Out of Vocabulary (OOV),1
+သံ,than,dhan,Train Data Ambiguity (Both Exist),1
+အ ကြံ,a- kyan,a- kya,Out of Vocabulary (OOV),1
+အ ကျပ်,a kya',a- kya',Out of Vocabulary (OOV),1
+အ,a-,a.,Train Data Ambiguity (Both Exist),1
+အ,a-,a',Reference Missing from Training Token,1
+ဟီး,hi:,he:,Reference Missing from Training Token,1
+ဟင်,hin:,hin,Reference Missing from Training Token,1
+သွေး,dhwei:,thwei:,Train Data Ambiguity (Both Exist),1
+သွား,thwa:,dhwa:,Train Data Ambiguity (Both Exist),1
+သွယ်,thwe,dhwe,Train Data Ambiguity (Both Exist),1
+အ စေ့,a- si.,a- sei.,Out of Vocabulary (OOV),1
+သဲ,the:,thei:,Reference Missing from Training Token,1
+ကိုင်း,gain:,kain:,Train Data Ambiguity (Both Exist),1
+ကိုက်,kai',gai',Train Data Ambiguity (Both Exist),1
+ကိစ် စ,kei' sa.,kei' sa,Out of Vocabulary (OOV),1
+ကာ ယ,ka ja.,ga ja.,Out of Vocabulary (OOV),1
+ကာ,ka,ga,Train Data Ambiguity (Both Exist),1
+ကယ်,ke,ge,Train Data Ambiguity (Both Exist),1
+ကမ်း ပါး,ga- ba:,kan: ba:,Out of Vocabulary (OOV),1
+ကမ်း ပါး,ga- ba:,ga- ba-,Out of Vocabulary (OOV),1
+က သီ,ka- thi,ga- thi,Out of Vocabulary (OOV),1
+အိမ်း အည်း မ လုပ်,ein: e: ma- lou',ein: i: ma- lou',Out of Vocabulary (OOV),1
+အိမ်,ein,nein,Train Data Ambiguity (Both Exist),1
+အိမ်,ein,ei,Train Data Ambiguity (Both Exist),1
+အိပ် မက်,ei' me',ein me',Out of Vocabulary (OOV),1
+အိပ်,ei',hei',Reference Missing from Training Token,1
+ကန်,kan,ka,Reference Missing from Training Token,1
+ကဏ် ဍ,gan da.,kan da.,Out of Vocabulary (OOV),1
+ကက် ကု ဆူး,ke' ga- zu:,ke' ku. zu:,Out of Vocabulary (OOV),1
+ကက် ကု ဆူး,ke' ga- zu:,ke' ku zu:,Out of Vocabulary (OOV),1
+ကမ် မဋ် ဌာန်း,ka ma- htan:,ka- ma- htan:,Out of Vocabulary (OOV),1
+ရည် ဝ,jei wa.,ji wa.,Out of Vocabulary (OOV),1
+ရည်,jei,ji,Train Data Ambiguity (Both Exist),1
+ရဇ်,ရဇ်,ra-,Out of Vocabulary (OOV),1
+ရက်,je',re',Train Data Ambiguity (Both Exist),1
+ရ ဟတ်,ja- ha',ra- ha',Out of Vocabulary (OOV),1
+ရ သ,ra. tha.,ra' tha.,Out of Vocabulary (OOV),1
+ရ သ,ra. tha.,ja. tha.,Out of Vocabulary (OOV),1
+ရ သ,ja. tha.,ra tha.,Out of Vocabulary (OOV),1
+သ မား,tha- ma:,tha- ma-,Out of Vocabulary (OOV),1
+ရ မန်,ja- man,ra- man,Out of Vocabulary (OOV),1
+ရ,ra-,ja.,Train Data Ambiguity (Both Exist),1
+ရ,ja.,ra-,Train Data Ambiguity (Both Exist),1
+ရ,ja.,ja:,Train Data Ambiguity (Both Exist),1
+ရွား,jwa:,jwa,Reference Missing from Training Token,1
+ရေ,jei,jein,Train Data Ambiguity (Both Exist),1
+ရူ,ju,ru,Train Data Ambiguity (Both Exist),1
+ရီ,ri,ji,Train Data Ambiguity (Both Exist),1
+ရီ,ji,ri,Train Data Ambiguity (Both Exist),1
+ရ ရ,ja. ja.,ra. ra.,Out of Vocabulary (OOV),1
+မိန်း မ,mein: ma-,mein: ma.,Out of Vocabulary (OOV),1
+မန်း ရည်,man: jei,man: jein,Out of Vocabulary (OOV),1
+မည်,me,mji,Train Data Ambiguity (Both Exist),1
+မဉ် ဇူ,mjin zu,min zu,Out of Vocabulary (OOV),1
+မ,ma.,ma:,Reference Missing from Training Token,1
+မ,ma.,ma-,Train Data Ambiguity (Both Exist),1
+ရ,ja.,ja-,Train Data Ambiguity (Both Exist),1
+ရ,ja-,ra.,Train Data Ambiguity (Both Exist),1
+ယောက်ျား,jau'kya:,jau'kya-,Reference Missing from Training Token,1
+ရယ်,je,ji,Train Data Ambiguity (Both Exist),1
+ယောက် မ,jau' ma.,jaun: ma.,Out of Vocabulary (OOV),1
+ယိန်,ယိန်,jein,Out of Vocabulary (OOV),1
+မှု,mhu.,mhu,Reference Missing from Training Token,1
+မှတ်,mha',mhu.,Train Data Ambiguity (Both Exist),1
+မှင်,mhin,mhi,Reference Missing from Training Token,1
+မြိန့်,မြိန့်,mjein.,Out of Vocabulary (OOV),1
+မြည့်,mjei.,mji.,Train Data Ambiguity (Both Exist),1
+မြင်,mjin,mji,Reference Missing from Training Token,1
+ရာ,ja,ja-,Train Data Ambiguity (Both Exist),1
+ယောက်ျား,jau'kya:,jau',Train Data Ambiguity (Both Exist),1
+ရှင့်,ရှင့်,shin,Out of Vocabulary (OOV),1
+ရွှန်း,shun:,shun,Reference Missing from Training Token,1
+ရွား,jwa:,wa:,Reference Missing from Training Token,1
+ဝမ်း ဖော ဝမ်း ရောင်,wan: (wun:) hpo: wun:,wan: (wun:) hpo: wan:,Out of Vocabulary (OOV),1
+ဝမ်း တွင်း,wun: dwin:,wan: dwin:,Out of Vocabulary (OOV),1
+ဝမ်း,wun:,wan:,Train Data Ambiguity (Both Exist),1
+ဝမ်း,wan:,wa-,Train Data Ambiguity (Both Exist),1
+ဝန်,wun,win,Train Data Ambiguity (Both Exist),1
+ဝင်,win,wi,Train Data Ambiguity (Both Exist),1
+ရိုး,jou:,njou:,Reference Missing from Training Token,1
+ဝ,wa-,wa.,Train Data Ambiguity (Both Exist),1
+လှေး,lhei:,l,Reference Missing from Training Token,1
+လွဲ,lwe:,lwe,Reference Missing from Training Token,1
+လွေ့,လွေ့,lwei.,Out of Vocabulary (OOV),1
+လျော်,ljo,jo,Train Data Ambiguity (Both Exist),1
+လျား,lja:,ja:,Train Data Ambiguity (Both Exist),1
+လျာ,lja,lhja,Reference Missing from Training Token,1
+သ လင်း,tha- lin,tha- lin:,Out of Vocabulary (OOV),1
+သ မီး,tha- mi:,dha- mi:,Out of Vocabulary (OOV),1
+ဝ,wa.,wa-,Train Data Ambiguity (Both Exist),1
+ရိုက်,jai',rai',Train Data Ambiguity (Both Exist),1
+ရို,jou,rou,Train Data Ambiguity (Both Exist),1
+ရိ,ri.,ji:,Reference Missing from Training Token,1
+ရာဇ်,ji',ri',Train Data Ambiguity (Both Exist),1
+ရာဇ်,ji',ri,Reference Missing from Training Token,1
+ရာ ဇ ဝတ်,ja za- wu',ja- za wu',Out of Vocabulary (OOV),1
+ရာ ဇ,ja za-,ja za.,Out of Vocabulary (OOV),1
+ရာ,ja,ra,Train Data Ambiguity (Both Exist),1
+လျဉ်း ပါး,jin: ba:,la-jin: ba:,Out of Vocabulary (OOV),1
+ရှောင့်,ရှောင့်,shaun.,Out of Vocabulary (OOV),1
+လ်,လ်,na,Out of Vocabulary (OOV),1
+လေး,lei:,lei,Reference Missing from Training Token,1
+လောင့်,လောင့်,laun.,Out of Vocabulary (OOV),1
+လယ် သူ မ,le tha- ma.,le dhu ma.,Out of Vocabulary (OOV),1
+လတ်,la',le',Train Data Ambiguity (Both Exist),1
+လင်း တ မှိုင် မှိုင်,lin: da. mhain mhain,la- da. mhain mhain,Out of Vocabulary (OOV),1
+လင်း,lin:,la-,Train Data Ambiguity (Both Exist),1
+လ,la.,la-,Train Data Ambiguity (Both Exist),1
+ရှေ့,shei.,shei,Train Data Ambiguity (Both Exist),1
+လျဉ် မီ,lin mi,ljin mi,Out of Vocabulary (OOV),1
+စ,sa.,za.,Train Data Ambiguity (Both Exist),1
+စ,sa.,sa-,Train Data Ambiguity (Both Exist),1
+စ,sa-,za-,Train Data Ambiguity (Both Exist),1
+ငှ,ငှ,ngha.,Out of Vocabulary (OOV),1
+ငံ ပြာ ရည်,ngan bja jei,ngan pja jei,Out of Vocabulary (OOV),1
+စမ်း,san:,zan:,Train Data Ambiguity (Both Exist),1
+စည်,si,zi,Train Data Ambiguity (Both Exist),1
+ကြံ့,kyan.,gyan.,Train Data Ambiguity (Both Exist),1
+ကြေး နန်း,kyi: nan:,kyei: nan:,Out of Vocabulary (OOV),1
+ကျပ်,kya',gya',Train Data Ambiguity (Both Exist),1
+ကြောင်း,gyaun:,kyaun:,Train Data Ambiguity (Both Exist),1
+ကြောင်,kyaun,gyaun,Train Data Ambiguity (Both Exist),1
+ကြောင်,gyaun,kyaun,Train Data Ambiguity (Both Exist),1
+ကြုတ်,kyou',gyou',Train Data Ambiguity (Both Exist),1
+ကြီး,gyi:,rei,Reference Missing from Training Token,1
+ကြိုး,kyou:,gyou:,Train Data Ambiguity (Both Exist),1
+စုန်း,zoun:,soun:,Train Data Ambiguity (Both Exist),1
+စီ,si,sa-,Reference Missing from Training Token,1
+စို့,zou.,sou.,Train Data Ambiguity (Both Exist),1
+ကြေး,kyei:,kyi:,Train Data Ambiguity (Both Exist),1
+ငန်း,ngan:,gan:,Reference Missing from Training Token,1
+ငင်,ngin,gin,Train Data Ambiguity (Both Exist),1
+ဂြိုလ်,ဂြိုလ်,gyou,Out of Vocabulary (OOV),1
+ဂျော်,ဂျော်,gyo,Out of Vocabulary (OOV),1
+ဂေါက် သီး,gau' thi:,gou' thi:,Out of Vocabulary (OOV),1
+ဂိ,gi.,gein,Reference Missing from Training Token,1
+ဂဏ်,ဂဏ်,gan,Out of Vocabulary (OOV),1
+ဂစ်,ဂစ်,gi',Out of Vocabulary (OOV),1
+ဂ,ga-,ga,Train Data Ambiguity (Both Exist),1
+စ,za-,sa,Train Data Ambiguity (Both Exist),1
+ခွေ,khwei,gwei,Train Data Ambiguity (Both Exist),1
+ခွေ,gwei,khwei,Train Data Ambiguity (Both Exist),1
+ကြိ ယာ,ka ri.,ka- ri.,Out of Vocabulary (OOV),1
+ကြိ,ka-,kyi.,Reference Missing from Training Token,1
+စင်း,zin:,sin:,Train Data Ambiguity (Both Exist),1
+စင်,sin,zin,Train Data Ambiguity (Both Exist),1
+စ က,za- ga.,za- ka.,Out of Vocabulary (OOV),1
+စ,za.,sa.,Train Data Ambiguity (Both Exist),1
+စ,za-,sa-,Train Data Ambiguity (Both Exist),1
+ခွေး,khwei:,gwei:,Train Data Ambiguity (Both Exist),1
+စူ,su,zu,Train Data Ambiguity (Both Exist),1
+စုံး,zoun:,soun:,Train Data Ambiguity (Both Exist),1
+ဆမ်,ဆမ်,hsan,Out of Vocabulary (OOV),1
+ဆန်း,hsan:,zan:,Train Data Ambiguity (Both Exist),1
+ဆန်,zan,hsan,Train Data Ambiguity (Both Exist),1
+ဆန်,hsan,za-,Train Data Ambiguity (Both Exist),1
+ဆည်း,hswe:,hsi:,Train Data Ambiguity (Both Exist),1
+ဆည်,hse,hsi,Reference Missing from Training Token,1
+ဆစ်,hsi',zi',Train Data Ambiguity (Both Exist),1
+စို့,sou.,sou,Reference Missing from Training Token,1
+စွယ်,zwe,zwe.,Reference Missing from Training Token,1
+စွယ်,zwe,swe,Train Data Ambiguity (Both Exist),1
+စွယ်,swe,zwe,Train Data Ambiguity (Both Exist),1
+စွပ်,su',zu',Train Data Ambiguity (Both Exist),1
+စွန်း,zun:,sun:,Train Data Ambiguity (Both Exist),1
+စွန်း,sun:,zun:,Train Data Ambiguity (Both Exist),1
+ဆေး ဖော်,hsei: bo,hsei: hpo,Out of Vocabulary (OOV),1
+ဆေး,zei:,hsei:,Train Data Ambiguity (Both Exist),1
+ဆော်,hso,zo,Train Data Ambiguity (Both Exist),1
+စွဲ,swe:,zwe:,Train Data Ambiguity (Both Exist),1
+စိုက်,sai',zai',Train Data Ambiguity (Both Exist),1
+စိမ်း,zein:,sein:,Train Data Ambiguity (Both Exist),1
+စိမ်း,sein:,zein:,Train Data Ambiguity (Both Exist),1
+စိမ်,sein,zein,Train Data Ambiguity (Both Exist),1
+စိမ့် စိမ့်,sein. zein.,zein. zein.,Out of Vocabulary (OOV),1
+စိတ်,zei',sei',Train Data Ambiguity (Both Exist),1
+စား,sa:,sa-,Train Data Ambiguity (Both Exist),1
+စာ ရိတ် တ,za rei' ta,za rei' ta.,Out of Vocabulary (OOV),1
+စာ ရင်း,sa- jin:,za- jin:,Out of Vocabulary (OOV),1
+စူး,su:,zu:,Train Data Ambiguity (Both Exist),1
+စံ ပယ်,za- be,san pe,Out of Vocabulary (OOV),1
+စံ,zan,san,Train Data Ambiguity (Both Exist),1
+စေး ပိုင်,si: pain,sei: pain,Out of Vocabulary (OOV),1
+စေး,si:,zei:,Train Data Ambiguity (Both Exist),1
+စေး,sei:,si:,Train Data Ambiguity (Both Exist),1
+စေ့ စေ့ ပေါက် ပေါက်,si. zi. pau' pau',sei. zei. pau' pau',Out of Vocabulary (OOV),1
+စေ့,zei.,zi.,Train Data Ambiguity (Both Exist),1
+စေ့,zei.,si.,Train Data Ambiguity (Both Exist),1
+စော်,so,zo,Train Data Ambiguity (Both Exist),1
+စောင်း,zaun:,saun:,Train Data Ambiguity (Both Exist),1
+စာ စီ,sa zi,sa si,Out of Vocabulary (OOV),1
+ဤ ဤ,i i,ni i,Out of Vocabulary (OOV),1
+ဣန် ဒြေ,ein da- rei,ein da-,Out of Vocabulary (OOV),1
+ဣဋ်,ဣဋ်,ei',Out of Vocabulary (OOV),1
+ဣ,ei.,i.,Reference Missing from Training Token,1
+ဣ,ei.,ei',Reference Missing from Training Token,1
+အောက်,au',nau',Train Data Ambiguity (Both Exist),1
+အူ,u,nu,Train Data Ambiguity (Both Exist),1
+အုန်,အုန်,ou,Out of Vocabulary (OOV),1
+အိုက်,ai',nai',Reference Missing from Training Token,1
+ငါး,nga-,nga:,Train Data Ambiguity (Both Exist),1
+ခါ,kha,ga,Train Data Ambiguity (Both Exist),1
+ခပ်,kha',ga',Train Data Ambiguity (Both Exist),1
+ခန်း,khan:,gan:,Train Data Ambiguity (Both Exist),1
+ခတ်,kha',ga,Reference Missing from Training Token,1
+ခ ဏ,kha- na.,kha- na,Out of Vocabulary (OOV),1
+ခ စား,kha. za:,ga. za:,Out of Vocabulary (OOV),1
+ခ,kha-,ga-,Train Data Ambiguity (Both Exist),1
+ကွဲ,kwe:,kwei,Train Data Ambiguity (Both Exist),1
+ကွဲ,kwe:,gwe:,Train Data Ambiguity (Both Exist),1
+ခါး,ga:,kha:,Train Data Ambiguity (Both Exist),1
+ဧ က,ei: ka.,nei ka.,Out of Vocabulary (OOV),1
+ဦး,u:,nu:,Train Data Ambiguity (Both Exist),1
+ဥပ်,ဥပ်,ou',Out of Vocabulary (OOV),1
+ဥစ် စာ,ou' sa,ou' sa-,Out of Vocabulary (OOV),1
+ဥ ပ,u. pa-,u. ba-,Out of Vocabulary (OOV),1
+ဥ,u.,ou',Train Data Ambiguity (Both Exist),1
+အာ ဂန် တု,a gan du,a gan du.,Out of Vocabulary (OOV),1
+အပ်,a',na',Train Data Ambiguity (Both Exist),1
+အန် တ ရာယ်,an da- je,an da- re,Out of Vocabulary (OOV),1
+ကြွ,kywa.,gywa.,Train Data Ambiguity (Both Exist),1
+အဇ်,အဇ်,i',Out of Vocabulary (OOV),1
+အင် ဂ,in: ga-,in ga.,Out of Vocabulary (OOV),1
+အက် ခ ရာ,e' kha- ja,e' kha- ja.,Out of Vocabulary (OOV),1
+အ သား,a- tha:,a- tha-,Out of Vocabulary (OOV),1
+အ သား,a- tha:,a- dha-,Out of Vocabulary (OOV),1
+အ လျှင်း,a- ljin:,a- shin:,Out of Vocabulary (OOV),1
+ကြွေ,kywei,gywei,Train Data Ambiguity (Both Exist),1
+ကြွပ်,kyu',gyu',Train Data Ambiguity (Both Exist),1
+ကြွက် မြီး,kywe: mi:,kywe' mi:,Out of Vocabulary (OOV),1
+အည်း,in:,i:,Reference Missing from Training Token,1
+ချည်,chi,gyi,Train Data Ambiguity (Both Exist),1
+ချဉ့်,ချဉ့်,chin.,Out of Vocabulary (OOV),1
+ချစ်,chi',chi,Reference Missing from Training Token,1
+ခွင့်,khwin.,gwin.,Train Data Ambiguity (Both Exist),1
+ခွ,gwa.,khwa.,Train Data Ambiguity (Both Exist),1
+ခြေ ဖ,chi ba-,chei ba-,Out of Vocabulary (OOV),1
+ခြေ ထောက်,chi dau',chei dau',Out of Vocabulary (OOV),1
+ခြေ ချော် လက် ချော်,chi gyo le' gyo,chei gyo le' gyo,Out of Vocabulary (OOV),1
+ခြေ,gyei,chei,Train Data Ambiguity (Both Exist),1
+ကွန်း,gun:,kun:,Train Data Ambiguity (Both Exist),1
+ခြေ,chei,gyei,Train Data Ambiguity (Both Exist),1
+ခြား,cha:,gya:,Train Data Ambiguity (Both Exist),1
+ခြစ်,gyi',chi',Train Data Ambiguity (Both Exist),1
+ချွဲ,chwe:,chwe.,Reference Missing from Training Token,1
+ချွန်,gyun,chun,Train Data Ambiguity (Both Exist),1
+ချေး,chei:,chi:,Train Data Ambiguity (Both Exist),1
+ချောင်,chaun,gyaun,Train Data Ambiguity (Both Exist),1
+ငါး မျှား,nga- mhja:,nga: mhja:,Out of Vocabulary (OOV),1
+ငါး,nga:,nga-,Train Data Ambiguity (Both Exist),1
+ခြေ,chi,chei,Train Data Ambiguity (Both Exist),1
+ကွင်း,kwin:,gwin:,Train Data Ambiguity (Both Exist),1
+ချင်း,gyin:,ja,Reference Missing from Training Token,1
+ချ,cha.,gya.,Train Data Ambiguity (Both Exist),1
+ခံ တက်,ga- de',kha- de',Out of Vocabulary (OOV),1
+ခံ ချိ,khan gyi.,khan chi.,Out of Vocabulary (OOV),1
+ခေါင်,gaun,khaun,Train Data Ambiguity (Both Exist),1
+ခု,khu.,gu.,Train Data Ambiguity (Both Exist),1
+ခု,khu.,ga-,Train Data Ambiguity (Both Exist),1
+ခို,khou,gou,Train Data Ambiguity (Both Exist),1
+ချပ်,gya',cha',Train Data Ambiguity (Both Exist),1
+ခါး,kha:,kha-,Train Data Ambiguity (Both Exist),1
+ခါး,kha:,ga:,Train Data Ambiguity (Both Exist),1
+ချောက်,chau',gyau',Train Data Ambiguity (Both Exist),1
+ချော,cho:,gyo:,Train Data Ambiguity (Both Exist),1
+ချုံ,choun,gyoun,Reference Missing from Training Token,1
+ချုပ်,chou',gyou',Train Data Ambiguity (Both Exist),1
+ချီး မွမ်း ခြေ ကျောက်,chi: mun: chi gyau',chi: mun: chei gyau',Out of Vocabulary (OOV),1
+ချိုင့်,gyain.,chain.,Train Data Ambiguity (Both Exist),1
+ချိန်,gyein,chein,Train Data Ambiguity (Both Exist),1
+ချမ်း,chan:,gyan:,Train Data Ambiguity (Both Exist),1
+ခါး တောင်း ကျိုက်,ga- daun kyai',ga- daun: kyai',Out of Vocabulary (OOV),1
+ထိမ်,htein,dein,Train Data Ambiguity (Both Exist),1
+ထိတ် ထိတ်,htei' htei',dei' dei',Out of Vocabulary (OOV),1
+ထိတ်,htei',dei',Train Data Ambiguity (Both Exist),1
+ထိ အောင်,hti aun,hti. aun,Out of Vocabulary (OOV),1
+ထပ်,hta',da',Train Data Ambiguity (Both Exist),1
+ထန်း ရည်,hta- jei,hta- ji,Out of Vocabulary (OOV),1
+ထန်း ဖူး,htan: bu:,htan: hpu:,Out of Vocabulary (OOV),1
+ကျည်,kyi,gyi,Train Data Ambiguity (Both Exist),1
+ကျစ်,kyi',gyi',Train Data Ambiguity (Both Exist),1
+ဆောင်,hsaun,hsun,Reference Missing from Training Token,1
+ဓဗ်,ဓဗ်,da',Out of Vocabulary (OOV),1
+ဒြေ,da- rei,da-,Decoder Hallucination / Over-generalization,1
+ဒါ ယိ ကာ မ,da ja- ka ma.,da ji. ka ma.,Out of Vocabulary (OOV),1
+ဒည်း,ဒည်း,di:,Out of Vocabulary (OOV),1
+ဒ သ က,da. tha- ka.,da' tha- ka.,Out of Vocabulary (OOV),1
+ဒ,da.,da-,Train Data Ambiguity (Both Exist),1
+ထွေး,htwei:,dwei:,Train Data Ambiguity (Both Exist),1
+ထွေ,htwei,dwei,Train Data Ambiguity (Both Exist),1
+ထွား,htwa:,dwa:,Reference Missing from Training Token,1
+ကျင့်,kyin.,gyin.,Train Data Ambiguity (Both Exist),1
+တီ,ti,di,Train Data Ambiguity (Both Exist),1
+ထန်,htan,dan,Reference Missing from Training Token,1
+ထင်,htin,ma-,Reference Missing from Training Token,1
+ထ မင်း,hta- min:,da- min:,Out of Vocabulary (OOV),1
+ထ,hta-,hta.,Train Data Ambiguity (Both Exist),1
+တွဲ,twe:,dwe:,Train Data Ambiguity (Both Exist),1
+တွဲ,dwe:,twe:,Train Data Ambiguity (Both Exist),1
+တွာ,တွာ,htwa,Out of Vocabulary (OOV),1
+တွင်း,twin:,dwin:,Train Data Ambiguity (Both Exist),1
+ထီး,hti:,di:,Train Data Ambiguity (Both Exist),1
+တျား,တျား,ta-,Out of Vocabulary (OOV),1
+တျား,တျား,ja:,Out of Vocabulary (OOV),1
+တံ ခါး,da- ga:,da- ga-,Out of Vocabulary (OOV),1
+တဲ,de:,te:,Train Data Ambiguity (Both Exist),1
+ထဲ,hte:,de:,Train Data Ambiguity (Both Exist),1
+ထောင့်,daun.,htaun.,Train Data Ambiguity (Both Exist),1
+ထောက်,htau',dau',Train Data Ambiguity (Both Exist),1
+ထေရ်,htei,hti,Train Data Ambiguity (Both Exist),1
+ထေ ရ ဝါ ဒ,hti ra. wa da.,htei ra. wa da.,Out of Vocabulary (OOV),1
+တြီ,တြီ,tri,Out of Vocabulary (OOV),1
+နုံး,နုံး,noun:,Out of Vocabulary (OOV),1
+နီ,ni,na-,Train Data Ambiguity (Both Exist),1
+နိုင် ငံ,nain gan,nain ngan,Out of Vocabulary (OOV),1
+နား,na:,za-,Reference Missing from Training Token,1
+နား,na-,na:,Train Data Ambiguity (Both Exist),1
+နာ မည်,nan me,na mji,Out of Vocabulary (OOV),1
+နတ်,na',na-,Train Data Ambiguity (Both Exist),1
+နင်,nin:,nin,Train Data Ambiguity (Both Exist),1
+န ရီ,na- ji:,na- ji,Out of Vocabulary (OOV),1
+ထွာ,htwa,dwa,Reference Missing from Training Token,1
+ပစ် စည်း,pji' si:,pji si:,Out of Vocabulary (OOV),1
+ပင်း,bin:,pin:,Train Data Ambiguity (Both Exist),1
+ပင်,pin,pi,Reference Missing from Training Token,1
+ပင်,pin,bi,Reference Missing from Training Token,1
+ပက်,pe',be,Reference Missing from Training Token,1
+ပ ရိ သတ်,pa- rei' tha',pa- jei' tha',Out of Vocabulary (OOV),1
+ပ ရိ,pa- ri.,pa- ra-,Out of Vocabulary (OOV),1
+ပ ဋိ,pa- ti.,pa- ti,Out of Vocabulary (OOV),1
+ပ,pjin,pa.,Train Data Ambiguity (Both Exist),1
+န ဂါး,na- ga-,na- ga:,Out of Vocabulary (OOV),1
+ထွန်း,htun:,dun:,Reference Missing from Training Token,1
+ထွက်,dwe',htwe',Train Data Ambiguity (Both Exist),1
+န ဂ ဘာ ရီ,na- ga- ba ji,na- ga- ba ri,Out of Vocabulary (OOV),1
+န ကျယ်,na- gye,na- gyi,Out of Vocabulary (OOV),1
+န,na.,na-,Train Data Ambiguity (Both Exist),1
+န,na-,da-,Reference Missing from Training Token,1
+ဓား,da:,da-,Train Data Ambiguity (Both Exist),1
+ကျောင်း,gyaun:,kyaun:,Train Data Ambiguity (Both Exist),1
+ကျီ,gyi,kyi,Train Data Ambiguity (Both Exist),1
+နောင် ကြဉ်,naun kyi,naun kyin,Out of Vocabulary (OOV),1
+ကျိုး,kyou:,gyou:,Train Data Ambiguity (Both Exist),1
+ကျို့,ကျို့,gyou.,Out of Vocabulary (OOV),1
+ကျို,gyou,kyou,Train Data Ambiguity (Both Exist),1
+ကျိပ်,gyei',kyei',Reference Missing from Training Token,1
+ကျမ်း,kyan:,gyan:,Train Data Ambiguity (Both Exist),1
+သွမ်း,thwan:,dhwan:,Train Data Ambiguity (Both Exist),1
+နှမ်း,nhan:,na-,Reference Missing from Training Token,1
+နှစ်,nhi',nha-,Train Data Ambiguity (Both Exist),1
+နှ မ,nha- ma-,nha- ma.,Out of Vocabulary (OOV),1
+နံ့ သာ,na- tha-,nan. dha,Out of Vocabulary (OOV),1
+ကျိုး နပ်,kyou: na',gyou: na',Out of Vocabulary (OOV),1
+ဆွမ်း,hswan:,hsun:,Train Data Ambiguity (Both Exist),1
+ဆွမ်း,hsun:,zun:,Train Data Ambiguity (Both Exist),1
+ဆံ ကျင်,hsan gyin,hsan kyin,Out of Vocabulary (OOV),1
+ကျွန်,kyun,gyun,Train Data Ambiguity (Both Exist),1
+ကျေး,kyei:,gyei:,Train Data Ambiguity (Both Exist),1
+ကျောင်း,kyaun:,gyaun:,Train Data Ambiguity (Both Exist),1
+တဂ်,တဂ်,te',Out of Vocabulary (OOV),1
+တ ရ,da- ra.,ta. ja.,Out of Vocabulary (OOV),1
+တ ရ,da- ra.,da. ja.,Out of Vocabulary (OOV),1
+တီ,ti,nhi,Reference Missing from Training Token,1
+တ ရ,da- la-,da- ra-,Out of Vocabulary (OOV),1
+တ,da-,ta-,Train Data Ambiguity (Both Exist),1
+ဏေး,ဏေး,nei:,Out of Vocabulary (OOV),1
+ဏ,na.,na-,Train Data Ambiguity (Both Exist),1
+ဍတ်,ဍတ်,da',Out of Vocabulary (OOV),1
+ညှာ,njha,ngha,Reference Missing from Training Token,1
+ညော,ညော,njo:,Out of Vocabulary (OOV),1
+တစ် ယောက် တစ်,ta- jau' ta-,ta- jau' da-,Out of Vocabulary (OOV),1
+တစ်,ti',di',Train Data Ambiguity (Both Exist),1
+တ ရ,da- ra.,da- ja.,Out of Vocabulary (OOV),1
+ဆုံး,zoun:,hsoun:,Train Data Ambiguity (Both Exist),1
+ဆုံး,hsoun:,zoun:,Train Data Ambiguity (Both Exist),1
+ဆုတ်,hsou',zou',Reference Missing from Training Token,1
+ဆီး,hsi:,zi:,Train Data Ambiguity (Both Exist),1
+ဆိုင်း,hsain:,zain:,Train Data Ambiguity (Both Exist),1
+ဆိုင်,hsain,zain,Train Data Ambiguity (Both Exist),1
+ဆိမ်,ဆိမ်,zein,Out of Vocabulary (OOV),1
+ဆိပ်,zei',hsei',Train Data Ambiguity (Both Exist),1
+ညီ,nji,ji,Reference Missing from Training Token,1
+ဆွယ်,hswe,hswe:,Reference Missing from Training Token,1
+ညစ်,nji',nji,Train Data Ambiguity (Both Exist),1
+ညင်း,njin:,njhin:,Train Data Ambiguity (Both Exist),1
+ည တာ,nja. da,nja. ta,Out of Vocabulary (OOV),1
+ဉှာ,ဉှာ,njha,Out of Vocabulary (OOV),1
+ဈတ်,ဈတ်,za',Out of Vocabulary (OOV),1
+ဇိဒ်,ဇိဒ်,zei',Out of Vocabulary (OOV),1
+ဇန်,ဇန်,za-,Out of Vocabulary (OOV),1
+ဇ,za.,za-,Train Data Ambiguity (Both Exist),1
+ဇ,za-,za,Train Data Ambiguity (Both Exist),1
+ဆွေ,hswei,zwei,Reference Missing from Training Token,1
+ညဉ့်,njin.,njin,Reference Missing from Training Token,1
+တန် စွက်,da- zwe',tan swe',Out of Vocabulary (OOV),1
+တန်,tan,da-,Train Data Ambiguity (Both Exist),1
+တည်း,hte:,di:,Train Data Ambiguity (Both Exist),1
+တည်း,de:,di:,Train Data Ambiguity (Both Exist),1
+တည်,ti,te,Train Data Ambiguity (Both Exist),1
+တည်,ti,di,Train Data Ambiguity (Both Exist),1
+တည့်,te.,ti.,Reference Missing from Training Token,1
+တေ့,tei.,dei.,Train Data Ambiguity (Both Exist),1
+တော်,do,to,Train Data Ambiguity (Both Exist),1
+တစ်,ta-,da-,Train Data Ambiguity (Both Exist),1
+တောင်,taun,dau,Train Data Ambiguity (Both Exist),1
+တော,to:,do:,Train Data Ambiguity (Both Exist),1
+တေ,tei,dei,Train Data Ambiguity (Both Exist),1
+တူ,du,tun,Train Data Ambiguity (Both Exist),1
+တုံး,toun:,doun:,Train Data Ambiguity (Both Exist),1
+တုံး,doun:,toun:,Train Data Ambiguity (Both Exist),1
+တု ရင်,da- jin,du. jin,Out of Vocabulary (OOV),1
+တု,tu.,du.,Train Data Ambiguity (Both Exist),1
+တု,du.,tu.,Train Data Ambiguity (Both Exist),1
+တောင်း,taun:,daun:,Train Data Ambiguity (Both Exist),1
+တင်း,tin:,tin,Reference Missing from Training Token,1
+တင်,din,tin,Train Data Ambiguity (Both Exist),1
+ကြား,kya:,gya:,Train Data Ambiguity (Both Exist),1
+ကြမ်း,gyan:,kyan:,Train Data Ambiguity (Both Exist),1
+ကြပ်,kya',gya',Train Data Ambiguity (Both Exist),1
+ကြည်,kyi,gyi,Train Data Ambiguity (Both Exist),1
+ကြည့် ကြည့်,gyi. kyi.,gyi. gyi.,Out of Vocabulary (OOV),1
+ကြင် ဖော်,kyin bo,kyin hpo,Out of Vocabulary (OOV),1
+ကြက် သီး,kye' thein:,kye' thi:,Out of Vocabulary (OOV),1
+တန် ဆာ,da- za,tan za,Out of Vocabulary (OOV),1
+ကြက်,kye',gye',Train Data Ambiguity (Both Exist),1
+ကြ စု,da- zu.,kya- zu.,Out of Vocabulary (OOV),1
+ကျွမ်း,kywan:,gyun:,Train Data Ambiguity (Both Exist),1
+တိုင်း,tain:,dain:,Train Data Ambiguity (Both Exist),1
+တိတ်,tei',dei',Train Data Ambiguity (Both Exist),1
+တိ,ti.,di.,Train Data Ambiguity (Both Exist),1
+တား,ta:,da:,Train Data Ambiguity (Both Exist),1
+တယ် လီ,te li',te li,Out of Vocabulary (OOV),1
+တပ်,ta',da',Train Data Ambiguity (Both Exist),1
+တန်း,tan:,dan:,Train Data Ambiguity (Both Exist),1
+ကြက် ပေါင် စေး,kye' paun zi:,kye' paun zei:,Out of Vocabulary (OOV),1

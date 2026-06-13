@@ -1,0 +1,24 @@
+Defined parameters (per moses.ini or switch):
+	config: /home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/mert/moses.ini 
+	distortion-limit: 6 
+	feature: UnknownWordPenalty WordPenalty PhrasePenalty PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/lass-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/model/phrase-table.gz input-factor=0 output-factor=0 LexicalReordering name=LexicalReordering0 num-features=6 type=wbe-msd-bidirectional-fe-allff input-factor=0 output-factor=0 path=/home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/lass-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/model/reordering-table.wbe-msd-bidirectional-fe.gz Distortion KENLM name=LM0 factor=0 path=/home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/lass-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/lm/train.ph.blm order=5 
+	input-factors: 0 
+	mapping: 0 T 0 
+	threads: 4 
+	weight: LexicalReordering0= 0.0412081 0.0590085 0.398433 0.0378396 0.0018187 0.019788 Distortion0= 0.0248611 LM0= 0.0701621 WordPenalty0= 0.121227 PhrasePenalty0= 0.0389745 TranslationModel0= 0.138277 -0.0046674 0.0123171 0.0314185 UnknownWordPenalty0= 1 
+line=UnknownWordPenalty
+FeatureFunction: UnknownWordPenalty0 start: 0 end: 0
+line=WordPenalty
+FeatureFunction: WordPenalty0 start: 1 end: 1
+line=PhrasePenalty
+FeatureFunction: PhrasePenalty0 start: 2 end: 2
+line=PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/lass-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/model/phrase-table.gz input-factor=0 output-factor=0
+FeatureFunction: TranslationModel0 start: 3 end: 6
+line=LexicalReordering name=LexicalReordering0 num-features=6 type=wbe-msd-bidirectional-fe-allff input-factor=0 output-factor=0 path=/home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/lass-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/model/reordering-table.wbe-msd-bidirectional-fe.gz
+Initializing Lexical Reordering Feature..
+FeatureFunction: LexicalReordering0 start: 7 end: 12
+line=Distortion
+FeatureFunction: Distortion0 start: 13 end: 13
+line=KENLM name=LM0 factor=0 path=/home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/lass-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/lm/train.ph.blm order=5
+Exception: util/file.cc:74 in int util::OpenReadOrThrow(const char*) threw ErrnoException because `-1 == (ret = open(name, 00))'.
+No such file or directory while opening /home/phantom/Desktop/Git/AI_Assignment/assignment-6/class-13and14/lass-13and14/assignment6_submission/notebooks/data/g2p-par/work/my-ph/lm/train.ph.blm

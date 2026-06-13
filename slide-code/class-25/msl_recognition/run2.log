@@ -1,0 +1,1783 @@
+============================================================
+ MSL Recognition — Full Pipeline (numeric sort fix applied)
+ Started: Thu May 21 10:14:42 AM +07 2026
+============================================================
+
+##############################################################
+## STEP 1: Data Preparation
+##############################################################
+============================================================
+ Step 1 — Data Preparation
+============================================================
+ Video dir       : data/videos
+ Annotation file : data/annotations.txt
+
+ Found 558 videos and 558 annotation lines
+
+2026-05-21 10:14:43 | INFO     | prepare_data | ============================================================
+2026-05-21 10:14:43 | INFO     | prepare_data | MSL Data Preparation
+2026-05-21 10:14:43 | INFO     | prepare_data | ============================================================
+2026-05-21 10:14:43 | INFO     | prepare_data | Parsing annotation file: data/annotations.txt
+2026-05-21 10:14:43 | INFO     | prepare_data | Total annotation records: 558
+2026-05-21 10:14:43 | INFO     | prepare_data | Vocabulary built: 556 unique classes
+2026-05-21 10:14:43 | INFO     | prepare_data | Label map saved → data/label_map.json
+2026-05-21 10:14:43 | INFO     | prepare_data | Matching videos from: data/videos
+2026-05-21 10:14:43 | INFO     | prepare_data | NOTE: MSL4Emergency has ~1 video per sign class. The pipeline handles this via: (1) random (non-stratified) train/val/test split on raw videos, (2) heavy keypoint-space augmentation on training split only (20×), (3) val/test evaluated on original un-augmented keypoints. This is the standard approach for low-resource sign language research.
+2026-05-21 10:14:43 | INFO     | prepare_data | Creating random train/val/test splits (1-sample-per-class safe) …
+WARNING:root:Most classes have only 1 sample(s) — stratified splitting is not possible. Falling back to RANDOM (non-stratified) split. This is expected for the MSL4Emergency dataset where each sign has exactly one video. Augmentation will be applied to training keypoints only.
+2026-05-21 10:14:43 | INFO     | prepare_data | Creating 5-fold CV splits (standard KFold) …
+2026-05-21 10:14:43 | INFO     | prepare_data | Verifying keypoint files …
+2026-05-21 10:14:43 | INFO     | prepare_data | Keypoint verification: 558/558 found, 0 missing
+
+============================================================
+Dataset Statistics [full]
+============================================================
+  Total samples    : 558
+  Classes (present): 556 / 556 total
+  Samples/class    : min=1, max=2, mean=1.00
+  Size distribution:
+    1 sample(s) per class :  554 classes  (99.6%)
+    2 sample(s) per class :    2 classes  (0.4%)
+
+  Sample listing (first 20 classes):
+    ဟို မှာ မီးလောင် နေ တယ် ။                  2
+    ဘယ်လို ဖြစ် တာ လဲ ။                        2
+    မီး ။                                      1
+    မီး ငြှိမ်း ။                              1
+    မီးချိတ် ။                                 1
+    မီးကပ် ။                                   1
+    ရေပုံး ။                                   1
+    သဲ အိတ် ။                                  1
+    မီးသတ်ဆေးဘူး ။                             1
+    မီးသတ်ရေကန် ။                              1
+    မီးလောင် လွယ် သော ပစ္စည်း များ ။           1
+    လောင်စာဆီ ။                                1
+    အမှိုက် ။                                  1
+    လျှပ်စစ် မီး ။                             1
+    ဂက်စ် မီး ။                                1
+    မီးကြွင်းမီးကျန် ။                         1
+    မီးခလုပ် ။                                 1
+    မီးခြစ် ။                                  1
+    ဖယောင်းတိုင် ။                             1
+    ခြင်ဆေးခွေ ။                               1
+============================================================
+
+
+============================================================
+  Data preparation complete!
+============================================================
+  Annotation records : 558
+  Unique classes     : 556
+  Train samples      : 390  (→ augmented ×20 in next step)
+  Val   samples      : 84   (original keypoints only)
+  Test  samples      : 84   (original keypoints only)
+  K-Fold splits      : 5 folds  →  data/kfold_splits.json
+  Label map          : data/label_map.json
+  Splits file        : data/splits.json
+
+  ⚠  Note: ~1 video/class → random (non-stratified) split used.
+     Val/test may not cover all 556 classes — this is expected.
+     Evaluation metrics will reflect classes seen in each split.
+============================================================
+
+
+============================================================
+ Data preparation done!
+ Outputs:
+   data/label_map.json   ← class vocab
+   data/splits.json      ← train/val/test indices
+   data/kfold_splits.json← 5-fold CV splits
+ Next: run 02_extract_keypoints.sh
+============================================================
+
+##############################################################
+## STEP 2: Data Augmentation (deleting old wrong-label data)
+##############################################################
+[INFO] Removing old augmented data...
+============================================================
+ Step 3 — All-Class Offline Data Augmentation
+============================================================
+ Strategy    : all 558 videos → train/val/test by aug type
+ Aug factor  : 20x
+   Train     : 19 aug copies × 558 = 10602 samples
+   Val       : 1 aug copy × 558 = 558 samples
+   Test      : 558 originals (no augmentation)
+ Class overlap: 100% across all splits
+
+Augmenting all classes:   0%|          | 0/558 [00:00<?, ?sign/s]Augmenting all classes:   0%|          | 2/558 [00:00<00:29, 19.06sign/s]Augmenting all classes:   1%|          | 5/558 [00:00<00:24, 22.83sign/s]Augmenting all classes:   1%|▏         | 8/558 [00:00<00:25, 21.55sign/s]Augmenting all classes:   2%|▏         | 11/558 [00:00<00:27, 19.54sign/s]Augmenting all classes:   2%|▏         | 13/558 [00:00<00:31, 17.33sign/s]Augmenting all classes:   3%|▎         | 18/558 [00:00<00:22, 23.78sign/s]Augmenting all classes:   4%|▍         | 22/558 [00:00<00:19, 27.36sign/s]Augmenting all classes:   4%|▍         | 25/558 [00:01<00:21, 25.11sign/s]Augmenting all classes:   5%|▌         | 28/558 [00:01<00:20, 25.42sign/s]Augmenting all classes:   6%|▌         | 32/558 [00:01<00:18, 28.57sign/s]Augmenting all classes:   6%|▋         | 35/558 [00:01<00:18, 28.92sign/s]Augmenting all classes:   7%|▋         | 38/558 [00:01<00:18, 28.31sign/s]Augmenting all classes:   7%|▋         | 41/558 [00:01<00:19, 26.30sign/s]Augmenting all classes:   8%|▊         | 44/558 [00:01<00:20, 25.45sign/s]Augmenting all classes:   8%|▊         | 47/558 [00:01<00:20, 24.91sign/s]Augmenting all classes:   9%|▉         | 50/558 [00:02<00:23, 21.92sign/s]Augmenting all classes:   9%|▉         | 53/558 [00:02<00:21, 23.75sign/s]Augmenting all classes:  10%|█         | 56/558 [00:02<00:21, 23.43sign/s]Augmenting all classes:  11%|█         | 61/558 [00:02<00:17, 28.66sign/s]Augmenting all classes:  12%|█▏        | 66/558 [00:02<00:15, 31.86sign/s]Augmenting all classes:  13%|█▎        | 71/558 [00:02<00:13, 35.15sign/s]Augmenting all classes:  14%|█▎        | 76/558 [00:02<00:12, 37.56sign/s]Augmenting all classes:  14%|█▍        | 80/558 [00:02<00:12, 37.65sign/s]Augmenting all classes:  15%|█▌        | 84/558 [00:02<00:12, 37.61sign/s]Augmenting all classes:  16%|█▌        | 88/558 [00:03<00:12, 36.35sign/s]Augmenting all classes:  16%|█▋        | 92/558 [00:03<00:13, 35.67sign/s]Augmenting all classes:  17%|█▋        | 96/558 [00:03<00:12, 36.17sign/s]Augmenting all classes:  18%|█▊        | 100/558 [00:03<00:12, 36.64sign/s]Augmenting all classes:  19%|█▊        | 104/558 [00:03<00:12, 36.47sign/s]Augmenting all classes:  19%|█▉        | 108/558 [00:03<00:14, 30.34sign/s]Augmenting all classes:  20%|██        | 112/558 [00:03<00:15, 29.73sign/s]Augmenting all classes:  21%|██        | 116/558 [00:04<00:14, 30.25sign/s]Augmenting all classes:  22%|██▏       | 120/558 [00:04<00:13, 31.43sign/s]Augmenting all classes:  22%|██▏       | 125/558 [00:04<00:12, 34.01sign/s]Augmenting all classes:  23%|██▎       | 129/558 [00:04<00:12, 33.87sign/s]Augmenting all classes:  24%|██▍       | 134/558 [00:04<00:11, 37.43sign/s]Augmenting all classes:  25%|██▍       | 139/558 [00:04<00:10, 40.47sign/s]Augmenting all classes:  26%|██▌       | 144/558 [00:04<00:09, 43.05sign/s]Augmenting all classes:  27%|██▋       | 149/558 [00:04<00:09, 42.32sign/s]Augmenting all classes:  28%|██▊       | 154/558 [00:04<00:09, 40.54sign/s]Augmenting all classes:  28%|██▊       | 159/558 [00:05<00:10, 39.12sign/s]Augmenting all classes:  29%|██▉       | 163/558 [00:05<00:10, 38.48sign/s]Augmenting all classes:  30%|██▉       | 167/558 [00:05<00:11, 34.77sign/s]Augmenting all classes:  31%|███       | 173/558 [00:05<00:10, 38.42sign/s]Augmenting all classes:  32%|███▏      | 177/558 [00:05<00:11, 33.47sign/s]Augmenting all classes:  33%|███▎      | 182/558 [00:05<00:10, 34.54sign/s]Augmenting all classes:  34%|███▎      | 187/558 [00:05<00:10, 36.82sign/s]Augmenting all classes:  34%|███▍      | 192/558 [00:05<00:09, 39.16sign/s]Augmenting all classes:  35%|███▌      | 197/558 [00:06<00:09, 36.87sign/s]Augmenting all classes:  36%|███▌      | 201/558 [00:06<00:11, 29.89sign/s]Augmenting all classes:  37%|███▋      | 205/558 [00:07<00:30, 11.75sign/s]Augmenting all classes:  38%|███▊      | 210/558 [00:07<00:22, 15.37sign/s]Augmenting all classes:  39%|███▊      | 215/558 [00:07<00:17, 19.45sign/s]Augmenting all classes:  39%|███▉      | 219/558 [00:07<00:22, 14.83sign/s]Augmenting all classes:  40%|████      | 224/558 [00:08<00:17, 18.88sign/s]Augmenting all classes:  41%|████      | 228/558 [00:08<00:15, 21.17sign/s]Augmenting all classes:  42%|████▏     | 232/558 [00:08<00:13, 24.23sign/s]Augmenting all classes:  42%|████▏     | 236/558 [00:08<00:12, 26.14sign/s]Augmenting all classes:  43%|████▎     | 240/558 [00:08<00:11, 27.58sign/s]Augmenting all classes:  44%|████▍     | 245/558 [00:08<00:09, 31.31sign/s]Augmenting all classes:  45%|████▍     | 250/558 [00:08<00:08, 34.95sign/s]Augmenting all classes:  46%|████▌     | 254/558 [00:08<00:08, 35.51sign/s]Augmenting all classes:  46%|████▌     | 258/558 [00:08<00:08, 36.50sign/s]Augmenting all classes:  47%|████▋     | 263/558 [00:09<00:07, 37.35sign/s]Augmenting all classes:  48%|████▊     | 267/558 [00:09<00:08, 34.41sign/s]Augmenting all classes:  49%|████▊     | 271/558 [00:09<00:08, 33.19sign/s]Augmenting all classes:  49%|████▉     | 276/558 [00:09<00:07, 36.22sign/s]Augmenting all classes:  50%|█████     | 280/558 [00:09<00:07, 36.88sign/s]Augmenting all classes:  51%|█████     | 284/558 [00:09<00:07, 37.11sign/s]Augmenting all classes:  52%|█████▏    | 288/558 [00:09<00:07, 37.88sign/s]Augmenting all classes:  53%|█████▎    | 293/558 [00:09<00:06, 39.43sign/s]Augmenting all classes:  53%|█████▎    | 298/558 [00:09<00:06, 41.03sign/s]Augmenting all classes:  54%|█████▍    | 303/558 [00:10<00:06, 40.13sign/s]Augmenting all classes:  55%|█████▌    | 308/558 [00:10<00:06, 41.46sign/s]Augmenting all classes:  56%|█████▌    | 313/558 [00:10<00:05, 43.70sign/s]Augmenting all classes:  57%|█████▋    | 318/558 [00:10<00:05, 43.86sign/s]Augmenting all classes:  58%|█████▊    | 323/558 [00:10<00:05, 42.81sign/s]Augmenting all classes:  59%|█████▉    | 329/558 [00:10<00:04, 47.08sign/s]Augmenting all classes:  60%|█████▉    | 334/558 [00:10<00:04, 47.77sign/s]Augmenting all classes:  61%|██████    | 339/558 [00:10<00:04, 43.81sign/s]Augmenting all classes:  62%|██████▏   | 344/558 [00:11<00:04, 43.14sign/s]Augmenting all classes:  63%|██████▎   | 349/558 [00:11<00:04, 44.79sign/s]Augmenting all classes:  63%|██████▎   | 354/558 [00:11<00:04, 41.75sign/s]Augmenting all classes:  64%|██████▍   | 359/558 [00:11<00:04, 40.76sign/s]Augmenting all classes:  65%|██████▌   | 364/558 [00:11<00:04, 40.75sign/s]Augmenting all classes:  66%|██████▌   | 369/558 [00:11<00:04, 38.09sign/s]Augmenting all classes:  67%|██████▋   | 373/558 [00:11<00:05, 36.00sign/s]Augmenting all classes:  68%|██████▊   | 378/558 [00:11<00:04, 37.59sign/s]Augmenting all classes:  69%|██████▊   | 383/558 [00:12<00:04, 39.14sign/s]Augmenting all classes:  69%|██████▉   | 387/558 [00:12<00:04, 37.64sign/s]Augmenting all classes:  70%|███████   | 391/558 [00:12<00:04, 36.23sign/s]Augmenting all classes:  71%|███████   | 395/558 [00:12<00:04, 35.97sign/s]Augmenting all classes:  72%|███████▏  | 401/558 [00:12<00:03, 40.92sign/s]Augmenting all classes:  73%|███████▎  | 406/558 [00:12<00:03, 42.90sign/s]Augmenting all classes:  74%|███████▎  | 411/558 [00:12<00:03, 44.15sign/s]Augmenting all classes:  75%|███████▍  | 416/558 [00:12<00:03, 44.45sign/s]Augmenting all classes:  75%|███████▌  | 421/558 [00:12<00:02, 45.73sign/s]Augmenting all classes:  76%|███████▋  | 426/558 [00:13<00:04, 29.76sign/s]Augmenting all classes:  77%|███████▋  | 431/558 [00:13<00:03, 32.46sign/s]Augmenting all classes:  78%|███████▊  | 435/558 [00:13<00:03, 33.30sign/s]Augmenting all classes:  79%|███████▊  | 439/558 [00:13<00:03, 29.96sign/s]Augmenting all classes:  79%|███████▉  | 443/558 [00:13<00:03, 30.36sign/s]Augmenting all classes:  80%|████████  | 447/558 [00:13<00:03, 29.56sign/s]Augmenting all classes:  81%|████████  | 451/558 [00:14<00:03, 28.71sign/s]Augmenting all classes:  82%|████████▏ | 455/558 [00:14<00:03, 29.76sign/s]Augmenting all classes:  82%|████████▏ | 459/558 [00:14<00:03, 31.99sign/s]Augmenting all classes:  83%|████████▎ | 463/558 [00:14<00:03, 27.84sign/s]Augmenting all classes:  84%|████████▎ | 467/558 [00:14<00:03, 30.06sign/s]Augmenting all classes:  85%|████████▍ | 472/558 [00:14<00:02, 33.20sign/s]Augmenting all classes:  85%|████████▌ | 476/558 [00:14<00:02, 34.46sign/s]Augmenting all classes:  86%|████████▌ | 481/558 [00:14<00:02, 37.03sign/s]Augmenting all classes:  87%|████████▋ | 485/558 [00:15<00:01, 37.10sign/s]Augmenting all classes:  88%|████████▊ | 489/558 [00:15<00:02, 34.15sign/s]Augmenting all classes:  88%|████████▊ | 493/558 [00:15<00:02, 30.35sign/s]Augmenting all classes:  89%|████████▉ | 498/558 [00:15<00:01, 34.14sign/s]Augmenting all classes:  90%|████████▉ | 502/558 [00:15<00:01, 31.57sign/s]Augmenting all classes:  91%|█████████ | 506/558 [00:15<00:01, 32.09sign/s]Augmenting all classes:  91%|█████████▏| 510/558 [00:15<00:01, 33.87sign/s]Augmenting all classes:  92%|█████████▏| 515/558 [00:15<00:01, 35.22sign/s]Augmenting all classes:  93%|█████████▎| 520/558 [00:16<00:01, 37.44sign/s]Augmenting all classes:  94%|█████████▍| 525/558 [00:16<00:00, 38.89sign/s]Augmenting all classes:  95%|█████████▍| 530/558 [00:16<00:00, 40.54sign/s]Augmenting all classes:  96%|█████████▌| 535/558 [00:16<00:00, 39.40sign/s]Augmenting all classes:  97%|█████████▋| 540/558 [00:16<00:00, 41.01sign/s]Augmenting all classes:  98%|█████████▊| 545/558 [00:16<00:00, 41.70sign/s]Augmenting all classes:  99%|█████████▊| 550/558 [00:16<00:00, 42.30sign/s]Augmenting all classes:  99%|█████████▉| 555/558 [00:16<00:00, 41.91sign/s]Augmenting all classes: 100%|██████████| 558/558 [00:16<00:00, 32.89sign/s]
+
+============================================================
+  Augmentation Complete (all-class design)
+============================================================
+  Original videos   : 558
+  Aug factor        : 20  (train uses 19, val uses 1)
+  Train samples     : 10602  (augmented, all classes)
+  Val   samples     : 558   (augmented, all classes)
+  Test  samples     : 558   (original,  all classes)
+  Class overlap     : 100% across all splits
+  Manifest          : data/augmented/augmented_manifest.json
+============================================================
+
+
+============================================================
+ Augmentation done!  Manifest → data/augmented/augmented_manifest.json
+ Next: bash scripts/04_train.sh
+============================================================
+
+[INFO] Removing old experiment results...
+[INFO] Old results removed.
+
+##############################################################
+## STEP 4A: Train BiLSTM
+##############################################################
+============================================================
+ Training MSL Recognition Model
+============================================================
+ Model      : bilstm
+ Experiment : exp_bilstm
+ Config     : config/config.yaml
+
+ Data: train=10602, val=558, test=558 (all-class design)
+
+[GPU]
+NVIDIA GeForce RTX 3090 Ti, 24564 MiB, 23613 MiB, 45
+
+2026-05-21 10:15:05 | INFO     | train | Experiment: exp_bilstm  Model: bilstm
+2026-05-21 10:15:05 | INFO     | train | Classes: 556
+2026-05-21 10:15:05 | INFO     | train | Using all-class manifest: train=10602, val=558, test=558
+2026-05-21 10:15:06 | INFO     | train | Model: bilstm  Params: 4,813,806
+2026-05-21 10:15:11 | INFO     | train | Starting training…
+
+[DataLoaders]
+  Train: 10602 samples, 331 batches
+  Val:   558   samples, 18 batches
+  Test:  558  samples, 18 batches
+
+2026-05-21 10:15:20 | INFO     | train | Epoch   1/150 | train loss=6.9580 top1=0.30% | val loss=6.5174 top1=0.69% top5=2.26% | lr=5.45e-05 | 9s
+2026-05-21 10:15:20 | INFO     | train |   ★ New best val top-1: 0.69%
+2026-05-21 10:15:28 | INFO     | train | Epoch   2/150 | train loss=6.4751 top1=0.59% | val loss=5.7402 top1=2.60% top5=8.51% | lr=1.04e-04 | 7s
+2026-05-21 10:15:28 | INFO     | train |   ★ New best val top-1: 2.60%
+2026-05-21 10:15:35 | INFO     | train | Epoch   3/150 | train loss=5.5776 top1=4.42% | val loss=4.6656 top1=19.02% top5=41.69% | lr=1.53e-04 | 7s
+2026-05-21 10:15:36 | INFO     | train |   ★ New best val top-1: 19.02%
+2026-05-21 10:15:44 | INFO     | train | Epoch   4/150 | train loss=4.4857 top1=18.36% | val loss=3.6137 top1=41.89% top5=66.34% | lr=2.03e-04 | 8s
+2026-05-21 10:15:46 | INFO     | train |   ★ New best val top-1: 41.89%
+2026-05-21 10:15:53 | INFO     | train | Epoch   5/150 | train loss=3.4154 top1=42.33% | val loss=2.6773 top1=63.39% top5=80.75% | lr=2.53e-04 | 7s
+2026-05-21 10:15:54 | INFO     | train |   ★ New best val top-1: 63.39%
+2026-05-21 10:16:01 | INFO     | train | Epoch   6/150 | train loss=2.6679 top1=60.77% | val loss=2.2859 top1=71.16% top5=83.41% | lr=3.02e-04 | 7s
+2026-05-21 10:16:01 | INFO     | train |   ★ New best val top-1: 71.16%
+2026-05-21 10:16:09 | INFO     | train | Epoch   7/150 | train loss=2.2598 top1=70.29% | val loss=2.0622 top1=76.12% top5=88.02% | lr=3.52e-04 | 7s
+2026-05-21 10:16:09 | INFO     | train |   ★ New best val top-1: 76.12%
+2026-05-21 10:16:16 | INFO     | train | Epoch   8/150 | train loss=2.0542 top1=75.68% | val loss=1.9452 top1=79.51% top5=90.10% | lr=4.01e-04 | 7s
+2026-05-21 10:16:16 | INFO     | train |   ★ New best val top-1: 79.51%
+2026-05-21 10:16:23 | INFO     | train | Epoch   9/150 | train loss=1.9165 top1=79.58% | val loss=1.9038 top1=78.65% top5=90.10% | lr=4.51e-04 | 7s
+/mnt/disk1/ye/exp/msl_recognition/.venv/lib/python3.12/site-packages/torch/optim/lr_scheduler.py:198: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+2026-05-21 10:16:31 | INFO     | train | Epoch  10/150 | train loss=1.8189 top1=82.73% | val loss=1.8477 top1=80.85% top5=90.97% | lr=5.00e-04 | 7s
+2026-05-21 10:16:31 | INFO     | train |   ★ New best val top-1: 80.85%
+2026-05-21 10:16:38 | INFO     | train | Epoch  11/150 | train loss=1.7470 top1=84.37% | val loss=1.7692 top1=83.46% top5=92.19% | lr=5.00e-04 | 7s
+2026-05-21 10:16:39 | INFO     | train |   ★ New best val top-1: 83.46%
+2026-05-21 10:16:46 | INFO     | train | Epoch  12/150 | train loss=1.6690 top1=85.97% | val loss=1.7136 top1=84.72% top5=92.19% | lr=5.00e-04 | 7s
+2026-05-21 10:16:46 | INFO     | train |   ★ New best val top-1: 84.72%
+2026-05-21 10:16:53 | INFO     | train | Epoch  13/150 | train loss=1.5951 top1=88.56% | val loss=1.7054 top1=85.37% top5=92.53% | lr=5.00e-04 | 7s
+2026-05-21 10:16:53 | INFO     | train |   ★ New best val top-1: 85.37%
+2026-05-21 10:17:00 | INFO     | train | Epoch  14/150 | train loss=1.5314 top1=89.80% | val loss=1.6527 top1=85.07% top5=92.36% | lr=4.99e-04 | 7s
+2026-05-21 10:17:07 | INFO     | train | Epoch  15/150 | train loss=1.4761 top1=91.21% | val loss=1.6055 top1=87.80% top5=93.23% | lr=4.99e-04 | 7s
+2026-05-21 10:17:08 | INFO     | train |   ★ New best val top-1: 87.80%
+2026-05-21 10:17:15 | INFO     | train | Epoch  16/150 | train loss=1.4439 top1=91.47% | val loss=1.5625 top1=88.19% top5=94.79% | lr=4.98e-04 | 7s
+2026-05-21 10:17:15 | INFO     | train |   ★ New best val top-1: 88.19%
+2026-05-21 10:17:22 | INFO     | train | Epoch  17/150 | train loss=1.4032 top1=92.80% | val loss=1.5518 top1=88.89% top5=94.10% | lr=4.97e-04 | 7s
+2026-05-21 10:17:22 | INFO     | train |   ★ New best val top-1: 88.89%
+2026-05-21 10:17:30 | INFO     | train | Epoch  18/150 | train loss=1.3737 top1=93.49% | val loss=1.5072 top1=90.28% top5=94.10% | lr=4.97e-04 | 7s
+2026-05-21 10:17:30 | INFO     | train |   ★ New best val top-1: 90.28%
+2026-05-21 10:17:37 | INFO     | train | Epoch  19/150 | train loss=1.3438 top1=93.98% | val loss=1.5146 top1=90.97% top5=94.44% | lr=4.96e-04 | 7s
+2026-05-21 10:17:37 | INFO     | train |   ★ New best val top-1: 90.97%
+2026-05-21 10:17:45 | INFO     | train | Epoch  20/150 | train loss=1.3159 top1=94.39% | val loss=1.5015 top1=89.76% top5=94.79% | lr=4.95e-04 | 7s
+2026-05-21 10:17:52 | INFO     | train | Epoch  21/150 | train loss=1.2910 top1=94.76% | val loss=1.4911 top1=89.06% top5=94.10% | lr=4.93e-04 | 7s
+2026-05-21 10:17:59 | INFO     | train | Epoch  22/150 | train loss=1.2738 top1=95.00% | val loss=1.4810 top1=90.45% top5=94.44% | lr=4.92e-04 | 7s
+2026-05-21 10:18:06 | INFO     | train | Epoch  23/150 | train loss=1.2599 top1=95.51% | val loss=1.4525 top1=89.76% top5=95.31% | lr=4.91e-04 | 7s
+2026-05-21 10:18:13 | INFO     | train | Epoch  24/150 | train loss=1.2442 top1=95.53% | val loss=1.4620 top1=90.80% top5=95.31% | lr=4.89e-04 | 7s
+2026-05-21 10:18:21 | INFO     | train | Epoch  25/150 | train loss=1.2296 top1=95.86% | val loss=1.4119 top1=91.67% top5=95.66% | lr=4.88e-04 | 7s
+2026-05-21 10:18:21 | INFO     | train |   ★ New best val top-1: 91.67%
+2026-05-21 10:18:28 | INFO     | train | Epoch  26/150 | train loss=1.2182 top1=96.17% | val loss=1.4118 top1=91.49% top5=94.97% | lr=4.86e-04 | 7s
+2026-05-21 10:18:35 | INFO     | train | Epoch  27/150 | train loss=1.2039 top1=96.15% | val loss=1.4143 top1=91.84% top5=95.31% | lr=4.84e-04 | 7s
+2026-05-21 10:18:36 | INFO     | train |   ★ New best val top-1: 91.84%
+2026-05-21 10:18:43 | INFO     | train | Epoch  28/150 | train loss=1.1993 top1=96.19% | val loss=1.4011 top1=92.53% top5=95.49% | lr=4.83e-04 | 7s
+2026-05-21 10:18:43 | INFO     | train |   ★ New best val top-1: 92.53%
+2026-05-21 10:18:50 | INFO     | train | Epoch  29/150 | train loss=1.1871 top1=96.55% | val loss=1.3914 top1=92.01% top5=95.66% | lr=4.81e-04 | 7s
+2026-05-21 10:18:58 | INFO     | train | Epoch  30/150 | train loss=1.1786 top1=96.64% | val loss=1.4126 top1=92.01% top5=96.01% | lr=4.79e-04 | 7s
+2026-05-21 10:19:05 | INFO     | train | Epoch  31/150 | train loss=1.1690 top1=96.94% | val loss=1.3876 top1=92.36% top5=95.14% | lr=4.76e-04 | 7s
+2026-05-21 10:19:12 | INFO     | train | Epoch  32/150 | train loss=1.1667 top1=96.95% | val loss=1.3695 top1=92.88% top5=96.01% | lr=4.74e-04 | 7s
+2026-05-21 10:19:13 | INFO     | train |   ★ New best val top-1: 92.88%
+2026-05-21 10:19:20 | INFO     | train | Epoch  33/150 | train loss=1.1508 top1=97.21% | val loss=1.4010 top1=93.06% top5=95.49% | lr=4.72e-04 | 7s
+2026-05-21 10:19:20 | INFO     | train |   ★ New best val top-1: 93.06%
+2026-05-21 10:19:27 | INFO     | train | Epoch  34/150 | train loss=1.1438 top1=97.41% | val loss=1.3682 top1=92.88% top5=96.01% | lr=4.69e-04 | 7s
+2026-05-21 10:19:35 | INFO     | train | Epoch  35/150 | train loss=1.1412 top1=97.37% | val loss=1.3686 top1=92.71% top5=95.83% | lr=4.67e-04 | 7s
+2026-05-21 10:19:42 | INFO     | train | Epoch  36/150 | train loss=1.1307 top1=97.70% | val loss=1.3605 top1=93.06% top5=95.83% | lr=4.64e-04 | 7s
+2026-05-21 10:19:49 | INFO     | train | Epoch  37/150 | train loss=1.1266 top1=97.69% | val loss=1.3661 top1=92.01% top5=96.18% | lr=4.61e-04 | 7s
+2026-05-21 10:19:57 | INFO     | train | Epoch  38/150 | train loss=1.1244 top1=97.68% | val loss=1.3591 top1=92.19% top5=96.35% | lr=4.59e-04 | 7s
+2026-05-21 10:20:04 | INFO     | train | Epoch  39/150 | train loss=1.1136 top1=97.90% | val loss=1.3674 top1=93.40% top5=95.66% | lr=4.56e-04 | 7s
+2026-05-21 10:20:04 | INFO     | train |   ★ New best val top-1: 93.40%
+2026-05-21 10:20:12 | INFO     | train | Epoch  40/150 | train loss=1.1084 top1=97.98% | val loss=1.3309 top1=92.71% top5=96.18% | lr=4.53e-04 | 7s
+2026-05-21 10:20:19 | INFO     | train | Epoch  41/150 | train loss=1.1024 top1=98.01% | val loss=1.3317 top1=93.58% top5=96.70% | lr=4.50e-04 | 7s
+2026-05-21 10:20:19 | INFO     | train |   ★ New best val top-1: 93.58%
+2026-05-21 10:20:27 | INFO     | train | Epoch  42/150 | train loss=1.0987 top1=98.23% | val loss=1.3527 top1=92.88% top5=96.70% | lr=4.46e-04 | 7s
+2026-05-21 10:20:34 | INFO     | train | Epoch  43/150 | train loss=1.0941 top1=98.20% | val loss=1.3698 top1=92.53% top5=96.35% | lr=4.43e-04 | 7s
+2026-05-21 10:20:41 | INFO     | train | Epoch  44/150 | train loss=1.0921 top1=98.38% | val loss=1.3508 top1=92.88% top5=96.88% | lr=4.40e-04 | 7s
+2026-05-21 10:20:48 | INFO     | train | Epoch  45/150 | train loss=1.0881 top1=98.32% | val loss=1.3329 top1=93.40% top5=96.88% | lr=4.36e-04 | 7s
+2026-05-21 10:20:56 | INFO     | train | Epoch  46/150 | train loss=1.0833 top1=98.52% | val loss=1.3624 top1=93.40% top5=96.18% | lr=4.33e-04 | 7s
+2026-05-21 10:21:03 | INFO     | train | Epoch  47/150 | train loss=1.0798 top1=98.52% | val loss=1.3463 top1=93.40% top5=96.18% | lr=4.29e-04 | 7s
+2026-05-21 10:21:11 | INFO     | train | Epoch  48/150 | train loss=1.0722 top1=98.76% | val loss=1.2979 top1=93.92% top5=96.70% | lr=4.26e-04 | 7s
+2026-05-21 10:21:11 | INFO     | train |   ★ New best val top-1: 93.92%
+2026-05-21 10:21:18 | INFO     | train | Epoch  49/150 | train loss=1.0743 top1=98.66% | val loss=1.3242 top1=93.06% top5=96.88% | lr=4.22e-04 | 7s
+2026-05-21 10:21:25 | INFO     | train | Epoch  50/150 | train loss=1.0709 top1=98.76% | val loss=1.3175 top1=93.58% top5=96.53% | lr=4.18e-04 | 7s
+2026-05-21 10:21:33 | INFO     | train | Epoch  51/150 | train loss=1.0658 top1=98.89% | val loss=1.3395 top1=93.75% top5=96.18% | lr=4.14e-04 | 7s
+2026-05-21 10:21:40 | INFO     | train | Epoch  52/150 | train loss=1.0655 top1=98.77% | val loss=1.3457 top1=92.53% top5=96.18% | lr=4.10e-04 | 7s
+2026-05-21 10:21:47 | INFO     | train | Epoch  53/150 | train loss=1.0608 top1=98.94% | val loss=1.3511 top1=93.23% top5=96.70% | lr=4.06e-04 | 7s
+2026-05-21 10:21:55 | INFO     | train | Epoch  54/150 | train loss=1.0532 top1=99.10% | val loss=1.3445 top1=93.58% top5=96.18% | lr=4.02e-04 | 7s
+2026-05-21 10:22:02 | INFO     | train | Epoch  55/150 | train loss=1.0517 top1=99.09% | val loss=1.3345 top1=93.92% top5=96.18% | lr=3.98e-04 | 7s
+2026-05-21 10:22:09 | INFO     | train | Epoch  56/150 | train loss=1.0496 top1=99.17% | val loss=1.3305 top1=92.88% top5=97.05% | lr=3.94e-04 | 7s
+2026-05-21 10:22:17 | INFO     | train | Epoch  57/150 | train loss=1.0494 top1=99.19% | val loss=1.3176 top1=93.58% top5=97.05% | lr=3.89e-04 | 7s
+2026-05-21 10:22:24 | INFO     | train | Epoch  58/150 | train loss=1.0458 top1=99.28% | val loss=1.3018 top1=94.10% top5=97.05% | lr=3.85e-04 | 7s
+2026-05-21 10:22:24 | INFO     | train |   ★ New best val top-1: 94.10%
+2026-05-21 10:22:32 | INFO     | train | Epoch  59/150 | train loss=1.0409 top1=99.42% | val loss=1.2806 top1=94.27% top5=96.88% | lr=3.81e-04 | 7s
+2026-05-21 10:22:32 | INFO     | train |   ★ New best val top-1: 94.27%
+2026-05-21 10:22:39 | INFO     | train | Epoch  60/150 | train loss=1.0408 top1=99.39% | val loss=1.3172 top1=93.75% top5=96.35% | lr=3.76e-04 | 7s
+2026-05-21 10:22:46 | INFO     | train | Epoch  61/150 | train loss=1.0389 top1=99.41% | val loss=1.3069 top1=93.58% top5=96.70% | lr=3.72e-04 | 7s
+2026-05-21 10:22:54 | INFO     | train | Epoch  62/150 | train loss=1.0371 top1=99.42% | val loss=1.3214 top1=93.58% top5=96.53% | lr=3.67e-04 | 7s
+2026-05-21 10:23:01 | INFO     | train | Epoch  63/150 | train loss=1.0354 top1=99.44% | val loss=1.2974 top1=94.44% top5=96.53% | lr=3.63e-04 | 7s
+2026-05-21 10:23:01 | INFO     | train |   ★ New best val top-1: 94.44%
+2026-05-21 10:23:09 | INFO     | train | Epoch  64/150 | train loss=1.0304 top1=99.61% | val loss=1.3035 top1=94.10% top5=96.53% | lr=3.58e-04 | 7s
+2026-05-21 10:23:16 | INFO     | train | Epoch  65/150 | train loss=1.0342 top1=99.47% | val loss=1.3264 top1=93.92% top5=96.35% | lr=3.53e-04 | 7s
+2026-05-21 10:23:23 | INFO     | train | Epoch  66/150 | train loss=1.0367 top1=99.35% | val loss=1.3079 top1=93.40% top5=96.70% | lr=3.48e-04 | 7s
+2026-05-21 10:23:31 | INFO     | train | Epoch  67/150 | train loss=1.0271 top1=99.61% | val loss=1.3072 top1=93.92% top5=96.88% | lr=3.44e-04 | 7s
+2026-05-21 10:23:38 | INFO     | train | Epoch  68/150 | train loss=1.0263 top1=99.58% | val loss=1.2877 top1=93.92% top5=96.70% | lr=3.39e-04 | 7s
+2026-05-21 10:23:45 | INFO     | train | Epoch  69/150 | train loss=1.0223 top1=99.75% | val loss=1.2984 top1=94.27% top5=97.05% | lr=3.34e-04 | 7s
+2026-05-21 10:23:53 | INFO     | train | Epoch  70/150 | train loss=1.0231 top1=99.62% | val loss=1.3045 top1=94.10% top5=96.18% | lr=3.29e-04 | 7s
+2026-05-21 10:24:00 | INFO     | train | Epoch  71/150 | train loss=1.0214 top1=99.77% | val loss=1.2927 top1=94.10% top5=97.22% | lr=3.24e-04 | 7s
+2026-05-21 10:24:07 | INFO     | train | Epoch  72/150 | train loss=1.0236 top1=99.61% | val loss=1.3075 top1=94.27% top5=96.35% | lr=3.19e-04 | 7s
+2026-05-21 10:24:14 | INFO     | train | Epoch  73/150 | train loss=1.0183 top1=99.75% | val loss=1.2977 top1=94.79% top5=96.70% | lr=3.14e-04 | 7s
+2026-05-21 10:24:15 | INFO     | train |   ★ New best val top-1: 94.79%
+2026-05-21 10:24:22 | INFO     | train | Epoch  74/150 | train loss=1.0186 top1=99.76% | val loss=1.3113 top1=94.10% top5=96.70% | lr=3.09e-04 | 7s
+2026-05-21 10:24:29 | INFO     | train | Epoch  75/150 | train loss=1.0151 top1=99.83% | val loss=1.3082 top1=94.10% top5=97.05% | lr=3.04e-04 | 7s
+2026-05-21 10:24:36 | INFO     | train | Epoch  76/150 | train loss=1.0144 top1=99.79% | val loss=1.3009 top1=94.44% top5=96.88% | lr=2.99e-04 | 7s
+2026-05-21 10:24:44 | INFO     | train | Epoch  77/150 | train loss=1.0157 top1=99.81% | val loss=1.3074 top1=94.27% top5=96.88% | lr=2.94e-04 | 7s
+2026-05-21 10:24:51 | INFO     | train | Epoch  78/150 | train loss=1.0118 top1=99.91% | val loss=1.2977 top1=93.75% top5=97.05% | lr=2.89e-04 | 7s
+2026-05-21 10:24:58 | INFO     | train | Epoch  79/150 | train loss=1.0131 top1=99.84% | val loss=1.2899 top1=94.79% top5=96.70% | lr=2.84e-04 | 7s
+2026-05-21 10:25:05 | INFO     | train | Epoch  80/150 | train loss=1.0130 top1=99.81% | val loss=1.3010 top1=94.44% top5=97.05% | lr=2.78e-04 | 7s
+2026-05-21 10:25:13 | INFO     | train | Epoch  81/150 | train loss=1.0111 top1=99.89% | val loss=1.2827 top1=94.62% top5=96.88% | lr=2.73e-04 | 7s
+2026-05-21 10:25:20 | INFO     | train | Epoch  82/150 | train loss=1.0109 top1=99.84% | val loss=1.2746 top1=95.14% top5=97.05% | lr=2.68e-04 | 7s
+2026-05-21 10:25:20 | INFO     | train |   ★ New best val top-1: 95.14%
+2026-05-21 10:25:27 | INFO     | train | Epoch  83/150 | train loss=1.0091 top1=99.90% | val loss=1.3097 top1=94.27% top5=96.70% | lr=2.63e-04 | 7s
+2026-05-21 10:25:34 | INFO     | train | Epoch  84/150 | train loss=1.0063 top1=99.96% | val loss=1.2839 top1=94.10% top5=97.05% | lr=2.58e-04 | 7s
+2026-05-21 10:25:42 | INFO     | train | Epoch  85/150 | train loss=1.0072 top1=99.92% | val loss=1.2885 top1=93.92% top5=96.70% | lr=2.52e-04 | 7s
+2026-05-21 10:25:49 | INFO     | train | Epoch  86/150 | train loss=1.0057 top1=99.88% | val loss=1.2928 top1=93.58% top5=96.88% | lr=2.47e-04 | 7s
+2026-05-21 10:25:56 | INFO     | train | Epoch  87/150 | train loss=1.0042 top1=99.92% | val loss=1.2805 top1=94.27% top5=96.88% | lr=2.42e-04 | 7s
+2026-05-21 10:26:04 | INFO     | train | Epoch  88/150 | train loss=1.0057 top1=99.89% | val loss=1.2801 top1=94.10% top5=97.05% | lr=2.37e-04 | 7s
+2026-05-21 10:26:11 | INFO     | train | Epoch  89/150 | train loss=1.0061 top1=99.89% | val loss=1.2805 top1=94.79% top5=97.22% | lr=2.32e-04 | 7s
+2026-05-21 10:26:18 | INFO     | train | Epoch  90/150 | train loss=1.0035 top1=99.92% | val loss=1.2652 top1=94.62% top5=97.40% | lr=2.27e-04 | 7s
+2026-05-21 10:26:25 | INFO     | train | Epoch  91/150 | train loss=1.0029 top1=99.92% | val loss=1.2683 top1=94.97% top5=97.05% | lr=2.21e-04 | 7s
+2026-05-21 10:26:33 | INFO     | train | Epoch  92/150 | train loss=1.0029 top1=99.93% | val loss=1.2718 top1=94.62% top5=97.22% | lr=2.16e-04 | 7s
+2026-05-21 10:26:40 | INFO     | train | Epoch  93/150 | train loss=1.0007 top1=99.98% | val loss=1.2808 top1=94.79% top5=96.88% | lr=2.11e-04 | 7s
+2026-05-21 10:26:47 | INFO     | train | Epoch  94/150 | train loss=1.0001 top1=99.97% | val loss=1.2773 top1=94.44% top5=96.88% | lr=2.06e-04 | 7s
+2026-05-21 10:26:55 | INFO     | train | Epoch  95/150 | train loss=1.0002 top1=99.95% | val loss=1.2843 top1=94.97% top5=96.88% | lr=2.01e-04 | 7s
+2026-05-21 10:27:02 | INFO     | train | Epoch  96/150 | train loss=1.0008 top1=99.93% | val loss=1.2821 top1=94.62% top5=96.88% | lr=1.96e-04 | 7s
+2026-05-21 10:27:09 | INFO     | train | Epoch  97/150 | train loss=0.9989 top1=99.95% | val loss=1.2758 top1=94.79% top5=97.22% | lr=1.91e-04 | 7s
+2026-05-21 10:27:17 | INFO     | train | Epoch  98/150 | train loss=0.9977 top1=100.00% | val loss=1.2762 top1=94.97% top5=96.70% | lr=1.86e-04 | 7s
+2026-05-21 10:27:24 | INFO     | train | Epoch  99/150 | train loss=0.9968 top1=100.00% | val loss=1.2658 top1=95.31% top5=96.88% | lr=1.81e-04 | 7s
+2026-05-21 10:27:24 | INFO     | train |   ★ New best val top-1: 95.31%
+2026-05-21 10:27:32 | INFO     | train | Epoch 100/150 | train loss=0.9966 top1=100.00% | val loss=1.2641 top1=94.97% top5=97.40% | lr=1.76e-04 | 7s
+2026-05-21 10:27:39 | INFO     | train | Epoch 101/150 | train loss=0.9964 top1=100.00% | val loss=1.2775 top1=94.97% top5=96.88% | lr=1.71e-04 | 7s
+2026-05-21 10:27:46 | INFO     | train | Epoch 102/150 | train loss=0.9962 top1=100.00% | val loss=1.2810 top1=94.79% top5=96.70% | lr=1.66e-04 | 7s
+2026-05-21 10:27:54 | INFO     | train | Epoch 103/150 | train loss=0.9958 top1=99.99% | val loss=1.2758 top1=94.79% top5=96.88% | lr=1.61e-04 | 7s
+2026-05-21 10:28:01 | INFO     | train | Epoch 104/150 | train loss=0.9956 top1=99.99% | val loss=1.2691 top1=94.97% top5=96.88% | lr=1.57e-04 | 7s
+2026-05-21 10:28:08 | INFO     | train | Epoch 105/150 | train loss=0.9968 top1=99.93% | val loss=1.2649 top1=94.62% top5=96.88% | lr=1.52e-04 | 7s
+2026-05-21 10:28:16 | INFO     | train | Epoch 106/150 | train loss=0.9950 top1=100.00% | val loss=1.2860 top1=94.27% top5=96.88% | lr=1.47e-04 | 7s
+2026-05-21 10:28:23 | INFO     | train | Epoch 107/150 | train loss=0.9948 top1=99.99% | val loss=1.2700 top1=94.79% top5=96.70% | lr=1.42e-04 | 7s
+2026-05-21 10:28:30 | INFO     | train | Epoch 108/150 | train loss=0.9943 top1=99.99% | val loss=1.2739 top1=94.97% top5=96.88% | lr=1.38e-04 | 7s
+2026-05-21 10:28:38 | INFO     | train | Epoch 109/150 | train loss=0.9930 top1=100.00% | val loss=1.2652 top1=94.79% top5=96.88% | lr=1.33e-04 | 7s
+2026-05-21 10:28:45 | INFO     | train | Epoch 110/150 | train loss=0.9929 top1=100.00% | val loss=1.2610 top1=94.97% top5=97.05% | lr=1.29e-04 | 7s
+2026-05-21 10:28:52 | INFO     | train | Epoch 111/150 | train loss=0.9932 top1=100.00% | val loss=1.2626 top1=94.62% top5=97.05% | lr=1.24e-04 | 7s
+2026-05-21 10:29:00 | INFO     | train | Epoch 112/150 | train loss=0.9924 top1=100.00% | val loss=1.2590 top1=95.14% top5=96.88% | lr=1.20e-04 | 7s
+2026-05-21 10:29:07 | INFO     | train | Epoch 113/150 | train loss=0.9927 top1=100.00% | val loss=1.2716 top1=94.79% top5=96.88% | lr=1.16e-04 | 7s
+2026-05-21 10:29:14 | INFO     | train | Epoch 114/150 | train loss=0.9918 top1=100.00% | val loss=1.2600 top1=94.62% top5=97.05% | lr=1.11e-04 | 7s
+2026-05-21 10:29:22 | INFO     | train | Epoch 115/150 | train loss=0.9923 top1=100.00% | val loss=1.2760 top1=94.79% top5=97.05% | lr=1.07e-04 | 7s
+2026-05-21 10:29:29 | INFO     | train | Epoch 116/150 | train loss=0.9915 top1=100.00% | val loss=1.2697 top1=95.14% top5=97.22% | lr=1.03e-04 | 7s
+2026-05-21 10:29:36 | INFO     | train | Epoch 117/150 | train loss=0.9912 top1=100.00% | val loss=1.2658 top1=94.62% top5=97.05% | lr=9.88e-05 | 7s
+2026-05-21 10:29:44 | INFO     | train | Epoch 118/150 | train loss=0.9901 top1=100.00% | val loss=1.2659 top1=94.79% top5=97.05% | lr=9.47e-05 | 7s
+2026-05-21 10:29:51 | INFO     | train | Epoch 119/150 | train loss=0.9909 top1=100.00% | val loss=1.2682 top1=94.97% top5=96.88% | lr=9.08e-05 | 7s
+2026-05-21 10:29:58 | INFO     | train | Epoch 120/150 | train loss=0.9905 top1=100.00% | val loss=1.2596 top1=95.14% top5=96.88% | lr=8.69e-05 | 7s
+2026-05-21 10:30:06 | INFO     | train | Epoch 121/150 | train loss=0.9904 top1=100.00% | val loss=1.2709 top1=94.62% top5=97.05% | lr=8.31e-05 | 7s
+2026-05-21 10:30:13 | INFO     | train | Epoch 122/150 | train loss=0.9901 top1=100.00% | val loss=1.2682 top1=94.97% top5=97.05% | lr=7.93e-05 | 7s
+2026-05-21 10:30:20 | INFO     | train | Epoch 123/150 | train loss=0.9896 top1=100.00% | val loss=1.2662 top1=94.79% top5=97.05% | lr=7.57e-05 | 7s
+2026-05-21 10:30:28 | INFO     | train | Epoch 124/150 | train loss=0.9899 top1=100.00% | val loss=1.2684 top1=94.97% top5=97.05% | lr=7.21e-05 | 7s
+2026-05-21 10:30:28 | INFO     | train | Early stopping at epoch 124 (patience=25)
+2026-05-21 10:30:28 | INFO     | train | Training complete. Best val top-1: 95.31%
+2026-05-21 10:30:28 | INFO     | train | Best checkpoint: results/exp_bilstm/checkpoints/best.pth
+
+  Total training time: 0h 15m 24s
+
+============================================================
+ Training done!  → results/exp_bilstm/
+ Next: bash scripts/05_evaluate.sh bilstm exp_bilstm
+============================================================
+
+##############################################################
+## STEP 4B: Evaluate BiLSTM
+##############################################################
+============================================================
+ Evaluation — bilstm / exp_bilstm
+============================================================
+ Checkpoint : results/exp_bilstm/checkpoints/best.pth
+ Output dir : results/exp_bilstm/evaluation
+
+── Validation set ──────────────────────────────────────────
+2026-05-21 10:30:30 | INFO     | evaluate | Loaded checkpoint: results/exp_bilstm/checkpoints/best.pth  Model: bilstm
+2026-05-21 10:30:31 | INFO     | evaluate | Evaluating 558 samples from 'val' split
+2026-05-21 10:30:31 | INFO     | evaluate | Model loaded. Evaluating 558 samples…
+
+───────────────────────────────────────────────────────
+  Evaluation Results [VAL]
+───────────────────────────────────────────────────────
+  Samples       : 558
+  Classes       : 556
+  Top-1 Accuracy: 95.16%
+  Top-5 Accuracy: 96.77%
+  Precision (M) : 92.78%
+  Recall    (M) : 95.14%
+  F1        (M) : 93.56%
+───────────────────────────────────────────────────────
+
+Top-10 classes by F1:
+  မီး ။                                F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီး ငြှိမ်း ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးချိတ် ။                           F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးကပ် ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သဲ အိတ် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ဆေးဘူး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးလောင် လွယ် သော ပစ္စည်း များ ။     F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  အမှိုက် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  လျှပ်စစ် မီး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးကြွင်းမီးကျန် ။                   F1=1.000  Prec=1.000  Rec=1.000  Support=1
+
+Bottom-10 classes by F1:
+  မြန်မြန်ဆန်ဆန် တောမီး ပျံ့ နိုင် တယ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  လက် မီးလောင် သွား တယ် ။              F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  နှလုံး အထူးကု ဆရာဝန် နဲ့ ပြ ချင် လိ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  တနင်္လာ က နေ သောကြာ ထိ ဆို ညနေ ၄ နာ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  ညနေ ၅ နာရီ ဆို ဆေးခန်း ဖွင့် ပါ တယ်  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  သူနာပြု တစ်ယောက် နဲ့ တွေ့ လို့ ရ မ   F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  လူနာ က ကျွန်တော့် အဒေါ် ပါ ။         F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  ခင်ဗျား ခံစား နေ ရ တာ ဘယ်လောက် ကြာ   F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  အစား စား ချင် စိတ် မ ရှိ ဘူး ။       F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  မ ရ ဘူး ၊ လှုပ် ဖို့ ကြိုးစား ရင် အ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+Confusion matrix saved → results/exp_bilstm/evaluation/confusion_matrix_val.png
+Predictions saved → results/exp_bilstm/evaluation/predictions_val.csv  (531/558 correct)
+
+All evaluation outputs saved to: results/exp_bilstm/evaluation
+
+── Test set ────────────────────────────────────────────────
+2026-05-21 10:30:34 | INFO     | evaluate | Loaded checkpoint: results/exp_bilstm/checkpoints/best.pth  Model: bilstm
+2026-05-21 10:30:34 | INFO     | evaluate | Evaluating 558 samples from 'test' split
+2026-05-21 10:30:34 | INFO     | evaluate | Model loaded. Evaluating 558 samples…
+
+───────────────────────────────────────────────────────
+  Evaluation Results [TEST]
+───────────────────────────────────────────────────────
+  Samples       : 558
+  Classes       : 556
+  Top-1 Accuracy: 100.00%
+  Top-5 Accuracy: 100.00%
+  Precision (M) : 100.00%
+  Recall    (M) : 100.00%
+  F1        (M) : 100.00%
+───────────────────────────────────────────────────────
+
+Top-10 classes by F1:
+  မီး ။                                F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီး ငြှိမ်း ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးချိတ် ။                           F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးကပ် ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ရေပုံး ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သဲ အိတ် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ဆေးဘူး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ရေကန် ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးလောင် လွယ် သော ပစ္စည်း များ ။     F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  လောင်စာဆီ ။                          F1=1.000  Prec=1.000  Rec=1.000  Support=1
+
+Bottom-10 classes by F1:
+  မ ကြာ ဘူး ၊ မိနစ် ၃၀ လောက် ဆို ရ ပြ  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ချော်လဲ လို့ ပါ ။                    F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ချော်လဲ ပြီး ခြေတောက် ခေါက် သွား တယ  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခင်ဗျား ခြေတောက် ကို ဓာတ်မှန် ရိုက်  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခင်ဗျား ခြေတောက် ကို ဓာတ်မှန် ရိုက်  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  အမေ လှေကား ပေါ် က ချော်ကျ လို့ ပါ ။  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခေါင်း မှာ သွေး တွေ ထွက် နေ တယ် ။    F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သူမ သတိ လစ် နေ တာ လား ။              F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ဟင့်အင်း ၊ သတိ မ လစ် ပါ ဘူး ။        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ဆရာဝန် ဘယ် အချိန် လာ မှာ လဲ ။        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+Confusion matrix saved → results/exp_bilstm/evaluation/confusion_matrix_test.png
+Predictions saved → results/exp_bilstm/evaluation/predictions_test.csv  (558/558 correct)
+
+All evaluation outputs saved to: results/exp_bilstm/evaluation
+
+============================================================
+ Evaluation done!  Results → results/exp_bilstm/evaluation/
+  ├── metrics_val.json / metrics_test.json
+  ├── per_class_val.csv / per_class_test.csv
+  ├── confusion_matrix_test.png
+  └── predictions_test.csv
+============================================================
+
+##############################################################
+## STEP 5A: Train Transformer
+##############################################################
+============================================================
+ Training MSL Recognition Model
+============================================================
+ Model      : transformer
+ Experiment : exp_transformer
+ Config     : config/config.yaml
+
+ Data: train=10602, val=558, test=558 (all-class design)
+
+[GPU]
+NVIDIA GeForce RTX 3090 Ti, 24564 MiB, 23567 MiB, 62
+
+2026-05-21 10:30:37 | INFO     | train | Experiment: exp_transformer  Model: transformer
+2026-05-21 10:30:37 | INFO     | train | Classes: 556
+2026-05-21 10:30:37 | INFO     | train | Using all-class manifest: train=10602, val=558, test=558
+2026-05-21 10:30:37 | INFO     | train | Model: transformer  Params: 3,362,030
+2026-05-21 10:30:38 | INFO     | train | Starting training…
+
+[DataLoaders]
+  Train: 10602 samples, 331 batches
+  Val:   558   samples, 18 batches
+  Test:  558  samples, 18 batches
+
+2026-05-21 10:30:42 | INFO     | train | Epoch   1/150 | train loss=6.3645 top1=0.17% | val loss=6.3476 top1=0.17% top5=1.04% | lr=5.45e-05 | 4s
+2026-05-21 10:30:42 | INFO     | train |   ★ New best val top-1: 0.17%
+2026-05-21 10:30:46 | INFO     | train | Epoch   2/150 | train loss=6.1694 top1=0.75% | val loss=5.8517 top1=3.47% top5=10.29% | lr=1.04e-04 | 4s
+2026-05-21 10:30:46 | INFO     | train |   ★ New best val top-1: 3.47%
+2026-05-21 10:30:50 | INFO     | train | Epoch   3/150 | train loss=5.5171 top1=6.68% | val loss=5.0682 top1=19.42% top5=47.62% | lr=1.53e-04 | 4s
+2026-05-21 10:30:50 | INFO     | train |   ★ New best val top-1: 19.42%
+2026-05-21 10:30:54 | INFO     | train | Epoch   4/150 | train loss=4.6838 top1=26.45% | val loss=4.1204 top1=55.73% top5=83.16% | lr=2.03e-04 | 4s
+2026-05-21 10:30:54 | INFO     | train |   ★ New best val top-1: 55.73%
+2026-05-21 10:30:58 | INFO     | train | Epoch   5/150 | train loss=3.6355 top1=58.66% | val loss=2.9080 top1=80.33% top5=92.53% | lr=2.53e-04 | 4s
+2026-05-21 10:30:58 | INFO     | train |   ★ New best val top-1: 80.33%
+2026-05-21 10:31:02 | INFO     | train | Epoch   6/150 | train loss=2.4776 top1=81.64% | val loss=1.9235 top1=87.33% top5=94.62% | lr=3.02e-04 | 4s
+2026-05-21 10:31:02 | INFO     | train |   ★ New best val top-1: 87.33%
+2026-05-21 10:31:06 | INFO     | train | Epoch   7/150 | train loss=1.6960 top1=90.46% | val loss=1.4899 top1=90.62% top5=95.49% | lr=3.52e-04 | 4s
+2026-05-21 10:31:07 | INFO     | train |   ★ New best val top-1: 90.62%
+2026-05-21 10:31:10 | INFO     | train | Epoch   8/150 | train loss=1.4243 top1=92.90% | val loss=1.4210 top1=91.84% top5=95.83% | lr=4.01e-04 | 4s
+2026-05-21 10:31:11 | INFO     | train |   ★ New best val top-1: 91.84%
+2026-05-21 10:31:14 | INFO     | train | Epoch   9/150 | train loss=1.3334 top1=94.00% | val loss=1.3725 top1=92.19% top5=96.18% | lr=4.51e-04 | 4s
+2026-05-21 10:31:15 | INFO     | train |   ★ New best val top-1: 92.19%
+/mnt/disk1/ye/exp/msl_recognition/.venv/lib/python3.12/site-packages/torch/optim/lr_scheduler.py:198: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+2026-05-21 10:31:19 | INFO     | train | Epoch  10/150 | train loss=1.2883 top1=94.82% | val loss=1.3540 top1=92.71% top5=96.53% | lr=5.00e-04 | 4s
+2026-05-21 10:31:19 | INFO     | train |   ★ New best val top-1: 92.71%
+2026-05-21 10:31:23 | INFO     | train | Epoch  11/150 | train loss=1.2622 top1=95.33% | val loss=1.3756 top1=93.06% top5=96.53% | lr=5.00e-04 | 4s
+2026-05-21 10:31:23 | INFO     | train |   ★ New best val top-1: 93.06%
+2026-05-21 10:31:27 | INFO     | train | Epoch  12/150 | train loss=1.2303 top1=95.95% | val loss=1.3588 top1=93.40% top5=96.70% | lr=5.00e-04 | 4s
+2026-05-21 10:31:27 | INFO     | train |   ★ New best val top-1: 93.40%
+2026-05-21 10:31:31 | INFO     | train | Epoch  13/150 | train loss=1.1977 top1=96.68% | val loss=1.3106 top1=93.58% top5=96.88% | lr=5.00e-04 | 4s
+2026-05-21 10:31:31 | INFO     | train |   ★ New best val top-1: 93.58%
+2026-05-21 10:31:35 | INFO     | train | Epoch  14/150 | train loss=1.1697 top1=97.16% | val loss=1.3356 top1=94.44% top5=96.01% | lr=4.99e-04 | 4s
+2026-05-21 10:31:35 | INFO     | train |   ★ New best val top-1: 94.44%
+2026-05-21 10:31:39 | INFO     | train | Epoch  15/150 | train loss=1.1519 top1=97.46% | val loss=1.2799 top1=94.62% top5=97.40% | lr=4.99e-04 | 4s
+2026-05-21 10:31:39 | INFO     | train |   ★ New best val top-1: 94.62%
+2026-05-21 10:31:43 | INFO     | train | Epoch  16/150 | train loss=1.1358 top1=97.77% | val loss=1.2705 top1=94.97% top5=97.22% | lr=4.98e-04 | 4s
+2026-05-21 10:31:43 | INFO     | train |   ★ New best val top-1: 94.97%
+2026-05-21 10:31:47 | INFO     | train | Epoch  17/150 | train loss=1.1191 top1=98.09% | val loss=1.2683 top1=95.49% top5=97.05% | lr=4.97e-04 | 4s
+2026-05-21 10:31:47 | INFO     | train |   ★ New best val top-1: 95.49%
+2026-05-21 10:31:51 | INFO     | train | Epoch  18/150 | train loss=1.1053 top1=98.45% | val loss=1.2621 top1=95.14% top5=97.40% | lr=4.97e-04 | 4s
+2026-05-21 10:31:55 | INFO     | train | Epoch  19/150 | train loss=1.0958 top1=98.78% | val loss=1.2532 top1=95.14% top5=96.88% | lr=4.96e-04 | 4s
+2026-05-21 10:31:59 | INFO     | train | Epoch  20/150 | train loss=1.0911 top1=98.86% | val loss=1.2710 top1=94.79% top5=97.40% | lr=4.95e-04 | 4s
+2026-05-21 10:32:03 | INFO     | train | Epoch  21/150 | train loss=1.0779 top1=99.03% | val loss=1.2375 top1=96.01% top5=97.57% | lr=4.93e-04 | 4s
+2026-05-21 10:32:03 | INFO     | train |   ★ New best val top-1: 96.01%
+2026-05-21 10:32:07 | INFO     | train | Epoch  22/150 | train loss=1.0720 top1=99.04% | val loss=1.2282 top1=95.49% top5=97.57% | lr=4.92e-04 | 4s
+2026-05-21 10:32:11 | INFO     | train | Epoch  23/150 | train loss=1.0605 top1=99.28% | val loss=1.2338 top1=95.31% top5=97.74% | lr=4.91e-04 | 4s
+2026-05-21 10:32:15 | INFO     | train | Epoch  24/150 | train loss=1.0543 top1=99.35% | val loss=1.2315 top1=94.62% top5=97.22% | lr=4.89e-04 | 4s
+2026-05-21 10:32:19 | INFO     | train | Epoch  25/150 | train loss=1.0584 top1=99.29% | val loss=1.2499 top1=95.31% top5=96.70% | lr=4.88e-04 | 4s
+2026-05-21 10:32:23 | INFO     | train | Epoch  26/150 | train loss=1.0506 top1=99.38% | val loss=1.2199 top1=95.49% top5=97.40% | lr=4.86e-04 | 4s
+2026-05-21 10:32:27 | INFO     | train | Epoch  27/150 | train loss=1.0472 top1=99.45% | val loss=1.2280 top1=95.14% top5=97.40% | lr=4.84e-04 | 4s
+2026-05-21 10:32:31 | INFO     | train | Epoch  28/150 | train loss=1.0400 top1=99.61% | val loss=1.2078 top1=95.31% top5=97.40% | lr=4.83e-04 | 4s
+2026-05-21 10:32:35 | INFO     | train | Epoch  29/150 | train loss=1.0393 top1=99.56% | val loss=1.2467 top1=95.31% top5=96.88% | lr=4.81e-04 | 4s
+2026-05-21 10:32:39 | INFO     | train | Epoch  30/150 | train loss=1.0388 top1=99.55% | val loss=1.2065 top1=95.66% top5=97.40% | lr=4.79e-04 | 4s
+2026-05-21 10:32:43 | INFO     | train | Epoch  31/150 | train loss=1.0322 top1=99.63% | val loss=1.2195 top1=95.49% top5=97.40% | lr=4.76e-04 | 4s
+2026-05-21 10:32:47 | INFO     | train | Epoch  32/150 | train loss=1.0211 top1=99.81% | val loss=1.2104 top1=95.49% top5=97.05% | lr=4.74e-04 | 4s
+2026-05-21 10:32:51 | INFO     | train | Epoch  33/150 | train loss=1.0246 top1=99.68% | val loss=1.1973 top1=95.66% top5=97.22% | lr=4.72e-04 | 4s
+2026-05-21 10:32:55 | INFO     | train | Epoch  34/150 | train loss=1.0288 top1=99.62% | val loss=1.2033 top1=95.49% top5=97.57% | lr=4.69e-04 | 4s
+2026-05-21 10:32:59 | INFO     | train | Epoch  35/150 | train loss=1.0250 top1=99.72% | val loss=1.2010 top1=95.83% top5=97.92% | lr=4.67e-04 | 4s
+2026-05-21 10:33:02 | INFO     | train | Epoch  36/150 | train loss=1.0277 top1=99.59% | val loss=1.1916 top1=96.01% top5=97.05% | lr=4.64e-04 | 4s
+2026-05-21 10:33:06 | INFO     | train | Epoch  37/150 | train loss=1.0254 top1=99.62% | val loss=1.1845 top1=96.01% top5=97.40% | lr=4.61e-04 | 4s
+2026-05-21 10:33:10 | INFO     | train | Epoch  38/150 | train loss=1.0178 top1=99.71% | val loss=1.1993 top1=95.83% top5=97.22% | lr=4.59e-04 | 4s
+2026-05-21 10:33:14 | INFO     | train | Epoch  39/150 | train loss=1.0172 top1=99.73% | val loss=1.1973 top1=95.49% top5=97.40% | lr=4.56e-04 | 4s
+2026-05-21 10:33:18 | INFO     | train | Epoch  40/150 | train loss=1.0066 top1=99.87% | val loss=1.1586 top1=96.53% top5=97.92% | lr=4.53e-04 | 4s
+2026-05-21 10:33:18 | INFO     | train |   ★ New best val top-1: 96.53%
+2026-05-21 10:33:22 | INFO     | train | Epoch  41/150 | train loss=0.9996 top1=99.92% | val loss=1.1549 top1=96.70% top5=97.57% | lr=4.50e-04 | 4s
+2026-05-21 10:33:23 | INFO     | train |   ★ New best val top-1: 96.70%
+2026-05-21 10:33:26 | INFO     | train | Epoch  42/150 | train loss=1.0058 top1=99.82% | val loss=1.2007 top1=95.83% top5=97.40% | lr=4.46e-04 | 4s
+2026-05-21 10:33:30 | INFO     | train | Epoch  43/150 | train loss=1.0292 top1=99.39% | val loss=1.1979 top1=96.35% top5=97.22% | lr=4.43e-04 | 4s
+2026-05-21 10:33:34 | INFO     | train | Epoch  44/150 | train loss=1.0252 top1=99.50% | val loss=1.1978 top1=96.18% top5=97.40% | lr=4.40e-04 | 4s
+2026-05-21 10:33:38 | INFO     | train | Epoch  45/150 | train loss=1.0158 top1=99.66% | val loss=1.1744 top1=96.18% top5=97.40% | lr=4.36e-04 | 4s
+2026-05-21 10:33:42 | INFO     | train | Epoch  46/150 | train loss=1.0045 top1=99.90% | val loss=1.1823 top1=96.01% top5=97.74% | lr=4.33e-04 | 4s
+2026-05-21 10:33:46 | INFO     | train | Epoch  47/150 | train loss=1.0065 top1=99.77% | val loss=1.1861 top1=95.83% top5=97.40% | lr=4.29e-04 | 4s
+2026-05-21 10:33:50 | INFO     | train | Epoch  48/150 | train loss=1.0018 top1=99.88% | val loss=1.1710 top1=96.35% top5=97.40% | lr=4.26e-04 | 4s
+2026-05-21 10:33:54 | INFO     | train | Epoch  49/150 | train loss=1.0002 top1=99.90% | val loss=1.1735 top1=96.35% top5=97.40% | lr=4.22e-04 | 4s
+2026-05-21 10:33:58 | INFO     | train | Epoch  50/150 | train loss=1.0023 top1=99.85% | val loss=1.1848 top1=96.35% top5=97.40% | lr=4.18e-04 | 4s
+2026-05-21 10:34:02 | INFO     | train | Epoch  51/150 | train loss=1.0085 top1=99.74% | val loss=1.1633 top1=96.35% top5=97.92% | lr=4.14e-04 | 4s
+2026-05-21 10:34:06 | INFO     | train | Epoch  52/150 | train loss=1.0107 top1=99.68% | val loss=1.1747 top1=96.35% top5=97.40% | lr=4.10e-04 | 4s
+2026-05-21 10:34:10 | INFO     | train | Epoch  53/150 | train loss=1.0030 top1=99.85% | val loss=1.1744 top1=96.35% top5=97.40% | lr=4.06e-04 | 4s
+2026-05-21 10:34:13 | INFO     | train | Epoch  54/150 | train loss=1.0038 top1=99.77% | val loss=1.1630 top1=96.70% top5=97.40% | lr=4.02e-04 | 4s
+2026-05-21 10:34:17 | INFO     | train | Epoch  55/150 | train loss=0.9938 top1=99.95% | val loss=1.1508 top1=96.88% top5=97.74% | lr=3.98e-04 | 4s
+2026-05-21 10:34:18 | INFO     | train |   ★ New best val top-1: 96.88%
+2026-05-21 10:34:21 | INFO     | train | Epoch  56/150 | train loss=0.9923 top1=99.92% | val loss=1.1587 top1=96.35% top5=97.40% | lr=3.94e-04 | 4s
+2026-05-21 10:34:25 | INFO     | train | Epoch  57/150 | train loss=0.9941 top1=99.87% | val loss=1.1636 top1=96.70% top5=97.40% | lr=3.89e-04 | 4s
+2026-05-21 10:34:29 | INFO     | train | Epoch  58/150 | train loss=0.9906 top1=99.94% | val loss=1.1561 top1=96.35% top5=97.40% | lr=3.85e-04 | 4s
+2026-05-21 10:34:33 | INFO     | train | Epoch  59/150 | train loss=0.9883 top1=99.95% | val loss=1.1464 top1=96.70% top5=97.57% | lr=3.81e-04 | 4s
+2026-05-21 10:34:37 | INFO     | train | Epoch  60/150 | train loss=0.9957 top1=99.86% | val loss=1.1704 top1=95.83% top5=97.57% | lr=3.76e-04 | 4s
+2026-05-21 10:34:41 | INFO     | train | Epoch  61/150 | train loss=1.0024 top1=99.80% | val loss=1.1636 top1=96.18% top5=97.40% | lr=3.72e-04 | 4s
+2026-05-21 10:34:45 | INFO     | train | Epoch  62/150 | train loss=0.9989 top1=99.86% | val loss=1.1715 top1=96.01% top5=97.57% | lr=3.67e-04 | 4s
+2026-05-21 10:34:49 | INFO     | train | Epoch  63/150 | train loss=0.9951 top1=99.90% | val loss=1.1472 top1=96.53% top5=97.40% | lr=3.63e-04 | 4s
+2026-05-21 10:34:53 | INFO     | train | Epoch  64/150 | train loss=0.9872 top1=99.99% | val loss=1.1466 top1=96.18% top5=97.57% | lr=3.58e-04 | 4s
+2026-05-21 10:34:57 | INFO     | train | Epoch  65/150 | train loss=0.9854 top1=99.99% | val loss=1.1470 top1=96.70% top5=97.57% | lr=3.53e-04 | 4s
+2026-05-21 10:35:00 | INFO     | train | Epoch  66/150 | train loss=0.9878 top1=99.92% | val loss=1.1583 top1=96.18% top5=97.74% | lr=3.48e-04 | 4s
+2026-05-21 10:35:05 | INFO     | train | Epoch  67/150 | train loss=0.9927 top1=99.82% | val loss=1.1639 top1=96.35% top5=97.57% | lr=3.44e-04 | 4s
+2026-05-21 10:35:08 | INFO     | train | Epoch  68/150 | train loss=0.9911 top1=99.92% | val loss=1.1578 top1=96.53% top5=97.57% | lr=3.39e-04 | 4s
+2026-05-21 10:35:12 | INFO     | train | Epoch  69/150 | train loss=0.9854 top1=99.98% | val loss=1.1535 top1=96.53% top5=97.74% | lr=3.34e-04 | 4s
+2026-05-21 10:35:16 | INFO     | train | Epoch  70/150 | train loss=0.9834 top1=99.99% | val loss=1.1392 top1=96.70% top5=97.92% | lr=3.29e-04 | 4s
+2026-05-21 10:35:20 | INFO     | train | Epoch  71/150 | train loss=0.9845 top1=99.97% | val loss=1.1418 top1=96.53% top5=97.57% | lr=3.24e-04 | 4s
+2026-05-21 10:35:24 | INFO     | train | Epoch  72/150 | train loss=0.9872 top1=99.92% | val loss=1.1491 top1=96.35% top5=97.57% | lr=3.19e-04 | 4s
+2026-05-21 10:35:28 | INFO     | train | Epoch  73/150 | train loss=0.9853 top1=99.96% | val loss=1.1535 top1=96.35% top5=97.57% | lr=3.14e-04 | 4s
+2026-05-21 10:35:32 | INFO     | train | Epoch  74/150 | train loss=0.9954 top1=99.73% | val loss=1.1531 top1=96.53% top5=97.57% | lr=3.09e-04 | 4s
+2026-05-21 10:35:35 | INFO     | train | Epoch  75/150 | train loss=0.9866 top1=99.88% | val loss=1.1372 top1=96.70% top5=97.74% | lr=3.04e-04 | 4s
+2026-05-21 10:35:39 | INFO     | train | Epoch  76/150 | train loss=0.9830 top1=99.96% | val loss=1.1407 top1=96.53% top5=97.74% | lr=2.99e-04 | 4s
+2026-05-21 10:35:43 | INFO     | train | Epoch  77/150 | train loss=0.9815 top1=99.99% | val loss=1.1355 top1=96.53% top5=97.74% | lr=2.94e-04 | 4s
+2026-05-21 10:35:47 | INFO     | train | Epoch  78/150 | train loss=0.9847 top1=99.92% | val loss=1.1652 top1=96.18% top5=97.57% | lr=2.89e-04 | 4s
+2026-05-21 10:35:51 | INFO     | train | Epoch  79/150 | train loss=0.9932 top1=99.77% | val loss=1.1623 top1=96.35% top5=97.57% | lr=2.84e-04 | 4s
+2026-05-21 10:35:55 | INFO     | train | Epoch  80/150 | train loss=0.9903 top1=99.84% | val loss=1.1383 top1=96.53% top5=97.74% | lr=2.78e-04 | 4s
+2026-05-21 10:35:55 | INFO     | train | Early stopping at epoch 80 (patience=25)
+2026-05-21 10:35:55 | INFO     | train | Training complete. Best val top-1: 96.88%
+2026-05-21 10:35:55 | INFO     | train | Best checkpoint: results/exp_transformer/checkpoints/best.pth
+
+  Total training time: 0h 5m 19s
+
+============================================================
+ Training done!  → results/exp_transformer/
+ Next: bash scripts/05_evaluate.sh transformer exp_transformer
+============================================================
+
+##############################################################
+## STEP 5B: Evaluate Transformer
+##############################################################
+============================================================
+ Evaluation — transformer / exp_transformer
+============================================================
+ Checkpoint : results/exp_transformer/checkpoints/best.pth
+ Output dir : results/exp_transformer/evaluation
+
+── Validation set ──────────────────────────────────────────
+2026-05-21 10:35:57 | INFO     | evaluate | Loaded checkpoint: results/exp_transformer/checkpoints/best.pth  Model: transformer
+2026-05-21 10:35:57 | INFO     | evaluate | Evaluating 558 samples from 'val' split
+2026-05-21 10:35:57 | INFO     | evaluate | Model loaded. Evaluating 558 samples…
+
+───────────────────────────────────────────────────────
+  Evaluation Results [VAL]
+───────────────────────────────────────────────────────
+  Samples       : 558
+  Classes       : 556
+  Top-1 Accuracy: 96.77%
+  Top-5 Accuracy: 97.67%
+  Precision (M) : 95.17%
+  Recall    (M) : 96.76%
+  F1        (M) : 95.71%
+───────────────────────────────────────────────────────
+
+Top-10 classes by F1:
+  မီး ။                                F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီး ငြှိမ်း ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးချိတ် ။                           F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးကပ် ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ရေပုံး ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သဲ အိတ် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ဆေးဘူး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ရေကန် ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးလောင် လွယ် သော ပစ္စည်း များ ။     F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  အမှိုက် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+
+Bottom-10 classes by F1:
+  ကျွန်တော် ရဲ နဲ့ တွေ့ ဖို့ လိုအပ် တ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  လူ တစ်ယောက် အစာ စား ရင်း အသက်ရှု လိ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  ကျွန်တော့ ညီလေး ကို ရှာ ပေး ပါ ။     F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  အရေးကြီး လို့ ပါ ။                   F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  ပိုက်ဆံအိတ် လု ပြီး ပြေး သွား ပြီ ။  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  မြန်မြန်ဆန်ဆန် တောမီး ပျံ့ နိုင် တယ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  နှလုံး အထူးကု ဆရာဝန် နဲ့ ပြ ချင် လိ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  တနင်္လာ က နေ သောကြာ ထိ ဆို ညနေ ၄ နာ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  ခင်ဗျား ဘယ် ဆရာဝန် နဲ့ ပြ နေ တာ လဲ   F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  လူနာ က ကျွန်တော့် အဒေါ် ပါ ။         F1=0.000  Prec=0.000  Rec=0.000  Support=1
+Confusion matrix saved → results/exp_transformer/evaluation/confusion_matrix_val.png
+Predictions saved → results/exp_transformer/evaluation/predictions_val.csv  (540/558 correct)
+
+All evaluation outputs saved to: results/exp_transformer/evaluation
+
+── Test set ────────────────────────────────────────────────
+2026-05-21 10:36:00 | INFO     | evaluate | Loaded checkpoint: results/exp_transformer/checkpoints/best.pth  Model: transformer
+2026-05-21 10:36:00 | INFO     | evaluate | Evaluating 558 samples from 'test' split
+2026-05-21 10:36:00 | INFO     | evaluate | Model loaded. Evaluating 558 samples…
+
+───────────────────────────────────────────────────────
+  Evaluation Results [TEST]
+───────────────────────────────────────────────────────
+  Samples       : 558
+  Classes       : 556
+  Top-1 Accuracy: 100.00%
+  Top-5 Accuracy: 100.00%
+  Precision (M) : 100.00%
+  Recall    (M) : 100.00%
+  F1        (M) : 100.00%
+───────────────────────────────────────────────────────
+
+Top-10 classes by F1:
+  မီး ။                                F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီး ငြှိမ်း ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးချိတ် ။                           F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးကပ် ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ရေပုံး ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သဲ အိတ် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ဆေးဘူး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ရေကန် ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးလောင် လွယ် သော ပစ္စည်း များ ။     F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  လောင်စာဆီ ။                          F1=1.000  Prec=1.000  Rec=1.000  Support=1
+
+Bottom-10 classes by F1:
+  မ ကြာ ဘူး ၊ မိနစ် ၃၀ လောက် ဆို ရ ပြ  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ချော်လဲ လို့ ပါ ။                    F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ချော်လဲ ပြီး ခြေတောက် ခေါက် သွား တယ  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခင်ဗျား ခြေတောက် ကို ဓာတ်မှန် ရိုက်  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခင်ဗျား ခြေတောက် ကို ဓာတ်မှန် ရိုက်  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  အမေ လှေကား ပေါ် က ချော်ကျ လို့ ပါ ။  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခေါင်း မှာ သွေး တွေ ထွက် နေ တယ် ။    F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သူမ သတိ လစ် နေ တာ လား ။              F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ဟင့်အင်း ၊ သတိ မ လစ် ပါ ဘူး ။        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ဆရာဝန် ဘယ် အချိန် လာ မှာ လဲ ။        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+Confusion matrix saved → results/exp_transformer/evaluation/confusion_matrix_test.png
+Predictions saved → results/exp_transformer/evaluation/predictions_test.csv  (558/558 correct)
+
+All evaluation outputs saved to: results/exp_transformer/evaluation
+
+============================================================
+ Evaluation done!  Results → results/exp_transformer/evaluation/
+  ├── metrics_val.json / metrics_test.json
+  ├── per_class_val.csv / per_class_test.csv
+  ├── confusion_matrix_test.png
+  └── predictions_test.csv
+============================================================
+
+##############################################################
+## STEP 6A: Train ST-GCN
+##############################################################
+============================================================
+ Training MSL Recognition Model
+============================================================
+ Model      : stgcn
+ Experiment : exp_stgcn
+ Config     : config/config.yaml
+
+ Data: train=10602, val=558, test=558 (all-class design)
+
+[GPU]
+NVIDIA GeForce RTX 3090 Ti, 24564 MiB, 23559 MiB, 65
+
+2026-05-21 10:36:03 | INFO     | train | Experiment: exp_stgcn  Model: stgcn
+2026-05-21 10:36:03 | INFO     | train | Classes: 556
+2026-05-21 10:36:03 | INFO     | train | Using all-class manifest: train=10602, val=558, test=558
+2026-05-21 10:36:03 | INFO     | train | Model: stgcn  Params: 2,780,143
+2026-05-21 10:36:04 | INFO     | train | Starting training…
+
+[DataLoaders]
+  Train: 10602 samples, 331 batches
+  Val:   558   samples, 18 batches
+  Test:  558  samples, 18 batches
+
+2026-05-21 10:36:40 | INFO     | train | Epoch   1/150 | train loss=6.9122 top1=0.17% | val loss=6.5091 top1=0.35% top5=1.44% | lr=5.45e-05 | 36s
+2026-05-21 10:36:40 | INFO     | train |   ★ New best val top-1: 0.35%
+2026-05-21 10:37:16 | INFO     | train | Epoch   2/150 | train loss=6.4037 top1=0.31% | val loss=6.1872 top1=0.52% top5=3.57% | lr=1.04e-04 | 36s
+2026-05-21 10:37:17 | INFO     | train |   ★ New best val top-1: 0.52%
+2026-05-21 10:37:53 | INFO     | train | Epoch   3/150 | train loss=6.1411 top1=0.95% | val loss=5.7854 top1=3.30% top5=10.29% | lr=1.53e-04 | 36s
+2026-05-21 10:37:53 | INFO     | train |   ★ New best val top-1: 3.30%
+2026-05-21 10:38:29 | INFO     | train | Epoch   4/150 | train loss=5.7914 top1=1.96% | val loss=5.2866 top1=3.30% top5=18.68% | lr=2.03e-04 | 36s
+2026-05-21 10:39:05 | INFO     | train | Epoch   5/150 | train loss=5.3542 top1=4.57% | val loss=4.8470 top1=10.99% top5=33.28% | lr=2.53e-04 | 36s
+2026-05-21 10:39:05 | INFO     | train |   ★ New best val top-1: 10.99%
+2026-05-21 10:39:40 | INFO     | train | Epoch   6/150 | train loss=4.8969 top1=8.33% | val loss=4.1599 top1=27.38% top5=56.05% | lr=3.02e-04 | 36s
+2026-05-21 10:39:41 | INFO     | train |   ★ New best val top-1: 27.38%
+2026-05-21 10:40:17 | INFO     | train | Epoch   7/150 | train loss=4.3998 top1=16.42% | val loss=3.7557 top1=39.19% top5=71.40% | lr=3.52e-04 | 36s
+2026-05-21 10:40:17 | INFO     | train |   ★ New best val top-1: 39.19%
+2026-05-21 10:40:53 | INFO     | train | Epoch   8/150 | train loss=3.8983 top1=26.82% | val loss=3.2198 top1=50.92% top5=82.07% | lr=4.01e-04 | 36s
+2026-05-21 10:40:53 | INFO     | train |   ★ New best val top-1: 50.92%
+2026-05-21 10:41:30 | INFO     | train | Epoch   9/150 | train loss=3.4083 top1=39.61% | val loss=2.8103 top1=66.44% top5=89.24% | lr=4.51e-04 | 37s
+2026-05-21 10:41:31 | INFO     | train |   ★ New best val top-1: 66.44%
+/mnt/disk1/ye/exp/msl_recognition/.venv/lib/python3.12/site-packages/torch/optim/lr_scheduler.py:198: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+2026-05-21 10:42:08 | INFO     | train | Epoch  10/150 | train loss=2.9792 top1=52.45% | val loss=2.4091 top1=74.21% top5=91.49% | lr=5.00e-04 | 37s
+2026-05-21 10:42:08 | INFO     | train |   ★ New best val top-1: 74.21%
+2026-05-21 10:42:45 | INFO     | train | Epoch  11/150 | train loss=2.6417 top1=62.91% | val loss=2.3018 top1=75.17% top5=92.71% | lr=5.00e-04 | 37s
+2026-05-21 10:42:45 | INFO     | train |   ★ New best val top-1: 75.17%
+2026-05-21 10:43:21 | INFO     | train | Epoch  12/150 | train loss=2.3591 top1=72.31% | val loss=2.0752 top1=79.76% top5=93.06% | lr=5.00e-04 | 36s
+2026-05-21 10:43:21 | INFO     | train |   ★ New best val top-1: 79.76%
+2026-05-21 10:43:57 | INFO     | train | Epoch  13/150 | train loss=2.1689 top1=78.26% | val loss=1.9573 top1=84.38% top5=94.44% | lr=5.00e-04 | 36s
+2026-05-21 10:43:57 | INFO     | train |   ★ New best val top-1: 84.38%
+2026-05-21 10:44:34 | INFO     | train | Epoch  14/150 | train loss=2.0464 top1=81.30% | val loss=1.8840 top1=86.98% top5=93.92% | lr=4.99e-04 | 36s
+2026-05-21 10:44:34 | INFO     | train |   ★ New best val top-1: 86.98%
+2026-05-21 10:45:10 | INFO     | train | Epoch  15/150 | train loss=1.9382 top1=84.54% | val loss=1.8643 top1=85.71% top5=94.44% | lr=4.99e-04 | 36s
+2026-05-21 10:45:46 | INFO     | train | Epoch  16/150 | train loss=1.8570 top1=86.38% | val loss=1.8290 top1=87.67% top5=94.97% | lr=4.98e-04 | 36s
+2026-05-21 10:45:46 | INFO     | train |   ★ New best val top-1: 87.67%
+2026-05-21 10:46:23 | INFO     | train | Epoch  17/150 | train loss=1.7941 top1=87.71% | val loss=1.7424 top1=87.33% top5=95.49% | lr=4.97e-04 | 37s
+2026-05-21 10:47:00 | INFO     | train | Epoch  18/150 | train loss=1.7351 top1=89.09% | val loss=1.6789 top1=89.76% top5=95.66% | lr=4.97e-04 | 37s
+2026-05-21 10:47:00 | INFO     | train |   ★ New best val top-1: 89.76%
+2026-05-21 10:47:38 | INFO     | train | Epoch  19/150 | train loss=1.6936 top1=90.10% | val loss=1.6927 top1=89.58% top5=94.79% | lr=4.96e-04 | 37s
+2026-05-21 10:48:14 | INFO     | train | Epoch  20/150 | train loss=1.6485 top1=91.26% | val loss=1.6401 top1=90.45% top5=96.18% | lr=4.95e-04 | 37s
+2026-05-21 10:48:15 | INFO     | train |   ★ New best val top-1: 90.45%
+2026-05-21 10:48:52 | INFO     | train | Epoch  21/150 | train loss=1.6166 top1=91.72% | val loss=1.6220 top1=89.41% top5=96.53% | lr=4.93e-04 | 37s
+2026-05-21 10:49:30 | INFO     | train | Epoch  22/150 | train loss=1.5833 top1=92.11% | val loss=1.6630 top1=90.45% top5=95.49% | lr=4.92e-04 | 38s
+2026-05-21 10:50:07 | INFO     | train | Epoch  23/150 | train loss=1.5571 top1=92.69% | val loss=1.5685 top1=91.15% top5=96.01% | lr=4.91e-04 | 38s
+2026-05-21 10:50:07 | INFO     | train |   ★ New best val top-1: 91.15%
+2026-05-21 10:50:45 | INFO     | train | Epoch  24/150 | train loss=1.5275 top1=93.25% | val loss=1.5512 top1=90.97% top5=95.83% | lr=4.89e-04 | 37s
+2026-05-21 10:51:23 | INFO     | train | Epoch  25/150 | train loss=1.5069 top1=93.50% | val loss=1.5279 top1=91.49% top5=95.83% | lr=4.88e-04 | 38s
+2026-05-21 10:51:23 | INFO     | train |   ★ New best val top-1: 91.49%
+2026-05-21 10:52:00 | INFO     | train | Epoch  26/150 | train loss=1.4869 top1=93.93% | val loss=1.5648 top1=91.84% top5=95.83% | lr=4.86e-04 | 37s
+2026-05-21 10:52:00 | INFO     | train |   ★ New best val top-1: 91.84%
+2026-05-21 10:52:37 | INFO     | train | Epoch  27/150 | train loss=1.4700 top1=94.17% | val loss=1.5587 top1=90.62% top5=95.83% | lr=4.84e-04 | 37s
+2026-05-21 10:53:12 | INFO     | train | Epoch  28/150 | train loss=1.4498 top1=94.58% | val loss=1.5072 top1=90.97% top5=95.83% | lr=4.83e-04 | 36s
+2026-05-21 10:53:48 | INFO     | train | Epoch  29/150 | train loss=1.4315 top1=94.76% | val loss=1.5185 top1=90.97% top5=96.53% | lr=4.81e-04 | 36s
+2026-05-21 10:54:24 | INFO     | train | Epoch  30/150 | train loss=1.4219 top1=94.98% | val loss=1.5319 top1=91.49% top5=95.83% | lr=4.79e-04 | 36s
+2026-05-21 10:54:59 | INFO     | train | Epoch  31/150 | train loss=1.4026 top1=95.29% | val loss=1.5162 top1=91.84% top5=95.66% | lr=4.76e-04 | 36s
+2026-05-21 10:55:35 | INFO     | train | Epoch  32/150 | train loss=1.3885 top1=95.68% | val loss=1.4890 top1=91.32% top5=96.35% | lr=4.74e-04 | 36s
+2026-05-21 10:56:11 | INFO     | train | Epoch  33/150 | train loss=1.3783 top1=95.65% | val loss=1.4966 top1=92.19% top5=96.01% | lr=4.72e-04 | 36s
+2026-05-21 10:56:11 | INFO     | train |   ★ New best val top-1: 92.19%
+2026-05-21 10:56:47 | INFO     | train | Epoch  34/150 | train loss=1.3651 top1=96.02% | val loss=1.4781 top1=92.71% top5=96.01% | lr=4.69e-04 | 36s
+2026-05-21 10:56:47 | INFO     | train |   ★ New best val top-1: 92.71%
+2026-05-21 10:57:22 | INFO     | train | Epoch  35/150 | train loss=1.3516 top1=96.28% | val loss=1.4975 top1=92.01% top5=95.66% | lr=4.67e-04 | 36s
+2026-05-21 10:57:58 | INFO     | train | Epoch  36/150 | train loss=1.3423 top1=96.43% | val loss=1.4603 top1=93.06% top5=96.01% | lr=4.64e-04 | 36s
+2026-05-21 10:57:58 | INFO     | train |   ★ New best val top-1: 93.06%
+2026-05-21 10:58:34 | INFO     | train | Epoch  37/150 | train loss=1.3291 top1=96.40% | val loss=1.4816 top1=92.19% top5=96.01% | lr=4.61e-04 | 36s
+2026-05-21 10:59:09 | INFO     | train | Epoch  38/150 | train loss=1.3186 top1=96.73% | val loss=1.4715 top1=92.71% top5=95.83% | lr=4.59e-04 | 36s
+2026-05-21 10:59:45 | INFO     | train | Epoch  39/150 | train loss=1.3147 top1=96.76% | val loss=1.4498 top1=92.71% top5=95.83% | lr=4.56e-04 | 36s
+2026-05-21 11:00:21 | INFO     | train | Epoch  40/150 | train loss=1.3029 top1=96.96% | val loss=1.4748 top1=93.23% top5=96.70% | lr=4.53e-04 | 36s
+2026-05-21 11:00:21 | INFO     | train |   ★ New best val top-1: 93.23%
+2026-05-21 11:00:56 | INFO     | train | Epoch  41/150 | train loss=1.3008 top1=97.00% | val loss=1.4729 top1=92.53% top5=96.35% | lr=4.50e-04 | 36s
+2026-05-21 11:01:32 | INFO     | train | Epoch  42/150 | train loss=1.2948 top1=97.21% | val loss=1.4411 top1=93.23% top5=96.01% | lr=4.46e-04 | 36s
+2026-05-21 11:02:08 | INFO     | train | Epoch  43/150 | train loss=1.2880 top1=97.26% | val loss=1.4574 top1=92.01% top5=96.53% | lr=4.43e-04 | 36s
+2026-05-21 11:02:43 | INFO     | train | Epoch  44/150 | train loss=1.2747 top1=97.61% | val loss=1.4697 top1=92.19% top5=96.35% | lr=4.40e-04 | 36s
+2026-05-21 11:03:19 | INFO     | train | Epoch  45/150 | train loss=1.2727 top1=97.47% | val loss=1.4418 top1=92.36% top5=95.83% | lr=4.36e-04 | 36s
+2026-05-21 11:03:54 | INFO     | train | Epoch  46/150 | train loss=1.2597 top1=97.72% | val loss=1.4576 top1=92.71% top5=96.35% | lr=4.33e-04 | 36s
+2026-05-21 11:04:30 | INFO     | train | Epoch  47/150 | train loss=1.2562 top1=97.72% | val loss=1.4367 top1=93.58% top5=95.49% | lr=4.29e-04 | 36s
+2026-05-21 11:04:30 | INFO     | train |   ★ New best val top-1: 93.58%
+2026-05-21 11:05:06 | INFO     | train | Epoch  48/150 | train loss=1.2521 top1=97.89% | val loss=1.4396 top1=93.23% top5=96.53% | lr=4.26e-04 | 36s
+2026-05-21 11:05:41 | INFO     | train | Epoch  49/150 | train loss=1.2471 top1=97.87% | val loss=1.4350 top1=92.71% top5=96.01% | lr=4.22e-04 | 36s
+2026-05-21 11:06:17 | INFO     | train | Epoch  50/150 | train loss=1.2417 top1=97.96% | val loss=1.4475 top1=93.92% top5=96.35% | lr=4.18e-04 | 36s
+2026-05-21 11:06:17 | INFO     | train |   ★ New best val top-1: 93.92%
+2026-05-21 11:06:53 | INFO     | train | Epoch  51/150 | train loss=1.2322 top1=98.15% | val loss=1.4203 top1=93.75% top5=96.35% | lr=4.14e-04 | 36s
+2026-05-21 11:07:28 | INFO     | train | Epoch  52/150 | train loss=1.2272 top1=98.31% | val loss=1.4171 top1=94.10% top5=96.18% | lr=4.10e-04 | 36s
+2026-05-21 11:07:28 | INFO     | train |   ★ New best val top-1: 94.10%
+2026-05-21 11:08:04 | INFO     | train | Epoch  53/150 | train loss=1.2249 top1=98.36% | val loss=1.4194 top1=93.40% top5=96.35% | lr=4.06e-04 | 36s
+2026-05-21 11:08:40 | INFO     | train | Epoch  54/150 | train loss=1.2245 top1=98.31% | val loss=1.4220 top1=93.40% top5=95.66% | lr=4.02e-04 | 36s
+2026-05-21 11:09:15 | INFO     | train | Epoch  55/150 | train loss=1.2139 top1=98.49% | val loss=1.4327 top1=93.40% top5=96.18% | lr=3.98e-04 | 36s
+2026-05-21 11:09:51 | INFO     | train | Epoch  56/150 | train loss=1.2106 top1=98.53% | val loss=1.4234 top1=93.75% top5=95.83% | lr=3.94e-04 | 36s
+2026-05-21 11:10:26 | INFO     | train | Epoch  57/150 | train loss=1.2058 top1=98.50% | val loss=1.3897 top1=93.58% top5=96.35% | lr=3.89e-04 | 36s
+2026-05-21 11:11:02 | INFO     | train | Epoch  58/150 | train loss=1.2021 top1=98.67% | val loss=1.4064 top1=93.75% top5=96.01% | lr=3.85e-04 | 36s
+2026-05-21 11:11:37 | INFO     | train | Epoch  59/150 | train loss=1.1984 top1=98.75% | val loss=1.4213 top1=93.75% top5=96.18% | lr=3.81e-04 | 36s
+2026-05-21 11:12:13 | INFO     | train | Epoch  60/150 | train loss=1.1936 top1=98.77% | val loss=1.4188 top1=93.92% top5=96.01% | lr=3.76e-04 | 36s
+2026-05-21 11:12:49 | INFO     | train | Epoch  61/150 | train loss=1.1877 top1=98.85% | val loss=1.4203 top1=93.75% top5=96.35% | lr=3.72e-04 | 36s
+2026-05-21 11:13:24 | INFO     | train | Epoch  62/150 | train loss=1.1871 top1=98.93% | val loss=1.4002 top1=94.10% top5=96.35% | lr=3.67e-04 | 36s
+2026-05-21 11:14:00 | INFO     | train | Epoch  63/150 | train loss=1.1798 top1=98.91% | val loss=1.4174 top1=93.75% top5=96.35% | lr=3.63e-04 | 36s
+2026-05-21 11:14:36 | INFO     | train | Epoch  64/150 | train loss=1.1799 top1=99.04% | val loss=1.4011 top1=93.40% top5=96.18% | lr=3.58e-04 | 36s
+2026-05-21 11:15:11 | INFO     | train | Epoch  65/150 | train loss=1.1784 top1=98.86% | val loss=1.3756 top1=93.92% top5=96.01% | lr=3.53e-04 | 36s
+2026-05-21 11:15:47 | INFO     | train | Epoch  66/150 | train loss=1.1729 top1=99.08% | val loss=1.4112 top1=93.92% top5=95.49% | lr=3.48e-04 | 36s
+2026-05-21 11:16:22 | INFO     | train | Epoch  67/150 | train loss=1.1711 top1=99.05% | val loss=1.4135 top1=94.10% top5=96.35% | lr=3.44e-04 | 36s
+2026-05-21 11:16:58 | INFO     | train | Epoch  68/150 | train loss=1.1641 top1=99.21% | val loss=1.3882 top1=93.92% top5=95.83% | lr=3.39e-04 | 36s
+2026-05-21 11:17:34 | INFO     | train | Epoch  69/150 | train loss=1.1648 top1=99.22% | val loss=1.4026 top1=93.75% top5=96.18% | lr=3.34e-04 | 36s
+2026-05-21 11:18:09 | INFO     | train | Epoch  70/150 | train loss=1.1602 top1=99.24% | val loss=1.3949 top1=93.23% top5=96.18% | lr=3.29e-04 | 36s
+2026-05-21 11:18:45 | INFO     | train | Epoch  71/150 | train loss=1.1551 top1=99.26% | val loss=1.3917 top1=93.92% top5=96.01% | lr=3.24e-04 | 36s
+2026-05-21 11:19:20 | INFO     | train | Epoch  72/150 | train loss=1.1525 top1=99.39% | val loss=1.4111 top1=93.40% top5=96.01% | lr=3.19e-04 | 36s
+2026-05-21 11:19:57 | INFO     | train | Epoch  73/150 | train loss=1.1554 top1=99.41% | val loss=1.3983 top1=94.27% top5=96.18% | lr=3.14e-04 | 36s
+2026-05-21 11:19:57 | INFO     | train |   ★ New best val top-1: 94.27%
+2026-05-21 11:20:33 | INFO     | train | Epoch  74/150 | train loss=1.1452 top1=99.38% | val loss=1.4031 top1=93.58% top5=95.83% | lr=3.09e-04 | 36s
+2026-05-21 11:21:09 | INFO     | train | Epoch  75/150 | train loss=1.1477 top1=99.33% | val loss=1.3927 top1=94.44% top5=96.53% | lr=3.04e-04 | 36s
+2026-05-21 11:21:09 | INFO     | train |   ★ New best val top-1: 94.44%
+2026-05-21 11:21:45 | INFO     | train | Epoch  76/150 | train loss=1.1480 top1=99.29% | val loss=1.3867 top1=94.44% top5=96.01% | lr=2.99e-04 | 36s
+2026-05-21 11:22:20 | INFO     | train | Epoch  77/150 | train loss=1.1407 top1=99.53% | val loss=1.4012 top1=93.58% top5=96.01% | lr=2.94e-04 | 36s
+2026-05-21 11:22:56 | INFO     | train | Epoch  78/150 | train loss=1.1396 top1=99.58% | val loss=1.3888 top1=93.75% top5=96.18% | lr=2.89e-04 | 36s
+2026-05-21 11:23:32 | INFO     | train | Epoch  79/150 | train loss=1.1368 top1=99.60% | val loss=1.3829 top1=93.58% top5=95.83% | lr=2.84e-04 | 36s
+2026-05-21 11:24:09 | INFO     | train | Epoch  80/150 | train loss=1.1374 top1=99.53% | val loss=1.3789 top1=94.27% top5=95.83% | lr=2.78e-04 | 37s
+2026-05-21 11:24:45 | INFO     | train | Epoch  81/150 | train loss=1.1329 top1=99.58% | val loss=1.3925 top1=94.10% top5=95.49% | lr=2.73e-04 | 36s
+2026-05-21 11:25:21 | INFO     | train | Epoch  82/150 | train loss=1.1313 top1=99.62% | val loss=1.3914 top1=93.75% top5=96.18% | lr=2.68e-04 | 36s
+2026-05-21 11:25:57 | INFO     | train | Epoch  83/150 | train loss=1.1291 top1=99.61% | val loss=1.3976 top1=93.58% top5=95.83% | lr=2.63e-04 | 36s
+2026-05-21 11:26:33 | INFO     | train | Epoch  84/150 | train loss=1.1280 top1=99.62% | val loss=1.4015 top1=93.40% top5=96.01% | lr=2.58e-04 | 36s
+2026-05-21 11:27:09 | INFO     | train | Epoch  85/150 | train loss=1.1276 top1=99.63% | val loss=1.3884 top1=93.23% top5=96.01% | lr=2.52e-04 | 36s
+2026-05-21 11:27:46 | INFO     | train | Epoch  86/150 | train loss=1.1275 top1=99.59% | val loss=1.3826 top1=94.27% top5=96.18% | lr=2.47e-04 | 36s
+2026-05-21 11:28:22 | INFO     | train | Epoch  87/150 | train loss=1.1217 top1=99.76% | val loss=1.3842 top1=93.75% top5=96.35% | lr=2.42e-04 | 36s
+2026-05-21 11:28:59 | INFO     | train | Epoch  88/150 | train loss=1.1174 top1=99.71% | val loss=1.3974 top1=93.75% top5=96.18% | lr=2.37e-04 | 36s
+2026-05-21 11:29:35 | INFO     | train | Epoch  89/150 | train loss=1.1193 top1=99.68% | val loss=1.3750 top1=94.27% top5=95.83% | lr=2.32e-04 | 36s
+2026-05-21 11:30:12 | INFO     | train | Epoch  90/150 | train loss=1.1181 top1=99.68% | val loss=1.3744 top1=93.92% top5=96.18% | lr=2.27e-04 | 36s
+2026-05-21 11:30:48 | INFO     | train | Epoch  91/150 | train loss=1.1166 top1=99.71% | val loss=1.3752 top1=94.44% top5=96.01% | lr=2.21e-04 | 36s
+2026-05-21 11:31:23 | INFO     | train | Epoch  92/150 | train loss=1.1123 top1=99.82% | val loss=1.3754 top1=93.58% top5=96.35% | lr=2.16e-04 | 36s
+2026-05-21 11:31:59 | INFO     | train | Epoch  93/150 | train loss=1.1122 top1=99.75% | val loss=1.3993 top1=93.23% top5=95.66% | lr=2.11e-04 | 36s
+2026-05-21 11:32:34 | INFO     | train | Epoch  94/150 | train loss=1.1116 top1=99.85% | val loss=1.3847 top1=93.75% top5=95.66% | lr=2.06e-04 | 35s
+2026-05-21 11:33:10 | INFO     | train | Epoch  95/150 | train loss=1.1073 top1=99.81% | val loss=1.3727 top1=93.58% top5=96.01% | lr=2.01e-04 | 35s
+2026-05-21 11:33:45 | INFO     | train | Epoch  96/150 | train loss=1.1050 top1=99.87% | val loss=1.3809 top1=93.40% top5=95.83% | lr=1.96e-04 | 36s
+2026-05-21 11:34:21 | INFO     | train | Epoch  97/150 | train loss=1.1074 top1=99.76% | val loss=1.3894 top1=93.23% top5=96.35% | lr=1.91e-04 | 35s
+2026-05-21 11:34:56 | INFO     | train | Epoch  98/150 | train loss=1.1042 top1=99.82% | val loss=1.3615 top1=93.92% top5=96.35% | lr=1.86e-04 | 36s
+2026-05-21 11:35:32 | INFO     | train | Epoch  99/150 | train loss=1.1025 top1=99.83% | val loss=1.3858 top1=93.06% top5=95.83% | lr=1.81e-04 | 36s
+2026-05-21 11:36:08 | INFO     | train | Epoch 100/150 | train loss=1.1029 top1=99.86% | val loss=1.3776 top1=93.23% top5=96.01% | lr=1.76e-04 | 36s
+2026-05-21 11:36:08 | INFO     | train | Early stopping at epoch 100 (patience=25)
+2026-05-21 11:36:08 | INFO     | train | Training complete. Best val top-1: 94.44%
+2026-05-21 11:36:08 | INFO     | train | Best checkpoint: results/exp_stgcn/checkpoints/best.pth
+
+  Total training time: 1h 0m 6s
+
+============================================================
+ Training done!  → results/exp_stgcn/
+ Next: bash scripts/05_evaluate.sh stgcn exp_stgcn
+============================================================
+
+##############################################################
+## STEP 6B: Evaluate ST-GCN
+##############################################################
+============================================================
+ Evaluation — stgcn / exp_stgcn
+============================================================
+ Checkpoint : results/exp_stgcn/checkpoints/best.pth
+ Output dir : results/exp_stgcn/evaluation
+
+── Validation set ──────────────────────────────────────────
+2026-05-21 11:36:10 | INFO     | evaluate | Loaded checkpoint: results/exp_stgcn/checkpoints/best.pth  Model: stgcn
+2026-05-21 11:36:10 | INFO     | evaluate | Evaluating 558 samples from 'val' split
+2026-05-21 11:36:10 | INFO     | evaluate | Model loaded. Evaluating 558 samples…
+
+───────────────────────────────────────────────────────
+  Evaluation Results [VAL]
+───────────────────────────────────────────────────────
+  Samples       : 558
+  Classes       : 556
+  Top-1 Accuracy: 94.27%
+  Top-5 Accuracy: 96.42%
+  Precision (M) : 91.49%
+  Recall    (M) : 94.24%
+  F1        (M) : 92.39%
+───────────────────────────────────────────────────────
+
+Top-10 classes by F1:
+  မီး ။                                F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီး ငြှိမ်း ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးချိတ် ။                           F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးကပ် ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ရေပုံး ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သဲ အိတ် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ဆေးဘူး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးလောင် လွယ် သော ပစ္စည်း များ ။     F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  အမှိုက် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  လျှပ်စစ် မီး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+
+Bottom-10 classes by F1:
+  အရေးကြီး လို့ ပါ ။                   F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  ပိုက်ဆံအိတ် လု ပြီး ပြေး သွား ပြီ ။  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  မြန်မြန်ဆန်ဆန် တောမီး ပျံ့ နိုင် တယ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  လက် မီးလောင် သွား တယ် ။              F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  နှလုံး အထူးကု ဆရာဝန် နဲ့ ပြ ချင် လိ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  တနင်္လာ က နေ သောကြာ ထိ ဆို ညနေ ၄ နာ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  ညနေ ၅ နာရီ ဆို ဆေးခန်း ဖွင့် ပါ တယ်  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  လူနာ က ကျွန်တော့် အဒေါ် ပါ ။         F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  အစား စား ချင် စိတ် မ ရှိ ဘူး ။       F1=0.000  Prec=0.000  Rec=0.000  Support=1
+  မ ရ ဘူး ၊ လှုပ် ဖို့ ကြိုးစား ရင် အ  F1=0.000  Prec=0.000  Rec=0.000  Support=1
+Confusion matrix saved → results/exp_stgcn/evaluation/confusion_matrix_val.png
+Predictions saved → results/exp_stgcn/evaluation/predictions_val.csv  (526/558 correct)
+
+All evaluation outputs saved to: results/exp_stgcn/evaluation
+
+── Test set ────────────────────────────────────────────────
+2026-05-21 11:36:13 | INFO     | evaluate | Loaded checkpoint: results/exp_stgcn/checkpoints/best.pth  Model: stgcn
+2026-05-21 11:36:13 | INFO     | evaluate | Evaluating 558 samples from 'test' split
+2026-05-21 11:36:13 | INFO     | evaluate | Model loaded. Evaluating 558 samples…
+
+───────────────────────────────────────────────────────
+  Evaluation Results [TEST]
+───────────────────────────────────────────────────────
+  Samples       : 558
+  Classes       : 556
+  Top-1 Accuracy: 100.00%
+  Top-5 Accuracy: 100.00%
+  Precision (M) : 100.00%
+  Recall    (M) : 100.00%
+  F1        (M) : 100.00%
+───────────────────────────────────────────────────────
+
+Top-10 classes by F1:
+  မီး ။                                F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီး ငြှိမ်း ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးချိတ် ။                           F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးကပ် ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ရေပုံး ။                             F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သဲ အိတ် ။                            F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ဆေးဘူး ။                       F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးသတ်ရေကန် ။                        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  မီးလောင် လွယ် သော ပစ္စည်း များ ။     F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  လောင်စာဆီ ။                          F1=1.000  Prec=1.000  Rec=1.000  Support=1
+
+Bottom-10 classes by F1:
+  မ ကြာ ဘူး ၊ မိနစ် ၃၀ လောက် ဆို ရ ပြ  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ချော်လဲ လို့ ပါ ။                    F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ချော်လဲ ပြီး ခြေတောက် ခေါက် သွား တယ  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခင်ဗျား ခြေတောက် ကို ဓာတ်မှန် ရိုက်  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခင်ဗျား ခြေတောက် ကို ဓာတ်မှန် ရိုက်  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  အမေ လှေကား ပေါ် က ချော်ကျ လို့ ပါ ။  F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ခေါင်း မှာ သွေး တွေ ထွက် နေ တယ် ။    F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  သူမ သတိ လစ် နေ တာ လား ။              F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ဟင့်အင်း ၊ သတိ မ လစ် ပါ ဘူး ။        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+  ဆရာဝန် ဘယ် အချိန် လာ မှာ လဲ ။        F1=1.000  Prec=1.000  Rec=1.000  Support=1
+Confusion matrix saved → results/exp_stgcn/evaluation/confusion_matrix_test.png
+Predictions saved → results/exp_stgcn/evaluation/predictions_test.csv  (558/558 correct)
+
+All evaluation outputs saved to: results/exp_stgcn/evaluation
+
+============================================================
+ Evaluation done!  Results → results/exp_stgcn/evaluation/
+  ├── metrics_val.json / metrics_test.json
+  ├── per_class_val.csv / per_class_test.csv
+  ├── confusion_matrix_test.png
+  └── predictions_test.csv
+============================================================
+
+##############################################################
+## STEP 7A: 5-Fold CV — BiLSTM
+##############################################################
+============================================================
+ K-Fold Cross-Validation
+============================================================
+ Model  : bilstm
+ Exp    : cv_bilstm
+ Folds  : 5
+
+ Aug train pool : 10602 samples (all classes, folded into 5 folds)
+ Test set       : 558 originals (fixed across all folds)
+
+2026-05-21 11:36:16 | INFO     | cross_validate | ============================================================
+2026-05-21 11:36:16 | INFO     | cross_validate | Cross-Validation | model=bilstm | folds=5
+2026-05-21 11:36:16 | INFO     | cross_validate | Folding over augmented training pool (all-class design)
+2026-05-21 11:36:16 | INFO     | cross_validate |   Aug train pool : 10602 samples
+2026-05-21 11:36:16 | INFO     | cross_validate |   Test set       : 558 originals (fixed, all folds)
+2026-05-21 11:36:16 | INFO     | cross_validate | ============================================================
+2026-05-21 11:36:16 | INFO     | cross_validate | Fold 0 | train=8481, val=2121, test=558
+2026-05-21 11:36:23 | INFO     | cross_validate |   Fold 0 | Epoch   1 | train=0.3% | val=0.47%  ★ | 6s
+2026-05-21 11:36:29 | INFO     | cross_validate |   Fold 0 | Epoch   2 | train=0.5% | val=1.49%  ★ | 6s
+2026-05-21 11:36:36 | INFO     | cross_validate |   Fold 0 | Epoch   3 | train=2.0% | val=4.57%  ★ | 6s
+2026-05-21 11:36:42 | INFO     | cross_validate |   Fold 0 | Epoch   4 | train=6.4% | val=15.32%  ★ | 6s
+2026-05-21 11:36:48 | INFO     | cross_validate |   Fold 0 | Epoch   5 | train=18.8% | val=32.84%  ★ | 6s
+2026-05-21 11:36:54 | INFO     | cross_validate |   Fold 0 | Epoch   6 | train=36.5% | val=51.87%  ★ | 6s
+2026-05-21 11:37:00 | INFO     | cross_validate |   Fold 0 | Epoch   7 | train=52.2% | val=59.50%  ★ | 6s
+2026-05-21 11:37:06 | INFO     | cross_validate |   Fold 0 | Epoch   8 | train=63.0% | val=66.19%  ★ | 6s
+2026-05-21 11:37:12 | INFO     | cross_validate |   Fold 0 | Epoch   9 | train=70.1% | val=70.25%  ★ | 6s
+2026-05-21 11:37:18 | INFO     | cross_validate |   Fold 0 | Epoch  10 | train=75.4% | val=73.62%  ★ | 6s
+2026-05-21 11:37:25 | INFO     | cross_validate |   Fold 0 | Epoch  11 | train=79.4% | val=75.97%  ★ | 6s
+2026-05-21 11:37:31 | INFO     | cross_validate |   Fold 0 | Epoch  12 | train=82.7% | val=78.59%  ★ | 6s
+2026-05-21 11:37:43 | INFO     | cross_validate |   Fold 0 | Epoch  14 | train=87.0% | val=78.87%  ★ | 6s
+2026-05-21 11:37:49 | INFO     | cross_validate |   Fold 0 | Epoch  15 | train=87.8% | val=79.87%  ★ | 6s
+2026-05-21 11:37:55 | INFO     | cross_validate |   Fold 0 | Epoch  16 | train=89.8% | val=80.66%  ★ | 6s
+2026-05-21 11:38:01 | INFO     | cross_validate |   Fold 0 | Epoch  17 | train=90.1% | val=81.69%  ★ | 6s
+2026-05-21 11:38:07 | INFO     | cross_validate |   Fold 0 | Epoch  18 | train=90.9% | val=81.72%  ★ | 6s
+2026-05-21 11:38:19 | INFO     | cross_validate |   Fold 0 | Epoch  20 | train=92.2% | val=82.44%  ★ | 6s
+2026-05-21 11:38:26 | INFO     | cross_validate |   Fold 0 | Epoch  21 | train=92.5% | val=82.67%  ★ | 6s
+2026-05-21 11:38:32 | INFO     | cross_validate |   Fold 0 | Epoch  22 | train=93.1% | val=83.26%  ★ | 6s
+2026-05-21 11:38:38 | INFO     | cross_validate |   Fold 0 | Epoch  23 | train=93.4% | val=83.58%  ★ | 6s
+2026-05-21 11:38:50 | INFO     | cross_validate |   Fold 0 | Epoch  25 | train=94.1% | val=84.38%  ★ | 6s
+2026-05-21 11:39:08 | INFO     | cross_validate |   Fold 0 | Epoch  28 | train=94.5% | val=84.65%  ★ | 6s
+2026-05-21 11:39:20 | INFO     | cross_validate |   Fold 0 | Epoch  30 | train=95.0% | val=84.93%  ★ | 6s
+2026-05-21 11:39:33 | INFO     | cross_validate |   Fold 0 | Epoch  32 | train=95.2% | val=85.21%  ★ | 6s
+2026-05-21 11:39:45 | INFO     | cross_validate |   Fold 0 | Epoch  34 | train=95.5% | val=85.26%  ★ | 6s
+2026-05-21 11:39:57 | INFO     | cross_validate |   Fold 0 | Epoch  36 | train=95.8% | val=85.40%  ★ | 6s
+2026-05-21 11:40:03 | INFO     | cross_validate |   Fold 0 | Epoch  37 | train=96.0% | val=85.73%  ★ | 6s
+2026-05-21 11:40:22 | INFO     | cross_validate |   Fold 0 | Epoch  40 | train=96.1% | val=86.01%  ★ | 6s
+2026-05-21 11:40:40 | INFO     | cross_validate |   Fold 0 | Epoch  43 | train=96.6% | val=86.05%  ★ | 6s
+2026-05-21 11:40:46 | INFO     | cross_validate |   Fold 0 | Epoch  44 | train=96.6% | val=86.43%  ★ | 6s
+2026-05-21 11:41:22 | INFO     | cross_validate |   Fold 0 | Epoch  50 | train=96.9% | val=86.05% | 6s
+2026-05-21 11:41:35 | INFO     | cross_validate |   Fold 0 | Epoch  52 | train=97.1% | val=86.75%  ★ | 6s
+2026-05-21 11:42:23 | INFO     | cross_validate |   Fold 0 | Epoch  60 | train=97.9% | val=86.52% | 6s
+2026-05-21 11:42:29 | INFO     | cross_validate |   Fold 0 | Epoch  61 | train=97.7% | val=86.89%  ★ | 6s
+2026-05-21 11:42:35 | INFO     | cross_validate |   Fold 0 | Epoch  62 | train=97.9% | val=87.17%  ★ | 6s
+2026-05-21 11:43:24 | INFO     | cross_validate |   Fold 0 | Epoch  70 | train=98.2% | val=87.27%  ★ | 6s
+2026-05-21 11:43:30 | INFO     | cross_validate |   Fold 0 | Epoch  71 | train=98.2% | val=87.41%  ★ | 6s
+2026-05-21 11:44:24 | INFO     | cross_validate |   Fold 0 | Epoch  80 | train=98.7% | val=87.13% | 6s
+2026-05-21 11:44:49 | INFO     | cross_validate |   Fold 0 | Epoch  84 | train=98.9% | val=87.50%  ★ | 6s
+2026-05-21 11:45:13 | INFO     | cross_validate |   Fold 0 | Epoch  88 | train=99.1% | val=87.64%  ★ | 6s
+2026-05-21 11:45:25 | INFO     | cross_validate |   Fold 0 | Epoch  90 | train=99.3% | val=87.55% | 6s
+2026-05-21 11:45:37 | INFO     | cross_validate |   Fold 0 | Epoch  92 | train=99.4% | val=87.73%  ★ | 6s
+2026-05-21 11:45:50 | INFO     | cross_validate |   Fold 0 | Epoch  94 | train=99.5% | val=88.06%  ★ | 6s
+2026-05-21 11:46:20 | INFO     | cross_validate |   Fold 0 | Epoch  99 | train=99.5% | val=88.11%  ★ | 6s
+2026-05-21 11:46:26 | INFO     | cross_validate |   Fold 0 | Epoch 100 | train=99.6% | val=87.69% | 6s
+2026-05-21 11:47:09 | INFO     | cross_validate |   Fold 0 | Epoch 107 | train=99.8% | val=88.34%  ★ | 6s
+2026-05-21 11:47:27 | INFO     | cross_validate |   Fold 0 | Epoch 110 | train=99.8% | val=87.87% | 6s
+2026-05-21 11:48:15 | INFO     | cross_validate |   Fold 0 | Epoch 118 | train=99.9% | val=88.39%  ★ | 6s
+2026-05-21 11:48:28 | INFO     | cross_validate |   Fold 0 | Epoch 120 | train=99.9% | val=88.01% | 6s
+2026-05-21 11:49:28 | INFO     | cross_validate |   Fold 0 | Epoch 130 | train=100.0% | val=88.20% | 6s
+2026-05-21 11:50:29 | INFO     | cross_validate |   Fold 0 | Epoch 140 | train=100.0% | val=88.06% | 6s
+2026-05-21 11:50:47 | INFO     | cross_validate |   Fold 0: early stopping at epoch 143
+2026-05-21 11:50:47 | INFO     | cross_validate |   Fold 0 FINAL | best_val=88.39% | test=99.48%
+2026-05-21 11:50:47 | INFO     | cross_validate | Fold 0 done | val=88.39% | test=99.48%
+2026-05-21 11:50:47 | INFO     | cross_validate | Fold 1 | train=8481, val=2121, test=558
+2026-05-21 11:50:53 | INFO     | cross_validate |   Fold 1 | Epoch   1 | train=0.2% | val=0.61%  ★ | 6s
+2026-05-21 11:51:00 | INFO     | cross_validate |   Fold 1 | Epoch   2 | train=0.7% | val=1.54%  ★ | 6s
+2026-05-21 11:51:06 | INFO     | cross_validate |   Fold 1 | Epoch   3 | train=1.6% | val=5.55%  ★ | 6s
+2026-05-21 11:51:12 | INFO     | cross_validate |   Fold 1 | Epoch   4 | train=6.6% | val=13.85%  ★ | 6s
+2026-05-21 11:51:18 | INFO     | cross_validate |   Fold 1 | Epoch   5 | train=18.5% | val=33.21%  ★ | 6s
+2026-05-21 11:51:24 | INFO     | cross_validate |   Fold 1 | Epoch   6 | train=36.4% | val=53.03%  ★ | 6s
+2026-05-21 11:51:30 | INFO     | cross_validate |   Fold 1 | Epoch   7 | train=54.3% | val=63.32%  ★ | 6s
+2026-05-21 11:51:36 | INFO     | cross_validate |   Fold 1 | Epoch   8 | train=65.7% | val=68.84%  ★ | 6s
+2026-05-21 11:51:43 | INFO     | cross_validate |   Fold 1 | Epoch   9 | train=72.7% | val=74.33%  ★ | 6s
+2026-05-21 11:51:49 | INFO     | cross_validate |   Fold 1 | Epoch  10 | train=77.8% | val=77.04%  ★ | 6s
+2026-05-21 11:51:55 | INFO     | cross_validate |   Fold 1 | Epoch  11 | train=81.9% | val=78.93%  ★ | 6s
+2026-05-21 11:52:01 | INFO     | cross_validate |   Fold 1 | Epoch  12 | train=84.9% | val=80.64%  ★ | 6s
+2026-05-21 11:52:07 | INFO     | cross_validate |   Fold 1 | Epoch  13 | train=86.3% | val=81.03%  ★ | 6s
+2026-05-21 11:52:13 | INFO     | cross_validate |   Fold 1 | Epoch  14 | train=88.0% | val=82.11%  ★ | 6s
+2026-05-21 11:52:19 | INFO     | cross_validate |   Fold 1 | Epoch  15 | train=89.4% | val=82.66%  ★ | 6s
+2026-05-21 11:52:26 | INFO     | cross_validate |   Fold 1 | Epoch  16 | train=90.5% | val=83.58%  ★ | 6s
+2026-05-21 11:52:32 | INFO     | cross_validate |   Fold 1 | Epoch  17 | train=91.6% | val=83.72%  ★ | 6s
+2026-05-21 11:52:38 | INFO     | cross_validate |   Fold 1 | Epoch  18 | train=92.2% | val=83.88%  ★ | 6s
+2026-05-21 11:52:44 | INFO     | cross_validate |   Fold 1 | Epoch  19 | train=92.4% | val=84.62%  ★ | 6s
+2026-05-21 11:52:50 | INFO     | cross_validate |   Fold 1 | Epoch  20 | train=93.1% | val=85.26%  ★ | 6s
+2026-05-21 11:52:56 | INFO     | cross_validate |   Fold 1 | Epoch  21 | train=93.3% | val=85.60%  ★ | 6s
+2026-05-21 11:53:21 | INFO     | cross_validate |   Fold 1 | Epoch  25 | train=94.6% | val=85.88%  ★ | 6s
+2026-05-21 11:53:27 | INFO     | cross_validate |   Fold 1 | Epoch  26 | train=94.8% | val=86.89%  ★ | 6s
+2026-05-21 11:53:45 | INFO     | cross_validate |   Fold 1 | Epoch  29 | train=95.5% | val=87.17%  ★ | 6s
+2026-05-21 11:53:51 | INFO     | cross_validate |   Fold 1 | Epoch  30 | train=95.7% | val=87.21%  ★ | 6s
+2026-05-21 11:54:10 | INFO     | cross_validate |   Fold 1 | Epoch  33 | train=96.1% | val=87.49%  ★ | 6s
+2026-05-21 11:54:34 | INFO     | cross_validate |   Fold 1 | Epoch  37 | train=96.3% | val=87.80%  ★ | 6s
+2026-05-21 11:54:52 | INFO     | cross_validate |   Fold 1 | Epoch  40 | train=96.6% | val=88.17%  ★ | 6s
+2026-05-21 11:54:58 | INFO     | cross_validate |   Fold 1 | Epoch  41 | train=96.7% | val=88.26%  ★ | 6s
+2026-05-21 11:55:05 | INFO     | cross_validate |   Fold 1 | Epoch  42 | train=97.0% | val=88.31%  ★ | 6s
+2026-05-21 11:55:23 | INFO     | cross_validate |   Fold 1 | Epoch  45 | train=97.1% | val=88.66%  ★ | 6s
+2026-05-21 11:55:48 | INFO     | cross_validate |   Fold 1 | Epoch  49 | train=97.1% | val=88.71%  ★ | 6s
+2026-05-21 11:55:54 | INFO     | cross_validate |   Fold 1 | Epoch  50 | train=97.2% | val=88.45% | 6s
+2026-05-21 11:56:06 | INFO     | cross_validate |   Fold 1 | Epoch  52 | train=97.2% | val=88.75%  ★ | 6s
+2026-05-21 11:56:18 | INFO     | cross_validate |   Fold 1 | Epoch  54 | train=97.5% | val=88.82%  ★ | 6s
+2026-05-21 11:56:42 | INFO     | cross_validate |   Fold 1 | Epoch  58 | train=97.8% | val=88.99%  ★ | 6s
+2026-05-21 11:56:55 | INFO     | cross_validate |   Fold 1 | Epoch  60 | train=97.7% | val=88.99% | 6s
+2026-05-21 11:57:01 | INFO     | cross_validate |   Fold 1 | Epoch  61 | train=97.7% | val=89.03%  ★ | 6s
+2026-05-21 11:57:07 | INFO     | cross_validate |   Fold 1 | Epoch  62 | train=97.7% | val=89.22%  ★ | 6s
+2026-05-21 11:57:56 | INFO     | cross_validate |   Fold 1 | Epoch  70 | train=98.4% | val=89.36%  ★ | 6s
+2026-05-21 11:58:20 | INFO     | cross_validate |   Fold 1 | Epoch  74 | train=98.5% | val=89.38%  ★ | 6s
+2026-05-21 11:58:39 | INFO     | cross_validate |   Fold 1 | Epoch  77 | train=98.7% | val=89.45%  ★ | 6s
+2026-05-21 11:58:45 | INFO     | cross_validate |   Fold 1 | Epoch  78 | train=98.8% | val=89.47%  ★ | 6s
+2026-05-21 11:58:51 | INFO     | cross_validate |   Fold 1 | Epoch  79 | train=98.9% | val=89.64%  ★ | 6s
+2026-05-21 11:58:57 | INFO     | cross_validate |   Fold 1 | Epoch  80 | train=98.9% | val=89.47% | 6s
+2026-05-21 11:59:16 | INFO     | cross_validate |   Fold 1 | Epoch  83 | train=99.0% | val=89.83%  ★ | 6s
+2026-05-21 11:59:52 | INFO     | cross_validate |   Fold 1 | Epoch  89 | train=99.2% | val=90.06%  ★ | 6s
+2026-05-21 11:59:58 | INFO     | cross_validate |   Fold 1 | Epoch  90 | train=99.3% | val=89.73% | 6s
+2026-05-21 12:00:11 | INFO     | cross_validate |   Fold 1 | Epoch  92 | train=99.5% | val=90.20%  ★ | 6s
+2026-05-21 12:00:23 | INFO     | cross_validate |   Fold 1 | Epoch  94 | train=99.5% | val=90.29%  ★ | 6s
+2026-05-21 12:01:00 | INFO     | cross_validate |   Fold 1 | Epoch 100 | train=99.6% | val=90.20% | 6s
+2026-05-21 12:02:01 | INFO     | cross_validate |   Fold 1 | Epoch 110 | train=99.8% | val=89.94% | 6s
+2026-05-21 12:02:56 | INFO     | cross_validate |   Fold 1: early stopping at epoch 119
+2026-05-21 12:02:56 | INFO     | cross_validate |   Fold 1 FINAL | best_val=90.29% | test=99.65%
+2026-05-21 12:02:56 | INFO     | cross_validate | Fold 1 done | val=90.29% | test=99.65%
+2026-05-21 12:02:56 | INFO     | cross_validate | Fold 2 | train=8482, val=2120, test=558
+2026-05-21 12:03:02 | INFO     | cross_validate |   Fold 2 | Epoch   1 | train=0.1% | val=0.61%  ★ | 6s
+2026-05-21 12:03:08 | INFO     | cross_validate |   Fold 2 | Epoch   2 | train=0.4% | val=1.07%  ★ | 6s
+2026-05-21 12:03:14 | INFO     | cross_validate |   Fold 2 | Epoch   3 | train=1.4% | val=3.03%  ★ | 6s
+2026-05-21 12:03:21 | INFO     | cross_validate |   Fold 2 | Epoch   4 | train=4.6% | val=11.61%  ★ | 6s
+2026-05-21 12:03:27 | INFO     | cross_validate |   Fold 2 | Epoch   5 | train=13.5% | val=28.31%  ★ | 6s
+2026-05-21 12:03:33 | INFO     | cross_validate |   Fold 2 | Epoch   6 | train=29.5% | val=41.23%  ★ | 6s
+2026-05-21 12:03:39 | INFO     | cross_validate |   Fold 2 | Epoch   7 | train=46.5% | val=54.29%  ★ | 6s
+2026-05-21 12:03:45 | INFO     | cross_validate |   Fold 2 | Epoch   8 | train=58.5% | val=61.99%  ★ | 6s
+2026-05-21 12:03:52 | INFO     | cross_validate |   Fold 2 | Epoch   9 | train=67.6% | val=66.51%  ★ | 6s
+2026-05-21 12:03:58 | INFO     | cross_validate |   Fold 2 | Epoch  10 | train=73.9% | val=69.59%  ★ | 6s
+2026-05-21 12:04:04 | INFO     | cross_validate |   Fold 2 | Epoch  11 | train=78.3% | val=73.65%  ★ | 6s
+2026-05-21 12:04:10 | INFO     | cross_validate |   Fold 2 | Epoch  12 | train=81.4% | val=74.39%  ★ | 6s
+2026-05-21 12:04:16 | INFO     | cross_validate |   Fold 2 | Epoch  13 | train=84.4% | val=76.63%  ★ | 6s
+2026-05-21 12:04:23 | INFO     | cross_validate |   Fold 2 | Epoch  14 | train=86.2% | val=77.52%  ★ | 6s
+2026-05-21 12:04:29 | INFO     | cross_validate |   Fold 2 | Epoch  15 | train=87.7% | val=78.22%  ★ | 6s
+2026-05-21 12:04:35 | INFO     | cross_validate |   Fold 2 | Epoch  16 | train=88.9% | val=79.15%  ★ | 6s
+2026-05-21 12:04:47 | INFO     | cross_validate |   Fold 2 | Epoch  18 | train=90.5% | val=79.66%  ★ | 6s
+2026-05-21 12:04:54 | INFO     | cross_validate |   Fold 2 | Epoch  19 | train=91.5% | val=80.18%  ★ | 6s
+2026-05-21 12:05:00 | INFO     | cross_validate |   Fold 2 | Epoch  20 | train=91.9% | val=80.74%  ★ | 6s
+2026-05-21 12:05:06 | INFO     | cross_validate |   Fold 2 | Epoch  21 | train=92.4% | val=81.76%  ★ | 6s
+2026-05-21 12:05:24 | INFO     | cross_validate |   Fold 2 | Epoch  24 | train=93.6% | val=82.56%  ★ | 6s
+2026-05-21 12:05:37 | INFO     | cross_validate |   Fold 2 | Epoch  26 | train=93.9% | val=82.79%  ★ | 6s
+2026-05-21 12:05:43 | INFO     | cross_validate |   Fold 2 | Epoch  27 | train=94.0% | val=82.98%  ★ | 6s
+2026-05-21 12:05:55 | INFO     | cross_validate |   Fold 2 | Epoch  29 | train=94.4% | val=83.49%  ★ | 6s
+2026-05-21 12:06:01 | INFO     | cross_validate |   Fold 2 | Epoch  30 | train=94.7% | val=83.26% | 6s
+2026-05-21 12:06:14 | INFO     | cross_validate |   Fold 2 | Epoch  32 | train=95.0% | val=84.24%  ★ | 6s
+2026-05-21 12:07:03 | INFO     | cross_validate |   Fold 2 | Epoch  40 | train=96.0% | val=84.33%  ★ | 6s
+2026-05-21 12:07:09 | INFO     | cross_validate |   Fold 2 | Epoch  41 | train=95.9% | val=84.65%  ★ | 6s
+2026-05-21 12:07:15 | INFO     | cross_validate |   Fold 2 | Epoch  42 | train=96.3% | val=85.17%  ★ | 6s
+2026-05-21 12:07:27 | INFO     | cross_validate |   Fold 2 | Epoch  44 | train=96.2% | val=85.45%  ★ | 6s
+2026-05-21 12:07:58 | INFO     | cross_validate |   Fold 2 | Epoch  49 | train=96.6% | val=85.73%  ★ | 6s
+2026-05-21 12:08:04 | INFO     | cross_validate |   Fold 2 | Epoch  50 | train=96.8% | val=85.91%  ★ | 6s
+2026-05-21 12:08:10 | INFO     | cross_validate |   Fold 2 | Epoch  51 | train=96.9% | val=86.38%  ★ | 6s
+2026-05-21 12:08:59 | INFO     | cross_validate |   Fold 2 | Epoch  59 | train=97.0% | val=86.71%  ★ | 6s
+2026-05-21 12:09:05 | INFO     | cross_validate |   Fold 2 | Epoch  60 | train=97.2% | val=86.52% | 6s
+2026-05-21 12:09:48 | INFO     | cross_validate |   Fold 2 | Epoch  67 | train=97.5% | val=86.75%  ★ | 6s
+2026-05-21 12:09:54 | INFO     | cross_validate |   Fold 2 | Epoch  68 | train=97.6% | val=87.03%  ★ | 6s
+2026-05-21 12:10:07 | INFO     | cross_validate |   Fold 2 | Epoch  70 | train=97.7% | val=86.61% | 6s
+2026-05-21 12:10:31 | INFO     | cross_validate |   Fold 2 | Epoch  74 | train=97.9% | val=87.17%  ★ | 6s
+2026-05-21 12:11:08 | INFO     | cross_validate |   Fold 2 | Epoch  80 | train=98.3% | val=86.75% | 6s
+2026-05-21 12:11:20 | INFO     | cross_validate |   Fold 2 | Epoch  82 | train=98.4% | val=87.69%  ★ | 6s
+2026-05-21 12:12:09 | INFO     | cross_validate |   Fold 2 | Epoch  90 | train=98.8% | val=87.22% | 6s
+2026-05-21 12:12:33 | INFO     | cross_validate |   Fold 2 | Epoch  94 | train=99.0% | val=87.78%  ★ | 6s
+2026-05-21 12:12:40 | INFO     | cross_validate |   Fold 2 | Epoch  95 | train=99.0% | val=88.11%  ★ | 6s
+2026-05-21 12:13:10 | INFO     | cross_validate |   Fold 2 | Epoch 100 | train=99.1% | val=87.50% | 6s
+2026-05-21 12:14:11 | INFO     | cross_validate |   Fold 2 | Epoch 110 | train=99.6% | val=87.31% | 6s
+2026-05-21 12:15:12 | INFO     | cross_validate |   Fold 2 | Epoch 120 | train=99.8% | val=87.36% | 6s
+2026-05-21 12:15:12 | INFO     | cross_validate |   Fold 2: early stopping at epoch 120
+2026-05-21 12:15:13 | INFO     | cross_validate |   Fold 2 FINAL | best_val=88.11% | test=99.83%
+2026-05-21 12:15:13 | INFO     | cross_validate | Fold 2 done | val=88.11% | test=99.83%
+2026-05-21 12:15:13 | INFO     | cross_validate | Fold 3 | train=8482, val=2120, test=558
+2026-05-21 12:15:19 | INFO     | cross_validate |   Fold 3 | Epoch   1 | train=0.1% | val=1.21%  ★ | 6s
+2026-05-21 12:15:25 | INFO     | cross_validate |   Fold 3 | Epoch   2 | train=0.6% | val=1.68%  ★ | 6s
+2026-05-21 12:15:31 | INFO     | cross_validate |   Fold 3 | Epoch   3 | train=1.5% | val=4.43%  ★ | 6s
+2026-05-21 12:15:38 | INFO     | cross_validate |   Fold 3 | Epoch   4 | train=5.6% | val=16.14%  ★ | 6s
+2026-05-21 12:15:44 | INFO     | cross_validate |   Fold 3 | Epoch   5 | train=17.5% | val=32.74%  ★ | 6s
+2026-05-21 12:15:50 | INFO     | cross_validate |   Fold 3 | Epoch   6 | train=35.5% | val=49.81%  ★ | 6s
+2026-05-21 12:15:57 | INFO     | cross_validate |   Fold 3 | Epoch   7 | train=52.1% | val=59.89%  ★ | 6s
+2026-05-21 12:16:03 | INFO     | cross_validate |   Fold 3 | Epoch   8 | train=63.2% | val=65.95%  ★ | 6s
+2026-05-21 12:16:09 | INFO     | cross_validate |   Fold 3 | Epoch   9 | train=70.1% | val=70.99%  ★ | 6s
+2026-05-21 12:16:15 | INFO     | cross_validate |   Fold 3 | Epoch  10 | train=76.2% | val=72.99%  ★ | 6s
+2026-05-21 12:16:22 | INFO     | cross_validate |   Fold 3 | Epoch  11 | train=79.7% | val=75.05%  ★ | 6s
+2026-05-21 12:16:28 | INFO     | cross_validate |   Fold 3 | Epoch  12 | train=82.4% | val=76.31%  ★ | 6s
+2026-05-21 12:16:34 | INFO     | cross_validate |   Fold 3 | Epoch  13 | train=84.9% | val=77.75%  ★ | 6s
+2026-05-21 12:16:40 | INFO     | cross_validate |   Fold 3 | Epoch  14 | train=86.6% | val=80.22%  ★ | 6s
+2026-05-21 12:16:47 | INFO     | cross_validate |   Fold 3 | Epoch  15 | train=88.5% | val=80.41%  ★ | 6s
+2026-05-21 12:16:53 | INFO     | cross_validate |   Fold 3 | Epoch  16 | train=89.4% | val=81.48%  ★ | 6s
+2026-05-21 12:16:59 | INFO     | cross_validate |   Fold 3 | Epoch  17 | train=90.5% | val=82.37%  ★ | 6s
+2026-05-21 12:17:06 | INFO     | cross_validate |   Fold 3 | Epoch  18 | train=91.5% | val=82.46%  ★ | 6s
+2026-05-21 12:17:12 | INFO     | cross_validate |   Fold 3 | Epoch  19 | train=91.6% | val=82.98%  ★ | 6s
+2026-05-21 12:17:18 | INFO     | cross_validate |   Fold 3 | Epoch  20 | train=92.7% | val=82.09% | 6s
+2026-05-21 12:17:24 | INFO     | cross_validate |   Fold 3 | Epoch  21 | train=93.1% | val=83.68%  ★ | 6s
+2026-05-21 12:17:31 | INFO     | cross_validate |   Fold 3 | Epoch  22 | train=93.0% | val=84.19%  ★ | 6s
+2026-05-21 12:17:49 | INFO     | cross_validate |   Fold 3 | Epoch  25 | train=94.1% | val=84.56%  ★ | 6s
+2026-05-21 12:18:02 | INFO     | cross_validate |   Fold 3 | Epoch  27 | train=94.7% | val=85.03%  ★ | 6s
+2026-05-21 12:18:14 | INFO     | cross_validate |   Fold 3 | Epoch  29 | train=95.0% | val=85.54%  ★ | 6s
+2026-05-21 12:18:20 | INFO     | cross_validate |   Fold 3 | Epoch  30 | train=95.5% | val=85.68%  ★ | 6s
+2026-05-21 12:18:39 | INFO     | cross_validate |   Fold 3 | Epoch  33 | train=95.8% | val=86.01%  ★ | 6s
+2026-05-21 12:18:57 | INFO     | cross_validate |   Fold 3 | Epoch  36 | train=96.4% | val=86.52%  ★ | 6s
+2026-05-21 12:19:10 | INFO     | cross_validate |   Fold 3 | Epoch  38 | train=96.3% | val=87.13%  ★ | 6s
+2026-05-21 12:19:22 | INFO     | cross_validate |   Fold 3 | Epoch  40 | train=96.5% | val=86.57% | 6s
+2026-05-21 12:19:47 | INFO     | cross_validate |   Fold 3 | Epoch  44 | train=96.7% | val=87.31%  ★ | 6s
+2026-05-21 12:20:24 | INFO     | cross_validate |   Fold 3 | Epoch  50 | train=97.0% | val=87.03% | 6s
+2026-05-21 12:20:30 | INFO     | cross_validate |   Fold 3 | Epoch  51 | train=97.3% | val=87.69%  ★ | 6s
+2026-05-21 12:21:01 | INFO     | cross_validate |   Fold 3 | Epoch  56 | train=97.5% | val=87.73%  ★ | 6s
+2026-05-21 12:21:26 | INFO     | cross_validate |   Fold 3 | Epoch  60 | train=97.8% | val=87.27% | 6s
+2026-05-21 12:21:38 | INFO     | cross_validate |   Fold 3 | Epoch  62 | train=97.9% | val=88.06%  ★ | 6s
+2026-05-21 12:22:28 | INFO     | cross_validate |   Fold 3 | Epoch  70 | train=98.4% | val=87.69% | 6s
+2026-05-21 12:23:05 | INFO     | cross_validate |   Fold 3 | Epoch  76 | train=98.3% | val=88.11%  ★ | 6s
+2026-05-21 12:23:23 | INFO     | cross_validate |   Fold 3 | Epoch  79 | train=98.7% | val=88.39%  ★ | 6s
+2026-05-21 12:23:29 | INFO     | cross_validate |   Fold 3 | Epoch  80 | train=98.7% | val=88.11% | 6s
+2026-05-21 12:24:31 | INFO     | cross_validate |   Fold 3 | Epoch  90 | train=99.2% | val=87.97% | 6s
+2026-05-21 12:24:50 | INFO     | cross_validate |   Fold 3 | Epoch  93 | train=99.3% | val=88.53%  ★ | 6s
+2026-05-21 12:25:15 | INFO     | cross_validate |   Fold 3 | Epoch  97 | train=99.4% | val=88.81%  ★ | 6s
+2026-05-21 12:25:33 | INFO     | cross_validate |   Fold 3 | Epoch 100 | train=99.4% | val=88.53% | 6s
+2026-05-21 12:26:35 | INFO     | cross_validate |   Fold 3 | Epoch 110 | train=99.8% | val=88.71% | 6s
+2026-05-21 12:26:48 | INFO     | cross_validate |   Fold 3 | Epoch 112 | train=99.8% | val=88.90%  ★ | 6s
+2026-05-21 12:27:37 | INFO     | cross_validate |   Fold 3 | Epoch 120 | train=99.9% | val=88.20% | 6s
+2026-05-21 12:28:39 | INFO     | cross_validate |   Fold 3 | Epoch 130 | train=100.0% | val=88.71% | 6s
+2026-05-21 12:29:22 | INFO     | cross_validate |   Fold 3: early stopping at epoch 137
+2026-05-21 12:29:22 | INFO     | cross_validate |   Fold 3 FINAL | best_val=88.90% | test=99.65%
+2026-05-21 12:29:22 | INFO     | cross_validate | Fold 3 done | val=88.90% | test=99.65%
+2026-05-21 12:29:22 | INFO     | cross_validate | Fold 4 | train=8482, val=2120, test=558
+2026-05-21 12:29:28 | INFO     | cross_validate |   Fold 4 | Epoch   1 | train=0.3% | val=0.79%  ★ | 6s
+2026-05-21 12:29:35 | INFO     | cross_validate |   Fold 4 | Epoch   2 | train=1.0% | val=3.22%  ★ | 6s
+2026-05-21 12:29:41 | INFO     | cross_validate |   Fold 4 | Epoch   3 | train=3.9% | val=10.17%  ★ | 6s
+2026-05-21 12:29:47 | INFO     | cross_validate |   Fold 4 | Epoch   4 | train=13.0% | val=24.67%  ★ | 6s
+2026-05-21 12:29:54 | INFO     | cross_validate |   Fold 4 | Epoch   5 | train=30.4% | val=44.64%  ★ | 6s
+2026-05-21 12:30:00 | INFO     | cross_validate |   Fold 4 | Epoch   6 | train=48.6% | val=57.18%  ★ | 6s
+2026-05-21 12:30:06 | INFO     | cross_validate |   Fold 4 | Epoch   7 | train=61.3% | val=66.46%  ★ | 6s
+2026-05-21 12:30:12 | INFO     | cross_validate |   Fold 4 | Epoch   8 | train=70.6% | val=70.06%  ★ | 6s
+2026-05-21 12:30:19 | INFO     | cross_validate |   Fold 4 | Epoch   9 | train=75.5% | val=71.88%  ★ | 6s
+2026-05-21 12:30:25 | INFO     | cross_validate |   Fold 4 | Epoch  10 | train=80.1% | val=74.91%  ★ | 6s
+2026-05-21 12:30:31 | INFO     | cross_validate |   Fold 4 | Epoch  11 | train=83.1% | val=77.43%  ★ | 6s
+2026-05-21 12:30:38 | INFO     | cross_validate |   Fold 4 | Epoch  12 | train=85.6% | val=77.80%  ★ | 6s
+2026-05-21 12:30:44 | INFO     | cross_validate |   Fold 4 | Epoch  13 | train=87.9% | val=78.36%  ★ | 6s
+2026-05-21 12:30:50 | INFO     | cross_validate |   Fold 4 | Epoch  14 | train=88.3% | val=79.48%  ★ | 6s
+2026-05-21 12:30:56 | INFO     | cross_validate |   Fold 4 | Epoch  15 | train=90.0% | val=80.46%  ★ | 6s
+2026-05-21 12:31:03 | INFO     | cross_validate |   Fold 4 | Epoch  16 | train=90.9% | val=80.55%  ★ | 6s
+2026-05-21 12:31:15 | INFO     | cross_validate |   Fold 4 | Epoch  18 | train=91.9% | val=81.34%  ★ | 6s
+2026-05-21 12:31:21 | INFO     | cross_validate |   Fold 4 | Epoch  19 | train=92.5% | val=81.72%  ★ | 6s
+2026-05-21 12:31:28 | INFO     | cross_validate |   Fold 4 | Epoch  20 | train=92.8% | val=82.09%  ★ | 6s
+2026-05-21 12:31:34 | INFO     | cross_validate |   Fold 4 | Epoch  21 | train=93.0% | val=82.46%  ★ | 6s
+2026-05-21 12:31:47 | INFO     | cross_validate |   Fold 4 | Epoch  23 | train=93.7% | val=83.40%  ★ | 6s
+2026-05-21 12:31:59 | INFO     | cross_validate |   Fold 4 | Epoch  25 | train=94.5% | val=83.72%  ★ | 6s
+2026-05-21 12:32:30 | INFO     | cross_validate |   Fold 4 | Epoch  30 | train=95.2% | val=83.63% | 6s
+2026-05-21 12:32:36 | INFO     | cross_validate |   Fold 4 | Epoch  31 | train=95.3% | val=84.00%  ★ | 6s
+2026-05-21 12:32:43 | INFO     | cross_validate |   Fold 4 | Epoch  32 | train=95.3% | val=84.42%  ★ | 6s
+2026-05-21 12:32:49 | INFO     | cross_validate |   Fold 4 | Epoch  33 | train=95.6% | val=85.12%  ★ | 6s
+2026-05-21 12:33:07 | INFO     | cross_validate |   Fold 4 | Epoch  36 | train=96.2% | val=85.17%  ★ | 6s
+2026-05-21 12:33:20 | INFO     | cross_validate |   Fold 4 | Epoch  38 | train=96.2% | val=85.59%  ★ | 6s
+2026-05-21 12:33:32 | INFO     | cross_validate |   Fold 4 | Epoch  40 | train=96.2% | val=84.89% | 6s
+2026-05-21 12:34:09 | INFO     | cross_validate |   Fold 4 | Epoch  46 | train=96.7% | val=86.05%  ★ | 6s
+2026-05-21 12:34:21 | INFO     | cross_validate |   Fold 4 | Epoch  48 | train=96.9% | val=86.33%  ★ | 6s
+2026-05-21 12:34:34 | INFO     | cross_validate |   Fold 4 | Epoch  50 | train=97.1% | val=85.26% | 6s
+2026-05-21 12:34:59 | INFO     | cross_validate |   Fold 4 | Epoch  54 | train=97.2% | val=86.85%  ★ | 6s
+2026-05-21 12:35:36 | INFO     | cross_validate |   Fold 4 | Epoch  60 | train=97.4% | val=85.91% | 6s
+2026-05-21 12:36:38 | INFO     | cross_validate |   Fold 4 | Epoch  70 | train=98.1% | val=86.29% | 6s
+2026-05-21 12:37:15 | INFO     | cross_validate |   Fold 4 | Epoch  76 | train=98.6% | val=86.94%  ★ | 6s
+2026-05-21 12:37:21 | INFO     | cross_validate |   Fold 4 | Epoch  77 | train=98.5% | val=86.99%  ★ | 6s
+2026-05-21 12:37:40 | INFO     | cross_validate |   Fold 4 | Epoch  80 | train=98.6% | val=86.71% | 6s
+2026-05-21 12:37:59 | INFO     | cross_validate |   Fold 4 | Epoch  83 | train=98.8% | val=87.59%  ★ | 6s
+2026-05-21 12:38:42 | INFO     | cross_validate |   Fold 4 | Epoch  90 | train=99.2% | val=87.59% | 6s
+2026-05-21 12:39:37 | INFO     | cross_validate |   Fold 4 | Epoch  99 | train=99.5% | val=87.64%  ★ | 6s
+2026-05-21 12:39:43 | INFO     | cross_validate |   Fold 4 | Epoch 100 | train=99.5% | val=87.50% | 6s
+2026-05-21 12:40:45 | INFO     | cross_validate |   Fold 4 | Epoch 110 | train=99.7% | val=87.41% | 6s
+2026-05-21 12:41:34 | INFO     | cross_validate |   Fold 4 | Epoch 118 | train=99.9% | val=87.78%  ★ | 6s
+2026-05-21 12:41:46 | INFO     | cross_validate |   Fold 4 | Epoch 120 | train=100.0% | val=87.55% | 6s
+2026-05-21 12:42:48 | INFO     | cross_validate |   Fold 4 | Epoch 130 | train=100.0% | val=87.45% | 6s
+2026-05-21 12:43:50 | INFO     | cross_validate |   Fold 4 | Epoch 140 | train=100.0% | val=87.36% | 6s
+2026-05-21 12:44:09 | INFO     | cross_validate |   Fold 4: early stopping at epoch 143
+2026-05-21 12:44:09 | INFO     | cross_validate |   Fold 4 FINAL | best_val=87.78% | test=99.65%
+2026-05-21 12:44:09 | INFO     | cross_validate | Fold 4 done | val=87.78% | test=99.65%
+
+=================================================================
+  Cross-Validation Summary  [bilstm]
+=================================================================
+  Fold      Val Top-1   Test Top-1
+  ──────────────────────────────────
+  Fold 0      88.39%       99.48%
+  Fold 1      90.29%       99.65%
+  Fold 2      88.11%       99.83%
+  Fold 3      88.90%       99.65%
+  Fold 4      87.78%       99.65%
+  ──────────────────────────────────
+  Mean±Std   88.69±0.88%     99.65±0.11%
+  Best fold : 1  (val 90.29%)
+=================================================================
+
+
+============================================================
+ CV done!  Summary → results/cv_bilstm/cv_summary.json
+============================================================
+No history.json found in results/cv_bilstm
+CV distribution saved → results/cv_bilstm/cv_distribution.png
+
+##############################################################
+## STEP 7B: 5-Fold CV — Transformer
+##############################################################
+============================================================
+ K-Fold Cross-Validation
+============================================================
+ Model  : transformer
+ Exp    : cv_transformer
+ Folds  : 5
+
+ Aug train pool : 10602 samples (all classes, folded into 5 folds)
+ Test set       : 558 originals (fixed across all folds)
+
+2026-05-21 12:44:11 | INFO     | cross_validate | ============================================================
+2026-05-21 12:44:11 | INFO     | cross_validate | Cross-Validation | model=transformer | folds=5
+2026-05-21 12:44:11 | INFO     | cross_validate | Folding over augmented training pool (all-class design)
+2026-05-21 12:44:11 | INFO     | cross_validate |   Aug train pool : 10602 samples
+2026-05-21 12:44:11 | INFO     | cross_validate |   Test set       : 558 originals (fixed, all folds)
+2026-05-21 12:44:11 | INFO     | cross_validate | ============================================================
+2026-05-21 12:44:11 | INFO     | cross_validate | Fold 0 | train=8481, val=2121, test=558
+2026-05-21 12:44:15 | INFO     | cross_validate |   Fold 0 | Epoch   1 | train=0.5% | val=2.29%  ★ | 4s
+2026-05-21 12:44:19 | INFO     | cross_validate |   Fold 0 | Epoch   2 | train=9.3% | val=25.14%  ★ | 3s
+2026-05-21 12:44:22 | INFO     | cross_validate |   Fold 0 | Epoch   3 | train=41.5% | val=61.78%  ★ | 3s
+2026-05-21 12:44:26 | INFO     | cross_validate |   Fold 0 | Epoch   4 | train=73.8% | val=82.67%  ★ | 3s
+2026-05-21 12:44:29 | INFO     | cross_validate |   Fold 0 | Epoch   5 | train=86.5% | val=88.11%  ★ | 3s
+2026-05-21 12:44:32 | INFO     | cross_validate |   Fold 0 | Epoch   6 | train=90.5% | val=89.18%  ★ | 3s
+2026-05-21 12:44:36 | INFO     | cross_validate |   Fold 0 | Epoch   7 | train=92.8% | val=90.86%  ★ | 3s
+2026-05-21 12:44:39 | INFO     | cross_validate |   Fold 0 | Epoch   8 | train=94.2% | val=91.77%  ★ | 3s
+2026-05-21 12:44:43 | INFO     | cross_validate |   Fold 0 | Epoch   9 | train=95.2% | val=91.98%  ★ | 3s
+2026-05-21 12:44:46 | INFO     | cross_validate |   Fold 0 | Epoch  10 | train=95.4% | val=92.54%  ★ | 3s
+2026-05-21 12:44:50 | INFO     | cross_validate |   Fold 0 | Epoch  11 | train=95.9% | val=93.38%  ★ | 3s
+2026-05-21 12:44:53 | INFO     | cross_validate |   Fold 0 | Epoch  12 | train=96.3% | val=94.31%  ★ | 3s
+2026-05-21 12:45:03 | INFO     | cross_validate |   Fold 0 | Epoch  15 | train=97.5% | val=94.40%  ★ | 3s
+2026-05-21 12:45:10 | INFO     | cross_validate |   Fold 0 | Epoch  17 | train=97.8% | val=94.82%  ★ | 3s
+2026-05-21 12:45:20 | INFO     | cross_validate |   Fold 0 | Epoch  20 | train=98.2% | val=94.36% | 3s
+2026-05-21 12:45:30 | INFO     | cross_validate |   Fold 0 | Epoch  23 | train=98.9% | val=95.24%  ★ | 3s
+2026-05-21 12:45:44 | INFO     | cross_validate |   Fold 0 | Epoch  27 | train=99.2% | val=95.29%  ★ | 3s
+2026-05-21 12:45:54 | INFO     | cross_validate |   Fold 0 | Epoch  30 | train=99.3% | val=94.82% | 3s
+2026-05-21 12:46:11 | INFO     | cross_validate |   Fold 0 | Epoch  35 | train=99.5% | val=95.38%  ★ | 3s
+2026-05-21 12:46:14 | INFO     | cross_validate |   Fold 0 | Epoch  36 | train=99.6% | val=95.57%  ★ | 3s
+2026-05-21 12:46:21 | INFO     | cross_validate |   Fold 0 | Epoch  38 | train=99.7% | val=95.71%  ★ | 3s
+2026-05-21 12:46:28 | INFO     | cross_validate |   Fold 0 | Epoch  40 | train=99.5% | val=95.62% | 3s
+2026-05-21 12:46:51 | INFO     | cross_validate |   Fold 0 | Epoch  47 | train=99.8% | val=95.90%  ★ | 3s
+2026-05-21 12:46:55 | INFO     | cross_validate |   Fold 0 | Epoch  48 | train=99.8% | val=95.94%  ★ | 3s
+2026-05-21 12:47:01 | INFO     | cross_validate |   Fold 0 | Epoch  50 | train=99.8% | val=95.34% | 3s
+2026-05-21 12:47:35 | INFO     | cross_validate |   Fold 0 | Epoch  60 | train=99.9% | val=95.43% | 3s
+2026-05-21 12:47:48 | INFO     | cross_validate |   Fold 0 | Epoch  64 | train=99.9% | val=96.08%  ★ | 3s
+2026-05-21 12:48:05 | INFO     | cross_validate |   Fold 0 | Epoch  69 | train=100.0% | val=96.22%  ★ | 3s
+2026-05-21 12:48:09 | INFO     | cross_validate |   Fold 0 | Epoch  70 | train=99.9% | val=96.27%  ★ | 3s
+2026-05-21 12:48:43 | INFO     | cross_validate |   Fold 0 | Epoch  80 | train=100.0% | val=96.32%  ★ | 3s
+2026-05-21 12:49:16 | INFO     | cross_validate |   Fold 0 | Epoch  90 | train=100.0% | val=96.04% | 3s
+2026-05-21 12:49:50 | INFO     | cross_validate |   Fold 0 | Epoch 100 | train=100.0% | val=96.04% | 3s
+2026-05-21 12:50:06 | INFO     | cross_validate |   Fold 0: early stopping at epoch 105
+2026-05-21 12:50:07 | INFO     | cross_validate |   Fold 0 FINAL | best_val=96.32% | test=100.00%
+2026-05-21 12:50:07 | INFO     | cross_validate | Fold 0 done | val=96.32% | test=100.00%
+2026-05-21 12:50:07 | INFO     | cross_validate | Fold 1 | train=8481, val=2121, test=558
+2026-05-21 12:50:10 | INFO     | cross_validate |   Fold 1 | Epoch   1 | train=1.0% | val=5.04%  ★ | 3s
+2026-05-21 12:50:13 | INFO     | cross_validate |   Fold 1 | Epoch   2 | train=16.6% | val=42.83%  ★ | 3s
+2026-05-21 12:50:17 | INFO     | cross_validate |   Fold 1 | Epoch   3 | train=54.5% | val=73.57%  ★ | 3s
+2026-05-21 12:50:20 | INFO     | cross_validate |   Fold 1 | Epoch   4 | train=80.4% | val=86.61%  ★ | 3s
+2026-05-21 12:50:24 | INFO     | cross_validate |   Fold 1 | Epoch   5 | train=88.7% | val=89.97%  ★ | 3s
+2026-05-21 12:50:27 | INFO     | cross_validate |   Fold 1 | Epoch   6 | train=92.3% | val=91.74%  ★ | 3s
+2026-05-21 12:50:30 | INFO     | cross_validate |   Fold 1 | Epoch   7 | train=93.7% | val=92.04%  ★ | 3s
+2026-05-21 12:50:34 | INFO     | cross_validate |   Fold 1 | Epoch   8 | train=94.9% | val=93.09%  ★ | 3s
+2026-05-21 12:50:41 | INFO     | cross_validate |   Fold 1 | Epoch  10 | train=96.0% | val=93.86%  ★ | 3s
+2026-05-21 12:50:51 | INFO     | cross_validate |   Fold 1 | Epoch  13 | train=97.1% | val=93.96%  ★ | 3s
+2026-05-21 12:50:54 | INFO     | cross_validate |   Fold 1 | Epoch  14 | train=97.5% | val=94.00%  ★ | 3s
+2026-05-21 12:51:04 | INFO     | cross_validate |   Fold 1 | Epoch  17 | train=98.1% | val=94.66%  ★ | 3s
+2026-05-21 12:51:14 | INFO     | cross_validate |   Fold 1 | Epoch  20 | train=98.6% | val=94.89%  ★ | 3s
+2026-05-21 12:51:25 | INFO     | cross_validate |   Fold 1 | Epoch  23 | train=99.0% | val=95.22%  ★ | 3s
+2026-05-21 12:51:48 | INFO     | cross_validate |   Fold 1 | Epoch  30 | train=99.4% | val=95.12% | 3s
+2026-05-21 12:51:55 | INFO     | cross_validate |   Fold 1 | Epoch  32 | train=99.2% | val=95.31%  ★ | 3s
+2026-05-21 12:52:12 | INFO     | cross_validate |   Fold 1 | Epoch  37 | train=99.8% | val=95.54%  ★ | 3s
+2026-05-21 12:52:15 | INFO     | cross_validate |   Fold 1 | Epoch  38 | train=99.6% | val=95.59%  ★ | 3s
+2026-05-21 12:52:22 | INFO     | cross_validate |   Fold 1 | Epoch  40 | train=99.6% | val=95.54% | 3s
+2026-05-21 12:52:39 | INFO     | cross_validate |   Fold 1 | Epoch  45 | train=99.7% | val=95.68%  ★ | 3s
+2026-05-21 12:52:42 | INFO     | cross_validate |   Fold 1 | Epoch  46 | train=99.6% | val=95.92%  ★ | 3s
+2026-05-21 12:52:56 | INFO     | cross_validate |   Fold 1 | Epoch  50 | train=99.7% | val=95.78% | 3s
+2026-05-21 12:53:29 | INFO     | cross_validate |   Fold 1 | Epoch  60 | train=99.9% | val=95.59% | 3s
+2026-05-21 12:54:03 | INFO     | cross_validate |   Fold 1 | Epoch  70 | train=100.0% | val=95.82% | 3s
+2026-05-21 12:54:06 | INFO     | cross_validate |   Fold 1: early stopping at epoch 71
+2026-05-21 12:54:06 | INFO     | cross_validate |   Fold 1 FINAL | best_val=95.92% | test=99.83%
+2026-05-21 12:54:06 | INFO     | cross_validate | Fold 1 done | val=95.92% | test=99.83%
+2026-05-21 12:54:06 | INFO     | cross_validate | Fold 2 | train=8482, val=2120, test=558
+2026-05-21 12:54:10 | INFO     | cross_validate |   Fold 2 | Epoch   1 | train=0.5% | val=2.89%  ★ | 3s
+2026-05-21 12:54:13 | INFO     | cross_validate |   Fold 2 | Epoch   2 | train=7.0% | val=21.74%  ★ | 3s
+2026-05-21 12:54:16 | INFO     | cross_validate |   Fold 2 | Epoch   3 | train=34.2% | val=57.42%  ★ | 3s
+2026-05-21 12:54:20 | INFO     | cross_validate |   Fold 2 | Epoch   4 | train=66.6% | val=75.84%  ★ | 3s
+2026-05-21 12:54:23 | INFO     | cross_validate |   Fold 2 | Epoch   5 | train=83.1% | val=85.17%  ★ | 3s
+2026-05-21 12:54:27 | INFO     | cross_validate |   Fold 2 | Epoch   6 | train=89.1% | val=86.89%  ★ | 3s
+2026-05-21 12:54:30 | INFO     | cross_validate |   Fold 2 | Epoch   7 | train=92.1% | val=89.32%  ★ | 3s
+2026-05-21 12:54:33 | INFO     | cross_validate |   Fold 2 | Epoch   8 | train=93.6% | val=89.93%  ★ | 3s
+2026-05-21 12:54:37 | INFO     | cross_validate |   Fold 2 | Epoch   9 | train=94.6% | val=91.32%  ★ | 3s
+2026-05-21 12:54:40 | INFO     | cross_validate |   Fold 2 | Epoch  10 | train=95.0% | val=92.07%  ★ | 3s
+2026-05-21 12:54:44 | INFO     | cross_validate |   Fold 2 | Epoch  11 | train=95.6% | val=92.54%  ★ | 3s
+2026-05-21 12:54:51 | INFO     | cross_validate |   Fold 2 | Epoch  13 | train=96.1% | val=92.82%  ★ | 3s
+2026-05-21 12:54:57 | INFO     | cross_validate |   Fold 2 | Epoch  15 | train=96.9% | val=93.84%  ★ | 3s
+2026-05-21 12:55:08 | INFO     | cross_validate |   Fold 2 | Epoch  18 | train=97.6% | val=94.17%  ★ | 3s
+2026-05-21 12:55:14 | INFO     | cross_validate |   Fold 2 | Epoch  20 | train=98.2% | val=94.45%  ★ | 3s
+2026-05-21 12:55:31 | INFO     | cross_validate |   Fold 2 | Epoch  25 | train=99.1% | val=94.50%  ★ | 3s
+2026-05-21 12:55:35 | INFO     | cross_validate |   Fold 2 | Epoch  26 | train=99.0% | val=94.68%  ★ | 3s
+2026-05-21 12:55:48 | INFO     | cross_validate |   Fold 2 | Epoch  30 | train=99.4% | val=94.64% | 3s
+2026-05-21 12:56:02 | INFO     | cross_validate |   Fold 2 | Epoch  34 | train=99.3% | val=94.87%  ★ | 3s
+2026-05-21 12:56:09 | INFO     | cross_validate |   Fold 2 | Epoch  36 | train=99.6% | val=94.92%  ★ | 3s
+2026-05-21 12:56:19 | INFO     | cross_validate |   Fold 2 | Epoch  39 | train=99.4% | val=94.96%  ★ | 3s
+2026-05-21 12:56:22 | INFO     | cross_validate |   Fold 2 | Epoch  40 | train=99.7% | val=95.24%  ★ | 3s
+2026-05-21 12:56:53 | INFO     | cross_validate |   Fold 2 | Epoch  49 | train=99.7% | val=95.66%  ★ | 3s
+2026-05-21 12:56:56 | INFO     | cross_validate |   Fold 2 | Epoch  50 | train=99.7% | val=95.10% | 3s
+2026-05-21 12:57:13 | INFO     | cross_validate |   Fold 2 | Epoch  55 | train=99.9% | val=95.80%  ★ | 3s
+2026-05-21 12:57:30 | INFO     | cross_validate |   Fold 2 | Epoch  60 | train=99.9% | val=95.20% | 3s
+2026-05-21 12:57:53 | INFO     | cross_validate |   Fold 2 | Epoch  67 | train=99.9% | val=95.94%  ★ | 3s
+2026-05-21 12:58:03 | INFO     | cross_validate |   Fold 2 | Epoch  70 | train=100.0% | val=95.57% | 3s
+2026-05-21 12:58:37 | INFO     | cross_validate |   Fold 2 | Epoch  80 | train=100.0% | val=95.48% | 3s
+2026-05-21 12:59:10 | INFO     | cross_validate |   Fold 2 | Epoch  90 | train=100.0% | val=95.43% | 3s
+2026-05-21 12:59:17 | INFO     | cross_validate |   Fold 2: early stopping at epoch 92
+2026-05-21 12:59:17 | INFO     | cross_validate |   Fold 2 FINAL | best_val=95.94% | test=100.00%
+2026-05-21 12:59:17 | INFO     | cross_validate | Fold 2 done | val=95.94% | test=100.00%
+2026-05-21 12:59:17 | INFO     | cross_validate | Fold 3 | train=8482, val=2120, test=558
+2026-05-21 12:59:21 | INFO     | cross_validate |   Fold 3 | Epoch   1 | train=1.1% | val=5.74%  ★ | 3s
+2026-05-21 12:59:24 | INFO     | cross_validate |   Fold 3 | Epoch   2 | train=14.0% | val=33.68%  ★ | 3s
+2026-05-21 12:59:28 | INFO     | cross_validate |   Fold 3 | Epoch   3 | train=49.4% | val=69.40%  ★ | 3s
+2026-05-21 12:59:31 | INFO     | cross_validate |   Fold 3 | Epoch   4 | train=79.1% | val=84.65%  ★ | 3s
+2026-05-21 12:59:35 | INFO     | cross_validate |   Fold 3 | Epoch   5 | train=88.8% | val=87.08%  ★ | 3s
+2026-05-21 12:59:38 | INFO     | cross_validate |   Fold 3 | Epoch   6 | train=91.4% | val=88.95%  ★ | 3s
+2026-05-21 12:59:42 | INFO     | cross_validate |   Fold 3 | Epoch   7 | train=93.5% | val=89.74%  ★ | 3s
+2026-05-21 12:59:45 | INFO     | cross_validate |   Fold 3 | Epoch   8 | train=94.6% | val=91.84%  ★ | 3s
+2026-05-21 12:59:52 | INFO     | cross_validate |   Fold 3 | Epoch  10 | train=95.9% | val=91.60% | 3s
+2026-05-21 12:59:55 | INFO     | cross_validate |   Fold 3 | Epoch  11 | train=96.4% | val=92.72%  ★ | 3s
+2026-05-21 13:00:05 | INFO     | cross_validate |   Fold 3 | Epoch  14 | train=97.3% | val=93.14%  ★ | 3s
+2026-05-21 13:00:09 | INFO     | cross_validate |   Fold 3 | Epoch  15 | train=97.8% | val=93.28%  ★ | 3s
+2026-05-21 13:00:19 | INFO     | cross_validate |   Fold 3 | Epoch  18 | train=98.3% | val=93.94%  ★ | 3s
+2026-05-21 13:00:26 | INFO     | cross_validate |   Fold 3 | Epoch  20 | train=98.9% | val=94.03%  ★ | 3s
+2026-05-21 13:00:53 | INFO     | cross_validate |   Fold 3 | Epoch  28 | train=99.5% | val=94.40%  ★ | 3s
+2026-05-21 13:00:56 | INFO     | cross_validate |   Fold 3 | Epoch  29 | train=99.5% | val=94.50%  ★ | 3s
+2026-05-21 13:01:00 | INFO     | cross_validate |   Fold 3 | Epoch  30 | train=99.5% | val=94.08% | 3s
+2026-05-21 13:01:10 | INFO     | cross_validate |   Fold 3 | Epoch  33 | train=99.6% | val=94.68%  ★ | 3s
+2026-05-21 13:01:33 | INFO     | cross_validate |   Fold 3 | Epoch  40 | train=99.7% | val=94.26% | 3s
+2026-05-21 13:01:40 | INFO     | cross_validate |   Fold 3 | Epoch  42 | train=99.8% | val=94.92%  ★ | 3s
+2026-05-21 13:02:07 | INFO     | cross_validate |   Fold 3 | Epoch  50 | train=99.8% | val=94.96%  ★ | 3s
+2026-05-21 13:02:40 | INFO     | cross_validate |   Fold 3 | Epoch  60 | train=99.9% | val=94.50% | 3s
+2026-05-21 13:03:10 | INFO     | cross_validate |   Fold 3 | Epoch  69 | train=99.8% | val=95.01%  ★ | 3s
+2026-05-21 13:03:14 | INFO     | cross_validate |   Fold 3 | Epoch  70 | train=99.9% | val=94.96% | 3s
+2026-05-21 13:03:24 | INFO     | cross_validate |   Fold 3 | Epoch  73 | train=99.9% | val=95.10%  ★ | 3s
+2026-05-21 13:03:27 | INFO     | cross_validate |   Fold 3 | Epoch  74 | train=100.0% | val=95.24%  ★ | 3s
+2026-05-21 13:03:34 | INFO     | cross_validate |   Fold 3 | Epoch  76 | train=100.0% | val=95.29%  ★ | 3s
+2026-05-21 13:03:47 | INFO     | cross_validate |   Fold 3 | Epoch  80 | train=100.0% | val=94.92% | 3s
+2026-05-21 13:04:21 | INFO     | cross_validate |   Fold 3 | Epoch  90 | train=99.9% | val=94.59% | 3s
+2026-05-21 13:04:28 | INFO     | cross_validate |   Fold 3 | Epoch  92 | train=100.0% | val=95.34%  ★ | 3s
+2026-05-21 13:04:54 | INFO     | cross_validate |   Fold 3 | Epoch 100 | train=100.0% | val=95.38%  ★ | 3s
+2026-05-21 13:05:25 | INFO     | cross_validate |   Fold 3 | Epoch 109 | train=100.0% | val=95.48%  ★ | 3s
+2026-05-21 13:05:28 | INFO     | cross_validate |   Fold 3 | Epoch 110 | train=100.0% | val=95.10% | 3s
+2026-05-21 13:06:02 | INFO     | cross_validate |   Fold 3 | Epoch 120 | train=100.0% | val=95.38% | 3s
+2026-05-21 13:06:35 | INFO     | cross_validate |   Fold 3 | Epoch 130 | train=100.0% | val=95.29% | 3s
+2026-05-21 13:06:49 | INFO     | cross_validate |   Fold 3: early stopping at epoch 134
+2026-05-21 13:06:49 | INFO     | cross_validate |   Fold 3 FINAL | best_val=95.48% | test=100.00%
+2026-05-21 13:06:49 | INFO     | cross_validate | Fold 3 done | val=95.48% | test=100.00%
+2026-05-21 13:06:49 | INFO     | cross_validate | Fold 4 | train=8482, val=2120, test=558
+2026-05-21 13:06:52 | INFO     | cross_validate |   Fold 4 | Epoch   1 | train=0.7% | val=2.57%  ★ | 3s
+2026-05-21 13:06:56 | INFO     | cross_validate |   Fold 4 | Epoch   2 | train=13.0% | val=37.27%  ★ | 3s
+2026-05-21 13:06:59 | INFO     | cross_validate |   Fold 4 | Epoch   3 | train=54.5% | val=76.26%  ★ | 3s
+2026-05-21 13:07:02 | INFO     | cross_validate |   Fold 4 | Epoch   4 | train=82.5% | val=86.52%  ★ | 3s
+2026-05-21 13:07:06 | INFO     | cross_validate |   Fold 4 | Epoch   5 | train=90.5% | val=90.02%  ★ | 3s
+2026-05-21 13:07:09 | INFO     | cross_validate |   Fold 4 | Epoch   6 | train=92.8% | val=90.62%  ★ | 3s
+2026-05-21 13:07:13 | INFO     | cross_validate |   Fold 4 | Epoch   7 | train=94.4% | val=91.65%  ★ | 3s
+2026-05-21 13:07:16 | INFO     | cross_validate |   Fold 4 | Epoch   8 | train=94.9% | val=91.84%  ★ | 3s
+2026-05-21 13:07:20 | INFO     | cross_validate |   Fold 4 | Epoch   9 | train=95.8% | val=92.72%  ★ | 3s
+2026-05-21 13:07:23 | INFO     | cross_validate |   Fold 4 | Epoch  10 | train=96.3% | val=93.61%  ★ | 3s
+2026-05-21 13:07:37 | INFO     | cross_validate |   Fold 4 | Epoch  14 | train=97.5% | val=93.75%  ★ | 3s
+2026-05-21 13:07:47 | INFO     | cross_validate |   Fold 4 | Epoch  17 | train=98.5% | val=93.80%  ★ | 3s
+2026-05-21 13:07:53 | INFO     | cross_validate |   Fold 4 | Epoch  19 | train=98.6% | val=94.45%  ★ | 3s
+2026-05-21 13:07:57 | INFO     | cross_validate |   Fold 4 | Epoch  20 | train=98.9% | val=94.73%  ★ | 3s
+2026-05-21 13:08:24 | INFO     | cross_validate |   Fold 4 | Epoch  28 | train=99.3% | val=94.87%  ★ | 3s
+2026-05-21 13:08:30 | INFO     | cross_validate |   Fold 4 | Epoch  30 | train=99.5% | val=94.82% | 3s
+2026-05-21 13:08:51 | INFO     | cross_validate |   Fold 4 | Epoch  36 | train=99.5% | val=94.96%  ★ | 3s
+2026-05-21 13:08:57 | INFO     | cross_validate |   Fold 4 | Epoch  38 | train=99.8% | val=95.10%  ★ | 3s
+2026-05-21 13:09:04 | INFO     | cross_validate |   Fold 4 | Epoch  40 | train=99.6% | val=95.20%  ★ | 3s
+2026-05-21 13:09:28 | INFO     | cross_validate |   Fold 4 | Epoch  47 | train=99.8% | val=95.62%  ★ | 3s
+2026-05-21 13:09:38 | INFO     | cross_validate |   Fold 4 | Epoch  50 | train=99.7% | val=95.34% | 3s
+2026-05-21 13:10:05 | INFO     | cross_validate |   Fold 4 | Epoch  58 | train=99.9% | val=95.76%  ★ | 3s
+2026-05-21 13:10:12 | INFO     | cross_validate |   Fold 4 | Epoch  60 | train=99.8% | val=95.52% | 3s
+2026-05-21 13:10:45 | INFO     | cross_validate |   Fold 4 | Epoch  70 | train=99.9% | val=95.15% | 3s
+2026-05-21 13:11:19 | INFO     | cross_validate |   Fold 4 | Epoch  80 | train=100.0% | val=95.71% | 3s
+2026-05-21 13:11:25 | INFO     | cross_validate |   Fold 4 | Epoch  82 | train=100.0% | val=95.80%  ★ | 3s
+2026-05-21 13:11:32 | INFO     | cross_validate |   Fold 4 | Epoch  84 | train=100.0% | val=95.90%  ★ | 3s
+2026-05-21 13:11:52 | INFO     | cross_validate |   Fold 4 | Epoch  90 | train=99.9% | val=95.29% | 3s
+2026-05-21 13:12:26 | INFO     | cross_validate |   Fold 4 | Epoch 100 | train=100.0% | val=95.80% | 3s
+2026-05-21 13:12:46 | INFO     | cross_validate |   Fold 4 | Epoch 106 | train=100.0% | val=95.99%  ★ | 3s
+2026-05-21 13:13:00 | INFO     | cross_validate |   Fold 4 | Epoch 110 | train=100.0% | val=95.76% | 3s
+2026-05-21 13:13:33 | INFO     | cross_validate |   Fold 4 | Epoch 120 | train=100.0% | val=95.85% | 3s
+2026-05-21 13:14:07 | INFO     | cross_validate |   Fold 4 | Epoch 130 | train=100.0% | val=95.80% | 3s
+2026-05-21 13:14:10 | INFO     | cross_validate |   Fold 4: early stopping at epoch 131
+2026-05-21 13:14:11 | INFO     | cross_validate |   Fold 4 FINAL | best_val=95.99% | test=100.00%
+2026-05-21 13:14:11 | INFO     | cross_validate | Fold 4 done | val=95.99% | test=100.00%
+
+=================================================================
+  Cross-Validation Summary  [transformer]
+=================================================================
+  Fold      Val Top-1   Test Top-1
+  ──────────────────────────────────
+  Fold 0      96.32%      100.00%
+  Fold 1      95.92%       99.83%
+  Fold 2      95.94%      100.00%
+  Fold 3      95.48%      100.00%
+  Fold 4      95.99%      100.00%
+  ──────────────────────────────────
+  Mean±Std   95.93±0.27%     99.97±0.07%
+  Best fold : 0  (val 96.32%)
+=================================================================
+
+
+============================================================
+ CV done!  Summary → results/cv_transformer/cv_summary.json
+============================================================
+No history.json found in results/cv_transformer
+CV distribution saved → results/cv_transformer/cv_distribution.png
+
+##############################################################
+## STEP 7C: 5-Fold CV — ST-GCN
+##############################################################
+============================================================
+ K-Fold Cross-Validation
+============================================================
+ Model  : stgcn
+ Exp    : cv_stgcn
+ Folds  : 5
+
+ Aug train pool : 10602 samples (all classes, folded into 5 folds)
+ Test set       : 558 originals (fixed across all folds)
+
+2026-05-21 13:14:13 | INFO     | cross_validate | ============================================================
+2026-05-21 13:14:13 | INFO     | cross_validate | Cross-Validation | model=stgcn | folds=5
+2026-05-21 13:14:13 | INFO     | cross_validate | Folding over augmented training pool (all-class design)
+2026-05-21 13:14:13 | INFO     | cross_validate |   Aug train pool : 10602 samples
+2026-05-21 13:14:13 | INFO     | cross_validate |   Test set       : 558 originals (fixed, all folds)
+2026-05-21 13:14:13 | INFO     | cross_validate | ============================================================
+2026-05-21 13:14:13 | INFO     | cross_validate | Fold 0 | train=8481, val=2121, test=558
+2026-05-21 13:14:45 | INFO     | cross_validate |   Fold 0 | Epoch   1 | train=0.3% | val=1.07%  ★ | 31s
+2026-05-21 13:15:16 | INFO     | cross_validate |   Fold 0 | Epoch   2 | train=2.1% | val=4.90%  ★ | 31s
+2026-05-21 13:15:47 | INFO     | cross_validate |   Fold 0 | Epoch   3 | train=4.8% | val=9.73%  ★ | 31s
+2026-05-21 13:16:18 | INFO     | cross_validate |   Fold 0 | Epoch   4 | train=9.2% | val=17.12%  ★ | 31s
+2026-05-21 13:16:49 | INFO     | cross_validate |   Fold 0 | Epoch   5 | train=15.6% | val=31.84%  ★ | 31s
+2026-05-21 13:17:20 | INFO     | cross_validate |   Fold 0 | Epoch   6 | train=24.9% | val=49.92%  ★ | 31s
+2026-05-21 13:17:50 | INFO     | cross_validate |   Fold 0 | Epoch   7 | train=36.6% | val=61.40%  ★ | 31s
+2026-05-21 13:18:21 | INFO     | cross_validate |   Fold 0 | Epoch   8 | train=48.4% | val=63.99%  ★ | 31s
+2026-05-21 13:18:52 | INFO     | cross_validate |   Fold 0 | Epoch   9 | train=57.9% | val=74.67%  ★ | 30s
+2026-05-21 13:19:22 | INFO     | cross_validate |   Fold 0 | Epoch  10 | train=65.5% | val=79.73%  ★ | 30s
+2026-05-21 13:19:52 | INFO     | cross_validate |   Fold 0 | Epoch  11 | train=71.6% | val=79.99%  ★ | 30s
+2026-05-21 13:20:22 | INFO     | cross_validate |   Fold 0 | Epoch  12 | train=76.6% | val=82.32%  ★ | 30s
+2026-05-21 13:20:53 | INFO     | cross_validate |   Fold 0 | Epoch  13 | train=80.3% | val=85.31%  ★ | 31s
+2026-05-21 13:21:24 | INFO     | cross_validate |   Fold 0 | Epoch  14 | train=82.1% | val=86.57%  ★ | 31s
+2026-05-21 13:21:55 | INFO     | cross_validate |   Fold 0 | Epoch  15 | train=84.9% | val=87.22%  ★ | 31s
+2026-05-21 13:22:26 | INFO     | cross_validate |   Fold 0 | Epoch  16 | train=86.2% | val=87.87%  ★ | 31s
+2026-05-21 13:22:57 | INFO     | cross_validate |   Fold 0 | Epoch  17 | train=87.9% | val=88.85%  ★ | 31s
+2026-05-21 13:23:28 | INFO     | cross_validate |   Fold 0 | Epoch  18 | train=89.1% | val=89.69%  ★ | 31s
+2026-05-21 13:24:30 | INFO     | cross_validate |   Fold 0 | Epoch  20 | train=90.5% | val=90.16%  ★ | 31s
+2026-05-21 13:25:01 | INFO     | cross_validate |   Fold 0 | Epoch  21 | train=91.3% | val=90.72%  ★ | 31s
+2026-05-21 13:26:03 | INFO     | cross_validate |   Fold 0 | Epoch  23 | train=92.2% | val=90.76%  ★ | 30s
+2026-05-21 13:26:34 | INFO     | cross_validate |   Fold 0 | Epoch  24 | train=92.8% | val=91.37%  ★ | 31s
+2026-05-21 13:27:36 | INFO     | cross_validate |   Fold 0 | Epoch  26 | train=93.4% | val=91.56%  ★ | 31s
+2026-05-21 13:28:37 | INFO     | cross_validate |   Fold 0 | Epoch  28 | train=94.1% | val=91.65%  ★ | 30s
+2026-05-21 13:29:08 | INFO     | cross_validate |   Fold 0 | Epoch  29 | train=94.7% | val=91.74%  ★ | 31s
+2026-05-21 13:29:39 | INFO     | cross_validate |   Fold 0 | Epoch  30 | train=94.9% | val=92.07%  ★ | 31s
+2026-05-21 13:30:10 | INFO     | cross_validate |   Fold 0 | Epoch  31 | train=95.4% | val=92.68%  ★ | 31s
+2026-05-21 13:34:47 | INFO     | cross_validate |   Fold 0 | Epoch  40 | train=96.6% | val=92.12% | 31s
+2026-05-21 13:35:49 | INFO     | cross_validate |   Fold 0 | Epoch  42 | train=96.9% | val=92.86%  ★ | 31s
+2026-05-21 13:37:22 | INFO     | cross_validate |   Fold 0 | Epoch  45 | train=97.5% | val=92.91%  ★ | 31s
+2026-05-21 13:39:55 | INFO     | cross_validate |   Fold 0 | Epoch  50 | train=97.9% | val=92.40% | 30s
+2026-05-21 13:44:32 | INFO     | cross_validate |   Fold 0 | Epoch  59 | train=99.0% | val=93.05%  ★ | 31s
+2026-05-21 13:45:03 | INFO     | cross_validate |   Fold 0 | Epoch  60 | train=98.7% | val=92.58% | 31s
+2026-05-21 13:45:34 | INFO     | cross_validate |   Fold 0 | Epoch  61 | train=99.0% | val=93.14%  ★ | 31s
+2026-05-21 13:50:13 | INFO     | cross_validate |   Fold 0 | Epoch  70 | train=99.3% | val=92.82% | 31s
+2026-05-21 13:55:23 | INFO     | cross_validate |   Fold 0 | Epoch  80 | train=99.6% | val=92.96% | 31s
+2026-05-21 13:58:29 | INFO     | cross_validate |   Fold 0: early stopping at epoch 86
+2026-05-21 13:58:29 | INFO     | cross_validate |   Fold 0 FINAL | best_val=93.14% | test=99.83%
+2026-05-21 13:58:29 | INFO     | cross_validate | Fold 0 done | val=93.14% | test=99.83%
+2026-05-21 13:58:29 | INFO     | cross_validate | Fold 1 | train=8481, val=2121, test=558
+2026-05-21 13:59:01 | INFO     | cross_validate |   Fold 1 | Epoch   1 | train=0.4% | val=1.26%  ★ | 31s
+2026-05-21 13:59:32 | INFO     | cross_validate |   Fold 1 | Epoch   2 | train=1.9% | val=6.02%  ★ | 31s
+2026-05-21 14:00:03 | INFO     | cross_validate |   Fold 1 | Epoch   3 | train=4.6% | val=11.67%  ★ | 31s
+2026-05-21 14:00:33 | INFO     | cross_validate |   Fold 1 | Epoch   4 | train=9.6% | val=23.73%  ★ | 31s
+2026-05-21 14:01:04 | INFO     | cross_validate |   Fold 1 | Epoch   5 | train=17.7% | val=37.14%  ★ | 31s
+2026-05-21 14:01:35 | INFO     | cross_validate |   Fold 1 | Epoch   6 | train=28.8% | val=47.54%  ★ | 31s
+2026-05-21 14:02:06 | INFO     | cross_validate |   Fold 1 | Epoch   7 | train=41.3% | val=59.88%  ★ | 31s
+2026-05-21 14:02:37 | INFO     | cross_validate |   Fold 1 | Epoch   8 | train=52.3% | val=73.46%  ★ | 31s
+2026-05-21 14:03:08 | INFO     | cross_validate |   Fold 1 | Epoch   9 | train=61.9% | val=78.21%  ★ | 31s
+2026-05-21 14:03:39 | INFO     | cross_validate |   Fold 1 | Epoch  10 | train=69.5% | val=79.29%  ★ | 31s
+2026-05-21 14:04:10 | INFO     | cross_validate |   Fold 1 | Epoch  11 | train=74.4% | val=83.44%  ★ | 31s
+2026-05-21 14:04:41 | INFO     | cross_validate |   Fold 1 | Epoch  12 | train=79.3% | val=84.18%  ★ | 31s
+2026-05-21 14:05:12 | INFO     | cross_validate |   Fold 1 | Epoch  13 | train=82.1% | val=84.65%  ★ | 31s
+2026-05-21 14:05:42 | INFO     | cross_validate |   Fold 1 | Epoch  14 | train=84.6% | val=87.59%  ★ | 30s
+2026-05-21 14:06:13 | INFO     | cross_validate |   Fold 1 | Epoch  15 | train=86.2% | val=87.63%  ★ | 31s
+2026-05-21 14:06:44 | INFO     | cross_validate |   Fold 1 | Epoch  16 | train=87.3% | val=89.01%  ★ | 31s
+2026-05-21 14:07:15 | INFO     | cross_validate |   Fold 1 | Epoch  17 | train=88.4% | val=89.27%  ★ | 31s
+2026-05-21 14:07:46 | INFO     | cross_validate |   Fold 1 | Epoch  18 | train=89.6% | val=90.06%  ★ | 31s
+2026-05-21 14:08:17 | INFO     | cross_validate |   Fold 1 | Epoch  19 | train=90.1% | val=90.11%  ★ | 31s
+2026-05-21 14:08:48 | INFO     | cross_validate |   Fold 1 | Epoch  20 | train=91.3% | val=90.15%  ★ | 31s
+2026-05-21 14:09:19 | INFO     | cross_validate |   Fold 1 | Epoch  21 | train=92.1% | val=91.81%  ★ | 31s
+2026-05-21 14:11:53 | INFO     | cross_validate |   Fold 1 | Epoch  26 | train=93.9% | val=92.46%  ★ | 30s
+2026-05-21 14:13:55 | INFO     | cross_validate |   Fold 1 | Epoch  30 | train=95.2% | val=91.86% | 31s
+2026-05-21 14:17:00 | INFO     | cross_validate |   Fold 1 | Epoch  36 | train=96.6% | val=92.60%  ★ | 31s
+2026-05-21 14:19:03 | INFO     | cross_validate |   Fold 1 | Epoch  40 | train=97.0% | val=92.51% | 31s
+2026-05-21 14:19:34 | INFO     | cross_validate |   Fold 1 | Epoch  41 | train=97.4% | val=92.65%  ★ | 31s
+2026-05-21 14:20:05 | INFO     | cross_validate |   Fold 1 | Epoch  42 | train=97.1% | val=92.91%  ★ | 31s
+2026-05-21 14:20:36 | INFO     | cross_validate |   Fold 1 | Epoch  43 | train=97.4% | val=92.98%  ★ | 31s
+2026-05-21 14:21:38 | INFO     | cross_validate |   Fold 1 | Epoch  45 | train=97.8% | val=93.07%  ★ | 31s
+2026-05-21 14:23:11 | INFO     | cross_validate |   Fold 1 | Epoch  48 | train=98.1% | val=93.21%  ★ | 31s
+2026-05-21 14:24:13 | INFO     | cross_validate |   Fold 1 | Epoch  50 | train=98.3% | val=92.84% | 31s
+2026-05-21 14:27:19 | INFO     | cross_validate |   Fold 1 | Epoch  56 | train=98.6% | val=93.40%  ★ | 31s
+2026-05-21 14:29:22 | INFO     | cross_validate |   Fold 1 | Epoch  60 | train=98.8% | val=92.70% | 31s
+2026-05-21 14:29:53 | INFO     | cross_validate |   Fold 1 | Epoch  61 | train=99.0% | val=93.54%  ★ | 31s
+2026-05-21 14:33:30 | INFO     | cross_validate |   Fold 1 | Epoch  68 | train=99.3% | val=93.68%  ★ | 31s
+2026-05-21 14:34:32 | INFO     | cross_validate |   Fold 1 | Epoch  70 | train=99.3% | val=93.30% | 31s
+2026-05-21 14:39:43 | INFO     | cross_validate |   Fold 1 | Epoch  80 | train=99.5% | val=93.63% | 31s
+2026-05-21 14:42:20 | INFO     | cross_validate |   Fold 1 | Epoch  85 | train=99.8% | val=93.72%  ★ | 31s
+2026-05-21 14:44:55 | INFO     | cross_validate |   Fold 1 | Epoch  90 | train=99.7% | val=93.63% | 31s
+2026-05-21 14:48:30 | INFO     | cross_validate |   Fold 1 | Epoch  97 | train=99.9% | val=93.82%  ★ | 30s
+2026-05-21 14:50:02 | INFO     | cross_validate |   Fold 1 | Epoch 100 | train=99.9% | val=93.58% | 31s
+2026-05-21 14:55:11 | INFO     | cross_validate |   Fold 1 | Epoch 110 | train=99.9% | val=93.54% | 31s
+2026-05-21 15:00:19 | INFO     | cross_validate |   Fold 1 | Epoch 120 | train=99.9% | val=93.86%  ★ | 30s
+2026-05-21 15:05:28 | INFO     | cross_validate |   Fold 1 | Epoch 130 | train=100.0% | val=93.54% | 31s
+2026-05-21 15:10:36 | INFO     | cross_validate |   Fold 1 | Epoch 140 | train=100.0% | val=93.54% | 30s
+2026-05-21 15:13:09 | INFO     | cross_validate |   Fold 1: early stopping at epoch 145
+2026-05-21 15:13:10 | INFO     | cross_validate |   Fold 1 FINAL | best_val=93.86% | test=100.00%
+2026-05-21 15:13:10 | INFO     | cross_validate | Fold 1 done | val=93.86% | test=100.00%
+2026-05-21 15:13:10 | INFO     | cross_validate | Fold 2 | train=8482, val=2120, test=558
+2026-05-21 15:13:40 | INFO     | cross_validate |   Fold 2 | Epoch   1 | train=0.2% | val=0.75%  ★ | 30s
+2026-05-21 15:14:10 | INFO     | cross_validate |   Fold 2 | Epoch   2 | train=1.6% | val=4.10%  ★ | 30s
+2026-05-21 15:14:40 | INFO     | cross_validate |   Fold 2 | Epoch   3 | train=4.4% | val=11.85%  ★ | 30s
+2026-05-21 15:15:11 | INFO     | cross_validate |   Fold 2 | Epoch   4 | train=9.4% | val=20.80%  ★ | 30s
+2026-05-21 15:15:42 | INFO     | cross_validate |   Fold 2 | Epoch   5 | train=16.9% | val=33.54%  ★ | 31s
+2026-05-21 15:16:13 | INFO     | cross_validate |   Fold 2 | Epoch   6 | train=26.6% | val=46.41%  ★ | 31s
+2026-05-21 15:16:44 | INFO     | cross_validate |   Fold 2 | Epoch   7 | train=38.2% | val=59.93%  ★ | 31s
+2026-05-21 15:17:15 | INFO     | cross_validate |   Fold 2 | Epoch   8 | train=48.8% | val=64.04%  ★ | 31s
+2026-05-21 15:17:45 | INFO     | cross_validate |   Fold 2 | Epoch   9 | train=58.9% | val=66.84%  ★ | 30s
+2026-05-21 15:18:15 | INFO     | cross_validate |   Fold 2 | Epoch  10 | train=66.4% | val=79.15%  ★ | 30s
+2026-05-21 15:18:46 | INFO     | cross_validate |   Fold 2 | Epoch  11 | train=71.9% | val=81.95%  ★ | 30s
+2026-05-21 15:19:16 | INFO     | cross_validate |   Fold 2 | Epoch  12 | train=77.1% | val=82.93%  ★ | 30s
+2026-05-21 15:19:47 | INFO     | cross_validate |   Fold 2 | Epoch  13 | train=80.4% | val=84.56%  ★ | 31s
+2026-05-21 15:20:17 | INFO     | cross_validate |   Fold 2 | Epoch  14 | train=82.6% | val=85.49%  ★ | 30s
+2026-05-21 15:20:48 | INFO     | cross_validate |   Fold 2 | Epoch  15 | train=85.0% | val=85.96%  ★ | 30s
+2026-05-21 15:21:19 | INFO     | cross_validate |   Fold 2 | Epoch  16 | train=86.3% | val=87.13%  ★ | 31s
+2026-05-21 15:21:50 | INFO     | cross_validate |   Fold 2 | Epoch  17 | train=87.9% | val=87.83%  ★ | 31s
+2026-05-21 15:22:21 | INFO     | cross_validate |   Fold 2 | Epoch  18 | train=88.9% | val=89.23%  ★ | 31s
+2026-05-21 15:23:23 | INFO     | cross_validate |   Fold 2 | Epoch  20 | train=90.7% | val=89.69%  ★ | 31s
+2026-05-21 15:24:24 | INFO     | cross_validate |   Fold 2 | Epoch  22 | train=91.8% | val=90.21%  ★ | 30s
+2026-05-21 15:26:26 | INFO     | cross_validate |   Fold 2 | Epoch  26 | train=93.6% | val=90.53%  ★ | 31s
+2026-05-21 15:26:57 | INFO     | cross_validate |   Fold 2 | Epoch  27 | train=94.0% | val=90.76%  ★ | 31s
+2026-05-21 15:27:28 | INFO     | cross_validate |   Fold 2 | Epoch  28 | train=93.9% | val=91.14%  ★ | 31s
+2026-05-21 15:28:30 | INFO     | cross_validate |   Fold 2 | Epoch  30 | train=94.9% | val=90.90% | 31s
+2026-05-21 15:29:31 | INFO     | cross_validate |   Fold 2 | Epoch  32 | train=95.6% | val=91.18%  ★ | 30s
+2026-05-21 15:30:02 | INFO     | cross_validate |   Fold 2 | Epoch  33 | train=95.6% | val=92.21%  ★ | 30s
+2026-05-21 15:33:37 | INFO     | cross_validate |   Fold 2 | Epoch  40 | train=96.9% | val=91.65% | 31s
+2026-05-21 15:34:09 | INFO     | cross_validate |   Fold 2 | Epoch  41 | train=97.2% | val=92.26%  ★ | 31s
+2026-05-21 15:37:44 | INFO     | cross_validate |   Fold 2 | Epoch  48 | train=97.7% | val=92.40%  ★ | 31s
+2026-05-21 15:38:46 | INFO     | cross_validate |   Fold 2 | Epoch  50 | train=98.2% | val=92.30% | 31s
+2026-05-21 15:39:48 | INFO     | cross_validate |   Fold 2 | Epoch  52 | train=98.3% | val=92.72%  ★ | 31s
+2026-05-21 15:43:52 | INFO     | cross_validate |   Fold 2 | Epoch  60 | train=98.7% | val=92.26% | 31s
+2026-05-21 15:49:01 | INFO     | cross_validate |   Fold 2 | Epoch  70 | train=99.3% | val=92.40% | 31s
+2026-05-21 15:49:31 | INFO     | cross_validate |   Fold 2 | Epoch  71 | train=99.2% | val=92.91%  ★ | 30s
+2026-05-21 15:51:03 | INFO     | cross_validate |   Fold 2 | Epoch  74 | train=99.4% | val=93.33%  ★ | 31s
+2026-05-21 15:54:09 | INFO     | cross_validate |   Fold 2 | Epoch  80 | train=99.6% | val=92.68% | 31s
+2026-05-21 15:59:18 | INFO     | cross_validate |   Fold 2 | Epoch  90 | train=99.8% | val=92.82% | 31s
+2026-05-21 16:03:57 | INFO     | cross_validate |   Fold 2: early stopping at epoch 99
+2026-05-21 16:03:58 | INFO     | cross_validate |   Fold 2 FINAL | best_val=93.33% | test=100.00%
+2026-05-21 16:03:58 | INFO     | cross_validate | Fold 2 done | val=93.33% | test=100.00%
+2026-05-21 16:03:58 | INFO     | cross_validate | Fold 3 | train=8482, val=2120, test=558
+2026-05-21 16:04:29 | INFO     | cross_validate |   Fold 3 | Epoch   1 | train=0.2% | val=1.07%  ★ | 31s
+2026-05-21 16:04:59 | INFO     | cross_validate |   Fold 3 | Epoch   2 | train=1.7% | val=5.04%  ★ | 31s
+2026-05-21 16:05:30 | INFO     | cross_validate |   Fold 3 | Epoch   3 | train=4.1% | val=10.12%  ★ | 31s
+2026-05-21 16:06:01 | INFO     | cross_validate |   Fold 3 | Epoch   4 | train=8.6% | val=20.10%  ★ | 31s
+2026-05-21 16:06:32 | INFO     | cross_validate |   Fold 3 | Epoch   5 | train=14.9% | val=30.97%  ★ | 31s
+2026-05-21 16:07:03 | INFO     | cross_validate |   Fold 3 | Epoch   6 | train=24.2% | val=44.87%  ★ | 31s
+2026-05-21 16:07:34 | INFO     | cross_validate |   Fold 3 | Epoch   7 | train=35.4% | val=60.26%  ★ | 31s
+2026-05-21 16:08:05 | INFO     | cross_validate |   Fold 3 | Epoch   8 | train=46.0% | val=69.36%  ★ | 31s
+2026-05-21 16:08:36 | INFO     | cross_validate |   Fold 3 | Epoch   9 | train=56.1% | val=76.40%  ★ | 31s
+2026-05-21 16:09:07 | INFO     | cross_validate |   Fold 3 | Epoch  10 | train=65.6% | val=78.26%  ★ | 31s
+2026-05-21 16:09:38 | INFO     | cross_validate |   Fold 3 | Epoch  11 | train=70.9% | val=82.51%  ★ | 30s
+2026-05-21 16:10:08 | INFO     | cross_validate |   Fold 3 | Epoch  12 | train=75.7% | val=84.00%  ★ | 30s
+2026-05-21 16:10:39 | INFO     | cross_validate |   Fold 3 | Epoch  13 | train=79.8% | val=84.75%  ★ | 31s
+2026-05-21 16:11:10 | INFO     | cross_validate |   Fold 3 | Epoch  14 | train=82.2% | val=87.36%  ★ | 31s
+2026-05-21 16:12:12 | INFO     | cross_validate |   Fold 3 | Epoch  16 | train=86.1% | val=87.73%  ★ | 31s
+2026-05-21 16:12:43 | INFO     | cross_validate |   Fold 3 | Epoch  17 | train=87.8% | val=88.62%  ★ | 31s
+2026-05-21 16:13:14 | INFO     | cross_validate |   Fold 3 | Epoch  18 | train=88.5% | val=88.90%  ★ | 31s
+2026-05-21 16:13:45 | INFO     | cross_validate |   Fold 3 | Epoch  19 | train=89.8% | val=89.27%  ★ | 31s
+2026-05-21 16:14:16 | INFO     | cross_validate |   Fold 3 | Epoch  20 | train=90.4% | val=89.09% | 31s
+2026-05-21 16:14:47 | INFO     | cross_validate |   Fold 3 | Epoch  21 | train=91.6% | val=90.44%  ★ | 31s
+2026-05-21 16:15:49 | INFO     | cross_validate |   Fold 3 | Epoch  23 | train=92.9% | val=90.67%  ★ | 31s
+2026-05-21 16:16:20 | INFO     | cross_validate |   Fold 3 | Epoch  24 | train=93.0% | val=90.81%  ★ | 31s
+2026-05-21 16:17:22 | INFO     | cross_validate |   Fold 3 | Epoch  26 | train=94.2% | val=91.04%  ★ | 31s
+2026-05-21 16:18:24 | INFO     | cross_validate |   Fold 3 | Epoch  28 | train=94.7% | val=91.60%  ★ | 31s
+2026-05-21 16:19:26 | INFO     | cross_validate |   Fold 3 | Epoch  30 | train=95.3% | val=91.93%  ★ | 30s
+2026-05-21 16:22:30 | INFO     | cross_validate |   Fold 3 | Epoch  36 | train=96.7% | val=92.35%  ★ | 30s
+2026-05-21 16:23:31 | INFO     | cross_validate |   Fold 3 | Epoch  38 | train=96.7% | val=92.44%  ★ | 31s
+2026-05-21 16:24:02 | INFO     | cross_validate |   Fold 3 | Epoch  39 | train=97.1% | val=92.54%  ★ | 31s
+2026-05-21 16:24:33 | INFO     | cross_validate |   Fold 3 | Epoch  40 | train=97.2% | val=92.07% | 31s
+2026-05-21 16:25:34 | INFO     | cross_validate |   Fold 3 | Epoch  42 | train=97.5% | val=92.63%  ★ | 30s
+2026-05-21 16:26:04 | INFO     | cross_validate |   Fold 3 | Epoch  43 | train=97.7% | val=92.86%  ★ | 30s
+2026-05-21 16:29:40 | INFO     | cross_validate |   Fold 3 | Epoch  50 | train=98.3% | val=92.02% | 31s
+2026-05-21 16:32:15 | INFO     | cross_validate |   Fold 3 | Epoch  55 | train=98.8% | val=93.00%  ★ | 31s
+2026-05-21 16:34:19 | INFO     | cross_validate |   Fold 3 | Epoch  59 | train=99.0% | val=93.05%  ★ | 31s
+2026-05-21 16:34:50 | INFO     | cross_validate |   Fold 3 | Epoch  60 | train=98.9% | val=92.35% | 31s
+2026-05-21 16:38:57 | INFO     | cross_validate |   Fold 3 | Epoch  68 | train=99.3% | val=93.14%  ★ | 31s
+2026-05-21 16:39:59 | INFO     | cross_validate |   Fold 3 | Epoch  70 | train=99.3% | val=93.14% | 31s
+2026-05-21 16:45:04 | INFO     | cross_validate |   Fold 3 | Epoch  80 | train=99.7% | val=93.10% | 31s
+2026-05-21 16:48:38 | INFO     | cross_validate |   Fold 3 | Epoch  87 | train=99.9% | val=93.19%  ★ | 30s
+2026-05-21 16:50:09 | INFO     | cross_validate |   Fold 3 | Epoch  90 | train=99.8% | val=92.91% | 30s
+2026-05-21 16:53:45 | INFO     | cross_validate |   Fold 3 | Epoch  97 | train=99.9% | val=93.24%  ★ | 30s
+2026-05-21 16:55:17 | INFO     | cross_validate |   Fold 3 | Epoch 100 | train=99.9% | val=92.96% | 31s
+2026-05-21 16:56:18 | INFO     | cross_validate |   Fold 3 | Epoch 102 | train=99.9% | val=93.28%  ★ | 30s
+2026-05-21 17:00:26 | INFO     | cross_validate |   Fold 3 | Epoch 110 | train=100.0% | val=93.00% | 31s
+2026-05-21 17:05:36 | INFO     | cross_validate |   Fold 3 | Epoch 120 | train=100.0% | val=93.14% | 31s
+2026-05-21 17:09:11 | INFO     | cross_validate |   Fold 3: early stopping at epoch 127
+2026-05-21 17:09:12 | INFO     | cross_validate |   Fold 3 FINAL | best_val=93.28% | test=100.00%
+2026-05-21 17:09:12 | INFO     | cross_validate | Fold 3 done | val=93.28% | test=100.00%
+2026-05-21 17:09:12 | INFO     | cross_validate | Fold 4 | train=8482, val=2120, test=558
+2026-05-21 17:09:43 | INFO     | cross_validate |   Fold 4 | Epoch   1 | train=0.4% | val=0.93%  ★ | 31s
+2026-05-21 17:10:14 | INFO     | cross_validate |   Fold 4 | Epoch   2 | train=1.9% | val=5.41%  ★ | 31s
+2026-05-21 17:10:45 | INFO     | cross_validate |   Fold 4 | Epoch   3 | train=4.8% | val=11.47%  ★ | 31s
+2026-05-21 17:11:16 | INFO     | cross_validate |   Fold 4 | Epoch   4 | train=10.8% | val=25.33%  ★ | 31s
+2026-05-21 17:11:47 | INFO     | cross_validate |   Fold 4 | Epoch   5 | train=18.2% | val=37.36%  ★ | 31s
+2026-05-21 17:12:18 | INFO     | cross_validate |   Fold 4 | Epoch   6 | train=29.5% | val=49.16%  ★ | 31s
+2026-05-21 17:12:49 | INFO     | cross_validate |   Fold 4 | Epoch   7 | train=42.4% | val=58.12%  ★ | 31s
+2026-05-21 17:13:20 | INFO     | cross_validate |   Fold 4 | Epoch   8 | train=52.2% | val=71.13%  ★ | 31s
+2026-05-21 17:13:51 | INFO     | cross_validate |   Fold 4 | Epoch   9 | train=61.8% | val=74.63%  ★ | 31s
+2026-05-21 17:14:22 | INFO     | cross_validate |   Fold 4 | Epoch  10 | train=69.8% | val=78.59%  ★ | 31s
+2026-05-21 17:14:53 | INFO     | cross_validate |   Fold 4 | Epoch  11 | train=74.8% | val=81.53%  ★ | 31s
+2026-05-21 17:15:24 | INFO     | cross_validate |   Fold 4 | Epoch  12 | train=79.1% | val=83.44%  ★ | 31s
+2026-05-21 17:15:55 | INFO     | cross_validate |   Fold 4 | Epoch  13 | train=81.8% | val=84.70%  ★ | 31s
+2026-05-21 17:16:26 | INFO     | cross_validate |   Fold 4 | Epoch  14 | train=84.5% | val=87.36%  ★ | 31s
+2026-05-21 17:17:28 | INFO     | cross_validate |   Fold 4 | Epoch  16 | train=87.3% | val=87.45%  ★ | 30s
+2026-05-21 17:17:58 | INFO     | cross_validate |   Fold 4 | Epoch  17 | train=88.8% | val=87.87%  ★ | 30s
+2026-05-21 17:18:28 | INFO     | cross_validate |   Fold 4 | Epoch  18 | train=90.1% | val=87.97%  ★ | 30s
+2026-05-21 17:18:58 | INFO     | cross_validate |   Fold 4 | Epoch  19 | train=90.6% | val=88.76%  ★ | 30s
+2026-05-21 17:19:29 | INFO     | cross_validate |   Fold 4 | Epoch  20 | train=91.4% | val=87.92% | 30s
+2026-05-21 17:19:59 | INFO     | cross_validate |   Fold 4 | Epoch  21 | train=91.6% | val=88.81%  ★ | 30s
+2026-05-21 17:20:29 | INFO     | cross_validate |   Fold 4 | Epoch  22 | train=92.8% | val=89.60%  ★ | 31s
+2026-05-21 17:21:00 | INFO     | cross_validate |   Fold 4 | Epoch  23 | train=93.2% | val=89.74%  ★ | 31s
+2026-05-21 17:21:32 | INFO     | cross_validate |   Fold 4 | Epoch  24 | train=93.5% | val=89.83%  ★ | 31s
+2026-05-21 17:22:03 | INFO     | cross_validate |   Fold 4 | Epoch  25 | train=94.2% | val=90.67%  ★ | 31s
+2026-05-21 17:23:36 | INFO     | cross_validate |   Fold 4 | Epoch  28 | train=94.8% | val=90.86%  ★ | 31s
+2026-05-21 17:24:07 | INFO     | cross_validate |   Fold 4 | Epoch  29 | train=94.9% | val=91.18%  ★ | 31s
+2026-05-21 17:24:38 | INFO     | cross_validate |   Fold 4 | Epoch  30 | train=95.2% | val=91.51%  ★ | 31s
+2026-05-21 17:27:13 | INFO     | cross_validate |   Fold 4 | Epoch  35 | train=96.6% | val=91.70%  ★ | 31s
+2026-05-21 17:27:44 | INFO     | cross_validate |   Fold 4 | Epoch  36 | train=96.3% | val=91.98%  ★ | 31s
+2026-05-21 17:29:48 | INFO     | cross_validate |   Fold 4 | Epoch  40 | train=97.2% | val=91.65% | 31s
+2026-05-21 17:32:54 | INFO     | cross_validate |   Fold 4 | Epoch  46 | train=98.0% | val=92.77%  ★ | 31s
+2026-05-21 17:34:58 | INFO     | cross_validate |   Fold 4 | Epoch  50 | train=98.2% | val=92.63% | 31s
+2026-05-21 17:39:36 | INFO     | cross_validate |   Fold 4 | Epoch  59 | train=98.8% | val=92.82%  ★ | 31s
+2026-05-21 17:40:07 | INFO     | cross_validate |   Fold 4 | Epoch  60 | train=98.9% | val=92.68% | 31s
+2026-05-21 17:45:17 | INFO     | cross_validate |   Fold 4 | Epoch  70 | train=99.5% | val=92.72% | 31s
+2026-05-21 17:47:20 | INFO     | cross_validate |   Fold 4 | Epoch  74 | train=99.6% | val=92.91%  ★ | 30s
+2026-05-21 17:49:21 | INFO     | cross_validate |   Fold 4 | Epoch  78 | train=99.7% | val=93.05%  ★ | 30s
+2026-05-21 17:50:23 | INFO     | cross_validate |   Fold 4 | Epoch  80 | train=99.7% | val=92.96% | 31s
+2026-05-21 17:55:33 | INFO     | cross_validate |   Fold 4 | Epoch  90 | train=99.8% | val=92.86% | 31s
+2026-05-21 17:57:06 | INFO     | cross_validate |   Fold 4 | Epoch  93 | train=99.9% | val=93.10%  ★ | 31s
+2026-05-21 18:00:42 | INFO     | cross_validate |   Fold 4 | Epoch 100 | train=99.9% | val=93.10% | 31s
+2026-05-21 18:05:52 | INFO     | cross_validate |   Fold 4 | Epoch 110 | train=99.9% | val=92.86% | 31s
+2026-05-21 18:09:59 | INFO     | cross_validate |   Fold 4: early stopping at epoch 118
+2026-05-21 18:10:00 | INFO     | cross_validate |   Fold 4 FINAL | best_val=93.10% | test=100.00%
+2026-05-21 18:10:00 | INFO     | cross_validate | Fold 4 done | val=93.10% | test=100.00%
+
+=================================================================
+  Cross-Validation Summary  [stgcn]
+=================================================================
+  Fold      Val Top-1   Test Top-1
+  ──────────────────────────────────
+  Fold 0      93.14%       99.83%
+  Fold 1      93.86%      100.00%
+  Fold 2      93.33%      100.00%
+  Fold 3      93.28%      100.00%
+  Fold 4      93.10%      100.00%
+  ──────────────────────────────────
+  Mean±Std   93.34±0.27%     99.97±0.07%
+  Best fold : 1  (val 93.86%)
+=================================================================
+
+
+============================================================
+ CV done!  Summary → results/cv_stgcn/cv_summary.json
+============================================================
+No history.json found in results/cv_stgcn
+CV distribution saved → results/cv_stgcn/cv_distribution.png
+
+##############################################################
+## STEP 8: Generate comparison plots
+##############################################################
+Training curves saved → results/exp_bilstm/training_curves.png
+Training curves saved → results/exp_transformer/training_curves.png
+Training curves saved → results/exp_stgcn/training_curves.png
+Comparison chart saved → results/model_comparison.png
+
+##############################################################
+## FINAL RESULTS SUMMARY
+##############################################################
+import json
+from pathlib import Path
+
+exps = [
+    ("BiLSTM",      "exp_bilstm",      "cv_bilstm"),
+    ("Transformer", "exp_transformer", "cv_transformer"),
+    ("ST-GCN",      "exp_stgcn",       "cv_stgcn"),
+]
+print(f"\n{'Model':<14} {'Val Top-1':>10} {'Test Top-1':>11} {'Test F1':>9} {'CV Val Mean±Std':>18} {'CV Test Mean±Std':>19}")
+print("─" * 85)
+for name, exp_dir, cv_dir in exps:
+    base   = Path("results") / exp_dir
+    cv_b   = Path("results") / cv_dir
+    val_m  = base / "evaluation" / "metrics_val.json"
+    tst_m  = base / "evaluation" / "metrics_test.json"
+    cv_f   = cv_b / "cv_summary.json"
+    val_t1 = test_t1 = test_f1 = cv_val = cv_tst = "—"
+    if val_m.exists():
+        d      = json.load(open(val_m))
+        val_t1 = f"{d['top1_accuracy']*100:.2f}%"
+    if tst_m.exists():
+        d       = json.load(open(tst_m))
+        test_t1 = f"{d['top1_accuracy']*100:.2f}%"
+        test_f1 = f"{d['f1_macro']*100:.2f}%"
+    if cv_f.exists():
+        d      = json.load(open(cv_f))
+        cv_val = f"{d['mean_val_top1']:.2f}±{d['std_val_top1']:.2f}%"
+        cv_tst = f"{d['mean_test_top1']:.2f}±{d['std_test_top1']:.2f}%"
+    print(f"{name:<14} {val_t1:>10} {test_t1:>11} {test_f1:>9} {cv_val:>18} {cv_tst:>19}")
+print("─" * 85)

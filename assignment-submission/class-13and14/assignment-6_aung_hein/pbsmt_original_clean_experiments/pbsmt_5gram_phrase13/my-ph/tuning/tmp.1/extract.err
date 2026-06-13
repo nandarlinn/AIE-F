@@ -1,0 +1,12 @@
+Binary write mode is NOT selected
+Scorer type: BLEU
+name: case value: true
+Loading reference from /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph
+...................Data::m_score_type BLEU
+Data::Scorer type from Scorer: BLEU
+loading nbest from run4.best100.out.gz
+Loaded N-best lists : [Wall 0.516447 CPU 0.516253] seconds.
+Binary write mode is NOT selected
+saving the array into run4.features.dat
+saving the array into run4.scores.dat
+Stopping... : [Wall 1.01277 CPU 1.01242] seconds.

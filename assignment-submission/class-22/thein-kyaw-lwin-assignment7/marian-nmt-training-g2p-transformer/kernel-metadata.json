@@ -1,0 +1,16 @@
+{
+    "id": "theinkyawlwin/marian-g2p-transformer",
+    "title": "marian-g2p-transformer",
+    "code_file": "train_g2p_transformer.py",
+    "language": "python",
+    "kernel_type": "script",
+    "is_private": true,
+    "enable_gpu": true,
+    "enable_internet": true,
+    "dataset_sources": [
+        "theinkyawlwin/marian-nmt",
+        "theinkyawlwin/g2p-par"
+    ],
+    "competition_sources": [],
+    "kernel_sources": []
+}

@@ -1,0 +1,13 @@
+{
+    "id": "theinkyawlwin/marian-nmt-install",
+    "title": "marian-nmt-install",
+    "code_file": "install_marian.py",
+    "language": "python",
+    "kernel_type": "script",
+    "is_private": true,
+    "enable_gpu": true,
+    "enable_internet": true,
+    "dataset_sources": [],
+    "competition_sources": [],
+    "kernel_sources": []
+}

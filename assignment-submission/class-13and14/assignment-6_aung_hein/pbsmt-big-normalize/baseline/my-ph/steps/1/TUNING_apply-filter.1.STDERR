@@ -1,0 +1,10 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+pt:PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt-big-normalize/baseline/my-ph/tuning/filtered.1/phrase-table.0-0.1.1.gz input-factor=0 output-factor=0  
+ro:LexicalReordering name=LexicalReordering0 num-features=6 type=wbe-msd-bidirectional-fe-allff input-factor=0 output-factor=0 path=/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt-big-normalize/baseline/my-ph/tuning/filtered.1/reordering-table.1.wbe-msd-bidirectional-fe.0-0.1  

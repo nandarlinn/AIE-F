@@ -1,0 +1,2 @@
+report-segmentation = yes
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_search10000/ph-my/evaluation/test.output.1

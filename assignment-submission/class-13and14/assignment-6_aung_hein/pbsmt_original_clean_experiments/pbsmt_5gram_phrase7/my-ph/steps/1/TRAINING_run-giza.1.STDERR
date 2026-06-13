@@ -1,0 +1,92 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Using SCRIPTS_ROOTDIR: /home/kyalkalay/tools/mosesdecoder/scripts
+Using single-thread GIZA
+using gzip 
+(2) running giza on 5 cooc parts @ Tue Jun  2 00:55:54 +0630 2026
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part1
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part2
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part3
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part4
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part5
+(2.1a) running snt2cooc ph-my @ Tue Jun  2 00:55:54 +0630 2026
+
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part1
+Executing: /usr/local/bin/snt2cooc.out /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part1/ph-my-int-train.snt > /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part1/ph-my.cooc
+line 1000
+line 2000
+line 3000
+line 4000
+END.
+(2.1a) running snt2cooc ph-my @ Tue Jun  2 00:55:54 +0630 2026
+
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part2
+Executing: /usr/local/bin/snt2cooc.out /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part2/ph-my-int-train.snt > /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part2/ph-my.cooc
+line 1000
+line 2000
+line 3000
+line 4000
+END.
+(2.1a) running snt2cooc ph-my @ Tue Jun  2 00:55:54 +0630 2026
+
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part3
+Executing: /usr/local/bin/snt2cooc.out /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part3/ph-my-int-train.snt > /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part3/ph-my.cooc
+line 1000
+line 2000
+line 3000
+line 4000
+END.
+(2.1a) running snt2cooc ph-my @ Tue Jun  2 00:55:55 +0630 2026
+
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part4
+Executing: /usr/local/bin/snt2cooc.out /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part4/ph-my-int-train.snt > /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part4/ph-my.cooc
+line 1000
+line 2000
+line 3000
+line 4000
+END.
+(2.1a) running snt2cooc ph-my @ Tue Jun  2 00:55:55 +0630 2026
+
+Executing: mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part5
+Executing: /usr/local/bin/snt2cooc.out /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/part5/ph-my-int-train.snt > /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part5/ph-my.cooc
+line 1000
+line 2000
+line 3000
+line 4000
+END.
+merging cooc file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part1/ph-my.cooc...
+merging cooc file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part2/ph-my.cooc...
+merging cooc file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part3/ph-my.cooc...
+merging cooc file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part4/ph-my.cooc...
+merging cooc file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/part5/ph-my.cooc...
+(2.1b) running giza ph-my @ Tue Jun  2 00:55:55 +0630 2026
+/usr/local/bin/GIZA++  -CoocurrenceFile /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/ph-my.cooc -c /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph-my-int-train.snt -m1 5 -m2 0 -m3 3 -m4 3 -model1dumpfrequency 1 -model4smoothfactor 0.4 -nodumps 1 -nsmooth 4 -o /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/ph-my -onlyaldumps 1 -p0 0.999 -s /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb -t /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb
+Executing: /usr/local/bin/GIZA++  -CoocurrenceFile /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/ph-my.cooc -c /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph-my-int-train.snt -m1 5 -m2 0 -m3 3 -m4 3 -model1dumpfrequency 1 -model4smoothfactor 0.4 -nodumps 1 -nsmooth 4 -o /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/ph-my -onlyaldumps 1 -p0 0.999 -s /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb -t /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb
+Reading vocabulary file from:/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/my.vcb
+Reading vocabulary file from:/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/prepared.1/ph.vcb
+10000
+20000
+NTable contains 22740 parameter.
+10000
+20000
+NTable contains 22740 parameter.
+10000
+20000
+NTable contains 22740 parameter.
+10000
+20000
+NTable contains 22740 parameter.
+10000
+20000
+NTable contains 22740 parameter.
+10000
+20000
+NTable contains 22740 parameter.
+Executing: rm -f /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/ph-my.A3.final.gz
+Executing: gzip /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/my-ph/training/giza.1/ph-my.A3.final

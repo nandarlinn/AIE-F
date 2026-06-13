@@ -1,0 +1,42 @@
+# MERT optimized configuration
+# decoder /home/kyalkalay/tools/mosesdecoder/bin/moses
+# BLEU 0.787059 on dev /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph
+# We were before running iteration 5
+# finished Mon Jun  1 23:10:54 +0630 2026
+### MOSES CONFIG FILE ###
+#########################
+
+# input factors
+[input-factors]
+0
+
+# mapping steps
+[mapping]
+0 T 0
+
+[distortion-limit]
+6
+
+# feature functions
+[feature]
+UnknownWordPenalty
+WordPenalty
+PhrasePenalty
+PhraseDictionaryMemory name=TranslationModel0 num-features=4 path=/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt-big-normalize/baseline/ph-my/tuning/filtered.1/phrase-table.0-0.1.1.gz input-factor=0 output-factor=0 
+LexicalReordering name=LexicalReordering0 num-features=6 type=wbe-msd-bidirectional-fe-allff input-factor=0 output-factor=0 path=/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt-big-normalize/baseline/ph-my/tuning/filtered.1/reordering-table.1.wbe-msd-bidirectional-fe.0-0.1 
+Distortion
+KENLM name=LM0 factor=0 path=/media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt-big-normalize/baseline/ph-my/lm/myph.binlm.1 order=5
+
+# dense weights for feature functions
+
+[v]
+0
+[weight]
+
+LexicalReordering0= 0.0144765 0.0297668 0.0662238 -0.143576 0.0406506 0.00288687
+Distortion0= 0.0840301
+LM0= 0.105799
+WordPenalty0= 0.0537881
+PhrasePenalty0= -0.27564
+TranslationModel0= 0.0325608 0.0977555 0.0394371 -0.0134093
+UnknownWordPenalty0= 1

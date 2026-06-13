@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PATH="/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/bin:/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/lm
+
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/lm
+/home/kyalkalay/tools/mosesdecoder/scripts/ems/support/lmplz-wrapper.perl -bin /home/kyalkalay/tools/mosesdecoder/bin/lmplz -order 3 --prune '0 0 1' -T /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/lm -S 20% --discount_fallback -text /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/train_clean.my -lm /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/lm/myph.lm.1
+
+
+echo 'finished at '`date`
+touch /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_3gram_phrase5/ph-my/steps/1/LM_myph_train.1.DONE

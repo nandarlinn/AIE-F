@@ -1,0 +1,22 @@
+# File Paths
+inputs:
+  raw: "dataset/test.txt"
+  raw_my: "dataset/test_clean_my.txt"
+  dict_oppa: "oppaWord/data/myg2p_mypos_name.dict"
+  dict_norm: "../assignment/syl-Normalizer/ver_0.6/final_syl_dictionary_13Feb2024.sorted.txt"
+
+outputs:
+  cleaned_raw: "dataset/test_clean.txt"
+  myanmar_only: "dataset/test_clean_my.txt"
+  word_segmented: "dataset/test_clean_my.word"
+  word_10k: "dataset/test_clean_my_10k.word"
+  
+  syl_break: "dataset/test_clean_my_syl.txt"
+  syl_norm: "dataset/test_clean_my_syl.syl"
+  syl_10k: "dataset/test_clean_my_syl_10k.syl"
+  
+# Configuration parameters
+params:
+  token_limit: 10000
+  norm_frequency: 2
+  norm_fuzzy_distance: 0

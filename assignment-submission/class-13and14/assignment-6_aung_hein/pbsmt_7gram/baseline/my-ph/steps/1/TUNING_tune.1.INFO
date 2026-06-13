@@ -1,0 +1,4 @@
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_7gram/baseline/my-ph/model/moses.ini.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.my /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph    /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_7gram/baseline/my-ph/tuning/moses.filtered.ini.1
+tuning-settings = -mertdir /home/kyalkalay/tools/mosesdecoder/bin
+decoder = /home/kyalkalay/tools/mosesdecoder/bin/moses [1780245146]
+nbest = 100

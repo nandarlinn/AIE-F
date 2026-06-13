@@ -1,0 +1,8 @@
+access the following model .pth files in Google Drive: https://drive.google.com/drive/folders/11U58-y0gDPoNFr48_lFPbwbZOm2tNEcv?usp=sharing
+
+model_convnext_tiny_time_fold2_seed456.pth
+model_shufflenet_v2_x1_0_time_fold3_seed123.pth
+model_shufflenet_v2_x1_0_single_fold3_seed123.pth 
+model_shufflenet_v2_x1_0_time_fold3_seed42.pth
+model_shufflenet_v2_x1_0_stroke_fold1_seed42.pth
+

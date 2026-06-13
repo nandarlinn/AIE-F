@@ -1,0 +1,4 @@
+lm-training = /home/kyalkalay/tools/mosesdecoder/scripts/ems/support/lmplz-wrapper.perl -bin /home/kyalkalay/tools/mosesdecoder/bin/lmplz [1780160570]
+settings = --prune '0 0 1' -T /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_7gram/baseline/ph-my/lm -S 20% --discount_fallback
+INPUT = USED /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/train_clean.my
+order = 7

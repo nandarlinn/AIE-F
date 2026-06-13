@@ -1,0 +1,22 @@
+# File Paths
+inputs:
+  raw: "dataset/myNews.txt"
+  raw_my: "dataset/myNews_clean_my.txt"
+  dict_oppa: "oppaWord/data/myg2p_mypos_name.dict"
+  dict_norm: "../assignment/syl-Normalizer/ver_0.6/final_syl_dictionary_13Feb2024.sorted.txt"
+
+outputs:
+  cleaned_raw: "dataset/myNews_clean.txt"
+  myanmar_only: "dataset/myNews_clean_my.txt"
+  word_segmented: "dataset/myNews_clean_my.word"
+  word_10k: "dataset/myNews_clean_my_10k.word"
+  
+  syl_break: "dataset/myNews_clean_my_syl.txt"
+  syl_norm: "dataset/myNews_clean_my_syl.syl"
+  syl_10k: "dataset/myNews_clean_my_syl_10k.syl"
+  
+# Configuration parameters
+params:
+  token_limit: 10000
+  norm_frequency: 2
+  norm_fuzzy_distance: 0

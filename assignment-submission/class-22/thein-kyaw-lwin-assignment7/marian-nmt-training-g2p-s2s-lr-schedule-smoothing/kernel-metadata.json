@@ -1,0 +1,16 @@
+{
+    "id": "theinkyawlwin/marian-g2p-s2s-lr-schedule-smoothing",
+    "title": "marian-g2p-s2s-lr-schedule-smoothing",
+    "code_file": "train_g2p_s2s_lr_schedule_smoothing.py",
+    "language": "python",
+    "kernel_type": "script",
+    "is_private": true,
+    "enable_gpu": true,
+    "enable_internet": true,
+    "dataset_sources": [
+        "theinkyawlwin/marian-nmt",
+        "theinkyawlwin/g2p-par"
+    ],
+    "competition_sources": [],
+    "kernel_sources": []
+}

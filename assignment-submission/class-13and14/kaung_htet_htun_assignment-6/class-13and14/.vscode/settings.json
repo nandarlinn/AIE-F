@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "/home/phantom/Documents/AI_env/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "jupyter.interactiveWindow.kernelProvider": "jupyterExtension",
+  "python.envFile": "${workspaceFolder}/.env",
+  "terminal.integrated.env.linux": {
+    "VIRTUAL_ENV": "/home/phantom/Documents/AI_env",
+    "PATH": "/home/phantom/Documents/AI_env/bin:${env:PATH}"
+  }
+}

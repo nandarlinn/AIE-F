@@ -1,0 +1,183 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "C.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Using SCRIPTS_ROOTDIR: /home/kyalkalay/tools/mosesdecoder/scripts
+Asking moses for feature names and values from /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses  -v 0  -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -show-weights
+exec: /home/kyalkalay/tools/mosesdecoder/bin/moses  -v 0  -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -show-weights
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses  -v 0  -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -show-weights > ./features.list 2> /dev/null
+MERT starting values and ranges for random generation:
+  LexicalReordering0 =   0.300 ( 0.00 ..  1.00)
+  LexicalReordering0 =   0.300 ( 0.00 ..  1.00)
+  LexicalReordering0 =   0.300 ( 0.00 ..  1.00)
+  LexicalReordering0 =   0.300 ( 0.00 ..  1.00)
+  LexicalReordering0 =   0.300 ( 0.00 ..  1.00)
+  LexicalReordering0 =   0.300 ( 0.00 ..  1.00)
+  Distortion0 =   0.300 ( 0.00 ..  1.00)
+    LM0 =   0.500 ( 0.00 ..  1.00)
+  WordPenalty0 =  -1.000 ( 0.00 ..  1.00)
+  PhrasePenalty0 =   0.200 ( 0.00 ..  1.00)
+  TranslationModel0 =   0.200 ( 0.00 ..  1.00)
+  TranslationModel0 =   0.200 ( 0.00 ..  1.00)
+  TranslationModel0 =   0.200 ( 0.00 ..  1.00)
+  TranslationModel0 =   0.200 ( 0.00 ..  1.00)
+featlist: LexicalReordering0=0.300000 
+featlist: LexicalReordering0=0.300000 
+featlist: LexicalReordering0=0.300000 
+featlist: LexicalReordering0=0.300000 
+featlist: LexicalReordering0=0.300000 
+featlist: LexicalReordering0=0.300000 
+featlist: Distortion0=0.300000 
+featlist: LM0=0.500000 
+featlist: WordPenalty0=-1.000000 
+featlist: PhrasePenalty0=0.200000 
+featlist: TranslationModel0=0.200000 
+featlist: TranslationModel0=0.200000 
+featlist: TranslationModel0=0.200000 
+featlist: TranslationModel0=0.200000 
+Saved: ./run1.moses.ini
+Normalizing lambdas: 0.300000 0.300000 0.300000 0.300000 0.300000 0.300000 0.300000 0.500000 -1.000000 0.200000 0.200000 0.200000 0.200000 0.200000
+DECODER_CFG = -weight-overwrite 'TranslationModel0= 0.043478 0.043478 0.043478 0.043478 LM0= 0.108696 WordPenalty0= -0.217391 LexicalReordering0= 0.065217 0.065217 0.065217 0.065217 0.065217 0.065217 PhrasePenalty0= 0.043478 Distortion0= 0.065217'
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'TranslationModel0= 0.043478 0.043478 0.043478 0.043478 LM0= 0.108696 WordPenalty0= -0.217391 LexicalReordering0= 0.065217 0.065217 0.065217 0.065217 0.065217 0.065217 PhrasePenalty0= 0.043478 Distortion0= 0.065217'  -n-best-list run1.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run1.out 
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'TranslationModel0= 0.043478 0.043478 0.043478 0.043478 LM0= 0.108696 WordPenalty0= -0.217391 LexicalReordering0= 0.065217 0.065217 0.065217 0.065217 0.065217 0.065217 PhrasePenalty0= 0.043478 Distortion0= 0.065217'  -n-best-list run1.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run1.out
+Loading table into memory...done.
+Name:moses	VmPeak:158080 kB	VmRSS:17420 kB	RSSMax:24496 kB	user:1.778	sys:0.042	CPU:1.820	real:1.779
+The decoder returns the scores in this order: LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 Distortion0 LM0 WordPenalty0 PhrasePenalty0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel0
+Executing: gzip -f run1.best100.out
+Scoring the nbestlist.
+exec: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh
+Executing: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh > extract.out 2> extract.err
+Executing: \cp -f init.opt run1.init.opt
+exec: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat --scfile run1.scores.dat --ifile run1.init.opt -n 20
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat --scfile run1.scores.dat --ifile run1.init.opt -n 20 > mert.out 2> mert.log
+Executing: \cp -f extract.err run1.extract.err
+Executing: \cp -f extract.out run1.extract.out
+Executing: \cp -f mert.out run1.mert.out
+Executing: \cp -f mert.log run1.mert.log
+Executing: touch mert.log run1.mert.log
+Executing: \cp -f weights.txt run1.weights.txt
+featlist: LexicalReordering0=0.0147904 
+featlist: LexicalReordering0=0.180221 
+featlist: LexicalReordering0=0.127381 
+featlist: LexicalReordering0=0.0969054 
+featlist: LexicalReordering0=0.0581069 
+featlist: LexicalReordering0=0.023019 
+featlist: Distortion0=0.0496092 
+featlist: LM0=0.0942435 
+featlist: WordPenalty0=0.0564766 
+featlist: PhrasePenalty0=-0.17642 
+featlist: TranslationModel0=0.0603632 
+featlist: TranslationModel0=0.0614453 
+featlist: TranslationModel0=-0.000447466 
+featlist: TranslationModel0=0.000571658 
+Saved: ./run2.moses.ini
+DECODER_CFG = -weight-overwrite 'WordPenalty0= 0.056477 LM0= 0.094243 TranslationModel0= 0.060363 0.061445 -0.000447 0.000572 LexicalReordering0= 0.014790 0.180221 0.127381 0.096905 0.058107 0.023019 PhrasePenalty0= -0.176420 Distortion0= 0.049609'
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'WordPenalty0= 0.056477 LM0= 0.094243 TranslationModel0= 0.060363 0.061445 -0.000447 0.000572 LexicalReordering0= 0.014790 0.180221 0.127381 0.096905 0.058107 0.023019 PhrasePenalty0= -0.176420 Distortion0= 0.049609'  -n-best-list run2.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run2.out 
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'WordPenalty0= 0.056477 LM0= 0.094243 TranslationModel0= 0.060363 0.061445 -0.000447 0.000572 LexicalReordering0= 0.014790 0.180221 0.127381 0.096905 0.058107 0.023019 PhrasePenalty0= -0.176420 Distortion0= 0.049609'  -n-best-list run2.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run2.out
+Loading table into memory...done.
+Name:moses	VmPeak:158212 kB	VmRSS:16588 kB	RSSMax:25260 kB	user:1.674	sys:0.028	CPU:1.702	real:1.670
+The decoder returns the scores in this order: LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 Distortion0 LM0 WordPenalty0 PhrasePenalty0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel0
+Executing: gzip -f run2.best100.out
+Scoring the nbestlist.
+exec: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh
+Executing: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh > extract.out 2> extract.err
+Executing: \cp -f init.opt run2.init.opt
+exec: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat --scfile run1.scores.dat,run2.scores.dat --ifile run2.init.opt -n 20
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat --scfile run1.scores.dat,run2.scores.dat --ifile run2.init.opt -n 20 > mert.out 2> mert.log
+Executing: \cp -f extract.err run2.extract.err
+Executing: \cp -f extract.out run2.extract.out
+Executing: \cp -f mert.out run2.mert.out
+Executing: \cp -f mert.log run2.mert.log
+Executing: touch mert.log run2.mert.log
+Executing: \cp -f weights.txt run2.weights.txt
+featlist: LexicalReordering0=0.0707687 
+featlist: LexicalReordering0=0.067619 
+featlist: LexicalReordering0=0.0947111 
+featlist: LexicalReordering0=0.0831308 
+featlist: LexicalReordering0=0.0288344 
+featlist: LexicalReordering0=0.0857571 
+featlist: Distortion0=0.0870835 
+featlist: LM0=0.0630803 
+featlist: WordPenalty0=0.0387272 
+featlist: PhrasePenalty0=-0.287255 
+featlist: TranslationModel0=0.00720001 
+featlist: TranslationModel0=0.0655032 
+featlist: TranslationModel0=0.0133164 
+featlist: TranslationModel0=-0.00701258 
+Saved: ./run3.moses.ini
+DECODER_CFG = -weight-overwrite 'Distortion0= 0.087083 PhrasePenalty0= -0.287255 LexicalReordering0= 0.070769 0.067619 0.094711 0.083131 0.028834 0.085757 TranslationModel0= 0.007200 0.065503 0.013316 -0.007013 LM0= 0.063080 WordPenalty0= 0.038727'
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'Distortion0= 0.087083 PhrasePenalty0= -0.287255 LexicalReordering0= 0.070769 0.067619 0.094711 0.083131 0.028834 0.085757 TranslationModel0= 0.007200 0.065503 0.013316 -0.007013 LM0= 0.063080 WordPenalty0= 0.038727'  -n-best-list run3.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run3.out 
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'Distortion0= 0.087083 PhrasePenalty0= -0.287255 LexicalReordering0= 0.070769 0.067619 0.094711 0.083131 0.028834 0.085757 TranslationModel0= 0.007200 0.065503 0.013316 -0.007013 LM0= 0.063080 WordPenalty0= 0.038727'  -n-best-list run3.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run3.out
+Loading table into memory...done.
+Name:moses	VmPeak:158212 kB	VmRSS:16644 kB	RSSMax:25388 kB	user:1.675	sys:0.037	CPU:1.712	real:1.678
+The decoder returns the scores in this order: LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 Distortion0 LM0 WordPenalty0 PhrasePenalty0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel0
+Executing: gzip -f run3.best100.out
+Scoring the nbestlist.
+exec: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh
+Executing: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh > extract.out 2> extract.err
+Executing: \cp -f init.opt run3.init.opt
+exec: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat,run3.features.dat --scfile run1.scores.dat,run2.scores.dat,run3.scores.dat --ifile run3.init.opt -n 20
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat,run3.features.dat --scfile run1.scores.dat,run2.scores.dat,run3.scores.dat --ifile run3.init.opt -n 20 > mert.out 2> mert.log
+Executing: \cp -f extract.err run3.extract.err
+Executing: \cp -f extract.out run3.extract.out
+Executing: \cp -f mert.out run3.mert.out
+Executing: \cp -f mert.log run3.mert.log
+Executing: touch mert.log run3.mert.log
+Executing: \cp -f weights.txt run3.weights.txt
+featlist: LexicalReordering0=0.000975366 
+featlist: LexicalReordering0=0.000846558 
+featlist: LexicalReordering0=0.000808173 
+featlist: LexicalReordering0=-0.0014565 
+featlist: LexicalReordering0=0.000480538 
+featlist: LexicalReordering0=5.24171e-06 
+featlist: Distortion0=0.000510734 
+featlist: LM0=0.00101355 
+featlist: WordPenalty0=0.000788219 
+featlist: PhrasePenalty0=-0.991686 
+featlist: TranslationModel0=0.000297463 
+featlist: TranslationModel0=0.000719187 
+featlist: TranslationModel0=0.000341363 
+featlist: TranslationModel0=-7.12129e-05 
+Saved: ./run4.moses.ini
+DECODER_CFG = -weight-overwrite 'TranslationModel0= 0.000297 0.000719 0.000341 -0.000071 LM0= 0.001014 WordPenalty0= 0.000788 PhrasePenalty0= -0.991686 LexicalReordering0= 0.000975 0.000847 0.000808 -0.001456 0.000481 0.000005 Distortion0= 0.000511'
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'TranslationModel0= 0.000297 0.000719 0.000341 -0.000071 LM0= 0.001014 WordPenalty0= 0.000788 PhrasePenalty0= -0.991686 LexicalReordering0= 0.000975 0.000847 0.000808 -0.001456 0.000481 0.000005 Distortion0= 0.000511'  -n-best-list run4.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run4.out 
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/moses -v 0   -config /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/moses.filtered.ini.1 -weight-overwrite 'TranslationModel0= 0.000297 0.000719 0.000341 -0.000071 LM0= 0.001014 WordPenalty0= 0.000788 PhrasePenalty0= -0.991686 LexicalReordering0= 0.000975 0.000847 0.000808 -0.001456 0.000481 0.000005 Distortion0= 0.000511'  -n-best-list run4.best100.out 100 distinct  -input-file /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/g2p-par/dev_clean.ph > run4.out
+Loading table into memory...done.
+Name:moses	VmPeak:158080 kB	VmRSS:21872 kB	RSSMax:25020 kB	user:1.693	sys:0.040	CPU:1.734	real:1.700
+The decoder returns the scores in this order: LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 LexicalReordering0 Distortion0 LM0 WordPenalty0 PhrasePenalty0 TranslationModel0 TranslationModel0 TranslationModel0 TranslationModel0
+Executing: gzip -f run4.best100.out
+Scoring the nbestlist.
+exec: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh
+Executing: /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_phrase7/ph-my/tuning/tmp.1/extractor.sh > extract.out 2> extract.err
+Executing: \cp -f init.opt run4.init.opt
+exec: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat,run3.features.dat,run4.features.dat --scfile run1.scores.dat,run2.scores.dat,run3.scores.dat,run4.scores.dat --ifile run4.init.opt -n 20
+Executing: /home/kyalkalay/tools/mosesdecoder/bin/mert -d 14  --sctype BLEU --scconfig case:true --ffile run1.features.dat,run2.features.dat,run3.features.dat,run4.features.dat --scfile run1.scores.dat,run2.scores.dat,run3.scores.dat,run4.scores.dat --ifile run4.init.opt -n 20 > mert.out 2> mert.log
+Executing: \cp -f extract.err run4.extract.err
+Executing: \cp -f extract.out run4.extract.out
+Executing: \cp -f mert.out run4.mert.out
+Executing: \cp -f mert.log run4.mert.log
+Executing: touch mert.log run4.mert.log
+Executing: \cp -f weights.txt run4.weights.txt
+None of the weights changed more than 1e-05. Stopping.
+Executing: \cp -f init.opt run4.init.opt
+Executing: \cp -f mert.log run4.mert.log
+featlist: LexicalReordering0=0.000975366 
+featlist: LexicalReordering0=0.000846558 
+featlist: LexicalReordering0=0.000808173 
+featlist: LexicalReordering0=-0.0014565 
+featlist: LexicalReordering0=0.000480538 
+featlist: LexicalReordering0=5.24171e-06 
+featlist: Distortion0=0.000510734 
+featlist: LM0=0.00101355 
+featlist: WordPenalty0=0.000788219 
+featlist: PhrasePenalty0=-0.991686 
+featlist: TranslationModel0=0.000297463 
+featlist: TranslationModel0=0.000719187 
+featlist: TranslationModel0=0.000341363 
+featlist: TranslationModel0=-7.12129e-05 
+Saved: ./moses.ini

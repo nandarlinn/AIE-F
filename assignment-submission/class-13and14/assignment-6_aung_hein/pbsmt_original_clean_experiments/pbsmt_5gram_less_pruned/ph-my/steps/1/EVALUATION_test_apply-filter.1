@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PATH="/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/bin:/home/kyalkalay/.config/jupyterlab-desktop/envs/Jupyterlab_Default/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+cd /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my
+echo 'starting at '`date`' on '`hostname`
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/evaluation
+
+mkdir -p /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/evaluation
+/home/kyalkalay/tools/mosesdecoder/scripts/ems/support/substitute-filtered-tables-and-weights.perl /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/evaluation/test.filtered.1/moses.ini /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/model/moses.ini.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/tuning/moses.tuned.ini.1 /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/evaluation/test.filtered.ini.1
+
+
+echo 'finished at '`date`
+touch /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_original_clean_experiments/pbsmt_5gram_less_pruned/ph-my/steps/1/EVALUATION_test_apply-filter.1.DONE

@@ -1,0 +1,4 @@
+starting at Sun May 31 23:28:49 +0630 2026 on kyalkalay-HP
+To run the decoder, please call:
+  moses -f /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_7gram/baseline/ph-my/evaluation/test.filtered.1/moses.ini -i /media/kyalkalay/Data/AI-Class/assignment-6_aung_hein/pbsmt_7gram/baseline/ph-my/evaluation/test.filtered.1/input.1267834
+finished at Sun May 31 23:28:49 +0630 2026
